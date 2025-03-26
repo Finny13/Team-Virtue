@@ -11,9 +11,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <style>
-        /* ========================================================================== */
-        /* Reset and Base Styles */
-        /* ========================================================================== */
         * {
             margin: 0;
             padding: 0;
@@ -35,15 +32,11 @@
             transition: background 0.8s ease, transform 0.5s ease;
             display: flex;
             flex-direction: column;
-            /* Changed to purple-black to purple-white gradient */
             background: linear-gradient(135deg, #4B0082 0%, #C8BFE7 100%);
             position: relative;
             z-index: 0;
         }
 
-        /* ========================================================================== */
-        /* Utility Classes */
-        /* ========================================================================== */
         .flex-center {
             display: flex;
             justify-content: center;
@@ -76,9 +69,6 @@
             border: 2px solid rgba(255, 255, 255, 0.25);
         }
 
-        /* ========================================================================== */
-        /* Main Container */
-        /* ========================================================================== */
         .container {
             width: 95%;
             max-width: 2000px;
@@ -93,9 +83,6 @@
             animation: fadeInContainer 1.5s ease-in-out;
         }
 
-        /* ========================================================================== */
-        /* Logo Styling */
-        /* ========================================================================== */
         .logo {
             width: 100%;
             max-width: 550px;
@@ -113,7 +100,6 @@
             filter: drop-shadow(0 15px 30px rgba(138, 43, 226, 0.8));
         }
 
-        /* Shine Effect for Logo */
         .logo-shine {
             position: relative;
         }
@@ -127,13 +113,10 @@
             height: 100%;
             background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.6), transparent);
             transform: skewX(-25deg);
-            animation: logoShine 1.5s infinite; /* Slower shine at 1.5s */
+            animation: logoShine 1.5s infinite;
             z-index: 1;
         }
 
-        /* ========================================================================== */
-        /* Section Styling */
-        /* ========================================================================== */
         .section {
             margin-bottom: 20px;
             padding: 20px;
@@ -141,6 +124,7 @@
             transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
             position: relative;
             overflow: hidden;
+            background: linear-gradient(135deg, #4B0082 0%, #C8BFE7 100%);
         }
 
         .section::before {
@@ -193,9 +177,6 @@
             width: 50%;
         }
 
-        /* ========================================================================== */
-        /* Dynamic Gradient Alignment */
-        /* ========================================================================== */
         .section.roster.morning-theme {
             background: linear-gradient(135deg, rgba(184, 166, 201, 0.2) 0%, rgba(240, 230, 250, 0.2) 100%);
         }
@@ -232,9 +213,6 @@
             background: linear-gradient(135deg, rgba(26, 26, 46, 0.2) 0%, rgba(138, 43, 226, 0.2) 100%);
         }
 
-        /* ========================================================================== */
-        /* Roster List */
-        /* ========================================================================== */
         .roster-list {
             list-style: none;
             padding: 0;
@@ -289,9 +267,6 @@
             text-decoration: underline wavy #8A2BE2;
         }
 
-        /* ========================================================================== */
-        /* Managers Section */
-        /* ========================================================================== */
         .managers-list {
             list-style: none;
             padding: 0;
@@ -334,9 +309,6 @@
             color: #5D3FD3;
         }
 
-        /* ========================================================================== */
-        /* Content Creator */
-        /* ========================================================================== */
         .content-creator {
             opacity: 0;
             transform: translateX(-60px);
@@ -370,9 +342,6 @@
             text-decoration: underline wavy #8A2BE2;
         }
 
-        /* ========================================================================== */
-        /* Socials Section */
-        /* ========================================================================== */
         .socials {
             display: flex;
             gap: 20px;
@@ -428,9 +397,6 @@
             box-shadow: 0 10px 25px rgba(138, 43, 226, 0.8);
         }
 
-        /* ========================================================================== */
-        /* Intro */
-        /* ========================================================================== */
         .intro {
             font-size: 26px;
             font-weight: 600;
@@ -461,9 +427,6 @@
             animation: introGlow 2s infinite alternate;
         }
 
-        /* ========================================================================== */
-        /* Buttons */
-        /* ========================================================================== */
         .buttons {
             display: flex;
             gap: 25px;
@@ -531,9 +494,6 @@
             box-shadow: 0 15px 35px rgba(93, 63, 211, 0.9);
         }
 
-        /* ========================================================================== */
-        /* Footer */
-        /* ========================================================================== */
         .footer {
             width: 100%;
             text-align: center;
@@ -556,9 +516,6 @@
             letter-spacing: 1px;
         }
 
-        /* ========================================================================== */
-        /* Animations */
-        /* ========================================================================== */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(-30px); }
             to { opacity: 1; transform: translateY(0); }
@@ -598,13 +555,10 @@
 
         @keyframes logoShine {
             0% { left: -75%; }
-            33.33% { left: 125%; } /* Adjusted timing for 1.5s cycle */
+            33.33% { left: 125%; }
             100% { left: 125%; }
         }
 
-        /* ========================================================================== */
-        /* Desktop Layout */
-        /* ========================================================================== */
         @media (min-width: 769px) {
             .container {
                 flex-direction: row;
@@ -670,9 +624,6 @@
             }
         }
 
-        /* ========================================================================== */
-        /* Tablet Layout */
-        /* ========================================================================== */
         @media (max-width: 1024px) and (min-width: 769px) {
             .container {
                 padding: 40px;
@@ -705,32 +656,29 @@
             }
         }
 
-        /* ========================================================================== */
-        /* Mobile Layout */
-        /* ========================================================================== */
         @media (max-width: 768px) {
             .container {
                 flex-direction: column;
                 align-items: center;
-                padding: 20px; /* Reduced padding for better mobile fit */
-                width: 100%; /* Full width on mobile */
+                padding: 20px;
+                width: 100%;
             }
 
             .content-wrapper {
                 width: 100%;
-                text-align: center; /* Center align text for mobile */
-                flex-direction: column; /* Stack vertically */
-                gap: 20px; /* Add spacing between sections */
+                text-align: center;
+                flex-direction: column;
+                gap: 20px;
             }
 
             .left-section, .right-section {
                 width: 100%;
-                padding: 10px; /* Reduced padding */
+                padding: 10px;
             }
 
             .logo {
-                max-width: 400px; /* Smaller logo on mobile */
-                margin: 0 auto 20px; /* Center logo with bottom margin */
+                max-width: 400px;
+                margin: 0 auto 20px;
                 display: block;
             }
 
@@ -739,8 +687,8 @@
             }
 
             .roster-list li, .managers-list li {
-                font-size: 20px; /* Slightly smaller text */
-                margin: 10px 0; /* Reduced margins */
+                font-size: 20px;
+                margin: 10px 0;
             }
 
             .content-creator p {
@@ -749,43 +697,40 @@
 
             .intro {
                 font-size: 20px;
-                text-align: center; /* Center intro text */
+                text-align: center;
                 padding: 15px;
             }
 
             .buttons, .socials {
-                flex-direction: column; /* Stack buttons vertically */
-                gap: 15px; /* Reduced gap */
+                flex-direction: column;
+                gap: 15px;
                 width: 100%;
-                align-items: center; /* Center buttons */
+                align-items: center;
             }
 
             .btn, .social-btn {
-                padding: 12px 25px; /* Smaller padding */
-                font-size: 20px; /* Smaller text */
-                width: 80%; /* Consistent button width */
-                max-width: 300px; /* Maximum width cap */
+                padding: 12px 25px;
+                font-size: 20px;
+                width: 80%;
+                max-width: 300px;
             }
 
             .footer {
                 margin-top: 20px;
                 font-size: 12px;
-                padding: 15px 0; /* Adjusted padding */
+                padding: 15px 0;
             }
 
             .roster-list, .managers-list, .content-creator {
-                opacity: 1; /* Always visible on mobile */
+                opacity: 1;
                 transform: translateX(0);
-                transition: none; /* Remove transitions for better mobile performance */
+                transition: none;
             }
         }
 
-        /* ========================================================================== */
-        /* Small Mobile Layout */
-        /* ========================================================================== */
         @media (max-width: 480px) {
             .logo {
-                max-width: 300px; /* Even smaller logo */
+                max-width: 300px;
                 margin-top: 0;
             }
 
@@ -808,7 +753,7 @@
             .btn, .social-btn {
                 padding: 10px 20px;
                 font-size: 18px;
-                width: 90%; /* Slightly wider on small screens */
+                width: 90%;
             }
 
             .footer {
@@ -816,9 +761,6 @@
             }
         }
 
-        /* ========================================================================== */
-        /* Additional Styling */
-        /* ========================================================================== */
         .left-section, .right-section {
             padding: 25px;
             background: rgba(255, 255, 255, 0.08);
@@ -868,9 +810,6 @@
             animation: radialPulseReverse 4s infinite ease-in-out;
         }
 
-        /* ========================================================================== */
-        /* Additional Animations */
-        /* ========================================================================== */
         @keyframes radialPulse {
             0% { transform: scale(1); opacity: 0.6; }
             50% { transform: scale(1.15); opacity: 0.4; }
@@ -933,7 +872,6 @@
     <div class="container">
         <div class="content-wrapper">
             <div class="left-section glass-effect">
-                <!-- Changed to virtueblackheader.png as primary logo -->
                 <img src="/virtueblackheader.png" alt="Team Virtue Logo" class="logo logo-shine" id="header-logo">
                 <section class="section roster glass-effect">
                     <h2 class="text-shadow">Roster</h2>
@@ -942,13 +880,6 @@
                         <li><a href="https://steamcommunity.com/profiles/76561198369905223" target="_blank">WestyzWorld</a></li>
                         <li>Jxhnssl.</li>
                         <li><a href="https://steamcommunity.com/id/FeliciaTheOG" target="_blank">Felicia, The Goat</a></li>
-                    </ul>
-                </section>
-                <section class="section managers glass-effect">
-                    <h2 class="text-shadow">Managers</h2>
-                    <ul class="managers-list">
-                        <li>finnyxtv (Discord)</li>
-                        <li>watertucky (Discord)</li>
                     </ul>
                 </section>
                 <section class="section content-creator glass-effect">
@@ -962,6 +893,13 @@
                     <a href="https://discord.gg/2btnvUJADc" target="_blank" class="btn btn-primary btn-shine text-shadow">Join Our Discord</a>
                     <a href="https://rocketleague.gankster.gg/teams/93789/team-virtue-official" target="_blank" class="btn btn-secondary btn-shine text-shadow">Scrims</a>
                 </div>
+                <section class="section managers glass-effect">
+                    <h2 class="text-shadow">Managers</h2>
+                    <ul class="managers-list">
+                        <li>finnyxtv (Discord)</li>
+                        <li>watertucky (Discord)</li>
+                    </ul>
+                </section>
                 <div class="socials">
                     <a href="https://x.com/TeamVirtueRL" target="_blank" class="social-btn twitter btn-shine text-shadow">Twitter</a>
                     <a href="https://www.instagram.com/teamvirtuerl/" target="_blank" class="social-btn instagram btn-shine text-shadow">Instagram</a>
@@ -976,9 +914,6 @@
         // Note: To install Cypress for testing this page in a development environment,
         // run `npm i -D cypress` in your project directory if you're using a Node.js setup.
 
-        // ==========================================================================
-        // Trigger Transitions on Desktop
-        // ==========================================================================
         function triggerTransitions() {
             if (window.innerWidth >= 769) {
                 setTimeout(() => {
@@ -991,9 +926,6 @@
             }
         }
 
-        // ==========================================================================
-        // Particle Effect
-        // ==========================================================================
         function createParticles() {
             const particlesContainer = document.getElementById('particles');
             for (let i = 0; i < 50; i++) {
@@ -1010,9 +942,6 @@
             }
         }
 
-        // ==========================================================================
-        // Event Listeners
-        // ==========================================================================
         window.addEventListener('load', () => {
             document.body.classList.add('loaded');
             triggerTransitions();
