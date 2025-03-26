@@ -22,8 +22,6 @@
             --text-secondary: #E0E0E0;
             --shadow-color: rgba(0, 0, 0, 0.2);
             --card-bg: rgba(255, 255, 255, 0.05);
-            --section-bg-start: #3C0753;
-            --section-bg-end: #7209B7;
             --footer-bg: rgba(0, 0, 0, 0.1);
         }
 
@@ -38,8 +36,6 @@
             --text-secondary: #6A6A6A; /* Medium gray */
             --shadow-color: rgba(0, 0, 0, 0.1);
             --card-bg: rgba(255, 255, 255, 0.9);
-            --section-bg-start: #D8BFD8; /* Thistle */
-            --section-bg-end: #CDB5CD; /* Light plum */
             --footer-bg: rgba(240, 240, 245, 0.6);
         }
 
@@ -134,7 +130,7 @@
         }
 
         .nav-logo {
-            height: 50px;
+            height: 70px; /* Enlarged from 50px to 70px */
             transition: transform 0.3s ease;
         }
 
@@ -245,7 +241,7 @@
             margin-bottom: 25px;
             padding: 20px;
             border-radius: 10px;
-            background: linear-gradient(135deg, var(--section-bg-start) 0%, var(--section-bg-end) 100%);
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
             box-shadow: 0 4px 12px var(--shadow-color);
             transition: transform 0.4s ease, box-shadow 0.5s ease, background 0.5s ease;
         }
@@ -465,7 +461,7 @@
         }
 
         .btn-secondary {
-            background: linear-gradient(to right, var(--section-bg-start) 0%, var(--section-bg-end) 100%);
+            background: linear-gradient(to right, var(--primary-color) 0%, var(--secondary-color) 100%);
             color: var(--text-primary);
         }
 
@@ -540,6 +536,7 @@
 
         footer {
             width: 100%;
+           Compiled Code
             text-align: center;
             padding: 20px 0;
             font-size: 14px;
