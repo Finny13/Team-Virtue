@@ -1199,12 +1199,14 @@
                 body.classList.remove('dark-mode');
                 body.classList.add('light-mode');
                 localStorage.setItem('theme', 'light');
-                updateThemeUI('light');
+                headerLogo.src = '/virtuelightheader.png';
+                themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
             } else {
                 body.classList.remove('light-mode');
                 body.classList.add('dark-mode');
                 localStorage.setItem('theme', 'dark');
-                updateThemeUI('dark');
+                headerLogo.src = '/virtuedarkheader.png';
+                themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
             }
         });
 
@@ -1258,6 +1260,13 @@
         // Event Listeners
         // ==========================================================================
         window.addEventListener('load', () => {
+            // Set the correct logo based on the current theme
+            if (body.classList.contains('light-mode')) {
+                headerLogo.src = '/virtuelightheader.png';
+            } else {
+                headerLogo.src = '/virtuedarkheader.png';
+            }
+            
             document.body.classList.add('loaded');
             triggerTransitions();
             createParticles();
