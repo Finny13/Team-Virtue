@@ -34,6 +34,29 @@
             z-index: 0;
         }
 
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"%3E%3Ccircle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1" /%3E%3C/svg%3E') repeat;
+            opacity: 0.12;
+            z-index: -1;
+            animation: subtleMove 20s infinite linear;
+        }
+
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
         .container {
             width: 90%;
             max-width: 1400px;
@@ -43,7 +66,7 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            animation: fadeIn 1s ease-in-out;
+            animation: fadeInContainer 1.5s ease-in-out;
         }
 
         .content-wrapper {
@@ -51,6 +74,32 @@
             flex-direction: row;
             gap: 40px;
             align-items: stretch;
+            padding: 25px;
+            position: relative;
+        }
+
+        .content-wrapper::before {
+            content: '';
+            position: absolute;
+            top: -30px;
+            left: -30px;
+            width: calc(100% + 60px);
+            height: calc(100% + 60px);
+            background: radial-gradient(circle, rgba(138, 43, 226, 0.25) 0%, transparent 70%);
+            z-index: -1;
+            animation: radialPulse 6s infinite ease-in-out;
+        }
+
+        .content-wrapper::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(93, 63, 211, 0.2) 0%, transparent 70%);
+            z-index: -1;
+            animation: radialPulseReverse 4s infinite ease-in-out;
         }
 
         .left-section, .right-section {
@@ -71,11 +120,32 @@
             height: auto;
             margin-bottom: 30px;
             filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.3));
-            transition: transform 0.5s ease;
+            transition: transform 0.7s ease, opacity 0.5s ease, filter 0.5s ease;
+            animation: logoPulse 6s infinite ease-in-out;
+            position: relative;
         }
 
         .logo:hover {
-            transform: scale(1.05);
+            transform: scale(1.15) rotate(2deg);
+            opacity: 0.95;
+            filter: drop-shadow(0 15px 30px rgba(138, 43, 226, 0.8));
+        }
+
+        .logo-shine {
+            position: relative;
+        }
+
+        .logo-shine::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -75%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.6), transparent);
+            transform: skewX(-25deg);
+            animation: logoShine 1.5s infinite;
+            z-index: 1;
         }
 
         .section {
@@ -84,13 +154,31 @@
             border-radius: 10px;
             background: linear-gradient(135deg, #3C0753 0%, #7209B7 100%);
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            opacity: 0;
-            transform: translateY(20px);
-            animation: slideIn 0.5s ease forwards;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
         }
 
-        .section:nth-child(2) {
-            animation-delay: 0.2s;
+        .section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(138, 43, 226, 0.3) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            z-index: -1;
+        }
+
+        .section:hover::before {
+            opacity: 0.5;
+        }
+
+        .section:hover {
+            transform: scale(1.05) translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
         }
 
         .section h2 {
@@ -101,11 +189,36 @@
             letter-spacing: 1px;
             border-bottom: 2px solid #9B59B6;
             padding-bottom: 5px;
+            animation: textGlow 2s infinite alternate;
+            position: relative;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(to right, #8A2BE2, transparent);
+            transition: width 0.5s ease;
+        }
+
+        .section:hover h2::after {
+            width: 50%;
         }
 
         .roster-list {
             list-style: none;
             padding: 0;
+            opacity: 0;
+            transform: translateX(-60px);
+            transition: opacity 1.8s ease-in-out, transform 1.8s ease-in-out;
+        }
+
+        .roster-list.visible {
+            opacity: 1;
+            transform: translateX(0);
         }
 
         .roster-list li {
@@ -115,30 +228,48 @@
             margin: 12px 0;
             padding-left: 20px;
             position: relative;
-            transition: color 0.3s ease, transform 0.3s ease;
+            transition: transform 0.5s ease, color 0.5s ease, text-shadow 0.5s ease;
         }
 
         .roster-list li:hover {
-            color: #FFFFFF;
-            transform: translateX(5px);
+            transform: translateX(20px);
+            color: #5D3FD3;
+            text-shadow: 0 0 15px rgba(93, 63, 211, 0.9);
         }
 
         .roster-list li::before {
-            content: '•';
+            content: '➤';
             color: #9B59B6;
             position: absolute;
             left: 0;
+            transition: transform 0.5s ease, color 0.5s ease;
+        }
+
+        .roster-list li:hover::before {
+            transform: translateX(5px);
+            color: #5D3FD3;
         }
 
         .roster-list a {
             color: inherit;
             text-decoration: none;
-            transition: color 0.3s ease;
+            transition: color 0.5s ease, text-decoration 0.5s ease;
         }
 
         .roster-list a:hover {
-            color: #FFFFFF;
-            text-decoration: underline;
+            color: #5D3FD3;
+            text-decoration: underline wavy #8A2BE2;
+        }
+
+        .content-creator {
+            opacity: 0;
+            transform: translateX(-60px);
+            transition: opacity 1.8s ease-in-out 0.5s, transform 1.8s ease-in-out 0.5s;
+        }
+
+        .content-creator.visible {
+            opacity: 1;
+            transform: translateX(0);
         }
 
         .content-creator p {
@@ -146,17 +277,20 @@
             font-weight: 400;
             color: #E0E0E0;
             margin: 0;
+            transition: color 0.5s ease;
         }
 
         .content-creator a {
             color: #E0E0E0;
             text-decoration: none;
-            transition: color 0.3s ease;
+            transition: color 0.5s ease, transform 0.5s ease, text-shadow 0.5s ease;
         }
 
         .content-creator a:hover {
-            color: #FFFFFF;
-            text-decoration: underline;
+            color: #5D3FD3;
+            transform: translateX(20px);
+            text-shadow: 0 0 15px rgba(93, 63, 211, 0.9);
+            text-decoration: underline wavy #8A2BE2;
         }
 
         .intro {
@@ -165,8 +299,27 @@
             color: #E0E0E0;
             line-height: 1.6;
             margin-bottom: 25px;
-            opacity: 0;
-            animation: fadeInText 1s ease forwards 0.3s;
+            padding: 20px;
+            border-left: 5px solid #8A2BE2;
+            animation: fadeIn 2.5s ease-in-out both;
+            transition: border-color 0.5s ease, transform 0.5s ease;
+            position: relative;
+        }
+
+        .intro:hover {
+            border-color: #5D3FD3;
+            transform: translateX(10px);
+        }
+
+        .intro::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -10px;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, #8A2BE2, #5D3FD3);
+            animation: introGlow 2s infinite alternate;
         }
 
         .buttons {
@@ -182,16 +335,42 @@
             font-weight: 500;
             text-decoration: none;
             border-radius: 8px;
-            transition: all 0.3s ease;
+            transition: all 0.6s ease;
             box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
             text-align: center;
-            opacity: 0;
-            transform: translateY(10px);
-            animation: slideIn 0.5s ease forwards;
+            position: relative;
+            overflow: hidden;
+            background-size: 200% auto;
         }
 
-        .btn:nth-child(2) {
-            animation-delay: 0.1s;
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.25);
+            transform: rotate(30deg);
+            transition: all 0.6s ease;
+            pointer-events: none;
+        }
+
+        .btn:hover::after {
+            top: 100%;
+            left: 100%;
+        }
+
+        .btn.btn-shine::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -75%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.6), transparent);
+            transform: skewX(-25deg);
+            animation: shine 2.5s infinite;
         }
 
         .btn-primary {
@@ -200,8 +379,8 @@
         }
 
         .btn-primary:hover {
-            background: linear-gradient(to right, #9B59B6 0%, #6A0DAD 100%);
-            transform: translateY(-2px);
+            background-position: right center;
+            transform: translateY(-8px) scale(1.05);
             box-shadow: 0 5px 15px rgba(106, 13, 173, 0.4);
         }
 
@@ -211,8 +390,8 @@
         }
 
         .btn-secondary:hover {
-            background: linear-gradient(to right, #A569BD 0%, #7209B7 100%);
-            transform: translateY(-2px);
+            background-position: right center;
+            transform: translateY(-8px) scale(1.05);
             box-shadow: 0 5px 15px rgba(114, 9, 183, 0.4);
         }
 
@@ -228,16 +407,42 @@
             font-weight: 500;
             text-decoration: none;
             border-radius: 8px;
-            transition: all 0.3s ease;
+            transition: all 0.5s ease;
             box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
             color: #FFFFFF;
-            opacity: 0;
-            transform: translateY(10px);
-            animation: slideIn 0.5s ease forwards;
+            background-size: 200% auto;
+            position: relative;
+            overflow: hidden;
         }
 
-        .social-btn:nth-child(2) {
-            animation-delay: 0.2s;
+        .social-btn::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(30deg);
+            transition: all 0.5s ease;
+            pointer-events: none;
+        }
+
+        .social-btn:hover::after {
+            top: 100%;
+            left: 100%;
+        }
+
+        .social-btn.btn-shine::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -75%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.6), transparent);
+            transform: skewX(-25deg);
+            animation: shine 2.5s infinite;
         }
 
         .social-btn.twitter {
@@ -249,7 +454,7 @@
         }
 
         .social-btn:hover {
-            transform: translateY(-2px);
+            transform: translateY(-5px) scale(1.1);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
 
@@ -261,26 +466,72 @@
             color: #B0B0B0;
             background: rgba(0, 0, 0, 0.1);
             margin-top: 40px;
-            transition: color 0.3s ease;
+            transition: color 0.5s ease, transform 0.5s ease;
         }
 
         .footer:hover {
             color: #FFFFFF;
+            transform: translateY(-5px);
         }
 
         @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-60px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        @keyframes logoPulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.06); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes textGlow {
+            0% { text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); }
+            100% { text-shadow: 0 0 20px rgba(138, 43, 226, 0.9), 0 4px 8px rgba(0, 0, 0, 0.5); }
+        }
+
+        @keyframes introGlow {
+            0% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes fadeInContainer {
             from { opacity: 0; }
             to { opacity: 1; }
         }
 
-        @keyframes slideIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        @keyframes shine {
+            0% { left: -75%; }
+            20% { left: 125%; }
+            100% { left: 125%; }
         }
 
-        @keyframes fadeInText {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+        @keyframes logoShine {
+            0% { left: -75%; }
+            33.33% { left: 125%; }
+            100% { left: 125%; }
+        }
+
+        @keyframes radialPulse {
+            0% { transform: scale(1); opacity: 0.6; }
+            50% { transform: scale(1.15); opacity: 0.4; }
+            100% { transform: scale(1); opacity: 0.6; }
+        }
+
+        @keyframes radialPulseReverse {
+            0% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.2); opacity: 0.3; }
+            100% { transform: scale(1); opacity: 0.5; }
+        }
+
+        @keyframes subtleMove {
+            0% { background-position: 0 0; }
+            100% { background-position: 100px 100px; }
         }
 
         @media (min-width: 769px) {
@@ -301,6 +552,7 @@
         @media (max-width: 768px) {
             .content-wrapper {
                 flex-direction: column;
+                padding: 0;
             }
 
             .left-section, .right-section {
@@ -329,14 +581,21 @@
                 width: 100%;
                 max-width: 300px;
             }
+
+            .roster-list, .content-creator {
+                opacity: 1;
+                transform: translateX(0);
+                transition: none;
+            }
         }
     </style>
 </head>
 <body>
+    <div class="particles" id="particles"></div>
     <div class="container">
         <div class="content-wrapper">
             <div class="left-section">
-                <img src="/virtueblackheader.png" alt="Team Virtue Logo" class="logo">
+                <img src="/virtueblackheader.png" alt="Team Virtue Logo" class="logo logo-shine">
                 <section class="section roster">
                     <h2>Roster</h2>
                     <ul class="roster-list">
@@ -354,12 +613,12 @@
             <div class="right-section">
                 <p class="intro">Team Virtue is a premier eSports organization dedicated to excellence, fostering skill, teamwork, and integrity in competitive gaming.</p>
                 <div class="buttons">
-                    <a href="https://discord.gg/2btnvUJADc" target="_blank" class="btn btn-primary">Join Our Discord</a>
-                    <a href="https://rocketleague.gankster.gg/teams/93789/team-virtue-official" target="_blank" class="btn btn-secondary">Scrims</a>
+                    <a href="https://discord.gg/2btnvUJADc" target="_blank" class="btn btn-primary btn-shine">Join Our Discord</a>
+                    <a href="https://rocketleague.gankster.gg/teams/93789/team-virtue-official" target="_blank" class="btn btn-secondary btn-shine">Scrims</a>
                 </div>
                 <div class="socials">
-                    <a href="https://x.com/TeamVirtueRL" target="_blank" class="social-btn twitter">Twitter</a>
-                    <a href="https://www.instagram.com/teamvirtuerl/" target="_blank" class="social-btn instagram">Instagram</a>
+                    <a href="https://x.com/TeamVirtueRL" target="_blank" class="social-btn twitter btn-shine">Twitter</a>
+                    <a href="https://www.instagram.com/teamvirtuerl/" target="_blank" class="social-btn instagram btn-shine">Instagram</a>
                 </div>
             </div>
         </div>
@@ -367,5 +626,69 @@
     <footer class="footer">
         <p>© 2025 Team Virtue. All rights reserved.</p>
     </footer>
+    <script>
+        function triggerTransitions() {
+            if (window.innerWidth >= 769) {
+                setTimeout(() => {
+                    document.querySelector('.roster-list').classList.add('visible');
+                }, 500);
+                setTimeout(() => {
+                    document.querySelector('.content-creator').classList.add('visible');
+                }, 1000);
+            }
+        }
+
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.style.position = 'absolute';
+                particle.style.width = `${Math.random() * 3 + 1}px`;
+                particle.style.height = particle.style.width;
+                particle.style.background = 'rgba(138, 43, 226, 0.5)';
+                particle.style.borderRadius = '50%';
+                particle.style.left = `${Math.random() * 100}vw`;
+                particle.style.top = `${Math.random() * 100}vh`;
+                particle.style.animation = `float ${Math.random() * 5 + 5}s infinite ease-in-out`;
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        window.addEventListener('load', () => {
+            document.body.classList.add('loaded');
+            triggerTransitions();
+            createParticles();
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        document.querySelectorAll('.btn, .social-btn').forEach(btn => {
+            btn.addEventListener('mouseover', () => {
+                btn.style.transform = 'scale(1.1)';
+            });
+            btn.addEventListener('mouseout', () => {
+                btn.style.transform = 'scale(1)';
+            });
+        });
+
+        window.addEventListener('scroll', () => {
+            const scrollPos = window.scrollY;
+            document.querySelector('.container').style.transform = `translateY(${scrollPos * 0.1}px)`;
+        });
+    </script>
+    <style>
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0); }
+        }
+    </style>
 </body>
 </html>
