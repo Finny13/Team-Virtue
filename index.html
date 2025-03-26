@@ -35,7 +35,8 @@
             transition: background 0.8s ease, transform 0.5s ease;
             display: flex;
             flex-direction: column;
-            background: linear-gradient(135deg, #8A2BE2 0%, #B8A6C9 40%, #D8BFD8 60%, #1a1a2e 100%);
+            /* Changed to dark purple transitioning to purple-white */
+            background: linear-gradient(135deg, #8A2BE2 0%, #C8BFE7 100%);
             position: relative;
             z-index: 0;
         }
@@ -252,7 +253,7 @@
             font-weight: 400;
             color: #e0e0e0;
             margin: 15px 0;
-            transition: transform 0.5s ease, color 0.5s ease, text-shadow 0.5s ease;
+            transition: transform 0.5s ease, color 0 h5s ease, text-shadow 0.5s ease;
             position: relative;
             padding-left: 30px;
         }
@@ -711,22 +712,25 @@
             .container {
                 flex-direction: column;
                 align-items: center;
-                padding: 30px 15px;
+                padding: 20px; /* Reduced padding for better mobile fit */
+                width: 100%; /* Full width on mobile */
             }
 
             .content-wrapper {
                 width: 100%;
-                text-align: left;
+                text-align: center; /* Center align text for mobile */
+                flex-direction: column; /* Stack vertically */
+                gap: 20px; /* Add spacing between sections */
             }
 
             .left-section, .right-section {
                 width: 100%;
-                padding: 0;
+                padding: 10px; /* Reduced padding */
             }
 
             .logo {
-                max-width: 450px;
-                margin: -20px auto 25px;
+                max-width: 400px; /* Smaller logo on mobile */
+                margin: 0 auto 20px; /* Center logo with bottom margin */
                 display: block;
             }
 
@@ -735,38 +739,44 @@
             }
 
             .roster-list li, .managers-list li {
-                font-size: 22px;
+                font-size: 20px; /* Slightly smaller text */
+                margin: 10px 0; /* Reduced margins */
             }
 
             .content-creator p {
-                font-size: 22px;
+                font-size: 20px;
             }
 
             .intro {
-                font-size: 22px;
-                text-align: left;
+                font-size: 20px;
+                text-align: center; /* Center intro text */
+                padding: 15px;
             }
 
             .buttons, .socials {
-                flex-direction: column;
-                gap: 20px;
+                flex-direction: column; /* Stack buttons vertically */
+                gap: 15px; /* Reduced gap */
                 width: 100%;
+                align-items: center; /* Center buttons */
             }
 
             .btn, .social-btn {
-                padding: 15px 30px;
-                font-size: 22px;
+                padding: 12px 25px; /* Smaller padding */
+                font-size: 20px; /* Smaller text */
+                width: 80%; /* Consistent button width */
+                max-width: 300px; /* Maximum width cap */
             }
 
             .footer {
-                margin-top: 30px;
+                margin-top: 20px;
                 font-size: 12px;
+                padding: 15px 0; /* Adjusted padding */
             }
 
             .roster-list, .managers-list, .content-creator {
-                opacity: 1;
+                opacity: 1; /* Always visible on mobile */
                 transform: translateX(0);
-                transition: none;
+                transition: none; /* Remove transitions for better mobile performance */
             }
         }
 
@@ -775,33 +785,34 @@
         /* ========================================================================== */
         @media (max-width: 480px) {
             .logo {
-                max-width: 400px;
-                margin-top: -15px;
+                max-width: 300px; /* Even smaller logo */
+                margin-top: 0;
             }
 
             .section h2 {
-                font-size: 20px;
+                font-size: 18px;
             }
 
             .roster-list li, .managers-list li {
-                font-size: 20px;
+                font-size: 18px;
             }
 
             .content-creator p {
-                font-size: 20px;
+                font-size: 18px;
             }
 
             .intro {
-                font-size: 20px;
+                font-size: 18px;
             }
 
             .btn, .social-btn {
-                padding: 12px 25px;
-                font-size: 20px;
+                padding: 10px 20px;
+                font-size: 18px;
+                width: 90%; /* Slightly wider on small screens */
             }
 
             .footer {
-                font-size: 12px;
+                font-size: 10px;
             }
         }
 
