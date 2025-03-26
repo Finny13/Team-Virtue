@@ -287,36 +287,40 @@
             transition: width 0.5s ease;
         }
 
-        .roster-list {
+        .roster-list, .content-creator, .contact-list {
             list-style: none;
             padding: 0;
-            opacity: 0;
-            transform: translateX(-60px);
-            transition: opacity 1.8s ease-in-out, transform 1.8s ease-in-out;
         }
 
-        .roster-list.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .roster-list li {
+        .roster-list li, .content-creator li, .contact-list li {
             font-size: 18px;
             font-weight: 400;
             color: var(--text-secondary);
             margin: 12px 0;
             padding-left: 20px;
             position: relative;
+            opacity: 0;
+            transform: translateX(-60px);
+            animation: slideInFade 1.5s ease-in-out forwards;
             transition: transform 0.5s ease, color 0.5s ease, text-shadow 0.5s ease;
         }
 
-        .roster-list li:hover {
-            transform: translateX(20px);
+        .roster-list li:nth-child(1) { animation-delay: 0.2s; }
+        .roster-list li:nth-child(2) { animation-delay: 0.4s; }
+        .roster-list li:nth-child(3) { animation-delay: 0.6s; }
+        .roster-list li:nth-child(4) { animation-delay: 0.8s; }
+        .content-creator li { animation-delay: 1s; }
+        .contact-list li:nth-child(1) { animation-delay: 1.2s; }
+        .contact-list li:nth-child(2) { animation-delay: 1.4s; }
+
+        .roster-list li:hover, .content-creator li:hover, .contact-list li:hover {
+            transform: translateX(20px) scale(1.05);
             color: var(--accent-color);
             text-shadow: 0 0 15px rgba(93, 63, 211, 0.9);
+            animation: bounce 0.5s ease infinite alternate;
         }
 
-        .roster-list li::before {
+        .roster-list li::before, .content-creator li::before, .contact-list li::before {
             content: '➤';
             color: var(--secondary-color);
             position: absolute;
@@ -324,51 +328,19 @@
             transition: transform 0.5s ease, color 0.5s ease;
         }
 
-        .roster-list li:hover::before {
-            transform: translateX(5px);
+        .roster-list li:hover::before, .content-creator li:hover::before, .contact-list li:hover::before {
+            transform: translateX(5px) rotate(20deg);
             color: var(--accent-color);
         }
 
-        .roster-list a {
+        .roster-list a, .content-creator a {
             color: inherit;
             text-decoration: none;
             transition: color 0.5s ease, text-decoration 0.5s ease;
         }
 
-        .roster-list a:hover {
+        .roster-list a:hover, .content-creator a:hover {
             color: var(--accent-color);
-            text-decoration: underline wavy var(--primary-color);
-        }
-
-        .content-creator {
-            opacity: 0;
-            transform: translateX(-60px);
-            transition: opacity 1.8s ease-in-out 0.5s, transform 1.8s ease-in-out 0.5s;
-        }
-
-        .content-creator.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .content-creator p {
-            font-size: 18px;
-            font-weight: 400;
-            color: var(--text-secondary);
-            margin: 0;
-            transition: color 0.5s ease;
-        }
-
-        .content-creator a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: color 0.5s ease, transform 0.5s ease, text-shadow 0.5s ease;
-        }
-
-        .content-creator a:hover {
-            color: var(--accent-color);
-            transform: translateX(20px);
-            text-shadow: 0 0 15px rgba(93, 63, 211, 0.9);
             text-decoration: underline wavy var(--primary-color);
         }
 
@@ -538,64 +510,6 @@
             box-shadow: 0 5px 15px var(--shadow-color);
         }
 
-        .contact-section {
-            padding: 20px;
-            border-radius: 10px;
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-            box-shadow: 0 4px 12px var(--shadow-color);
-            transition: transform 0.4s ease, box-shadow 0.5s ease, background 0.5s ease;
-            flex-grow: 1;
-        }
-
-        .contact-section:hover {
-            transform: scale(1.05) translateY(-10px);
-            box-shadow: 0 15px 30px var(--shadow-color);
-        }
-
-        .contact-section h2 {
-            font-size: 24px;
-            font-weight: 500;
-            margin-bottom: 15px;
-            letter-spacing: 1px;
-            border-bottom: 2px solid var(--secondary-color);
-            padding-bottom: 5px;
-            animation: textGlow 2s infinite alternate;
-        }
-
-        .contact-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .contact-list li {
-            font-size: 18px;
-            font-weight: 400;
-            color: var(--text-secondary);
-            margin: 12px 0;
-            padding-left: 20px;
-            position: relative;
-            transition: transform 0.5s ease, color 0.5s ease, text-shadow 0.5s ease;
-        }
-
-        .contact-list li:hover {
-            transform: translateX(20px);
-            color: var(--accent-color);
-            text-shadow: 0 0 15px rgba(93, 63, 211, 0.9);
-        }
-
-        .contact-list li::before {
-            content: '➤';
-            color: var(--secondary-color);
-            position: absolute;
-            left: 0;
-            transition: transform 0.5s ease, color 0.5s ease;
-        }
-
-        .contact-list li:hover::before {
-            transform: translateX(5px);
-            color: var(--accent-color);
-        }
-
         footer {
             width: 100%;
             text-align: center;
@@ -613,7 +527,7 @@
         }
 
         @keyframes fadeIn { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes slideInLeft { from { opacity: 0; transform: translateX(-60px); } to { opacity: 1; transform: translateX(0); } }
+        @keyframes slideInFade { from { opacity: 0; transform: translateX(-60px); } to { opacity: 1; transform: translateX(0); } }
         @keyframes logoPulse { 0% { transform: scale(1); } 50% { transform: scale(1.06); } 100% { transform: scale(1); } }
         @keyframes textGlow { 0% { text-shadow: 0 4px 8px var(--shadow-color); } 100% { text-shadow: 0 0 20px rgba(138, 43, 226, 0.9), 0 4px 8px var(--shadow-color); } }
         @keyframes introGlow { 0% { opacity: 0.7; } 100% { opacity: 1; } }
@@ -624,6 +538,7 @@
         @keyframes radialPulseReverse { 0% { transform: scale(1); opacity: 0.5; } 50% { transform: scale(1.2); opacity: 0.3; } 100% { transform: scale(1); opacity: 0.5; } }
         @keyframes subtleMove { 0% { background-position: 0 0; } 100% { background-position: 100px 100px; } }
         @keyframes float { 0% { transform: translateY(0); } 50% { transform: translateY(-20px); } 100% { transform: translateY(0); } }
+        @keyframes bounce { 0% { transform: translateX(20px) scale(1.05); } 100% { transform: translateX(20px) scale(1.1); } }
 
         @media (min-width: 769px) {
             .container { min-height: calc(100vh - 120px); }
@@ -634,10 +549,10 @@
             .left-section, .right-section { width: 100%; }
             .logo { max-width: 300px; margin: 0 auto 20px; display: block; }
             .section h2 { font-size: 20px; }
-            .roster-list li, .content-creator p, .contact-list li { font-size: 16px; }
+            .roster-list li, .content-creator li, .contact-list li { font-size: 16px; }
             .intro { font-size: 18px; }
             .btn, .social-btn { width: 100%; max-width: 300px; }
-            .roster-list, .content-creator { opacity: 1; transform: translateX(0); transition: none; }
+            .roster-list li, .content-creator li, .contact-list li { opacity: 1; transform: translateX(0); animation: none; }
             nav ul { display: none; }
             .theme-toggle { top: 10px; left: 10px; }
             .social-btn { flex: unset; }
@@ -675,7 +590,9 @@
                 </article>
                 <article class="section content-creator">
                     <h2>Content Creator</h2>
-                    <p><a href="https://youtube.com/@rlremedy" target="_blank" rel="noopener noreferrer">Remedy</a></p>
+                    <ul class="content-creator">
+                        <li><a href="https://youtube.com/@rlremedy" target="_blank" rel="noopener noreferrer">Remedy</a></li>
+                    </ul>
                 </article>
             </section>
             <section class="right-section" id="about">
@@ -688,13 +605,11 @@
                     <a href="https://x.com/TeamVirtueRL" target="_blank" rel="noopener noreferrer" class="social-btn twitter btn-shine">Twitter</a>
                     <a href="https://www.instagram.com/teamvirtuerl/" target="_blank" rel="noopener noreferrer" class="social-btn instagram btn-shine">Instagram</a>
                 </div>
-                <article class="contact-section" id="contact">
-                    <h2>Contact</h2>
-                    <ul class="contact-list">
-                        <li>watertucky (Discord)</li>
-                        <li>finnyxtv (Discord, Player Captain)</li>
-                    </ul>
-                </article>
+                <h2 id="contact">Contact</h2>
+                <ul class="contact-list">
+                    <li>watertucky (Discord)</li>
+                    <li>finnyxtv (Discord, Player Captain)</li>
+                </ul>
             </section>
         </div>
     </main>
@@ -725,13 +640,6 @@
             setTheme(newTheme);
         });
 
-        function triggerTransitions() {
-            if (window.innerWidth >= 769) {
-                setTimeout(() => document.querySelector('.roster-list').classList.add('visible'), 500);
-                setTimeout(() => document.querySelector('.content-creator').classList.add('visible'), 1000);
-            }
-        }
-
         function createParticles() {
             const particlesContainer = document.getElementById('particles');
             for (let i = 0; i < 50; i++) {
@@ -750,7 +658,6 @@
 
         window.addEventListener('load', () => {
             document.body.classList.add('loaded');
-            triggerTransitions();
             createParticles();
         });
 
