@@ -11,9 +11,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <style>
-        /* ========================================================================== */
-        /* Reset and Base Styles */
-        /* ========================================================================== */
         * {
             margin: 0;
             padding: 0;
@@ -24,6 +21,7 @@
         html {
             height: 100%;
             overflow-x: hidden;
+            background: #1a1a2e;
         }
 
         body {
@@ -34,25 +32,16 @@
             transition: background 0.8s ease, transform 0.5s ease;
             display: flex;
             flex-direction: column;
+            background: linear-gradient(135deg, #4B0082 0%, #C8BFE7 100%);
             position: relative;
             z-index: 0;
         }
 
         body.light-mode {
-            /* Light mode gradient */
-            background: linear-gradient(135deg, #B8A6C9 0%, #D8BFD8 40%, #F0E6FA 60%, #B8A6C9 100%);
+            background: linear-gradient(135deg, #F0E6FA 0%, #B8A6C9 100%);
             color: #333;
         }
 
-        body.dark-mode {
-            /* Dark mode gradient */
-            background: linear-gradient(135deg, #1a1a2e 0%, #4B0082 40%, #8A2BE2 60%, #1a1a2e 100%);
-            color: #fff;
-        }
-
-        /* ========================================================================== */
-        /* Utility Classes */
-        /* ========================================================================== */
         .flex-center {
             display: flex;
             justify-content: center;
@@ -73,38 +62,18 @@
         }
 
         .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 15px;
         }
 
         .glass-effect-strong {
-            backdrop-filter: blur(15px);
-            border-radius: 15px;
-        }
-
-        body.light-mode .glass-effect {
-            background: rgba(255, 255, 255, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-
-        body.dark-mode .glass-effect {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        body.light-mode .glass-effect-strong {
-            background: rgba(255, 255, 255, 0.25);
-            border: 2px solid rgba(255, 255, 255, 0.35);
-        }
-
-        body.dark-mode .glass-effect-strong {
             background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
             border: 2px solid rgba(255, 255, 255, 0.25);
         }
 
-        /* ========================================================================== */
-        /* Main Container */
-        /* ========================================================================== */
         .container {
             width: 95%;
             max-width: 2000px;
@@ -119,9 +88,6 @@
             animation: fadeInContainer 1.5s ease-in-out;
         }
 
-        /* ========================================================================== */
-        /* Logo Styling */
-        /* ========================================================================== */
         .logo {
             width: 100%;
             max-width: 550px;
@@ -139,7 +105,6 @@
             filter: drop-shadow(0 15px 30px rgba(138, 43, 226, 0.8));
         }
 
-        /* Shine Effect for Logo */
         .logo-shine {
             position: relative;
         }
@@ -153,13 +118,10 @@
             height: 100%;
             background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.6), transparent);
             transform: skewX(-25deg);
-            animation: logoShine 1.5s infinite; /* Slower shine at 1.5s */
+            animation: logoShine 1.5s infinite;
             z-index: 1;
         }
 
-        /* ========================================================================== */
-        /* Section Styling */
-        /* ========================================================================== */
         .section {
             margin-bottom: 20px;
             padding: 20px;
@@ -167,6 +129,11 @@
             transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
             position: relative;
             overflow: hidden;
+            background: linear-gradient(135deg, rgba(75, 0, 130, 0.2) 0%, rgba(200, 191, 231, 0.2) 100%);
+        }
+
+        body.light-mode .section {
+            background: linear-gradient(135deg, rgba(240, 230, 250, 0.2) 0%, rgba(184, 166, 201, 0.2) 100%);
         }
 
         .section::before {
@@ -176,17 +143,10 @@
             left: -50%;
             width: 200%;
             height: 200%;
+            background: radial-gradient(circle, rgba(138, 43, 226, 0.3) 0%, transparent 70%);
             opacity: 0;
             transition: opacity 0.5s ease;
             z-index: -1;
-        }
-
-        body.light-mode .section::before {
-            background: radial-gradient(circle, rgba(184, 166, 201, 0.3) 0%, transparent 70%);
-        }
-
-        body.dark-mode .section::before {
-            background: radial-gradient(circle, rgba(138, 43, 226, 0.3) 0%, transparent 70%);
         }
 
         .section:hover::before {
@@ -195,13 +155,6 @@
 
         .section:hover {
             transform: scale(1.05) translateY(-10px);
-        }
-
-        body.light-mode .section:hover {
-            box-shadow: 0 15px 30px rgba(138, 43, 226, 0.3);
-        }
-
-        body.dark-mode .section:hover {
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
         }
 
@@ -209,21 +162,18 @@
             font-family: 'Orbitron', sans-serif;
             font-size: 28px;
             font-weight: 700;
+            color: #ffffff;
             text-transform: uppercase;
             letter-spacing: 4px;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
             margin-bottom: 15px;
             animation: textGlow 2s infinite alternate;
             position: relative;
         }
 
         body.light-mode .section h2 {
-            color: #4B0082;
-            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        }
-
-        body.dark-mode .section h2 {
-            color: #ffffff;
-            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            color: #333;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
         .section h2::after {
@@ -233,39 +183,50 @@
             left: 0;
             width: 100%;
             height: 2px;
+            background: linear-gradient(to right, #8A2BE2, transparent);
             transition: width 0.5s ease;
-        }
-
-        body.light-mode .section h2::after {
-            background: linear-gradient(to right, #8A2BE2, transparent);
-        }
-
-        body.dark-mode .section h2::after {
-            background: linear-gradient(to right, #8A2BE2, transparent);
         }
 
         .section:hover h2::after {
             width: 50%;
         }
 
-        /* ========================================================================== */
-        /* Dynamic Gradient Alignment */
-        /* ========================================================================== */
-        body.light-mode .section.roster,
-        body.light-mode .section.managers,
-        body.light-mode .section.content-creator {
+        .section.roster.morning-theme {
             background: linear-gradient(135deg, rgba(184, 166, 201, 0.2) 0%, rgba(240, 230, 250, 0.2) 100%);
         }
 
-        body.dark-mode .section.roster,
-        body.dark-mode .section.managers,
-        body.dark-mode .section.content-creator {
+        .section.roster.day-theme {
+            background: linear-gradient(135deg, rgba(138, 43, 226, 0.2) 0%, rgba(216, 191, 216, 0.2) 100%);
+        }
+
+        .section.roster.night-theme {
             background: linear-gradient(135deg, rgba(26, 26, 46, 0.2) 0%, rgba(138, 43, 226, 0.2) 100%);
         }
 
-        /* ========================================================================== */
-        /* Roster List */
-        /* ========================================================================== */
+        .section.managers.morning-theme {
+            background: linear-gradient(135deg, rgba(184, 166, 201, 0.2) 0%, rgba(240, 230, 250, 0.2) 100%);
+        }
+
+        .section.managers.day-theme {
+            background: linear-gradient(135deg, rgba(138, 43, 226, 0.2) 0%, rgba(216, 191, 216, 0.2) 100%);
+        }
+
+        .section.managers.night-theme {
+            background: linear-gradient(135deg, rgba(26, 26, 46, 0.2) 0%, rgba(138, 43, 226, 0.2) 100%);
+        }
+
+        .section.content-creator.morning-theme {
+            background: linear-gradient(135deg, rgba(184, 166, 201, 0.2) 0%, rgba(240, 230, 250, 0.2) 100%);
+        }
+
+        .section.content-creator.day-theme {
+            background: linear-gradient(135deg, rgba(138, 43, 226, 0.2) 0%, rgba(216, 191, 216, 0.2) 100%);
+        }
+
+        .section.content-creator.night-theme {
+            background: linear-gradient(135deg, rgba(26, 26, 46, 0.2) 0%, rgba(138, 43, 226, 0.2) 100%);
+        }
+
         .roster-list {
             list-style: none;
             padding: 0;
@@ -282,6 +243,7 @@
         .roster-list li {
             font-size: 26px;
             font-weight: 400;
+            color: #e0e0e0;
             margin: 15px 0;
             transition: transform 0.5s ease, color 0.5s ease, text-shadow 0.5s ease;
             position: relative;
@@ -289,83 +251,40 @@
         }
 
         body.light-mode .roster-list li {
-            color: #333;
-        }
-
-        body.dark-mode .roster-list li {
-            color: #e0e0e0;
+            color: #555;
         }
 
         .roster-list li:hover {
             transform: translateX(20px);
-        }
-
-        body.light-mode .roster-list li:hover {
-            color: #4B0082;
-            text-shadow: 0 0 15px rgba(93, 63, 211, 0.6);
-        }
-
-        body.dark-mode .roster-list li:hover {
             color: #5D3FD3;
             text-shadow: 0 0 15px rgba(93, 63, 211, 0.9);
         }
 
         .roster-list li::before {
             content: '➤';
+            color: #8A2BE2;
             position: absolute;
             left: 0;
             transition: transform 0.5s ease, color 0.5s ease;
         }
 
-        body.light-mode .roster-list li::before {
-            color: #4B0082;
-        }
-
-        body.dark-mode .roster-list li::before {
-            color: #8A2BE2;
-        }
-
         .roster-list li:hover::before {
             transform: translateX(5px);
-        }
-
-        body.light-mode .roster-list li:hover::before {
-            color: #4B0082;
-        }
-
-        body.dark-mode .roster-list li:hover::before {
             color: #5D3FD3;
         }
 
         .roster-list a {
+            color: inherit;
             text-decoration: none;
             font-weight: 600;
             transition: color 0.5s ease, text-decoration 0.5s ease;
         }
 
-        body.light-mode .roster-list a {
-            color: inherit;
-        }
-
-        body.dark-mode .roster-list a {
-            color: inherit;
-        }
-
         .roster-list a:hover {
+            color: #5D3FD3;
             text-decoration: underline wavy #8A2BE2;
         }
 
-        body.light-mode .roster-list a:hover {
-            color: #4B0082;
-        }
-
-        body.dark-mode .roster-list a:hover {
-            color: #5D3FD3;
-        }
-
-        /* ========================================================================== */
-        /* Managers Section */
-        /* ========================================================================== */
         .managers-list {
             list-style: none;
             padding: 0;
@@ -382,6 +301,7 @@
         .managers-list li {
             font-size: 26px;
             font-weight: 400;
+            color: #e0e0e0;
             margin: 15px 0;
             transition: transform 0.5s ease, color 0.5s ease, text-shadow 0.5s ease;
             position: relative;
@@ -389,57 +309,28 @@
         }
 
         body.light-mode .managers-list li {
-            color: #333;
-        }
-
-        body.dark-mode .managers-list li {
-            color: #e0e0e0;
+            color: #555;
         }
 
         .managers-list li:hover {
             transform: translateX(20px);
-        }
-
-        body.light-mode .managers-list li:hover {
-            color: #4B0082;
-            text-shadow: 0 0 15px rgba(93, 63, 211, 0.6);
-        }
-
-        body.dark-mode .managers-list li:hover {
             color: #5D3FD3;
             text-shadow: 0 0 15px rgba(93, 63, 211, 0.9);
         }
 
         .managers-list li::before {
             content: '★';
+            color: #8A2BE2;
             position: absolute;
             left: 0;
             transition: transform 0.5s ease, color 0.5s ease;
         }
 
-        body.light-mode .managers-list li::before {
-            color: #4B0082;
-        }
-
-        body.dark-mode .managers-list li::before {
-            color: #8A2BE2;
-        }
-
         .managers-list li:hover::before {
             transform: scale(1.5);
-        }
-
-        body.light-mode .managers-list li:hover::before {
-            color: #4B0082;
-        }
-
-        body.dark-mode .managers-list li:hover::before {
             color: #5D3FD3;
         }
 
-        /* ========================================================================== */
-        /* Content Creator */
-        /* ========================================================================== */
         .content-creator {
             opacity: 0;
             transform: translateX(-60px);
@@ -454,50 +345,33 @@
         .content-creator p {
             font-size: 26px;
             font-weight: 400;
+            color: #e0e0e0;
             margin: 0;
             transition: color 0.5s ease;
         }
 
         body.light-mode .content-creator p {
-            color: #333;
-        }
-
-        body.dark-mode .content-creator p {
-            color: #e0e0e0;
+            color: #555;
         }
 
         .content-creator a {
+            color: #e0e0e0;
             text-decoration: none;
             font-weight: 600;
             transition: color 0.5s ease, transform 0.5s ease, text-shadow 0.5s ease;
         }
 
         body.light-mode .content-creator a {
-            color: #333;
-        }
-
-        body.dark-mode .content-creator a {
-            color: #e0e0e0;
+            color: #555;
         }
 
         .content-creator a:hover {
+            color: #5D3FD3;
             transform: translateX(20px);
+            text-shadow: 0 0 15px rgba(93, 63, 211, 0.9);
             text-decoration: underline wavy #8A2BE2;
         }
 
-        body.light-mode .content-creator a:hover {
-            color: #4B0082;
-            text-shadow: 0 0 15px rgba(93, 63, 211, 0.6);
-        }
-
-        body.dark-mode .content-creator a:hover {
-            color: #5D3FD3;
-            text-shadow: 0 0 15px rgba(93, 63, 211, 0.9);
-        }
-
-        /* ========================================================================== */
-        /* Socials Section */
-        /* ========================================================================== */
         .socials {
             display: flex;
             gap: 20px;
@@ -553,13 +427,13 @@
             box-shadow: 0 10px 25px rgba(138, 43, 226, 0.8);
         }
 
-        /* ========================================================================== */
-        /* Intro */
-        /* ========================================================================== */
         .intro {
             font-size: 26px;
             font-weight: 600;
+            color: #e0e0e0;
             line-height: 1.7;
+            text-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+            animation: fadeIn 2.5s ease-in-out both;
             margin: 0;
             padding: 20px;
             border-left: 5px solid #8A2BE2;
@@ -568,13 +442,8 @@
         }
 
         body.light-mode .intro {
-            color: #333;
+            color: #555;
             text-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
-        }
-
-        body.dark-mode .intro {
-            color: #e0e0e0;
-            text-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
         }
 
         .intro:hover {
@@ -593,9 +462,6 @@
             animation: introGlow 2s infinite alternate;
         }
 
-        /* ========================================================================== */
-        /* Buttons */
-        /* ========================================================================== */
         .buttons {
             display: flex;
             gap: 25px;
@@ -663,27 +529,14 @@
             box-shadow: 0 15px 35px rgba(93, 63, 211, 0.9);
         }
 
-        /* ========================================================================== */
-        /* Footer */
-        /* ========================================================================== */
         .footer {
             width: 100%;
             text-align: center;
-            padding: 15px 0;
-            font-size: 10px;
-            color: rgba(255, 255, 255, 0.7);
+            padding: 25px 0;
+            font-size: 12px;
+            color: #fff;
             position: relative;
             z-index: 1;
-            transition: color 0.5s ease;
-            background: transparent;
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-        }
-
-        .footer:hover {
-            color: #ffffff;
         }
 
         .footer p {
@@ -691,54 +544,6 @@
             letter-spacing: 1px;
         }
 
-        @media (max-width: 768px) {
-            .footer {
-                position: relative;
-                margin-top: 20px;
-                padding: 10px 0;
-            }
-        }
-
-        /* ========================================================================== */
-        /* Theme Toggle */
-        /* ========================================================================== */
-        .theme-toggle {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1000;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        body.light-mode .theme-toggle {
-            background: #4B0082;
-            color: #fff;
-        }
-
-        body.dark-mode .theme-toggle {
-            background: #F0E6FA;
-            color: #4B0082;
-        }
-
-        .theme-toggle:hover {
-            transform: scale(1.1);
-        }
-
-        .theme-toggle i {
-            font-size: 24px;
-        }
-
-        /* ========================================================================== */
-        /* Animations */
-        /* ========================================================================== */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(-30px); }
             to { opacity: 1; transform: translateY(0); }
@@ -778,13 +583,10 @@
 
         @keyframes logoShine {
             0% { left: -75%; }
-            33.33% { left: 125%; } /* Adjusted timing for 1.5s cycle */
+            33.33% { left: 125%; }
             100% { left: 125%; }
         }
 
-        /* ========================================================================== */
-        /* Desktop Layout */
-        /* ========================================================================== */
         @media (min-width: 769px) {
             .container {
                 flex-direction: row;
@@ -797,8 +599,9 @@
                 display: flex;
                 flex-direction: row;
                 align-items: center;
-                gap: 80px;
+                gap: 100px;
                 width: 100%;
+                padding: 0 50px;
             }
 
             .left-section {
@@ -806,6 +609,12 @@
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
+                background: linear-gradient(135deg, rgba(75, 0, 130, 0.2) 0%, rgba(200, 191, 231, 0.2) 100%);
+                margin-left: -30px;
+            }
+
+            body.light-mode .left-section {
+                background: linear-gradient(135deg, rgba(240, 230, 250, 0.2) 0%, rgba(184, 166, 201, 0.2) 100%);
             }
 
             .right-section {
@@ -813,6 +622,12 @@
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
+                background: linear-gradient(135deg, rgba(75, 0, 130, 0.2) 0%, rgba(200, 191, 231, 0.2) 100%);
+                margin-right: -30px;
+            }
+
+            body.light-mode .right-section {
+                background: linear-gradient(135deg, rgba(240, 230, 250, 0.2) 0%, rgba(184, 166, 201, 0.2) 100%);
             }
 
             .logo {
@@ -850,9 +665,6 @@
             }
         }
 
-        /* ========================================================================== */
-        /* Tablet Layout */
-        /* ========================================================================== */
         @media (max-width: 1024px) and (min-width: 769px) {
             .container {
                 padding: 40px;
@@ -885,32 +697,34 @@
             }
         }
 
-        /* ========================================================================== */
-        /* Mobile Layout */
-        /* ========================================================================== */
         @media (max-width: 768px) {
             .container {
                 flex-direction: column;
                 align-items: center;
-                padding: 20px; /* Reduced padding for better mobile fit */
-                width: 100%; /* Full width on mobile */
+                padding: 20px;
+                width: 100%;
             }
 
             .content-wrapper {
                 width: 100%;
-                text-align: center; /* Center align text for mobile */
-                flex-direction: column; /* Stack vertically */
-                gap: 20px; /* Add spacing between sections */
+                text-align: center;
+                flex-direction: column;
+                gap: 20px;
             }
 
             .left-section, .right-section {
                 width: 100%;
-                padding: 10px; /* Reduced padding */
+                padding: 10px;
+                background: linear-gradient(135deg, rgba(75, 0, 130, 0.2) 0%, rgba(200, 191, 231, 0.2) 100%);
+            }
+
+            body.light-mode .left-section, body.light-mode .right-section {
+                background: linear-gradient(135deg, rgba(240, 230, 250, 0.2) 0%, rgba(184, 166, 201, 0.2) 100%);
             }
 
             .logo {
-                max-width: 400px; /* Smaller logo on mobile */
-                margin: 0 auto 20px; /* Center logo with bottom margin */
+                max-width: 400px;
+                margin: 0 auto 20px;
                 display: block;
             }
 
@@ -919,8 +733,8 @@
             }
 
             .roster-list li, .managers-list li {
-                font-size: 20px; /* Slightly smaller text */
-                margin: 10px 0; /* Reduced margins */
+                font-size: 20px;
+                margin: 10px 0;
             }
 
             .content-creator p {
@@ -929,43 +743,40 @@
 
             .intro {
                 font-size: 20px;
-                text-align: center; /* Center intro text */
+                text-align: center;
                 padding: 15px;
             }
 
             .buttons, .socials {
-                flex-direction: column; /* Stack buttons vertically */
-                gap: 15px; /* Reduced gap */
+                flex-direction: column;
+                gap: 15px;
                 width: 100%;
-                align-items: center; /* Center buttons */
+                align-items: center;
             }
 
             .btn, .social-btn {
-                padding: 12px 25px; /* Smaller padding */
-                font-size: 20px; /* Smaller text */
-                width: 80%; /* Consistent button width */
-                max-width: 300px; /* Maximum width cap */
+                padding: 12px 25px;
+                font-size: 20px;
+                width: 80%;
+                max-width: 300px;
             }
 
             .footer {
                 margin-top: 20px;
                 font-size: 12px;
-                padding: 15px 0; /* Adjusted padding */
+                padding: 15px 0;
             }
 
             .roster-list, .managers-list, .content-creator {
-                opacity: 1; /* Always visible on mobile */
+                opacity: 1;
                 transform: translateX(0);
-                transition: none; /* Remove transitions for better mobile performance */
+                transition: none;
             }
         }
 
-        /* ========================================================================== */
-        /* Small Mobile Layout */
-        /* ========================================================================== */
         @media (max-width: 480px) {
             .logo {
-                max-width: 300px; /* Even smaller logo */
+                max-width: 300px;
                 margin-top: 0;
             }
 
@@ -988,40 +799,30 @@
             .btn, .social-btn {
                 padding: 10px 20px;
                 font-size: 18px;
-                width: 90%; /* Slightly wider on small screens */
+                width: 90%;
             }
 
             .footer {
                 font-size: 10px;
             }
-
-            .theme-toggle {
-                width: 40px;
-                height: 40px;
-                top: 10px;
-                right: 10px;
-            }
         }
 
-        /* ========================================================================== */
-        /* Additional Styling */
-        /* ========================================================================== */
         .left-section, .right-section {
             padding: 25px;
             border-radius: 20px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
 
-        body.light-mode .left-section, 
-        body.light-mode .right-section {
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(8px);
+        .night-theme {
+            background: linear-gradient(135deg, #1a1a2e 0%, #4B0082 40%, #8A2BE2 60%, #1a1a2e 100%);
         }
 
-        body.dark-mode .left-section, 
-        body.dark-mode .right-section {
-            background: rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(8px);
+        .morning-theme {
+            background: linear-gradient(135deg, #B8A6C9 0%, #D8BFD8 40%, #F0E6FA 60%, #B8A6C9 100%);
+        }
+
+        .day-theme {
+            background: linear-gradient(135deg, #8A2BE2 0%, #B8A6C9 40%, #D8BFD8 60%, #1a1a2e 100%);
         }
 
         .content-wrapper {
@@ -1036,16 +837,9 @@
             left: -30px;
             width: calc(100% + 60px);
             height: calc(100% + 60px);
+            background: radial-gradient(circle, rgba(138, 43, 226, 0.25) 0%, transparent 70%);
             z-index: -1;
             animation: radialPulse 6s infinite ease-in-out;
-        }
-
-        body.light-mode .content-wrapper::before {
-            background: radial-gradient(circle, rgba(184, 166, 201, 0.25) 0%, transparent 70%);
-        }
-
-        body.dark-mode .content-wrapper::before {
-            background: radial-gradient(circle, rgba(138, 43, 226, 0.25) 0%, transparent 70%);
         }
 
         .content-wrapper::after {
@@ -1055,21 +849,30 @@
             right: -50px;
             width: 200px;
             height: 200px;
+            background: radial-gradient(circle, rgba(93, 63, 211, 0.2) 0%, transparent 70%);
             z-index: -1;
             animation: radialPulseReverse 4s infinite ease-in-out;
         }
 
-        body.light-mode .content-wrapper::after {
-            background: radial-gradient(circle, rgba(184, 166, 201, 0.2) 0%, transparent 70%);
+        .toggle-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background: linear-gradient(to right, #8A2BE2, #5D3FD3);
+            border: none;
+            border-radius: 25px;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            z-index: 1000;
+            transition: transform 0.3s ease;
         }
 
-        body.dark-mode .content-wrapper::after {
-            background: radial-gradient(circle, rgba(93, 63, 211, 0.2) 0%, transparent 70%);
+        .toggle-btn:hover {
+            transform: scale(1.1);
         }
 
-        /* ========================================================================== */
-        /* Additional Animations */
-        /* ========================================================================== */
         @keyframes radialPulse {
             0% { transform: scale(1); opacity: 0.6; }
             50% { transform: scale(1.15); opacity: 0.4; }
@@ -1126,13 +929,10 @@
             z-index: 0;
         }
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="dark-mode">
+<body>
+    <button class="toggle-btn" onclick="toggleTheme()">Toggle Theme</button>
     <div class="particles" id="particles"></div>
-    <div class="theme-toggle" id="theme-toggle">
-        <i class="fas fa-sun"></i>
-    </div>
     <div class="container">
         <div class="content-wrapper">
             <div class="left-section glass-effect">
@@ -1157,6 +957,10 @@
                     <a href="https://discord.gg/2btnvUJADc" target="_blank" class="btn btn-primary btn-shine text-shadow">Join Our Discord</a>
                     <a href="https://rocketleague.gankster.gg/teams/93789/team-virtue-official" target="_blank" class="btn btn-secondary btn-shine text-shadow">Scrims</a>
                 </div>
+                <div class="socials">
+                    <a href="https://x.com/TeamVirtueRL" target="_blank" class="social-btn twitter btn-shine text-shadow">Twitter</a>
+                    <a href="https://www.instagram.com/teamvirtuerl/" target="_blank" class="social-btn instagram btn-shine text-shadow">Instagram</a>
+                </div>
                 <section class="section managers glass-effect">
                     <h2 class="text-shadow">Managers</h2>
                     <ul class="managers-list">
@@ -1164,62 +968,13 @@
                         <li>watertucky (Discord)</li>
                     </ul>
                 </section>
-                <div class="socials">
-                    <a href="https://x.com/TeamVirtueRL" target="_blank" class="social-btn twitter btn-shine text-shadow">Twitter</a>
-                    <a href="https://www.instagram.com/teamvirtuerl/" target="_blank" class="social-btn instagram btn-shine text-shadow">Instagram</a>
-                </div>
             </div>
         </div>
     </div>
     <footer class="footer">
-        <p class="text-shadow">© 2025 Team Virtue. All rights reserved.</p>
+        <p>© 2025 Team Virtue. All rights reserved.</p>
     </footer>
     <script>
-        // Note: To install Cypress for testing this page in a development environment,
-        // run `npm i -D cypress` in your project directory if you're using a Node.js setup.
-
-        // ==========================================================================
-        // Theme Toggle
-        // ==========================================================================
-        const themeToggle = document.getElementById('theme-toggle');
-        const headerLogo = document.getElementById('header-logo');
-        const body = document.body;
-
-        // Check for saved theme preference or use default
-        const savedTheme = localStorage.getItem('theme') || 'dark';
-        body.classList.add(savedTheme + '-mode');
-        updateThemeUI(savedTheme);
-
-        themeToggle.addEventListener('click', () => {
-            if (body.classList.contains('dark-mode')) {
-                body.classList.remove('dark-mode');
-                body.classList.add('light-mode');
-                localStorage.setItem('theme', 'light');
-                headerLogo.src = '/virtuelightheader.png';
-                themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
-            } else {
-                body.classList.remove('light-mode');
-                body.classList.add('dark-mode');
-                localStorage.setItem('theme', 'dark');
-                headerLogo.src = '/virtuedarkheader.png';
-                themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-            }
-        });
-
-        function updateThemeUI(theme) {
-            // Update logo based on theme
-            if (theme === 'light') {
-                headerLogo.src = '/virtuelightheader.png';
-                themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
-            } else {
-                headerLogo.src = '/virtuedarkheader.png';
-                themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-            }
-        }
-
-        // ==========================================================================
-        // Trigger Transitions on Desktop
-        // ==========================================================================
         function triggerTransitions() {
             if (window.innerWidth >= 769) {
                 setTimeout(() => {
@@ -1232,9 +987,6 @@
             }
         }
 
-        // ==========================================================================
-        // Particle Effect
-        // ==========================================================================
         function createParticles() {
             const particlesContainer = document.getElementById('particles');
             for (let i = 0; i < 50; i++) {
@@ -1242,8 +994,7 @@
                 particle.style.position = 'absolute';
                 particle.style.width = `${Math.random() * 3 + 1}px`;
                 particle.style.height = particle.style.width;
-                particle.style.background = body.classList.contains('light-mode') ? 
-                    'rgba(75, 0, 130, 0.5)' : 'rgba(138, 43, 226, 0.5)';
+                particle.style.background = 'rgba(138, 43, 226, 0.5)';
                 particle.style.borderRadius = '50%';
                 particle.style.left = `${Math.random() * 100}vw`;
                 particle.style.top = `${Math.random() * 100}vh`;
@@ -1252,17 +1003,29 @@
             }
         }
 
-        // ==========================================================================
-        // Event Listeners
-        // ==========================================================================
-        window.addEventListener('load', () => {
-            // Set the correct logo based on the current theme
-            if (body.classList.contains('light-mode')) {
-                headerLogo.src = '/virtuelightheader.png';
-            } else {
-                headerLogo.src = '/virtuedarkheader.png';
-            }
+        function toggleTheme() {
+            const body = document.body;
+            const logo = document.getElementById('header-logo');
+            body.classList.toggle('light-mode');
             
+            if (body.classList.contains('light-mode')) {
+                logo.src = '/virtuelightheader.png';
+                localStorage.setItem('theme', 'light');
+            } else {
+                logo.src = '/virtuedarkheader.png';
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        window.addEventListener('load', () => {
+            const savedTheme = localStorage.getItem('theme');
+            const logo = document.getElementById('header-logo');
+            if (savedTheme === 'light') {
+                document.body.classList.add('light-mode');
+                logo.src = '/virtuelightheader.png';
+            } else {
+                logo.src = '/virtuedarkheader.png';
+            }
             document.body.classList.add('loaded');
             triggerTransitions();
             createParticles();
@@ -1290,13 +1053,6 @@
             const scrollPos = window.scrollY;
             document.querySelector('.container').style.transform = `translateY(${scrollPos * 0.1}px)`;
         });
-
-        // Update particles when theme changes
-        themeToggle.addEventListener('click', () => {
-            const particlesContainer = document.getElementById('particles');
-            particlesContainer.innerHTML = '';
-            createParticles();
-        });
     </script>
     <style>
         @keyframes float {
@@ -1307,4 +1063,3 @@
     </style>
 </body>
 </html>
-
