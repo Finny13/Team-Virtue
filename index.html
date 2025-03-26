@@ -28,19 +28,19 @@
         }
 
         [data-theme="light"] {
-            /* Light Mode */
-            --primary-color: #8A2BE2;
-            --secondary-color: #D8BFD8;
-            --accent-color: #4B0082;
-            --background-start: #F5F5F5;
-            --background-end: #E6E6FA;
-            --text-primary: #333333;
-            --text-secondary: #555555;
+            /* Light Mode (softer purple-white) */
+            --primary-color: #B19CD9; /* Soft pastel purple */
+            --secondary-color: #E6E6FA; /* Very light lavender */
+            --accent-color: #9370DB; /* Medium purple, less intense */
+            --background-start: #F8F8FF; /* Ghost white */
+            --background-end: #F0F0F5; /* Light grayish purple */
+            --text-primary: #4A4A4A; /* Dark gray for readability */
+            --text-secondary: #6A6A6A; /* Medium gray */
             --shadow-color: rgba(0, 0, 0, 0.1);
-            --card-bg: rgba(255, 255, 255, 0.8);
-            --section-bg-start: #DDA0DD;
-            --section-bg-end: #BA55D3;
-            --footer-bg: rgba(230, 230, 250, 0.5);
+            --card-bg: rgba(255, 255, 255, 0.9);
+            --section-bg-start: #D8BFD8; /* Thistle */
+            --section-bg-end: #CDB5CD; /* Light plum */
+            --footer-bg: rgba(240, 240, 245, 0.6);
         }
 
         * {
@@ -103,7 +103,7 @@
         }
 
         [data-theme="light"] header {
-            background: rgba(245, 245, 245, 0.95);
+            background: rgba(248, 248, 255, 0.95);
         }
 
         .nav-container {
@@ -113,6 +113,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: relative;
         }
 
         .theme-toggle {
@@ -464,7 +465,7 @@
         }
 
         .btn-secondary {
-            background: linear-gradient(to right, #7209B7 0%, #A569BD 100%);
+            background: linear-gradient(to right, var(--section-bg-start) 0%, var(--section-bg-end) 100%);
             color: var(--text-primary);
         }
 
@@ -588,7 +589,7 @@
     <header>
         <button class="theme-toggle" aria-label="Toggle Theme">☀️</button>
         <div class="nav-container">
-            <img src="/virtuedarkheader.png" alt="Team Virtue Logo" class="nav-logo" id="nav-logo">
+            <img src="/virtuelightheader.png" alt="Team Virtue Logo" class="nav-logo" id="nav-logo">
             <nav>
                 <ul>
                     <li><a href="#home">Home</a></li>
@@ -603,7 +604,7 @@
     <main class="container" id="home">
         <div class="content-wrapper">
             <section class="left-section">
-                <img src="/virtuedarkheader.png" alt="Team Virtue Logo" class="logo logo-shine" id="main-logo">
+                <img src="/virtuelightheader.png" alt="Team Virtue Logo" class="logo logo-shine" id="main-logo">
                 <article class="section roster" id="roster">
                     <h2>Our Roster</h2>
                     <ul class="roster-list">
@@ -644,8 +645,8 @@
             body.setAttribute('data-theme', theme);
             localStorage.setItem('theme', theme);
             toggleButton.textContent = theme === 'dark' ? '☀️' : '🌙';
-            navLogo.src = theme === 'dark' ? '/virtuedarkheader.png' : '/virtuelightheader.png';
-            mainLogo.src = theme === 'dark' ? '/virtuedarkheader.png' : '/virtuelightheader.png';
+            navLogo.src = theme === 'dark' ? '/virtuelightheader.png' : '/virtuedarkheader.png';
+            mainLogo.src = theme === 'dark' ? '/virtuelightheader.png' : '/virtuedarkheader.png';
         }
 
         // Load saved theme or default to dark
