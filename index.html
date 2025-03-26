@@ -1,1053 +1,1011 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Team Virtue - A professional eSports organization focused on skill, teamwork, and integrity.">
-    <meta name="keywords" content="eSports, Team Virtue, gaming, professional team, Rocket League">
-    <meta name="author" content="Team Virtue">
-    <meta name="theme-color" content="#8A2BE2">
-    <title>Team Virtue - Professional eSports Organization</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <style>
-        /* ========================================================================== */
-        /* Reset and Base Styles */
-        /* ========================================================================== */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
-
-        html {
-            height: 100%;
-            overflow-x: hidden;
-            background: #1a1a2e;
-        }
-
-        body {
-            font-family: 'Montserrat', sans-serif;
-            color: #fff;
-            min-height: 100vh;
-            overflow-x: hidden;
-            transition: background 0.8s ease, transform 0.5s ease;
-            display: flex;
-            flex-direction: column;
-            /* Changed to purple-black to purple-white gradient */
-            background: linear-gradient(135deg, #4B0082 0%, #C8BFE7 100%);
-            position: relative;
-            z-index: 0;
-        }
-
-        /* ========================================================================== */
-        /* Utility Classes */
-        /* ========================================================================== */
-        .flex-center {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .flex-column {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .text-shadow {
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
-        }
-
-        .text-shadow-light {
-            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
-        }
-
-        .glass-effect {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 15px;
-        }
-
-        .glass-effect-strong {
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(15px);
-            border: 2px solid rgba(255, 255, 255, 0.25);
-        }
-
-        /* ========================================================================== */
-        /* Main Container */
-        /* ========================================================================== */
-        .container {
-            width: 95%;
-            max-width: 2000px;
-            margin: 0 auto;
-            padding: 50px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            position: relative;
-            z-index: 1;
-            animation: fadeInContainer 1.5s ease-in-out;
-        }
-
-        /* ========================================================================== */
-        /* Logo Styling */
-        /* ========================================================================== */
-        .logo {
-            width: 100%;
-            max-width: 550px;
-            height: auto;
-            filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.6));
-            transition: transform 0.7s ease, opacity 0.5s ease, filter 0.5s ease;
-            margin-top: -30px;
-            animation: logoPulse 6s infinite ease-in-out;
-            position: relative;
-        }
-
-        .logo:hover {
-            transform: scale(1.15) rotate(2deg);
-            opacity: 0.95;
-            filter: drop-shadow(0 15px 30px rgba(138, 43, 226, 0.8));
-        }
-
-        /* Shine Effect for Logo */
-        .logo-shine {
-            position: relative;
-        }
-
-        .logo-shine::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -75%;
-            width: 50%;
-            height: 100%;
-            background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.6), transparent);
-            transform: skewX(-25deg);
-            animation: logoShine 1.5s infinite; /* Slower shine at 1.5s */
-            z-index: 1;
-        }
-
-        /* ========================================================================== */
-        /* Section Styling */
-        /* ========================================================================== */
-        .section {
-            margin-bottom: 20px;
-            padding: 20px;
-            border-radius: 15px;
-            transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .section::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(138, 43, 226, 0.3) 0%, transparent 70%);
-            opacity: 0;
-            transition: opacity 0.5s ease;
-            z-index: -1;
-        }
-
-        .section:hover::before {
-            opacity: 0.5;
-        }
-
-        .section:hover {
-            transform: scale(1.05) translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
-        }
-
-        .section h2 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 28px;
-            font-weight: 700;
-            color: #ffffff;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-            margin-bottom: 15px;
-            animation: textGlow 2s infinite alternate;
-            position: relative;
-        }
-
-        .section h2::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(to right, #8A2BE2, transparent);
-            transition: width 0.5s ease;
-        }
-
-        .section:hover h2::after {
-            width: 50%;
-        }
-
-        /* ========================================================================== */
-        /* Dynamic Gradient Alignment */
-        /* ========================================================================== */
-        .section.roster.morning-theme {
-            background: linear-gradient(135deg, rgba(184, 166, 201, 0.2) 0%, rgba(240, 230, 250, 0.2) 100%);
-        }
-
-        .section.roster.day-theme {
-            background: linear-gradient(135deg, rgba(138, 43, 226, 0.2) 0%, rgba(216, 191, 216, 0.2) 100%);
-        }
-
-        .section.roster.night-theme {
-            background: linear-gradient(135deg, rgba(26, 26, 46, 0.2) 0%, rgba(138, 43, 226, 0.2) 100%);
-        }
-
-        .section.managers.morning-theme {
-            background: linear-gradient(135deg, rgba(184, 166, 201, 0.2) 0%, rgba(240, 230, 250, 0.2) 100%);
-        }
-
-        .section.managers.day-theme {
-            background: linear-gradient(135deg, rgba(138, 43, 226, 0.2) 0%, rgba(216, 191, 216, 0.2) 100%);
-        }
-
-        .section.managers.night-theme {
-            background: linear-gradient(135deg, rgba(26, 26, 46, 0.2) 0%, rgba(138, 43, 226, 0.2) 100%);
-        }
-
-        .section.content-creator.morning-theme {
-            background: linear-gradient(135deg, rgba(184, 166, 201, 0.2) 0%, rgba(240, 230, 250, 0.2) 100%);
-        }
-
-        .section.content-creator.day-theme {
-            background: linear-gradient(135deg, rgba(138, 43, 226, 0.2) 0%, rgba(216, 191, 216, 0.2) 100%);
-        }
-
-        .section.content-creator.night-theme {
-            background: linear-gradient(135deg, rgba(26, 26, 46, 0.2) 0%, rgba(138, 43, 226, 0.2) 100%);
-        }
-
-        /* ========================================================================== */
-        /* Roster List */
-        /* ========================================================================== */
-        .roster-list {
-            list-style: none;
-            padding: 0;
-            opacity: 0;
-            transform: translateX(-60px);
-            transition: opacity 1.8s ease-in-out, transform 1.8s ease-in-out;
-        }
-
-        .roster-list.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .roster-list li {
-            font-size: 26px;
-            font-weight: 400;
-            color: #e0e0e0;
-            margin: 15px 0;
-            transition: transform 0.5s ease, color 0.5s ease, text-shadow 0.5s ease;
-            position: relative;
-            padding-left: 30px;
-        }
-
-        .roster-list li:hover {
-            transform: translateX(20px);
-            color: #5D3FD3;
-            text-shadow: 0 0 15px rgba(93, 63, 211, 0.9);
-        }
-
-        .roster-list li::before {
-            content: '➤';
-            color: #8A2BE2;
-            position: absolute;
-            left: 0;
-            transition: transform 0.5s ease, color 0.5s ease;
-        }
-
-        .roster-list li:hover::before {
-            transform: translateX(5px);
-            color: #5D3FD3;
-        }
-
-        .roster-list a {
-            color: inherit;
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.5s ease, text-decoration 0.5s ease;
-        }
-
-        .roster-list a:hover {
-            color: #5D3FD3;
-            text-decoration: underline wavy #8A2BE2;
-        }
-
-        /* ========================================================================== */
-        /* Managers Section */
-        /* ========================================================================== */
-        .managers-list {
-            list-style: none;
-            padding: 0;
-            opacity: 0;
-            transform: translateX(-60px);
-            transition: opacity 1.8s ease-in-out 0.2s, transform 1.8s ease-in-out 0.2s;
-        }
-
-        .managers-list.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .managers-list li {
-            font-size: 26px;
-            font-weight: 400;
-            color: #e0e0e0;
-            margin: 15px 0;
-            transition: transform 0.5s ease, color 0.5s ease, text-shadow 0.5s ease;
-            position: relative;
-            padding-left: 30px;
-        }
-
-        .managers-list li:hover {
-            transform: translateX(20px);
-            color: #5D3FD3;
-            text-shadow: 0 0 15px rgba(93, 63, 211, 0.9);
-        }
-
-        .managers-list li::before {
-            content: '★';
-            color: #8A2BE2;
-            position: absolute;
-            left: 0;
-            transition: transform 0.5s ease, color 0.5s ease;
-        }
-
-        .managers-list li:hover::before {
-            transform: scale(1.5);
-            color: #5D3FD3;
-        }
-
-        /* ========================================================================== */
-        /* Content Creator */
-        /* ========================================================================== */
-        .content-creator {
-            opacity: 0;
-            transform: translateX(-60px);
-            transition: opacity 1.8s ease-in-out 0.5s, transform 1.8s ease-in-out 0.5s;
-        }
-
-        .content-creator.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .content-creator p {
-            font-size: 26px;
-            font-weight: 400;
-            color: #e0e0e0;
-            margin: 0;
-            transition: color 0.5s ease;
-        }
-
-        .content-creator a {
-            color: #e0e0e0;
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.5s ease, transform 0.5s ease, text-shadow 0.5s ease;
-        }
-
-        .content-creator a:hover {
-            color: #5D3FD3;
-            transform: translateX(20px);
-            text-shadow: 0 0 15px rgba(93, 63, 211, 0.9);
-            text-decoration: underline wavy #8A2BE2;
-        }
-
-        /* ========================================================================== */
-        /* Socials Section */
-        /* ========================================================================== */
-        .socials {
-            display: flex;
-            gap: 20px;
-            margin-top: 20px;
-            flex-wrap: wrap;
-        }
-
-        .social-btn {
-            display: inline-flex;
-            align-items: center;
-            padding: 12px 25px;
-            font-size: 20px;
-            font-weight: 600;
-            text-decoration: none;
-            border-radius: 50px;
-            transition: all 0.5s ease;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
-            background-size: 200% auto;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .social-btn::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: rgba(255, 255, 255, 0.3);
-            transform: rotate(30deg);
-            transition: all 0.5s ease;
-            pointer-events: none;
-        }
-
-        .social-btn:hover::after {
-            top: 100%;
-            left: 100%;
-        }
-
-        .social-btn.twitter {
-            background: linear-gradient(to right, #1DA1F2 0%, #8A2BE2 100%);
-            color: #ffffff;
-        }
-
-        .social-btn.instagram {
-            background: linear-gradient(to right, #C13584 0%, #E1306C 50%, #F77737 100%);
-            color: #ffffff;
-        }
-
-        .social-btn:hover {
-            transform: translateY(-5px) scale(1.1);
-            box-shadow: 0 10px 25px rgba(138, 43, 226, 0.8);
-        }
-
-        /* ========================================================================== */
-        /* Intro */
-        /* ========================================================================== */
-        .intro {
-            font-size: 26px;
-            font-weight: 600;
-            color: #e0e0e0;
-            line-height: 1.7;
-            text-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
-            animation: fadeIn 2.5s ease-in-out both;
-            margin: 0;
-            padding: 20px;
-            border-left: 5px solid #8A2BE2;
-            transition: border-color 0.5s ease, transform 0.5s ease;
-            position: relative;
-        }
-
-        .intro:hover {
-            border-color: #5D3FD3;
-            transform: translateX(10px);
-        }
-
-        .intro::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -10px;
-            width: 5px;
-            height: 100%;
-            background: linear-gradient(to bottom, #8A2BE2, #5D3FD3);
-            animation: introGlow 2s infinite alternate;
-        }
-
-        /* ========================================================================== */
-        /* Buttons */
-        /* ========================================================================== */
-        .buttons {
-            display: flex;
-            gap: 25px;
-            flex-wrap: wrap;
-            margin-top: 25px;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            padding: 18px 35px;
-            font-size: 26px;
-            font-weight: 600;
-            text-decoration: none;
-            border-radius: 12px;
-            transition: all 0.6s ease;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            background-size: 200% auto;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-
-        .btn::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: rgba(255, 255, 255, 0.25);
-            transform: rotate(30deg);
-            transition: all 0.6s ease;
-            pointer-events: none;
-        }
-
-        .btn:hover::after {
-            top: 100%;
-            left: 100%;
-        }
-
-        .btn-primary {
-            background: linear-gradient(to right, #8A2BE2 0%, #4B0082 50%, #8A2BE2 100%);
-            color: #ffffff;
-        }
-
-        .btn-primary:hover {
-            background-position: right center;
-            transform: translateY(-8px) scale(1.05);
-            box-shadow: 0 15px 35px rgba(138, 43, 226, 0.9);
-        }
-
-        .btn-secondary {
-            background: linear-gradient(to right, #5D3FD3 0%, #B8A6C9 50%, #5D3FD3 100%);
-            color: #ffffff;
-            border: 3px solid rgba(255, 255, 255, 0.5);
-        }
-
-        .btn-secondary:hover {
-            background-position: right center;
-            transform: translateY(-8px) scale(1.05);
-            box-shadow: 0 15px 35px rgba(93, 63, 211, 0.9);
-        }
-
-        /* ========================================================================== */
-        /* Footer */
-        /* ========================================================================== */
-        .footer {
-            width: 100%;
-            text-align: center;
-            padding: 25px 0;
-            font-size: 12px;
-            color: #bbb;
-            background: linear-gradient(to top, rgba(50, 50, 50, 0.9) 0%, rgba(50, 50, 50, 0) 100%);
-            position: relative;
-            z-index: 1;
-            transition: color 0.5s ease, transform 0.5s ease;
-        }
-
-        .footer:hover {
-            color: #e0e0e0;
-            transform: translateY(-5px);
-        }
-
-        .footer p {
-            margin: 0;
-            letter-spacing: 1px;
-        }
-
-        /* ========================================================================== */
-        /* Animations */
-        /* ========================================================================== */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes slideInLeft {
-            from { opacity: 0; transform: translateX(-60px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-
-        @keyframes logoPulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.06); }
-            100% { transform: scale(1); }
-        }
-
-        @keyframes textGlow {
-            0% { text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); }
-            100% { text-shadow: 0 0 20px rgba(138, 43, 226, 0.9), 0 4px 8px rgba(0, 0, 0, 0.5); }
-        }
-
-        @keyframes introGlow {
-            0% { opacity: 0.7; }
-            100% { opacity: 1; }
-        }
-
-        @keyframes fadeInContainer {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes shine {
-            0% { left: -75%; }
-            20% { left: 125%; }
-            100% { left: 125%; }
-        }
-
-        @keyframes logoShine {
-            0% { left: -75%; }
-            33.33% { left: 125%; } /* Adjusted timing for 1.5s cycle */
-            100% { left: 125%; }
-        }
-
-        /* ========================================================================== */
-        /* Desktop Layout */
-        /* ========================================================================== */
-        @media (min-width: 769px) {
-            .container {
-                flex-direction: row;
-                justify-content: space-between;
-                align-items: center;
-                height: calc(100vh - 80px);
-            }
-
-            .content-wrapper {
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-                gap: 80px;
-                width: 100%;
-            }
-
-            .left-section {
-                flex: 1;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-            }
-
-            .right-section {
-                flex: 1;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-            }
-
-            .logo {
-                max-width: 650px;
-                margin-top: -40px;
-            }
-
-            .section h2 {
-                font-size: 28px;
-            }
-
-            .roster-list li, .managers-list li {
-                font-size: 26px;
-            }
-
-            .content-creator p {
-                font-size: 26px;
-            }
-
-            .intro {
-                font-size: 26px;
-            }
-
-            .btn, .social-btn {
-                padding: 20px 40px;
-                font-size: 26px;
-            }
-
-            .footer {
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                font-size: 12px;
-            }
-        }
-
-        /* ========================================================================== */
-        /* Tablet Layout */
-        /* ========================================================================== */
-        @media (max-width: 1024px) and (min-width: 769px) {
-            .container {
-                padding: 40px;
-            }
-
-            .logo {
-                max-width: 500px;
-                margin-top: -30px;
-            }
-
-            .section h2 {
-                font-size: 24px;
-            }
-
-            .roster-list li, .managers-list li {
-                font-size: 24px;
-            }
-
-            .content-creator p {
-                font-size: 24px;
-            }
-
-            .intro {
-                font-size: 24px;
-            }
-
-            .btn, .social-btn {
-                padding: 18px 35px;
-                font-size: 24px;
-            }
-        }
-
-        /* ========================================================================== */
-        /* Mobile Layout */
-        /* ========================================================================== */
-        @media (max-width: 768px) {
-            .container {
-                flex-direction: column;
-                align-items: center;
-                padding: 20px; /* Reduced padding for better mobile fit */
-                width: 100%; /* Full width on mobile */
-            }
-
-            .content-wrapper {
-                width: 100%;
-                text-align: center; /* Center align text for mobile */
-                flex-direction: column; /* Stack vertically */
-                gap: 20px; /* Add spacing between sections */
-            }
-
-            .left-section, .right-section {
-                width: 100%;
-                padding: 10px; /* Reduced padding */
-            }
-
-            .logo {
-                max-width: 400px; /* Smaller logo on mobile */
-                margin: 0 auto 20px; /* Center logo with bottom margin */
-                display: block;
-            }
-
-            .section h2 {
-                font-size: 22px;
-            }
-
-            .roster-list li, .managers-list li {
-                font-size: 20px; /* Slightly smaller text */
-                margin: 10px 0; /* Reduced margins */
-            }
-
-            .content-creator p {
-                font-size: 20px;
-            }
-
-            .intro {
-                font-size: 20px;
-                text-align: center; /* Center intro text */
-                padding: 15px;
-            }
-
-            .buttons, .socials {
-                flex-direction: column; /* Stack buttons vertically */
-                gap: 15px; /* Reduced gap */
-                width: 100%;
-                align-items: center; /* Center buttons */
-            }
-
-            .btn, .social-btn {
-                padding: 12px 25px; /* Smaller padding */
-                font-size: 20px; /* Smaller text */
-                width: 80%; /* Consistent button width */
-                max-width: 300px; /* Maximum width cap */
-            }
-
-            .footer {
-                margin-top: 20px;
-                font-size: 12px;
-                padding: 15px 0; /* Adjusted padding */
-            }
-
-            .roster-list, .managers-list, .content-creator {
-                opacity: 1; /* Always visible on mobile */
-                transform: translateX(0);
-                transition: none; /* Remove transitions for better mobile performance */
-            }
-        }
-
-        /* ========================================================================== */
-        /* Small Mobile Layout */
-        /* ========================================================================== */
-        @media (max-width: 480px) {
-            .logo {
-                max-width: 300px; /* Even smaller logo */
-                margin-top: 0;
-            }
-
-            .section h2 {
-                font-size: 18px;
-            }
-
-            .roster-list li, .managers-list li {
-                font-size: 18px;
-            }
-
-            .content-creator p {
-                font-size: 18px;
-            }
-
-            .intro {
-                font-size: 18px;
-            }
-
-            .btn, .social-btn {
-                padding: 10px 20px;
-                font-size: 18px;
-                width: 90%; /* Slightly wider on small screens */
-            }
-
-            .footer {
-                font-size: 10px;
-            }
-        }
-
-        /* ========================================================================== */
-        /* Additional Styling */
-        /* ========================================================================== */
-        .left-section, .right-section {
-            padding: 25px;
-            background: rgba(255, 255, 255, 0.08);
-            border-radius: 20px;
-            backdrop-filter: blur(8px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        .night-theme {
-            background: linear-gradient(135deg, #1a1a2e 0%, #4B0082 40%, #8A2BE2 60%, #1a1a2e 100%);
-        }
-
-        .morning-theme {
-            background: linear-gradient(135deg, #B8A6C9 0%, #D8BFD8 40%, #F0E6FA 60%, #B8A6C9 100%);
-        }
-
-        .day-theme {
-            background: linear-gradient(135deg, #8A2BE2 0%, #B8A6C9 40%, #D8BFD8 60%, #1a1a2e 100%);
-        }
-
-        .content-wrapper {
-            padding: 25px;
-            position: relative;
-        }
-
-        .content-wrapper::before {
-            content: '';
-            position: absolute;
-            top: -30px;
-            left: -30px;
-            width: calc(100% + 60px);
-            height: calc(100% + 60px);
-            background: radial-gradient(circle, rgba(138, 43, 226, 0.25) 0%, transparent 70%);
-            z-index: -1;
-            animation: radialPulse 6s infinite ease-in-out;
-        }
-
-        .content-wrapper::after {
-            content: '';
-            position: absolute;
-            bottom: -50px;
-            right: -50px;
-            width: 200px;
-            height: 200px;
-            background: radial-gradient(circle, rgba(93, 63, 211, 0.2) 0%, transparent 70%);
-            z-index: -1;
-            animation: radialPulseReverse 4s infinite ease-in-out;
-        }
-
-        /* ========================================================================== */
-        /* Additional Animations */
-        /* ========================================================================== */
-        @keyframes radialPulse {
-            0% { transform: scale(1); opacity: 0.6; }
-            50% { transform: scale(1.15); opacity: 0.4; }
-            100% { transform: scale(1); opacity: 0.6; }
-        }
-
-        @keyframes radialPulseReverse {
-            0% { transform: scale(1); opacity: 0.5; }
-            50% { transform: scale(1.2); opacity: 0.3; }
-            100% { transform: scale(1); opacity: 0.5; }
-        }
-
-        .btn-shine {
-            position: relative;
-        }
-
-        .btn-shine::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -75%;
-            width: 50%;
-            height: 100%;
-            background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.6), transparent);
-            transform: skewX(-25deg);
-            animation: shine 2.5s infinite;
-        }
-
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"%3E%3Ccircle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1" /%3E%3C/svg%3E') repeat;
-            opacity: 0.12;
-            z-index: -1;
-            animation: subtleMove 20s infinite linear;
-        }
-
-        @keyframes subtleMove {
-            0% { background-position: 0 0; }
-            100% { background-position: 100px 100px; }
-        }
-
-        .particles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 0;
-        }
-    </style>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta name="description" content="Team Virtue - A professional eSports organization focused on skill, teamwork, and integrity.">
+ <meta name="keywords" content="eSports, Team Virtue, gaming, professional team, Rocket League">
+ <meta name="author" content="Team Virtue">
+ <meta name="theme-color" content="#8A2BE2">
+ <title>Team Virtue - Professional eSports Organization</title>
+ <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+ <link rel="icon" href="/favicon.ico" type="image/x-icon">
+ <style>
+ /* ========================================================================== */
+ /* Reset and Base Styles */
+ /* ========================================================================== */
+ * {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ scroll-behavior: smooth;
+ }
+
+ html {
+ height: 100%;
+ overflow-x: hidden;
+ background: #1a1a2e;
+ }
+
+ body {
+ font-family: 'Montserrat', sans-serif;
+ color: #fff;
+ min-height: 100vh;
+ overflow-x: hidden;
+ transition: background 0.8s ease, transform 0.5s ease;
+ display: flex;
+ flex-direction: column;
+ background: linear-gradient(135deg, #4B0082 0%, #C8BFE7 100%);
+ position: relative;
+ z-index: 0;
+ cursor: none; /* For custom cursor */
+ }
+
+ /* ========================================================================== */
+ /* Custom Cursor */
+ /* ========================================================================== */
+ .custom-cursor {
+ position: fixed;
+ width: 20px;
+ height: 20px;
+ background: rgba(138, 43, 226, 0.8);
+ border-radius: 50%;
+ pointer-events: none;
+ z-index: 9999;
+ transition: transform 0.1s ease, opacity 0.2s ease;
+ mix-blend-mode: difference;
+ }
+
+ .custom-cursor.hover {
+ transform: scale(2);
+ opacity: 0.7;
+ }
+
+ /* ========================================================================== */
+ /* Utility Classes */
+ /* ========================================================================== */
+ .flex-center {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ }
+
+ .flex-column {
+ display: flex;
+ flex-direction: column;
+ }
+
+ .text-shadow {
+ text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+ }
+
+ .text-shadow-light {
+ text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+ }
+
+ .glass-effect {
+ background: rgba(255, 255, 255, 0.1);
+ backdrop-filter: blur(10px);
+ border: 1px solid rgba(255, 255, 255, 0.2);
+ border-radius: 15px;
+ }
+
+ .glass-effect-strong {
+ background: rgba(255, 255, 255, 0.15);
+ backdrop-filter: blur(15px);
+ border: 2px solid rgba(255, 255, 255, 0.25);
+ }
+
+ /* ========================================================================== */
+ /* Main Container */
+ /* ========================================================================== */
+ .container {
+ width: 95%;
+ max-width: 2000px;
+ margin: 0 auto;
+ padding: 50px;
+ flex-grow: 1;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ position: relative;
+ z-index: 1;
+ animation: fadeInContainer 1.5s ease-in-out;
+ transform-style: preserve-3d;
+ }
+
+ /* ========================================================================== */
+ /* Logo Styling */
+ /* ========================================================================== */
+ .logo {
+ width: 100%;
+ max-width: 550px;
+ height: auto;
+ filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.6));
+ transition: transform 0.7s ease, opacity 0.5s ease, filter 0.5s ease;
+ margin-top: -30px;
+ animation: logoPulse 6s infinite ease-in-out;
+ position: relative;
+ will-change: transform;
+ }
+
+ .logo:hover {
+ transform: scale(1.15) rotate(2deg);
+ opacity: 0.95;
+ filter: drop-shadow(0 15px 30px rgba(138, 43, 226, 0.8));
+ }
+
+ .logo-shine {
+ position: relative;
+ }
+
+ .logo-shine::before {
+ content: '';
+ position: absolute;
+ top: 0;
+ left: -75%;
+ width: 50%;
+ height: 100%;
+ background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.6), transparent);
+ transform: skewX(-25deg);
+ animation: logoShine 1.5s infinite;
+ z-index: 1;
+ }
+
+ /* ========================================================================== */
+ /* Parallax Background */
+ /* ========================================================================== */
+ .parallax-bg {
+ position: fixed;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 100%;
+ background: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"%3E%3Ccircle cx="50" cy="50" r="40" fill="none" stroke="rgba(138,43,226,0.2)" stroke-width="2" /%3E%3C/svg%3E') repeat;
+ z-index: -2;
+ transform: translateZ(-1px) scale(1.1);
+ opacity: 0.15;
+ }
+
+ /* ========================================================================== */
+ /* Section Styling */
+ /* ========================================================================== */
+ .section {
+ margin-bottom: 20px;
+ padding: 20px;
+ border-radius: 15px;
+ transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
+ position: relative;
+ overflow: hidden;
+ transform-style: preserve-3d;
+ }
+
+ .section::before {
+ content: '';
+ position: absolute;
+ top: -50%;
+ left: -50%;
+ width: 200%;
+ height: 200%;
+ background: radial-gradient(circle, rgba(138, 43, 226, 0.3) 0%, transparent 70%);
+ opacity: 0;
+ transition: opacity 0.5s ease;
+ z-index: -1;
+ }
+
+ .section:hover::before {
+ opacity: 0.5;
+ }
+
+ .section:hover {
+ transform: scale(1.05) translateY(-10px) rotateX(5deg);
+ box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+ }
+
+ .section h2 {
+ font-family: 'Orbitron', sans-serif;
+ font-size: 28px;
+ font-weight: 700;
+ color: #ffffff;
+ text-transform: uppercase;
+ letter-spacing: 4px;
+ text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+ margin-bottom: 15px;
+ animation: textGlow 2s infinite alternate;
+ position: relative;
+ transform: translateZ(10px);
+ }
+
+ .section h2::after {
+ content: '';
+ position: absolute;
+ bottom: -5px;
+ left: 0;
+ width: 100%;
+ height: 2px;
+ background: linear-gradient(to right, #8A2BE2, transparent);
+ transition: width 0.5s ease;
+ }
+
+ .section:hover h2::after {
+ width: 50%;
+ }
+
+ /* ========================================================================== */
+ /* Dynamic Gradient Alignment (Extended) */
+ /* ========================================================================== */
+ .section.roster {
+ background: linear-gradient(135deg, rgba(138, 43, 226, 0.2) 0%, rgba(216, 191, 216, 0.2) 100%);
+ transition: background 0.8s ease;
+ }
+
+ .section.roster:hover {
+ background: linear-gradient(135deg, rgba(138, 43, 226, 0.4) 0%, rgba(216, 191, 216, 0.4) 100%);
+ }
+
+ .section.managers {
+ background: linear-gradient(135deg, rgba(93, 63, 211, 0.2) 0%, rgba(184, 166, 201, 0.2) 100%);
+ transition: background 0.8s ease;
+ }
+
+ .section.managers:hover {
+ background: linear-gradient(135deg, rgba(93, 63, 211, 0.4) 0%, rgba(184, 166, 201, 0.4) 100%);
+ }
+
+ .section.content-creator {
+ background: linear-gradient(135deg, rgba(75, 0, 130, 0.2) 0%, rgba(240, 230, 250, 0.2) 100%);
+ transition: background 0.8s ease;
+ }
+
+ .section.content-creator:hover {
+ background: linear-gradient(135deg, rgba(75, 0, 130, 0.4) 0%, rgba(240, 230, 250, 0.4) 100%);
+ }
+
+ /* ========================================================================== */
+ /* Roster List */
+ /* ========================================================================== */
+ .roster-list {
+ list-style: none;
+ padding: 0;
+ opacity: 0;
+ transform: translateX(-60px);
+ transition: opacity 1.8s ease-in-out, transform 1.8s ease-in-out;
+ }
+
+ .roster-list.visible {
+ opacity: 1;
+ transform: translateX(0);
+ }
+
+ .roster-list li {
+ font-size: 26px;
+ font-weight: 400;
+ color: #e0e0e0;
+ margin: 15px 0;
+ transition: transform 0.5s ease, color 0.5s ease, text-shadow 0.5s ease, background 0.3s ease;
+ position: relative;
+ padding-left: 30px;
+ padding: 10px 15px;
+ border-radius: 8px;
+ }
+
+ .roster-list li:hover {
+ transform: translateX(20px);
+ color: #5D3FD3;
+ text-shadow: 0 0 15px rgba(93, 63, 211, 0.9);
+ background: rgba(138, 43, 226, 0.1);
+ }
+
+ .roster-list li::before {
+ content: '➤';
+ color: #8A2BE2;
+ position: absolute;
+ left: 0;
+ transition: transform 0.5s ease, color 0.5s ease;
+ }
+
+ .roster-list li:hover::before {
+ transform: translateX(5px);
+ color: #5D3FD3;
+ }
+
+ .roster-list a {
+ color: inherit;
+ text-decoration: none;
+ font-weight: 600;
+ transition: color 0.5s ease, text-decoration 0.5s ease;
+ }
+
+ .roster-list a:hover {
+ color: #5D3FD3;
+ text-decoration: underline wavy #8A2BE2;
+ }
+
+ /* ========================================================================== */
+ /* Managers Section */
+ /* ========================================================================== */
+ .managers-list {
+ list-style: none;
+ padding: 0;
+ opacity: 0;
+ transform: translateX(-60px);
+ transition: opacity 1.8s ease-in-out 0.2s, transform 1.8s ease-in-out 0.2s;
+ }
+
+ .managers-list.visible {
+ opacity: 1;
+ transform: translateX(0);
+ }
+
+ .managers-list li {
+ font-size: 26px;
+ font-weight: 400;
+ color: #e0e0e0;
+ margin: 15px 0;
+ transition: transform 0.5s ease, color 0.5s ease, text-shadow 0.5s ease, background 0.3s ease;
+ position: relative;
+ padding-left: 30px;
+ padding: 10px 15px;
+ border-radius: 8px;
+ }
+
+ .managers-list li:hover {
+ transform: translateX(20px);
+ color: #5D3FD3;
+ text-shadow: 0 0 15px rgba(93, 63, 211, 0.9);
+ background: rgba(93, 63, 211, 0.1);
+ }
+
+ .managers-list li::before {
+ content: '★';
+ color: #8A2BE2;
+ position: absolute;
+ left: 0;
+ transition: transform 0.5s ease, color 0.5s ease;
+ }
+
+ .managers-list li:hover::before {
+ transform: scale(1.5);
+ color: #5D3FD3;
+ }
+
+ /* ========================================================================== */
+ /* Content Creator */
+ /* ========================================================================== */
+ .content-creator {
+ opacity: 0;
+ transform: translateX(-60px);
+ transition: opacity 1.8s ease-in-out 0.5s, transform 1.8s ease-in-out 0.5s;
+ }
+
+ .content-creator.visible {
+ opacity: 1;
+ transform: translateX(0);
+ }
+
+ .content-creator p {
+ font-size: 26px;
+ font-weight: 400;
+ color: #e0e0e0;
+ margin: 0;
+ transition: color 0.5s ease, transform 0.5s ease, background 0.3s ease;
+ padding: 10px 15px;
+ border-radius: 8px;
+ }
+
+ .content-creator p:hover {
+ transform: translateX(20px);
+ color: #5D3FD3;
+ background: rgba(75, 0, 130, 0.1);
+ }
+
+ .content-creator a {
+ color: #e0e0e0;
+ text-decoration: none;
+ font-weight: 600;
+ transition: color 0.5s ease, transform 0.5s ease, text-shadow 0.5s ease;
+ }
+
+ .content-creator a:hover {
+ color: #5D3FD3;
+ transform: translateX(20px);
+ text-shadow: 0 0 15px rgba(93, 63, 211, 0.9);
+ text-decoration: underline wavy #8A2BE2;
+ }
+
+ /* ========================================================================== */
+ /* Socials Section */
+ /* ========================================================================== */
+ .socials {
+ display: flex;
+ gap: 20px;
+ margin-top: 20px;
+ flex-wrap: wrap;
+ perspective: 1000px;
+ }
+
+ .social-btn {
+ display: inline-flex;
+ align-items: center;
+ padding: 12px 25px;
+ font-size: 20px;
+ font-weight: 600;
+ text-decoration: none;
+ border-radius: 50px;
+ transition: all 0.5s ease;
+ box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+ background-size: 200% auto;
+ position: relative;
+ overflow: hidden;
+ transform-style: preserve-3d;
+ }
+
+ .social-btn::after {
+ content: '';
+ position: absolute;
+ top: -50%;
+ left: -50%;
+ width: 200%;
+ height: 200%;
+ background: rgba(255, 255, 255, 0.3);
+ transform: rotate(30deg);
+ transition: all 0.5s ease;
+ pointer-events: none;
+ }
+
+ .social-btn:hover::after {
+ top: 100%;
+ left: 100%;
+ }
+
+ .social-btn.twitter {
+ background: linear-gradient(to right, #1DA1F2 0%, #8A2BE2 100%);
+ color: #ffffff;
+ }
+
+ .social-btn.instagram {
+ background: linear-gradient(to right, #C13584 0%, #E1306C 50%, #F77737 100%);
+ color: #ffffff;
+ }
+
+ .social-btn:hover {
+ transform: translateY(-5px) scale(1.1) rotateX(10deg);
+ box-shadow: 0 10px 25px rgba(138, 43, 226, 0.8);
+ }
+
+ /* ========================================================================== */
+ /* Intro */
+ /* ========================================================================== */
+ .intro {
+ font-size: 26px;
+ font-weight: 600;
+ color: #e0e0e0;
+ line-height: 1.7;
+ text-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+ animation: fadeIn 2.5s ease-in-out both;
+ margin: 0;
+ padding: 20px;
+ border-left: 5px solid #8A2BE2;
+ transition: border-color 0.5s ease, transform 0.5s ease, background 0.3s ease;
+ position: relative;
+ transform-style: preserve-3d;
+ }
+
+ .intro:hover {
+ border-color: #5D3FD3;
+ transform: translateX(10px) rotateY(5deg);
+ background: rgba(138, 43, 226, 0.05);
+ }
+
+ .intro::before {
+ content: '';
+ position: absolute;
+ top: 0;
+ left: -10px;
+ width: 5px;
+ height: 100%;
+ background: linear-gradient(to bottom, #8A2BE2, #5D3FD3);
+ animation: introGlow 2s infinite alternate;
+ }
+
+ /* ========================================================================== */
+ /* Buttons */
+ /* ========================================================================== */
+ .buttons {
+ display: flex;
+ gap: 25px;
+ flex-wrap: wrap;
+ margin-top: 25px;
+ perspective: 1000px;
+ }
+
+ .btn {
+ display: inline-flex;
+ align-items: center;
+ padding: 18px 35px;
+ font-size: 26px;
+ font-weight: 600;
+ text-decoration: none;
+ border-radius: 12px;
+ transition: all 0.6s ease;
+ box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+ text-transform: uppercase;
+ letter-spacing: 3px;
+ background-size: 200% auto;
+ text-align: center;
+ position: relative;
+ overflow: hidden;
+ z-index: 1;
+ transform-style: preserve-3d;
+ }
+
+ .btn::after {
+ content: '';
+ position: absolute;
+ top: -50%;
+ left: -50%;
+ width: 200%;
+ height: 200%;
+ background: rgba(255, 255, 255, 0.25);
+ transform: rotate(30deg);
+ transition: all 0.6s ease;
+ pointer-events: none;
+ }
+
+ .btn:hover::after {
+ top: 100%;
+ left: 100%;
+ }
+
+ .btn-primary {
+ background: linear-gradient(to right, #8A2BE2 0%, #4B0082 50%, #8A2BE2 100%);
+ color: #ffffff;
+ }
+
+ .btn-primary:hover {
+ background-position: right center;
+ transform: translateY(-8px) scale(1.05) rotateX(10deg);
+ box-shadow: 0 15px 35px rgba(138, 43, 226, 0.9);
+ }
+
+ .btn-secondary {
+ background: linear-gradient(to right, #5D3FD3 0%, #B8A6C9 50%, #5D3FD3 100%);
+ color: #ffffff;
+ border: 3px solid rgba(255, 255, 255, 0.5);
+ }
+
+ .btn-secondary:hover {
+ background-position: right center;
+ transform: translateY(-8px) scale(1.05) rotateX(10deg);
+ box-shadow: 0 15px 35px rgba(93, 63, 211, 0.9);
+ }
+
+ /* ========================================================================== */
+ /* Footer (Updated - No Shadow, Small Text) */
+ /* ========================================================================== */
+ .footer {
+ width: 100%;
+ text-align: center;
+ padding: 10px 0;
+ font-size: 10px;
+ color: #bbb;
+ position: relative;
+ z-index: 1;
+ }
+
+ .footer p {
+ margin: 0;
+ letter-spacing: 1px;
+ }
+
+ /* ========================================================================== */
+ /* Advanced Particle System */
+ /* ========================================================================== */
+ .particles {
+ position: fixed;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 100%;
+ pointer-events: none;
+ z-index: 0;
+ }
+
+ .particle {
+ position: absolute;
+ border-radius: 50%;
+ opacity: 0.5;
+ transition: all 0.5s ease;
+ }
+
+ /* ========================================================================== */
+ /* Animations */
+ /* ========================================================================== */
+ @keyframes fadeIn {
+ from { opacity: 0; transform: translateY(-30px); }
+ to { opacity: 1; transform: translateY(0); }
+ }
+
+ @keyframes slideInLeft {
+ from { opacity: 0; transform: translateX(-60px); }
+ to { opacity: 1; transform: translateX(0); }
+ }
+
+ @keyframes logoPulse {
+ 0% { transform: scale(1); }
+ 50% { transform: scale(1.06); }
+ 100% { transform: scale(1); }
+ }
+
+ @keyframes textGlow {
+ 0% { text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); }
+ 100% { text-shadow: 0 0 20px rgba(138, 43, 226, 0.9), 0 4px 8px rgba(0, 0, 0, 0.5); }
+ }
+
+ @keyframes introGlow {
+ 0% { opacity: 0.7; }
+ 100% { opacity: 1; }
+ }
+
+ @keyframes fadeInContainer {
+ from { opacity: 0; }
+ to { opacity: 1; }
+ }
+
+ @keyframes shine {
+ 0% { left: -75%; }
+ 20% { left: 125%; }
+ 100% { left: 125%; }
+ }
+
+ @keyframes logoShine {
+ 0% { left: -75%; }
+ 33.33% { left: 125%; }
+ 100% { left: 125%; }
+ }
+
+ @keyframes float {
+ 0% { transform: translateY(0); }
+ 50% { transform: translateY(-20px); }
+ 100% { transform: translateY(0); }
+ }
+
+ @keyframes particlePulse {
+ 0% { transform: scale(1); opacity: 0.5; }
+ 50% { transform: scale(1.5); opacity: 0.8; }
+ 100% { transform: scale(1); opacity: 0.5; }
+ }
+
+ /* ========================================================================== */
+ /* Desktop Layout */
+ /* ========================================================================== */
+ @media (min-width: 769px) {
+ .container {
+ flex-direction: row;
+ justify-content: space-between;
+ align-items: center;
+ height: calc(100vh - 80px);
+ }
+
+ .content-wrapper {
+ display: flex;
+ flex-direction: row;
+ align-items: center;
+ gap: 80px;
+ width: 100%;
+ }
+
+ .left-section {
+ flex: 1;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ }
+
+ .right-section {
+ flex: 1;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ }
+
+ .logo {
+ max-width: 650px;
+ margin-top: -40px;
+ }
+
+ .section h2 {
+ font-size: 28px;
+ }
+
+ .roster-list li, .managers-list li {
+ font-size: 26px;
+ }
+
+ .content-creator p {
+ font-size: 26px;
+ }
+
+ .intro {
+ font-size: 26px;
+ }
+
+ .btn, .social-btn {
+ padding: 20px 40px;
+ font-size: 26px;
+ }
+
+ .footer {
+ position: absolute;
+ bottom: 0;
+ left: 0;
+ right: 0;
+ }
+ }
+
+ /* ========================================================================== */
+ /* Tablet Layout */
+ /* ========================================================================== */
+ @media (max-width: 1024px) and (min-width: 769px) {
+ .container {
+ padding: 40px;
+ }
+
+ .logo {
+ max-width: 500px;
+ margin-top: -30px;
+ }
+
+ .section h2 {
+ font-size: 24px;
+ }
+
+ .roster-list li, .managers-list li {
+ font-size: 24px;
+ }
+
+ .content-creator p {
+ font-size: 24px;
+ }
+
+ .intro {
+ font-size: 24px;
+ }
+
+ .btn, .social-btn {
+ padding: 18px 35px;
+ font-size: 24px;
+ }
+ }
+
+ /* ========================================================================== */
+ /* Mobile Layout */
+ /* ========================================================================== */
+ @media (max-width: 768px) {
+ .container {
+ flex-direction: column;
+ align-items: center;
+ padding: 20px;
+ width: 100%;
+ }
+
+ .content-wrapper {
+ width: 100%;
+ text-align: center;
+ flex-direction: column;
+ gap: 20px;
+ }
+
+ .left-section, .right-section {
+ width: 100%;
+ padding: 10px;
+ }
+
+ .logo {
+ max-width: 400px;
+ margin: 0 auto 20px;
+ display: block;
+ }
+
+ .section h2 {
+ font-size: 22px;
+ }
+
+ .roster-list li, .managers-list li {
+ font-size: 20px;
+ margin: 10px 0;
+ }
+
+ .content-creator p {
+ font-size: 20px;
+ }
+
+ .intro {
+ font-size: 20px;
+ text-align: center;
+ padding: 15px;
+ }
+
+ .buttons, .socials {
+ flex-direction: column;
+ gap: 15px;
+ width: 100%;
+ align-items: center;
+ }
+
+ .btn, .social-btn {
+ padding: 12px 25px;
+ font-size: 20px;
+ width: 80%;
+ max-width: 300px;
+ }
+
+ .footer {
+ margin-top: 20px;
+ padding: 10px 0;
+ }
+
+ .roster-list, .managers-list, .content-creator {
+ opacity: 1;
+ transform: translateX(0);
+ transition: none;
+ }
+ }
+
+ /* ========================================================================== */
+ /* Small Mobile Layout */
+ /* ========================================================================== */
+ @media (max-width: 480px) {
+ .logo {
+ max-width: 300px;
+ margin-top: 0;
+ }
+
+ .section h2 {
+ font-size: 18px;
+ }
+
+ .roster-list li, .managers-list li {
+ font-size: 18px;
+ }
+
+ .content-creator p {
+ font-size: 18px;
+ }
+
+ .intro {
+ font-size: 18px;
+ }
+
+ .btn, .social-btn {
+ padding: 10px 20px;
+ font-size: 18px;
+ width: 90%;
+ }
+
+ .footer {
+ font-size: 8px;
+ }
+ }
+
+ /* ========================================================================== */
+ /* Advanced Styling Additions */
+ /* ========================================================================== */
+ .left-section, .right-section {
+ padding: 25px;
+ background: rgba(255, 255, 255, 0.08);
+ border-radius: 20px;
+ backdrop-filter: blur(8px);
+ box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+ transition: transform 0.5s ease, box-shadow 0.5s ease;
+ }
+
+ .left-section:hover, .right-section:hover {
+ transform: translateZ(20px);
+ box-shadow: 0 10px 25px rgba(138, 43, 226, 0.5);
+ }
+
+ .content-wrapper {
+ padding: 25px;
+ position: relative;
+ perspective: 1000px;
+ }
+
+ .content-wrapper::before {
+ content: '';
+ position: absolute;
+ top: -30px;
+ left: -30px;
+ width: calc(100% + 60px);
+ height: calc(100% + 60px);
+ background: radial-gradient(circle, rgba(138, 43, 226, 0.25) 0%, transparent 70%);
+ z-index: -1;
+ animation: radialPulse 6s infinite ease-in-out;
+ }
+
+ .content-wrapper::after {
+ content: '';
+ position: absolute;
+ bottom: -50px;
+ right: -50px;
+ width: 200px;
+ height: 200px;
+ background: radial-gradient(circle, rgba(93, 63, 211, 0.2) 0%, transparent 70%);
+ z-index: -1;
+ animation: radialPulseReverse 4s infinite ease-in-out;
+ }
+
+ .btn-shine {
+ position: relative;
+ }
+
+ .btn-shine::before {
+ content: '';
+ position: absolute;
+ top: 0;
+ left: -75%;
+ width: 50%;
+ height: 100%;
+ background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.6), transparent);
+ transform: skewX(-25deg);
+ animation: shine 2.5s infinite;
+ }
+
+ /* ========================================================================== */
+ /* Advanced Hover Effects */
+ /* ========================================================================== */
+ .hover-container {
+ position: relative;
+ overflow: hidden;
+ }
+
+ .hover-container::after {
+ content: '';
+ position: absolute;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 100%;
+ background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+ opacity: 0;
+ transition: opacity 0.4s ease;
+ pointer-events: none;
+ }
+
+ .hover-container:hover::after {
+ opacity: 1;
+ }
+
+ /* ========================================================================== */
+ /* Scroll Animations */
+ /* ========================================================================== */
+ .scroll-reveal {
+ opacity: 0;
+ transform: translateY(50px);
+ transition: opacity 0.8s ease, transform 0.8s ease;
+ }
+
+ .scroll-reveal.visible {
+ opacity: 1;
+ transform: translateY(0);
+ }
+
+ /* ========================================================================== */
+ /* Dynamic Gradient Background */
+ /* ========================================================================== */
+ @keyframes gradientShift {
+ 0% { background-position: 0% 50%; }
+ 50% { background-position: 100% 50%; }
+ 100% { background-position: 0% 50%; }
+ }
+
+ .gradient-anim {
+ animation: gradientShift 15s ease infinite;
+ background-size: 200% 200%;
+ }
+ </style>
 </head>
 <body>
-    <div class="particles" id="particles"></div>
-    <div class="container">
-        <div class="content-wrapper">
-            <div class="left-section glass-effect">
-                <!-- Changed to virtueblackheader.png as primary logo -->
-                <img src="/virtueblackheader.png" alt="Team Virtue Logo" class="logo logo-shine" id="header-logo">
-                <section class="section roster glass-effect">
-                    <h2 class="text-shadow">Roster</h2>
-                    <ul class="roster-list">
-                        <li><a href="https://steamcommunity.com/id/finnish_taylorsversion/" target="_blank">Finny.</a></li>
-                        <li><a href="https://steamcommunity.com/profiles/76561198369905223" target="_blank">WestyzWorld</a></li>
-                        <li>Jxhnssl.</li>
-                        <li><a href="https://steamcommunity.com/id/FeliciaTheOG" target="_blank">Felicia, The Goat</a></li>
-                    </ul>
-                </section>
-                <section class="section managers glass-effect">
-                    <h2 class="text-shadow">Managers</h2>
-                    <ul class="managers-list">
-                        <li>finnyxtv (Discord)</li>
-                        <li>watertucky (Discord)</li>
-                    </ul>
-                </section>
-                <section class="section content-creator glass-effect">
-                    <h2 class="text-shadow">Content Creator</h2>
-                    <p><a href="https://youtube.com/@rlremedy" target="_blank">Remedy</a></p>
-                </section>
-            </div>
-            <div class="right-section glass-effect">
-                <p class="intro text-shadow">Team Virtue is a premier eSports organization dedicated to excellence, fostering skill, teamwork, and integrity in competitive gaming.</p>
-                <div class="buttons">
-                    <a href="https://discord.gg/2btnvUJADc" target="_blank" class="btn btn-primary btn-shine text-shadow">Join Our Discord</a>
-                    <a href="https://rocketleague.gankster.gg/teams/93789/team-virtue-official" target="_blank" class="btn btn-secondary btn-shine text-shadow">Scrims</a>
-                </div>
-                <div class="socials">
-                    <a href="https://x.com/TeamVirtueRL" target="_blank" class="social-btn twitter btn-shine text-shadow">Twitter</a>
-                    <a href="https://www.instagram.com/teamvirtuerl/" target="_blank" class="social-btn instagram btn-shine text-shadow">Instagram</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <footer class="footer glass-effect">
-        <p class="text-shadow">© 2025 Team Virtue. All rights reserved.</p>
-    </footer>
-    <script>
-        // Note: To install Cypress for testing this page in a development environment,
-        // run `npm i -D cypress` in your project directory if you're using a Node.js setup.
-
-        // ==========================================================================
-        // Trigger Transitions on Desktop
-        // ==========================================================================
-        function triggerTransitions() {
-            if (window.innerWidth >= 769) {
-                setTimeout(() => {
-                    document.querySelector('.roster-list').classList.add('visible');
-                    document.querySelector('.managers-list').classList.add('visible');
-                }, 500);
-                setTimeout(() => {
-                    document.querySelector('.content-creator').classList.add('visible');
-                }, 1000);
-            }
-        }
-
-        // ==========================================================================
-        // Particle Effect
-        // ==========================================================================
-        function createParticles() {
-            const particlesContainer = document.getElementById('particles');
-            for (let i = 0; i < 50; i++) {
-                const particle = document.createElement('div');
-                particle.style.position = 'absolute';
-                particle.style.width = `${Math.random() * 3 + 1}px`;
-                particle.style.height = particle.style.width;
-                particle.style.background = 'rgba(138, 43, 226, 0.5)';
-                particle.style.borderRadius = '50%';
-                particle.style.left = `${Math.random() * 100}vw`;
-                particle.style.top = `${Math.random() * 100}vh`;
-                particle.style.animation = `float ${Math.random() * 5 + 5}s infinite ease-in-out`;
-                particlesContainer.appendChild(particle);
-            }
-        }
-
-        // ==========================================================================
-        // Event Listeners
-        // ==========================================================================
-        window.addEventListener('load', () => {
-            document.body.classList.add('loaded');
-            triggerTransitions();
-            createParticles();
-        });
-
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        document.querySelectorAll('.btn, .social-btn').forEach(btn => {
-            btn.addEventListener('mouseover', () => {
-                btn.style.transform = 'scale(1.1)';
-            });
-            btn.addEventListener('mouseout', () => {
-                btn.style.transform = 'scale(1)';
-            });
-        });
-
-        window.addEventListener('scroll', () => {
-            const scrollPos = window.scrollY;
-            document.querySelector('.container').style.transform = `translateY(${scrollPos * 0.1}px)`;
-        });
-    </script>
-    <style>
-        @keyframes float {
-            0% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-            100% { transform: translateY(0); }
-        }
-    </style>
-</body>
-</html>
+ <div class="parallax-bg"></div>
+ <div class="particles" id="particles"></div>
+ <div class="custom-cursor" id 
