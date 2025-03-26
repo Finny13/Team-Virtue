@@ -43,6 +43,7 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
+            animation: fadeIn 1s ease-in-out;
         }
 
         .content-wrapper {
@@ -57,6 +58,11 @@
             border-radius: 12px;
             padding: 30px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .left-section:hover, .right-section:hover {
+            transform: translateY(-5px);
         }
 
         .logo {
@@ -65,6 +71,11 @@
             height: auto;
             margin-bottom: 30px;
             filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.3));
+            transition: transform 0.5s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
         }
 
         .section {
@@ -73,10 +84,13 @@
             border-radius: 10px;
             background: linear-gradient(135deg, #3C0753 0%, #7209B7 100%);
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: slideIn 0.5s ease forwards;
         }
 
-        .section.managers {
-            background: linear-gradient(135deg, #9B59B6 0%, #D7BDE2 100%);
+        .section:nth-child(2) {
+            animation-delay: 0.2s;
         }
 
         .section h2 {
@@ -89,23 +103,24 @@
             padding-bottom: 5px;
         }
 
-        .roster-list, .managers-list {
+        .roster-list {
             list-style: none;
             padding: 0;
         }
 
-        .roster-list li, .managers-list li {
+        .roster-list li {
             font-size: 18px;
             font-weight: 400;
             color: #E0E0E0;
             margin: 12px 0;
             padding-left: 20px;
             position: relative;
-            transition: color 0.3s ease;
+            transition: color 0.3s ease, transform 0.3s ease;
         }
 
-        .roster-list li:hover, .managers-list li:hover {
+        .roster-list li:hover {
             color: #FFFFFF;
+            transform: translateX(5px);
         }
 
         .roster-list li::before {
@@ -115,20 +130,13 @@
             left: 0;
         }
 
-        .managers-list li::before {
-            content: '•';
-            color: #6A0DAD;
-            position: absolute;
-            left: 0;
-        }
-
-        .roster-list a, .managers-list a {
+        .roster-list a {
             color: inherit;
             text-decoration: none;
             transition: color 0.3s ease;
         }
 
-        .roster-list a:hover, .managers-list a:hover {
+        .roster-list a:hover {
             color: #FFFFFF;
             text-decoration: underline;
         }
@@ -157,6 +165,8 @@
             color: #E0E0E0;
             line-height: 1.6;
             margin-bottom: 25px;
+            opacity: 0;
+            animation: fadeInText 1s ease forwards 0.3s;
         }
 
         .buttons {
@@ -175,6 +185,13 @@
             transition: all 0.3s ease;
             box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
             text-align: center;
+            opacity: 0;
+            transform: translateY(10px);
+            animation: slideIn 0.5s ease forwards;
+        }
+
+        .btn:nth-child(2) {
+            animation-delay: 0.1s;
         }
 
         .btn-primary {
@@ -214,6 +231,13 @@
             transition: all 0.3s ease;
             box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
             color: #FFFFFF;
+            opacity: 0;
+            transform: translateY(10px);
+            animation: slideIn 0.5s ease forwards;
+        }
+
+        .social-btn:nth-child(2) {
+            animation-delay: 0.2s;
         }
 
         .social-btn.twitter {
@@ -237,6 +261,26 @@
             color: #B0B0B0;
             background: rgba(0, 0, 0, 0.1);
             margin-top: 40px;
+            transition: color 0.3s ease;
+        }
+
+        .footer:hover {
+            color: #FFFFFF;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInText {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         @media (min-width: 769px) {
@@ -273,7 +317,7 @@
                 font-size: 20px;
             }
 
-            .roster-list li, .managers-list li, .content-creator p {
+            .roster-list li, .content-creator p {
                 font-size: 16px;
             }
 
@@ -313,13 +357,6 @@
                     <a href="https://discord.gg/2btnvUJADc" target="_blank" class="btn btn-primary">Join Our Discord</a>
                     <a href="https://rocketleague.gankster.gg/teams/93789/team-virtue-official" target="_blank" class="btn btn-secondary">Scrims</a>
                 </div>
-                <section class="section managers">
-                    <h2>Managers</h2>
-                    <ul class="managers-list">
-                        <li>finnyxtv (Discord)</li>
-                        <li>watertucky (Discord)</li>
-                    </ul>
-                </section>
                 <div class="socials">
                     <a href="https://x.com/TeamVirtueRL" target="_blank" class="social-btn twitter">Twitter</a>
                     <a href="https://www.instagram.com/teamvirtuerl/" target="_blank" class="social-btn instagram">Instagram</a>
