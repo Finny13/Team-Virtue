@@ -26,10 +26,10 @@
         }
 
         [data-theme="light"] {
-            /* Light Mode (softer purple-white) */
-            --primary-color: #B19CD9; /* Soft pastel purple */
-            --secondary-color: #E6E6FA; /* Very light lavender */
-            --accent-color: #9370DB; /* Medium purple, less intense */
+            /* Light Mode (softer, less bright purple-white) */
+            --primary-color: #C8BEDA; /* Very soft pastel purple */
+            --secondary-color: #F0F0F5; /* Light grayish purple, almost white */
+            --accent-color: #AFA0D6; /* Muted purple, less intense */
             --background-start: #F8F8FF; /* Ghost white */
             --background-end: #F0F0F5; /* Light grayish purple */
             --text-primary: #4A4A4A; /* Dark gray for readability */
@@ -130,7 +130,7 @@
         }
 
         .nav-logo {
-            height: 70px; /* Enlarged from 50px to 70px */
+            height: 70px;
             transition: transform 0.3s ease;
         }
 
@@ -203,6 +203,8 @@
             padding: 30px;
             box-shadow: 0 4px 15px var(--shadow-color);
             transition: transform 0.3s ease, background 0.5s ease;
+            display: flex;
+            flex-direction: column;
         }
 
         .left-section:hover, .right-section:hover {
@@ -474,6 +476,7 @@
         .socials {
             display: flex;
             gap: 15px;
+            margin-bottom: 25px;
             flex-wrap: wrap;
         }
 
@@ -489,6 +492,7 @@
             background-size: 200% auto;
             position: relative;
             overflow: hidden;
+            flex: 1;
         }
 
         .social-btn::after {
@@ -534,9 +538,66 @@
             box-shadow: 0 5px 15px var(--shadow-color);
         }
 
+        .contact-section {
+            padding: 20px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            box-shadow: 0 4px 12px var(--shadow-color);
+            transition: transform 0.4s ease, box-shadow 0.5s ease, background 0.5s ease;
+            flex-grow: 1;
+        }
+
+        .contact-section:hover {
+            transform: scale(1.05) translateY(-10px);
+            box-shadow: 0 15px 30px var(--shadow-color);
+        }
+
+        .contact-section h2 {
+            font-size: 24px;
+            font-weight: 500;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 5px;
+            animation: textGlow 2s infinite alternate;
+        }
+
+        .contact-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .contact-list li {
+            font-size: 18px;
+            font-weight: 400;
+            color: var(--text-secondary);
+            margin: 12px 0;
+            padding-left: 20px;
+            position: relative;
+            transition: transform 0.5s ease, color 0.5s ease, text-shadow 0.5s ease;
+        }
+
+        .contact-list li:hover {
+            transform: translateX(20px);
+            color: var(--accent-color);
+            text-shadow: 0 0 15px rgba(93, 63, 211, 0.9);
+        }
+
+        .contact-list li::before {
+            content: '➤';
+            color: var(--secondary-color);
+            position: absolute;
+            left: 0;
+            transition: transform 0.5s ease, color 0.5s ease;
+        }
+
+        .contact-list li:hover::before {
+            transform: translateX(5px);
+            color: var(--accent-color);
+        }
+
         footer {
             width: 100%;
-           Compiled Code
             text-align: center;
             padding: 20px 0;
             font-size: 14px;
@@ -573,12 +634,13 @@
             .left-section, .right-section { width: 100%; }
             .logo { max-width: 300px; margin: 0 auto 20px; display: block; }
             .section h2 { font-size: 20px; }
-            .roster-list li, .content-creator p { font-size: 16px; }
+            .roster-list li, .content-creator p, .contact-list li { font-size: 16px; }
             .intro { font-size: 18px; }
             .btn, .social-btn { width: 100%; max-width: 300px; }
             .roster-list, .content-creator { opacity: 1; transform: translateX(0); transition: none; }
             nav ul { display: none; }
             .theme-toggle { top: 10px; left: 10px; }
+            .social-btn { flex: unset; }
         }
     </style>
 </head>
@@ -626,10 +688,17 @@
                     <a href="https://x.com/TeamVirtueRL" target="_blank" rel="noopener noreferrer" class="social-btn twitter btn-shine">Twitter</a>
                     <a href="https://www.instagram.com/teamvirtuerl/" target="_blank" rel="noopener noreferrer" class="social-btn instagram btn-shine">Instagram</a>
                 </div>
+                <article class="contact-section" id="contact">
+                    <h2>Contact</h2>
+                    <ul class="contact-list">
+                        <li>watertucky (Discord)</li>
+                        <li>finnyxtv (Discord, Player Captain)</li>
+                    </ul>
+                </article>
             </section>
         </div>
     </main>
-    <footer id="contact">
+    <footer>
         <p>© 2025 Team Virtue. All rights reserved.</p>
     </footer>
     <script>
