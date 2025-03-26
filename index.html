@@ -116,7 +116,7 @@
 
         .logo {
             width: 100%;
-            max-width: 420px; /* Changed from 400px to 420px (5% increase) */
+            max-width: 400px;
             height: auto;
             margin-bottom: 30px;
             filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.3));
@@ -594,22 +594,22 @@
     <div class="particles" id="particles"></div>
     <div class="container">
         <div class="content-wrapper">
-           <div class="left-section">
-    <img src="virtuelightheader.png" alt="Team Virtue Logo" class="logo logo-shine">
-    <section class="section roster">
-        <h2>Roster</h2>
-        <ul class="roster-list">
-            <li><a href="https://steamcommunity.com/id/finnish_taylorsversion/" target="_blank">Finny.</a></li>
-            <li><a href="https://steamcommunity.com/profiles/76561198369905223" target="_blank">WestyzWorld</a></li>
-            <li>Jxhnssl.</li>
-            <li><a href="https://steamcommunity.com/id/FeliciaTheOG" target="_blank">Felicia, The Goat</a></li>
-        </ul>
-    </section>
-    <section class="section content-creator">
-        <h2>Content Creator</h2>
-        <p><a href="https://youtube.com/@rlremedy" target="_blank">Remedy</a></p>
-    </section>
-</div>
+            <div class="left-section">
+                <img src="/virtueblackheader.png" alt="Team Virtue Logo" class="logo logo-shine">
+                <section class="section roster">
+                    <h2>Roster</h2>
+                    <ul class="roster-list">
+                        <li><a href="https://steamcommunity.com/id/finnish_taylorsversion/" target="_blank">Finny.</a></li>
+                        <li><a href="https://steamcommunity.com/profiles/76561198369905223" target="_blank">WestyzWorld</a></li>
+                        <li>Jxhnssl.</li>
+                        <li><a href="https://steamcommunity.com/id/FeliciaTheOG" target="_blank">Felicia, The Goat</a></li>
+                    </ul>
+                </section>
+                <section class="section content-creator">
+                    <h2>Content Creator</h2>
+                    <p><a href="https://youtube.com/@rlremedy" target="_blank">Remedy</a></p>
+                </section>
+            </div>
             <div class="right-section">
                 <p class="intro">Team Virtue is a premier eSports organization dedicated to excellence, fostering skill, teamwork, and integrity in competitive gaming.</p>
                 <div class="buttons">
@@ -669,7 +669,7 @@
             });
         });
 
-        WINDOWSdocument.querySelectorAll('.btn, .social-btn').forEach(btn => {
+        document.querySelectorAll('.btn, .social-btn').forEach(btn => {
             btn.addEventListener('mouseover', () => {
                 btn.style.transform = 'scale(1.1)';
             });
