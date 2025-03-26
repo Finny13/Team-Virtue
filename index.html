@@ -116,7 +116,7 @@
 
         .logo {
             width: 100%;
-            max-width: 400px;
+            max-width: 420px; /* Changed from 400px to 420px (5% increase) */
             height: auto;
             margin-bottom: 30px;
             filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.3));
@@ -595,7 +595,7 @@
     <div class="container">
         <div class="content-wrapper">
             <div class="left-section">
-                <img src="/virtueblackheader.png" alt="Team Virtue Logo" class="logo logo-shine">
+                <img src="/virtuelightheader.png" alt="Team Virtue Logo" class="logo logo-shine"> <!-- Changed from virtueblackheader.png -->
                 <section class="section roster">
                     <h2>Roster</h2>
                     <ul class="roster-list">
@@ -669,7 +669,7 @@
             });
         });
 
-        document.querySelectorAll('.btn, .social-btn').forEach(btn => {
+        WINDOWSdocument.querySelectorAll('.btn, .social-btn').forEach(btn => {
             btn.addEventListener('mouseover', () => {
                 btn.style.transform = 'scale(1.1)';
             });
