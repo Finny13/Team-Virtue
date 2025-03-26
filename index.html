@@ -11,6 +11,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <style>
+        /* ========================================================================== */
+        /* Reset and Base Styles */
+        /* ========================================================================== */
         * {
             margin: 0;
             padding: 0;
@@ -32,16 +35,15 @@
             transition: background 0.8s ease, transform 0.5s ease;
             display: flex;
             flex-direction: column;
+            /* Changed to purple-black to purple-white gradient */
             background: linear-gradient(135deg, #4B0082 0%, #C8BFE7 100%);
             position: relative;
             z-index: 0;
         }
 
-        body.light-mode {
-            background: linear-gradient(135deg, #F0E6FA 0%, #B8A6C9 100%);
-            color: #333;
-        }
-
+        /* ========================================================================== */
+        /* Utility Classes */
+        /* ========================================================================== */
         .flex-center {
             display: flex;
             justify-content: center;
@@ -74,6 +76,9 @@
             border: 2px solid rgba(255, 255, 255, 0.25);
         }
 
+        /* ========================================================================== */
+        /* Main Container */
+        /* ========================================================================== */
         .container {
             width: 95%;
             max-width: 2000px;
@@ -88,6 +93,9 @@
             animation: fadeInContainer 1.5s ease-in-out;
         }
 
+        /* ========================================================================== */
+        /* Logo Styling */
+        /* ========================================================================== */
         .logo {
             width: 100%;
             max-width: 550px;
@@ -105,6 +113,7 @@
             filter: drop-shadow(0 15px 30px rgba(138, 43, 226, 0.8));
         }
 
+        /* Shine Effect for Logo */
         .logo-shine {
             position: relative;
         }
@@ -118,10 +127,13 @@
             height: 100%;
             background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.6), transparent);
             transform: skewX(-25deg);
-            animation: logoShine 1.5s infinite;
+            animation: logoShine 1.5s infinite; /* Slower shine at 1.5s */
             z-index: 1;
         }
 
+        /* ========================================================================== */
+        /* Section Styling */
+        /* ========================================================================== */
         .section {
             margin-bottom: 20px;
             padding: 20px;
@@ -129,11 +141,6 @@
             transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
             position: relative;
             overflow: hidden;
-            background: linear-gradient(135deg, rgba(75, 0, 130, 0.2) 0%, rgba(200, 191, 231, 0.2) 100%);
-        }
-
-        body.light-mode .section {
-            background: linear-gradient(135deg, rgba(240, 230, 250, 0.2) 0%, rgba(184, 166, 201, 0.2) 100%);
         }
 
         .section::before {
@@ -171,11 +178,6 @@
             position: relative;
         }
 
-        body.light-mode .section h2 {
-            color: #333;
-            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
         .section h2::after {
             content: '';
             position: absolute;
@@ -191,6 +193,9 @@
             width: 50%;
         }
 
+        /* ========================================================================== */
+        /* Dynamic Gradient Alignment */
+        /* ========================================================================== */
         .section.roster.morning-theme {
             background: linear-gradient(135deg, rgba(184, 166, 201, 0.2) 0%, rgba(240, 230, 250, 0.2) 100%);
         }
@@ -227,6 +232,9 @@
             background: linear-gradient(135deg, rgba(26, 26, 46, 0.2) 0%, rgba(138, 43, 226, 0.2) 100%);
         }
 
+        /* ========================================================================== */
+        /* Roster List */
+        /* ========================================================================== */
         .roster-list {
             list-style: none;
             padding: 0;
@@ -248,10 +256,6 @@
             transition: transform 0.5s ease, color 0.5s ease, text-shadow 0.5s ease;
             position: relative;
             padding-left: 30px;
-        }
-
-        body.light-mode .roster-list li {
-            color: #555;
         }
 
         .roster-list li:hover {
@@ -285,6 +289,9 @@
             text-decoration: underline wavy #8A2BE2;
         }
 
+        /* ========================================================================== */
+        /* Managers Section */
+        /* ========================================================================== */
         .managers-list {
             list-style: none;
             padding: 0;
@@ -308,10 +315,6 @@
             padding-left: 30px;
         }
 
-        body.light-mode .managers-list li {
-            color: #555;
-        }
-
         .managers-list li:hover {
             transform: translateX(20px);
             color: #5D3FD3;
@@ -331,6 +334,9 @@
             color: #5D3FD3;
         }
 
+        /* ========================================================================== */
+        /* Content Creator */
+        /* ========================================================================== */
         .content-creator {
             opacity: 0;
             transform: translateX(-60px);
@@ -350,19 +356,11 @@
             transition: color 0.5s ease;
         }
 
-        body.light-mode .content-creator p {
-            color: #555;
-        }
-
         .content-creator a {
             color: #e0e0e0;
             text-decoration: none;
             font-weight: 600;
             transition: color 0.5s ease, transform 0.5s ease, text-shadow 0.5s ease;
-        }
-
-        body.light-mode .content-creator a {
-            color: #555;
         }
 
         .content-creator a:hover {
@@ -372,6 +370,9 @@
             text-decoration: underline wavy #8A2BE2;
         }
 
+        /* ========================================================================== */
+        /* Socials Section */
+        /* ========================================================================== */
         .socials {
             display: flex;
             gap: 20px;
@@ -427,6 +428,9 @@
             box-shadow: 0 10px 25px rgba(138, 43, 226, 0.8);
         }
 
+        /* ========================================================================== */
+        /* Intro */
+        /* ========================================================================== */
         .intro {
             font-size: 26px;
             font-weight: 600;
@@ -439,11 +443,6 @@
             border-left: 5px solid #8A2BE2;
             transition: border-color 0.5s ease, transform 0.5s ease;
             position: relative;
-        }
-
-        body.light-mode .intro {
-            color: #555;
-            text-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
         }
 
         .intro:hover {
@@ -462,6 +461,9 @@
             animation: introGlow 2s infinite alternate;
         }
 
+        /* ========================================================================== */
+        /* Buttons */
+        /* ========================================================================== */
         .buttons {
             display: flex;
             gap: 25px;
@@ -529,14 +531,24 @@
             box-shadow: 0 15px 35px rgba(93, 63, 211, 0.9);
         }
 
+        /* ========================================================================== */
+        /* Footer */
+        /* ========================================================================== */
         .footer {
             width: 100%;
             text-align: center;
             padding: 25px 0;
             font-size: 12px;
-            color: #fff;
+            color: #bbb;
+            background: linear-gradient(to top, rgba(50, 50, 50, 0.9) 0%, rgba(50, 50, 50, 0) 100%);
             position: relative;
             z-index: 1;
+            transition: color 0.5s ease, transform 0.5s ease;
+        }
+
+        .footer:hover {
+            color: #e0e0e0;
+            transform: translateY(-5px);
         }
 
         .footer p {
@@ -544,6 +556,9 @@
             letter-spacing: 1px;
         }
 
+        /* ========================================================================== */
+        /* Animations */
+        /* ========================================================================== */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(-30px); }
             to { opacity: 1; transform: translateY(0); }
@@ -583,10 +598,13 @@
 
         @keyframes logoShine {
             0% { left: -75%; }
-            33.33% { left: 125%; }
+            33.33% { left: 125%; } /* Adjusted timing for 1.5s cycle */
             100% { left: 125%; }
         }
 
+        /* ========================================================================== */
+        /* Desktop Layout */
+        /* ========================================================================== */
         @media (min-width: 769px) {
             .container {
                 flex-direction: row;
@@ -599,9 +617,8 @@
                 display: flex;
                 flex-direction: row;
                 align-items: center;
-                gap: 100px;
+                gap: 80px;
                 width: 100%;
-                padding: 0 50px;
             }
 
             .left-section {
@@ -609,12 +626,6 @@
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
-                background: linear-gradient(135deg, rgba(75, 0, 130, 0.2) 0%, rgba(200, 191, 231, 0.2) 100%);
-                margin-left: -30px;
-            }
-
-            body.light-mode .left-section {
-                background: linear-gradient(135deg, rgba(240, 230, 250, 0.2) 0%, rgba(184, 166, 201, 0.2) 100%);
             }
 
             .right-section {
@@ -622,12 +633,6 @@
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
-                background: linear-gradient(135deg, rgba(75, 0, 130, 0.2) 0%, rgba(200, 191, 231, 0.2) 100%);
-                margin-right: -30px;
-            }
-
-            body.light-mode .right-section {
-                background: linear-gradient(135deg, rgba(240, 230, 250, 0.2) 0%, rgba(184, 166, 201, 0.2) 100%);
             }
 
             .logo {
@@ -665,6 +670,9 @@
             }
         }
 
+        /* ========================================================================== */
+        /* Tablet Layout */
+        /* ========================================================================== */
         @media (max-width: 1024px) and (min-width: 769px) {
             .container {
                 padding: 40px;
@@ -697,34 +705,32 @@
             }
         }
 
+        /* ========================================================================== */
+        /* Mobile Layout */
+        /* ========================================================================== */
         @media (max-width: 768px) {
             .container {
                 flex-direction: column;
                 align-items: center;
-                padding: 20px;
-                width: 100%;
+                padding: 20px; /* Reduced padding for better mobile fit */
+                width: 100%; /* Full width on mobile */
             }
 
             .content-wrapper {
                 width: 100%;
-                text-align: center;
-                flex-direction: column;
-                gap: 20px;
+                text-align: center; /* Center align text for mobile */
+                flex-direction: column; /* Stack vertically */
+                gap: 20px; /* Add spacing between sections */
             }
 
             .left-section, .right-section {
                 width: 100%;
-                padding: 10px;
-                background: linear-gradient(135deg, rgba(75, 0, 130, 0.2) 0%, rgba(200, 191, 231, 0.2) 100%);
-            }
-
-            body.light-mode .left-section, body.light-mode .right-section {
-                background: linear-gradient(135deg, rgba(240, 230, 250, 0.2) 0%, rgba(184, 166, 201, 0.2) 100%);
+                padding: 10px; /* Reduced padding */
             }
 
             .logo {
-                max-width: 400px;
-                margin: 0 auto 20px;
+                max-width: 400px; /* Smaller logo on mobile */
+                margin: 0 auto 20px; /* Center logo with bottom margin */
                 display: block;
             }
 
@@ -733,8 +739,8 @@
             }
 
             .roster-list li, .managers-list li {
-                font-size: 20px;
-                margin: 10px 0;
+                font-size: 20px; /* Slightly smaller text */
+                margin: 10px 0; /* Reduced margins */
             }
 
             .content-creator p {
@@ -743,40 +749,43 @@
 
             .intro {
                 font-size: 20px;
-                text-align: center;
+                text-align: center; /* Center intro text */
                 padding: 15px;
             }
 
             .buttons, .socials {
-                flex-direction: column;
-                gap: 15px;
+                flex-direction: column; /* Stack buttons vertically */
+                gap: 15px; /* Reduced gap */
                 width: 100%;
-                align-items: center;
+                align-items: center; /* Center buttons */
             }
 
             .btn, .social-btn {
-                padding: 12px 25px;
-                font-size: 20px;
-                width: 80%;
-                max-width: 300px;
+                padding: 12px 25px; /* Smaller padding */
+                font-size: 20px; /* Smaller text */
+                width: 80%; /* Consistent button width */
+                max-width: 300px; /* Maximum width cap */
             }
 
             .footer {
                 margin-top: 20px;
                 font-size: 12px;
-                padding: 15px 0;
+                padding: 15px 0; /* Adjusted padding */
             }
 
             .roster-list, .managers-list, .content-creator {
-                opacity: 1;
+                opacity: 1; /* Always visible on mobile */
                 transform: translateX(0);
-                transition: none;
+                transition: none; /* Remove transitions for better mobile performance */
             }
         }
 
+        /* ========================================================================== */
+        /* Small Mobile Layout */
+        /* ========================================================================== */
         @media (max-width: 480px) {
             .logo {
-                max-width: 300px;
+                max-width: 300px; /* Even smaller logo */
                 margin-top: 0;
             }
 
@@ -799,7 +808,7 @@
             .btn, .social-btn {
                 padding: 10px 20px;
                 font-size: 18px;
-                width: 90%;
+                width: 90%; /* Slightly wider on small screens */
             }
 
             .footer {
@@ -807,9 +816,14 @@
             }
         }
 
+        /* ========================================================================== */
+        /* Additional Styling */
+        /* ========================================================================== */
         .left-section, .right-section {
             padding: 25px;
+            background: rgba(255, 255, 255, 0.08);
             border-radius: 20px;
+            backdrop-filter: blur(8px);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
 
@@ -854,25 +868,9 @@
             animation: radialPulseReverse 4s infinite ease-in-out;
         }
 
-        .toggle-btn {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: 10px 20px;
-            background: linear-gradient(to right, #8A2BE2, #5D3FD3);
-            border: none;
-            border-radius: 25px;
-            color: #fff;
-            font-size: 16px;
-            cursor: pointer;
-            z-index: 1000;
-            transition: transform 0.3s ease;
-        }
-
-        .toggle-btn:hover {
-            transform: scale(1.1);
-        }
-
+        /* ========================================================================== */
+        /* Additional Animations */
+        /* ========================================================================== */
         @keyframes radialPulse {
             0% { transform: scale(1); opacity: 0.6; }
             50% { transform: scale(1.15); opacity: 0.4; }
@@ -931,12 +929,12 @@
     </style>
 </head>
 <body>
-    <button class="toggle-btn" onclick="toggleTheme()">Toggle Theme</button>
     <div class="particles" id="particles"></div>
     <div class="container">
         <div class="content-wrapper">
             <div class="left-section glass-effect">
-                <img src="/virtuedarkheader.png" alt="Team Virtue Logo" class="logo logo-shine" id="header-logo">
+                <!-- Changed to virtueblackheader.png as primary logo -->
+                <img src="/virtueblackheader.png" alt="Team Virtue Logo" class="logo logo-shine" id="header-logo">
                 <section class="section roster glass-effect">
                     <h2 class="text-shadow">Roster</h2>
                     <ul class="roster-list">
@@ -944,6 +942,13 @@
                         <li><a href="https://steamcommunity.com/profiles/76561198369905223" target="_blank">WestyzWorld</a></li>
                         <li>Jxhnssl.</li>
                         <li><a href="https://steamcommunity.com/id/FeliciaTheOG" target="_blank">Felicia, The Goat</a></li>
+                    </ul>
+                </section>
+                <section class="section managers glass-effect">
+                    <h2 class="text-shadow">Managers</h2>
+                    <ul class="managers-list">
+                        <li>finnyxtv (Discord)</li>
+                        <li>watertucky (Discord)</li>
                     </ul>
                 </section>
                 <section class="section content-creator glass-effect">
@@ -961,20 +966,19 @@
                     <a href="https://x.com/TeamVirtueRL" target="_blank" class="social-btn twitter btn-shine text-shadow">Twitter</a>
                     <a href="https://www.instagram.com/teamvirtuerl/" target="_blank" class="social-btn instagram btn-shine text-shadow">Instagram</a>
                 </div>
-                <section class="section managers glass-effect">
-                    <h2 class="text-shadow">Managers</h2>
-                    <ul class="managers-list">
-                        <li>finnyxtv (Discord)</li>
-                        <li>watertucky (Discord)</li>
-                    </ul>
-                </section>
             </div>
         </div>
     </div>
-    <footer class="footer">
-        <p>© 2025 Team Virtue. All rights reserved.</p>
+    <footer class="footer glass-effect">
+        <p class="text-shadow">© 2025 Team Virtue. All rights reserved.</p>
     </footer>
     <script>
+        // Note: To install Cypress for testing this page in a development environment,
+        // run `npm i -D cypress` in your project directory if you're using a Node.js setup.
+
+        // ==========================================================================
+        // Trigger Transitions on Desktop
+        // ==========================================================================
         function triggerTransitions() {
             if (window.innerWidth >= 769) {
                 setTimeout(() => {
@@ -987,6 +991,9 @@
             }
         }
 
+        // ==========================================================================
+        // Particle Effect
+        // ==========================================================================
         function createParticles() {
             const particlesContainer = document.getElementById('particles');
             for (let i = 0; i < 50; i++) {
@@ -1003,29 +1010,10 @@
             }
         }
 
-        function toggleTheme() {
-            const body = document.body;
-            const logo = document.getElementById('header-logo');
-            body.classList.toggle('light-mode');
-            
-            if (body.classList.contains('light-mode')) {
-                logo.src = '/virtuelightheader.png';
-                localStorage.setItem('theme', 'light');
-            } else {
-                logo.src = '/virtuedarkheader.png';
-                localStorage.setItem('theme', 'dark');
-            }
-        }
-
+        // ==========================================================================
+        // Event Listeners
+        // ==========================================================================
         window.addEventListener('load', () => {
-            const savedTheme = localStorage.getItem('theme');
-            const logo = document.getElementById('header-logo');
-            if (savedTheme === 'light') {
-                document.body.classList.add('light-mode');
-                logo.src = '/virtuelightheader.png';
-            } else {
-                logo.src = '/virtuedarkheader.png';
-            }
             document.body.classList.add('loaded');
             triggerTransitions();
             createParticles();
