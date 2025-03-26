@@ -12,7 +12,7 @@
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <style>
         :root {
-            /* Dark Mode (default) */
+            /* Dark Mode (only mode now) */
             --primary-color: #6A0DAD;
             --secondary-color: #9B59B6;
             --accent-color: #5D3FD3;
@@ -23,20 +23,6 @@
             --shadow-color: rgba(0, 0, 0, 0.2);
             --card-bg: rgba(255, 255, 255, 0.05);
             --footer-bg: rgba(0, 0, 0, 0.1);
-        }
-
-        [data-theme="light"] {
-            /* Light Mode (softer, less bright purple-white) */
-            --primary-color: #C8BEDA; /* Very soft pastel purple */
-            --secondary-color: #F0F0F5; /* Light grayish purple, almost white */
-            --accent-color: #AFA0D6; /* Muted purple, less intense */
-            --background-start: #F8F8FF; /* Ghost white */
-            --background-end: #F0F0F5; /* Light grayish purple */
-            --text-primary: #4A4A4A; /* Dark gray for readability */
-            --text-secondary: #6A6A6A; /* Medium gray */
-            --shadow-color: rgba(0, 0, 0, 0.1);
-            --card-bg: rgba(255, 255, 255, 0.9);
-            --footer-bg: rgba(240, 240, 245, 0.6);
         }
 
         * {
@@ -61,7 +47,6 @@
             position: relative;
             z-index: 0;
             line-height: 1.5;
-            transition: background 0.5s ease, color 0.5s ease;
         }
 
         body::before {
@@ -95,11 +80,6 @@
             padding: 15px 0;
             z-index: 1000;
             box-shadow: 0 2px 10px var(--shadow-color);
-            transition: background 0.5s ease;
-        }
-
-        [data-theme="light"] header {
-            background: rgba(248, 248, 255, 0.95);
         }
 
         .nav-container {
@@ -110,23 +90,6 @@
             justify-content: space-between;
             align-items: center;
             position: relative;
-        }
-
-        .theme-toggle {
-            position: absolute;
-            top: 15px;
-            left: 20px;
-            cursor: pointer;
-            font-size: 20px;
-            background: none;
-            border: none;
-            color: var(--text-primary);
-            transition: transform 0.3s ease, color 0.5s ease;
-        }
-
-        .theme-toggle:hover {
-            transform: scale(1.2);
-            color: var(--accent-color);
         }
 
         .nav-logo {
@@ -202,7 +165,7 @@
             border-radius: 12px;
             padding: 30px;
             box-shadow: 0 4px 15px var(--shadow-color);
-            transition: transform 0.3s ease, background 0.5s ease;
+            transition: transform 0.3s ease;
             display: flex;
             flex-direction: column;
         }
@@ -245,11 +208,7 @@
             border-radius: 10px;
             background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
             box-shadow: 0 4px 12px var(--shadow-color);
-            transition: transform 0.4s ease, box-shadow 0.5s ease, background 0.5s ease;
-        }
-
-        [data-theme="light"] .section {
-            background: linear-gradient(135deg, #DFD3E3 0%, #F0F0F5 100%);
+            transition: transform 0.4s ease, box-shadow 0.5s ease;
         }
 
         .section:hover {
@@ -400,7 +359,7 @@
             padding: 20px;
             border-left: 5px solid var(--primary-color);
             animation: fadeIn 2.5s ease-in-out both;
-            transition: border-color 0.5s ease, transform 0.5s ease, color 0.5s ease;
+            transition: border-color 0.5s ease, transform 0.5s ease;
         }
 
         .intro:hover {
@@ -599,7 +558,7 @@
             color: #B0B0B0;
             background: var(--footer-bg);
             margin-top: 40px;
-            transition: color 0.5s ease, transform 0.5s ease, background 0.5s ease;
+            transition: color 0.5s ease, transform 0.5s ease;
         }
 
         footer:hover {
@@ -634,14 +593,12 @@
             .btn, .social-btn { width: 100%; max-width: 300px; }
             .roster-list, .content-creator { opacity: 1; transform: translateX(0); transition: none; }
             nav ul { display: none; }
-            .theme-toggle { top: 10px; left: 10px; }
             .social-btn { flex: unset; }
         }
     </style>
 </head>
-<body data-theme="dark">
+<body>
     <header>
-        <button class="theme-toggle" aria-label="Toggle Theme">☀️</button>
         <div class="nav-container">
             <img src="/virtuelightheader.png" alt="Team Virtue Logo" class="nav-logo" id="nav-logo">
             <nav>
@@ -695,28 +652,8 @@
         <p>© 2025 Team Virtue. All rights reserved.</p>
     </footer>
     <script>
-        const toggleButton = document.querySelector('.theme-toggle');
-        const body = document.body;
         const navLogo = document.getElementById('nav-logo');
         const mainLogo = document.getElementById('main-logo');
-
-        function setTheme(theme) {
-            body.setAttribute('data-theme', theme);
-            localStorage.setItem('theme', theme);
-            toggleButton.textContent = theme === 'dark' ? '☀️' : '🌙';
-            navLogo.src = theme === 'dark' ? '/virtuelightheader.png' : '/virtuedarkheader.png';
-            mainLogo.src = theme === 'dark' ? '/virtuelightheader.png' : '/virtuedarkheader.png';
-        }
-
-        // Load saved theme or default to dark
-        const savedTheme = localStorage.getItem('theme') || 'dark';
-        setTheme(savedTheme);
-
-        toggleButton.addEventListener('click', () => {
-            const currentTheme = body.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            setTheme(newTheme);
-        });
 
         function triggerTransitions() {
             if (window.innerWidth >= 769) {
