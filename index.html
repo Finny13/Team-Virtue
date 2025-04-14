@@ -3,38 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Team Virtue - A premier eSports organization dedicated to excellence in competitive gaming.">
-    <meta name="keywords" content="eSports, Team Virtue, gaming, professional team, Rocket League">
+    <meta name="description" content="Team Virtue - Elite eSports organization excelling in competitive gaming with a focus on Rocket League.">
+    <meta name="keywords" content="eSports, Team Virtue, Rocket League, professional gaming, competitive gaming">
     <meta name="author" content="Team Virtue">
     <meta name="theme-color" content="#6A0DAD">
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Team Virtue | Professional eSports Organization">
-    <meta property="og:description" content="Team Virtue - A premier eSports organization dedicated to excellence in competitive gaming.">
-    <meta property="og:image" content="/virtuemain.png">
+    <meta property="og:title" content="Team Virtue | Elite eSports Organization">
+    <meta property="og:description" content="Team Virtue dominates the eSports arena with unparalleled skill and dedication in Rocket League.">
+    <meta property="og:image" content="/assets/images/virtue-main.png">
     <meta property="og:url" content="https://teamvirtue.netlify.app/">
     <meta property="og:type" content="website">
-    <title>Team Virtue | Professional eSports Organization</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="/virtuemain.png" type="image/png" sizes="64x64">
-    <link rel="apple-touch-icon" href="/virtuemain.png" sizes="180x180">
-    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    <script src="https://unpkg.com/framer-motion@11.2.10/dist/framer-motion.js"></script>
+    <title>Team Virtue</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/assets/images/virtue-main.png" type="image/png" sizes="64x64">
+    <link rel="apple-touch-icon" href="/assets/images/virtue-main.png" sizes="180x180">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
         :root {
             --primary-color: #6A0DAD;
-            --secondary-color: #9B59B6;
-            --accent-color: #5D3FD3;
+            --secondary-color: #FFFFFF;
             --background-dark: #1E1E2F;
             --background-gradient-start: #2A0944;
             --background-gradient-end: #6A0DAD;
             --text-primary: #FFFFFF;
-            --text-secondary: #D1D1D1;
-            --card-bg: rgba(255, 255, 255, 0.08);
-            --shadow: rgba(0, 0, 0, 0.3);
-            --glow: rgba(106, 13, 173, 0.5);
+            --text-secondary: #B0B0B0;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --shadow: rgba(0, 0, 0, 0.5);
+            --glow: rgba(106, 13, 173, 0.3);
+            --accent-color: #9B59B6;
         }
 
         * {
@@ -45,38 +41,26 @@
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Inter', sans-serif;
             color: var(--text-primary);
             background: linear-gradient(135deg, var(--background-gradient-start), var(--background-gradient-end));
             min-height: 100vh;
             overflow-x: hidden;
-            position: relative;
         }
 
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"%3E%3Ccircle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/%3E%3C/svg%3E') repeat;
-            opacity: 0.1;
-            z-index: -1;
-        }
-
+        /* Header Styles */
         header {
             position: fixed;
             top: 0;
             width: 100%;
             background: rgba(30, 30, 47, 0.95);
-            backdrop-filter: blur(12px);
+            backdrop-filter: blur(10px);
             z-index: 1000;
-            box-shadow: 0 4px 20px var(--shadow);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .nav-container {
-            max-width: 1400px;
+            max-width: 1600px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
@@ -86,11 +70,6 @@
 
         .nav-logo {
             height: 50px;
-            transition: transform 0.3s ease;
-        }
-
-        .nav-logo:hover {
-            transform: scale(1.05);
         }
 
         nav ul {
@@ -103,13 +82,14 @@
             color: var(--text-primary);
             text-decoration: none;
             font-weight: 600;
-            font-size: 1.1rem;
-            transition: color 0.3s ease, transform 0.3s ease;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
         }
 
         nav a:hover {
-            color: var(--accent-color);
-            transform: translateY(-2px);
+            color: var(--primary-color);
         }
 
         .hamburger {
@@ -123,6 +103,7 @@
             width: 25px;
             height: 3px;
             background: var(--text-primary);
+            border-radius: 2px;
             transition: all 0.3s ease;
         }
 
@@ -138,15 +119,26 @@
             transform: rotate(-45deg) translate(7px, -7px);
         }
 
+        /* Hero Section */
         .hero {
             height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            background: url('/virtuelightheader.png') center/cover no-repeat;
             position: relative;
             overflow: hidden;
+        }
+
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+            opacity: 0.5;
         }
 
         .hero::before {
@@ -156,467 +148,578 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.65);
-            z-index: 1;
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6));
+            z-index: 2;
+        }
+
+        .hero-logo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 3;
+            max-width: 600px;
+            width: 80%;
+            animation: fadeInScale 1.5s ease-out;
         }
 
         .hero-content {
             position: relative;
-            z-index: 2;
-            max-width: 900px;
+            z-index: 4;
+            max-width: 1200px;
             padding: 2rem;
         }
 
-        .hero-content h1 {
-            font-size: 4rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-        }
-
         .hero-content p {
-            font-size: 1.3rem;
+            font-size: 1.5rem;
             color: var(--text-secondary);
-            margin-bottom: 2.5rem;
-            line-height: 1.8;
+            margin-bottom: 3rem;
+            line-height: 1.6;
+            font-weight: 300;
+            animation: fadeInUp 1.5s ease-out 0.5s both;
         }
 
         .btn {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
             padding: 1rem 3rem;
-            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            background: var(--primary-color);
             color: var(--text-primary);
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
             font-size: 1.1rem;
-            border-radius: 50px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-transform: uppercase;
+            border-radius: 0;
+            transition: background 0.3s ease;
+            gap: 0.5rem;
         }
 
         .btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px var(--glow);
+            background: var(--accent-color);
         }
 
         .container {
-            max-width: 1400px;
+            max-width: 1600px;
             margin: 0 auto;
-            padding: 5rem 2rem;
+            padding: 4rem 2rem;
         }
 
         section {
-            padding: 5rem 0;
+            padding: 8rem 0;
         }
 
         h2 {
             font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 4rem;
             text-align: center;
             color: var(--text-primary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
             position: relative;
+            animation: fadeIn 1s ease-out;
         }
 
         h2::after {
             content: '';
             position: absolute;
-            bottom: -12px;
+            bottom: -10px;
             left: 50%;
             transform: translateX(-50%);
             width: 100px;
-            height: 5px;
+            height: 4px;
             background: var(--primary-color);
-            border-radius: 3px;
         }
 
+        /* Roster Section */
         .roster-grid, .creator-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
             margin-top: 3rem;
         }
 
         .roster-card, .creator-card {
             background: var(--card-bg);
-            border-radius: 16px;
-            padding: 2rem;
+            border-radius: 10px;
+            padding: 1.2rem;
             text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: box-shadow 0.3s ease;
             border: 1px solid rgba(255, 255, 255, 0.1);
+            display: inline-block;
+            width: auto;
         }
 
         .roster-card:hover, .creator-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 25px var(--glow);
+            box-shadow: 0 8px 20px var(--glow);
         }
 
         .roster-card h3, .creator-card h3 {
-            font-size: 1.8rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
         }
 
         .roster-card a, .creator-card a {
-            color: var(--text-secondary);
+            color: var(--primary-color);
             text-decoration: none;
-            font-size: 1.1rem;
+            font-size: 0.9rem;
+            font-weight: 600;
             transition: color 0.3s ease;
+            display: block;
         }
 
         .roster-card a:hover, .creator-card a:hover {
             color: var(--accent-color);
         }
 
+        /* Socials Section */
         .socials {
             display: flex;
             justify-content: center;
             gap: 2rem;
             margin-top: 3rem;
+            flex-wrap: wrap;
         }
 
         .social-btn {
             padding: 0.8rem 2rem;
-            border-radius: 50px;
+            border: 1px solid var(--primary-color);
             text-decoration: none;
             font-weight: 600;
             font-size: 1rem;
             color: var(--text-primary);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: background 0.3s ease, color 0.3s ease;
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            position: relative;
+            overflow: hidden;
         }
 
-        .social-btn.twitter {
-            background: linear-gradient(90deg, #1DA1F2, #3498DB);
+        .social-btn.gankster img {
+            height: 1.2rem;
+            width: auto;
         }
 
-        .social-btn.instagram {
-            background: linear-gradient(90deg, #C13584, #E1306C);
+        .social-btn.gankster::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -100%;
+            width: 50%;
+            height: 200%;
+            background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transform: rotate(45deg);
+            animation: shine 4s infinite;
+        }
+
+        .social-btn i {
+            font-size: 1.2rem;
         }
 
         .social-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px var(--shadow);
+            background: var(--primary-color);
+            color: var(--background-dark);
         }
 
-        .contact-list {
-            list-style: none;
+        /* Contact Form */
+        .contact-form {
+            max-width: 800px;
+            margin: 3rem auto;
+            background: var(--card-bg);
+            padding: 3rem;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .contact-form h3 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
             text-align: center;
-            margin-top: 2.5rem;
-            font-size: 1.2rem;
-            color: var(--text-secondary);
-            line-height: 2;
+            color: var(--text-primary);
         }
 
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-primary);
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary-color);
+            outline: none;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .form-message {
+            display: none;
+            margin-top: 1rem;
+            padding: 1rem;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .form-message.success {
+            background: var(--primary-color);
+            color: var(--text-primary);
+        }
+
+        .form-message.error {
+            background: #dc3545;
+            color: var(--text-primary);
+        }
+
+        /* Footer */
         footer {
             text-align: center;
             padding: 3rem 0;
-            background: rgba(0, 0, 0, 0.3);
+            background: rgba(0, 0, 0, 0.5);
             color: var(--text-secondary);
-            font-size: 1rem;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
+        footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
         }
 
+        footer a:hover {
+            color: var(--accent-color);
+        }
+
+        footer img.gankster-logo {
+            height: 1rem;
+            width: auto;
+            vertical-align: middle;
+            margin-left: 0.5rem;
+        }
+
+        /* Animations */
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        @media (max-width: 1024px) {
-            .hero-content h1 { font-size: 3rem; }
-            .hero-content p { font-size: 1.1rem; }
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes shine {
+            0% {
+                left: -100%;
+            }
+            50% {
+                left: 100%;
+            }
+            100% {
+                left: 100%;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .hero-content p { font-size: 1.3rem; }
             h2 { font-size: 2.5rem; }
-            .roster-grid, .creator-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+            .roster-grid, .creator-grid { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
         }
 
         @media (max-width: 768px) {
-            .nav-container { padding: 1rem; }
+            .nav-container { padding: 1rem 1.5rem; }
             .nav-logo { height: 40px; }
-            nav { display: none; }
-            nav.active {
-                display: block;
-                position: absolute;
-                top: 70px;
+            nav {
+                display: none;
+                position: fixed;
+                top: 0;
                 left: 0;
                 width: 100%;
-                background: rgba(30, 30, 47, 0.95);
-                padding: 1rem 0;
+                height: 100vh;
+                background: rgba(30, 30, 47, 0.98);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                z-index: 1000;
+            }
+            nav.active {
+                display: flex;
             }
             nav ul {
                 flex-direction: column;
-                text-align: center;
-                gap: 1.5rem;
+                gap: 2rem;
+            }
+            nav a {
+                font-size: 1.2rem;
             }
             .hamburger { display: flex; }
-            .hero-content h1 { font-size: 2.5rem; }
-            .hero-content p { font-size: 1rem; }
-            .btn, .social-btn { width: 80%; margin: 0 auto; }
+            .hero-content p { font-size: 1.1rem; }
+            .btn { padding: 0.8rem 2rem; font-size: 1rem; }
             h2 { font-size: 2rem; }
+            .contact-form { padding: 2rem; }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content p { font-size: 1rem; }
+            h2 { font-size: 1.8rem; }
+            .roster-grid, .creator-grid { grid-template-columns: 1fr; }
+            .social-btn { min-width: 100%; }
+            .hero-logo { max-width: 70%; }
         }
     </style>
 </head>
 <body>
-    <div id="root"></div>
-    <script type="text/babel">
-        const { motion } = window.FramerMotion;
-        const Header = () => {
-            const [isOpen, setIsOpen] = React.useState(false);
-            const toggleMenu = () => setIsOpen(!isOpen);
-
-            const handleNavClick = (id) => {
-                document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
-                setIsOpen(false);
-            };
-
-            return (
-                <header>
-                    <div className="nav-container">
-                        <motion.img
-                            src="/virtuelightheader.png"
-                            alt="Team Virtue Logo"
-                            className="nav-logo"
-                            whileHover={{ scale: 1.05 }}
-                            transition={{ duration: 0.3 }}
-                        />
-                        <div className={`hamburger ${isOpen ? 'active' : ''}`} onClick={toggleMenu}>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
-                        <nav className={isOpen ? 'active' : ''}>
-                            <ul>
-                                {['home', 'roster', 'about', 'contact'].map((item) => (
-                                    <motion.li
-                                        key={item}
-                                        whileHover={{ y: -2 }}
-                                        transition={{ duration: 0.3 }}
-                                    >
-                                        <a
-                                            href={`#${item}`}
-                                            onClick={() => handleNavClick(item)}
-                                        >
-                                            {item.charAt(0).toUpperCase() + item.slice(1)}
-                                        </a>
-                                    </motion.li>
-                                ))}
-                            </ul>
-                        </nav>
-                    </div>
-                </header>
-            );
-        };
-
-        const Hero = () => (
-            <section className="hero" id="home">
-                <div className="hero-content">
-                    <motion.h1
-                        initial={{ opacity: 0, y: -20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 1 }}
-                    >
-                        Team Virtue
-                    </motion.h1>
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 1, delay: 0.3 }}
-                    >
-                        A premier eSports organization dedicated to excellence in competitive gaming.
-                    </motion.p>
-                    <motion.a
-                        href="https://discord.gg/2btnvUJADc"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="btn"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 1, delay: 0.6 }}
-                        whileHover={{ scale: 1.05, boxShadow: '0 8px 20px var(--glow)' }}
-                    >
-                        Join Our Discord
-                    </motion.a>
-                </div>
-            </section>
-        );
-
-        const About = () => (
-            <section id="about">
-                <motion.h2
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{ duration: 0.8 }}
-                    viewport={{ once: true }}
-                >
-                    About Us
-                </motion.h2>
-                <motion.p
-                    style={{
-                        textAlign: 'center',
-                        color: 'var(--text-secondary)',
-                        lineHeight: 1.8,
-                        maxWidth: '900px',
-                        margin: '0 auto',
-                        fontSize: '1.2rem',
-                    }}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
-                    viewport={{ once: true }}
-                >
-                    Team Virtue is a professional eSports organization built on skill, teamwork, and integrity. We compete at the highest levels in Rocket League and are committed to fostering a community of passionate gamers.
-                </motion.p>
-            </section>
-        );
-
-        const Roster = () => {
-            const players = [
-                { name: 'Finny.', link: 'https://steamcommunity.com/id/finnish_taylorsversion/', linkText: 'Steam Profile' },
-                { name: 'WestyzWorld', link: 'https://steamcommunity.com/profiles/76561198369905223', linkText: 'Steam Profile' },
-                { name: 'Jxhnssl.', link: null },
-                { name: 'Felicia, The Goat', link: 'https://steamcommunity.com/id/FeliciaTheOG', linkText: 'Steam Profile' },
-            ];
-
-            return (
-                <section id="roster">
-                    <motion.h2
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        transition={{ duration: 0.8 }}
-                        viewport={{ once: true }}
-                    >
-                        Our Roster
-                    </motion.h2>
-                    <div className="roster-grid">
-                        {players.map((player, index) => (
-                            <motion.div
-                                key={player.name}
-                                className="roster-card"
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.5, delay: index * 0.1 }}
-                                viewport={{ once: true }}
-                                whileHover={{ scale: 1.03, boxShadow: '0 12px 25px var(--glow)' }}
-                            >
-                                <h3>{player.name}</h3>
-                                {player.link && (
-                                    <a href={player.link} target="_blank" rel="noopener noreferrer">
-                                        {player.linkText}
-                                    </a>
-                                )}
-                            </motion.div>
-                        ))}
-                    </div>
-                </section>
-            );
-        };
-
-        const Creator = () => (
-            <section>
-                <motion.h2
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{ duration: 0.8 }}
-                    viewport={{ once: true }}
-                >
-                    Content Creator
-                </motion.h2>
-                <div className="creator-grid">
-                    <motion.div
-                        className="creator-card"
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5 }}
-                        viewport={{ once: true }}
-                        whileHover={{ scale: 1.03, boxShadow: '0 12px 25px var(--glow)' }}
-                    >
-                        <h3>Remedy</h3>
-                        <a href="https://youtube.com/@rlremedy" target="_blank" rel="noopener noreferrer">
-                            YouTube Channel
-                        </a>
-                    </motion.div>
-                </div>
-            </section>
-        );
-
-        const Contact = () => (
-            <section id="contact">
-                <motion.h2
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{ duration: 0.8 }}
-                    viewport={{ once: true }}
-                >
-                    Contact Us
-                </motion.h2>
-                <div className="socials">
-                    {[
-                        { platform: 'twitter', href: 'https://x.com/TeamVirtueRL', text: 'Twitter' },
-                        { platform: 'instagram', href: 'https://www.instagram.com/teamvirtuerl/', text: 'Instagram' },
-                    ].map((social) => (
-                        <motion.a
-                            key={social.platform}
-                            href={social.href}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={`social-btn ${social.platform}`}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5 }}
-                            viewport={{ once: true }}
-                            whileHover={{ scale: 1.05, boxShadow: '0 8px 20px var(--shadow)' }}
-                        >
-                            {social.text}
-                        </motion.a>
-                    ))}
-                </div>
-                <motion.ul
-                    className="contact-list"
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{ duration: 0.8 }}
-                    viewport={{ once: true }}
-                >
-                    <li>watertucky (Discord)</li>
-                    <li>finnyxtv (Discord, Player Captain)</li>
-                </motion.ul>
-            </section>
-        );
-
-        const Footer = () => (
-            <footer>
-                <motion.p
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{ duration: 0.8 }}
-                    viewport={{ once: true }}
-                >
-                    &copy; 2025 Team Virtue Organization. All rights reserved.
-                </motion.p>
-            </footer>
-        );
-
-        const App = () => (
-            <div>
-                <Header />
-                <Hero />
-                <div className="container">
-                    <About />
-                    <Roster />
-                    <Creator />
-                    <Contact />
-                </div>
-                <Footer />
+    <header>
+        <div class="nav-container">
+            <img src="/assets/images/virtue-light-header.png" alt="Team Virtue Logo" class="nav-logo">
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
-        );
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#roster">Roster</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-        const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(<App />);
+    <section class="hero" id="home">
+        <video class="hero-video" autoplay muted loop>
+            <source src="/assets/videos/rocket-league.mp4" type="video/mp4">
+        </video>
+        <img src="/assets/images/virtue-light-header.png" alt="Team Virtue Logo" class="hero-logo">
+        <div class="hero-content">
+            <p>Dominating the eSports arena with unparalleled skill and dedication in Rocket League.</p>
+            <a href="https://discord.gg/2btnvUJADc" target="_blank" rel="noopener noreferrer" class="btn">
+                <i class="fab fa-discord"></i> Join Discord
+            </a>
+        </div>
+    </section>
+
+    <div class="container">
+        <section id="about">
+            <h2>About</h2>
+            <p style="text-align: center; color: var(--text-secondary); line-height: 1.6; max-width: 1000px; margin: 0 auto; font-size: 1.2rem;">
+                Team Virtue is an elite eSports organization built on excellence, precision, and community. Specializing in Rocket League, we compete at the highest levels, pushing the boundaries of competitive gaming while inspiring a global fanbase.
+            </p>
+        </section>
+
+        <section id="roster">
+            <h2>Roster</h2>
+            <div class="roster-grid">
+                <div class="roster-card">
+                    <h3>Finny.</h3>
+                    <a href="https://steamcommunity.com/id/finnish_taylorsversion/" target="_blank" rel="noopener noreferrer">Steam Profile</a>
+                </div>
+                <div class="roster-card">
+                    <h3>WestyzWorld</h3>
+                    <a href="https://steamcommunity.com/profiles/76561198369905223" target="_blank" rel="noopener noreferrer">Steam Profile</a>
+                </div>
+                <div class="roster-card">
+                    <h3>Jxhnssl.</h3>
+                </div>
+                <div class="roster-card">
+                    <h3>Felicia, The Goat</h3>
+                    <a href="https://steamcommunity.com/id/FeliciaTheOG" target="_blank" rel="noopener noreferrer">Steam Profile</a>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Content Creators</h2>
+            <div class="creator-grid">
+                <div class="creator-card">
+                    <h3>Remedy</h3>
+                    <a href="https://youtube.com/@rlremedy" target="_blank" rel="noopener noreferrer">YouTube Channel</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <div class="socials">
+                <a href="https://x.com/TeamVirtueRL" target="_blank" rel="noopener noreferrer" class="social-btn">
+                    <i class="fab fa-x-twitter"></i> X
+                </a>
+                <a href="https://www.instagram.com/teamvirtuerl/" target="_blank" rel="noopener noreferrer" class="social-btn">
+                    <i class="fab fa-instagram"></i> Instagram
+                </a>
+                <a href="https://discord.gg/2btnvUJADc" target="_blank" rel="noopener noreferrer" class="social-btn">
+                    <i class="fab fa-discord"></i> Discord
+                </a>
+                <a href="https://rocketleague.gankster.gg/teams/93789/team-virtue" target="_blank" rel="noopener noreferrer" class="social-btn gankster">
+                    <img src="https://gankster.gg/static/images/gankster-logo.png" alt="Gankster Logo"> Gankster
+                </a>
+            </div>
+            <div class="contact-form">
+                <h3>Connect With Us</h3>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" placeholder="Your Message" required></textarea>
+                </div>
+                <button class="btn" id="submit-form"><i class="fas fa-paper-plane"></i> Send</button>
+                <div class="form-message" id="form-message"></div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>© 2025 Team Virtue. All rights reserved. | <a href="#home">Back to Top</a> | <a href="https://rocketleague.gankster.gg/teams/93789/team-virtue" target="_blank" rel="noopener noreferrer">Gankster<img src="https://gankster.gg/static/images/gankster-logo.png" alt="Gankster Logo" class="gankster-logo"></a></p>
+    </footer>
+
+    <script>
+        // Navigation
+        const hamburger = document.querySelector('.hamburger');
+        const nav = document.querySelector('nav');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            nav.classList.toggle('active');
+        });
+
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = anchor.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                }
+                hamburger.classList.remove('active');
+                nav.classList.remove('active');
+            });
+        });
+
+        // Contact Form
+        const formButton = document.getElementById('submit-form');
+        const formMessage = document.getElementById('form-message');
+
+        formButton.addEventListener('click', async () => {
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+
+            if (!name || !email || !message) {
+                showFormMessage('Please fill in all fields.', 'error');
+                return;
+            }
+
+            if (!validateEmail(email)) {
+                showFormMessage('Please enter a valid email address.', 'error');
+                return;
+            }
+
+            try {
+                await new Promise(resolve => setTimeout(resolve, 1000));
+                showFormMessage('Message sent successfully!', 'success');
+                resetForm();
+            } catch (error) {
+                showFormMessage('Failed to send message. Please try again later.', 'error');
+            }
+        });
+
+        function showFormMessage(message, type) {
+            formMessage.textContent = message;
+            formMessage.className = `form-message ${type}`;
+            formMessage.style.display = 'block';
+            setTimeout(() => {
+                formMessage.style.display = 'none';
+            }, 5000);
+        }
+
+        function resetForm() {
+            document.getElementById('name').value = '';
+            document.getElementById('email').value = '';
+            document.getElementById('message').value = '';
+        }
+
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+
+        // Scroll Animations
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.roster-card, .creator-card, .contact-form');
+            elements.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight * 0.8) {
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }
+            });
+        };
+
+        window.addEventListener('scroll', animateOnScroll);
+        document.addEventListener('DOMContentLoaded', animateOnScroll);
+
+        // Initialize animations
+        document.querySelectorAll('.roster-card, .creator-card, .contact-form').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        });
     </script>
 </body>
 </html>
