@@ -12,7 +12,7 @@
     <meta property="og:image" content="virtuemain.png">
     <meta property="og:url" content="https://teamvirtue.org/">
     <meta property="og:type" content="website">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://*.gankster.gg https://*.start.gg; media-src 'self'; connect-src 'self' https://api.teamvirtue.org; frame-src 'none'; object-src 'none';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://*.gankster.gg https://*.start.gg; media-src 'self'; connect-src 'self' https://api.x.ai; frame-src 'none'; object-src 'none';">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="X-Frame-Options" content="DENY">
     <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
@@ -597,7 +597,6 @@
             }
         }
 
-        /* Desktop styles (Horizontal layout) */
         @media (min-width: 769px) {
             .hero-logo-container {
                 max-width: 800px;
@@ -623,7 +622,6 @@
             }
         }
 
-        /* Mobile styles (Vertical layout) */
         @media (max-width: 768px) {
             .nav-container {
                 padding: 1rem 1.5rem;
@@ -834,7 +832,7 @@
         <div class="chatbot-window">
             <div class="chatbot-header">
                 <h3>Team Virtue Bot</h3>
-                <button class="chatbot-close">&times;</button>
+                <button class="chatbot-close">×</button>
             </div>
             <div class="chatbot-messages" id="chatbot-messages">
             </div>
@@ -848,7 +846,7 @@
     <footer>
         <p>© 2025 Team Virtue. All rights reserved. | <a href="#home">Back to Top</a> | 
             <a href="https://rocketleague.gankster.gg/teams/93789/team-virtue" target="_blank" rel="noopener noreferrer">Gankster<img src="gankster.png" alt="Gankster Logo"></a> | 
-            <a href="https://start.gg/team/virtue" target="_blank" rel="noopener noreferrer">Start.gg<img src="startgg.png" alt="Start.gg Logo"></a>
+            <a href="https://www.start.gg/team/virtue" target="_blank" rel="noopener noreferrer">Start.gg<img src="startgg.png" alt="Start.gg Logo"></a>
         </p>
     </footer>
 
@@ -887,7 +885,6 @@
             const emailInput = document.getElementById('email');
             const messageInput = document.getElementById('message');
 
-            // Sanitize inputs
             const name = sanitizeInput(nameInput.value.trim());
             const email = sanitizeInput(emailInput.value.trim());
             const message = sanitizeInput(messageInput.value.trim());
@@ -903,7 +900,6 @@
             }
 
             try {
-                // Simulate async operation (replace with actual API call in production)
                 await new Promise(resolve => setTimeout(resolve, 1000));
                 showFormMessage('Message sent successfully!', 'success');
                 resetForm();
@@ -962,7 +958,6 @@
         window.addEventListener('scroll', animateOnScroll);
         document.addEventListener('DOMContentLoaded', () => {
             animateOnScroll();
-            // Secure initial element styles
             document.querySelectorAll('.roster-card, .creator-card, .contact-form').forEach(el => {
                 el.style.opacity = '0';
                 el.style.transform = 'translateY(20px)';
@@ -1010,7 +1005,7 @@
             chatbotInput.value = '';
 
             try {
-                // Simulated AI response (replace with actual API call)
+                // Placeholder for actual API integration
                 const response = await getBotResponse(input);
                 addMessage(response, false);
             } catch (error) {
@@ -1019,23 +1014,28 @@
         }
 
         async function getBotResponse(input) {
-            // Simulated responses for demo purposes
-            const responses = {
-                'who is team virtue': 'Team Virtue is a professional eSports organization specializing in Rocket League, known for skill, teamwork, and integrity.',
-                'what is rocket league': 'Rocket League is a vehicular soccer video game where players control rocket-powered cars to hit a ball into the opponent’s goal.',
-                'who are the players': 'Our roster includes Finny., WestyzWorld, Jxhnssl., and Felicia, The Goat.',
-                'how to join': 'To join Team Virtue, check our Discord for tryout announcements and community events.',
-                'default': 'I’m not sure about that. Try asking about Team Virtue, Rocket League, or our roster!'
-            };
+            // Simulate API call to xAI's Grok
+            try {
+                // In a real implementation, you'd make an API call to xAI's Grok endpoint
+                // For this demo, we'll use predefined responses with context about Team Virtue
+                const responses = {
+                    'who is team virtue': 'Team Virtue is a professional eSports organization specializing in Rocket League, known for skill, teamwork, and integrity.',
+                    'what is rocket league': 'Rocket League is a vehicular soccer video game where players control rocket-powered cars to hit a ball into the opponent’s goal.',
+                    'who are the players': 'Our roster includes Finny., WestyzWorld, Jxhnssl., and Felicia, The Goat.',
+                    'how to join': 'To join Team Virtue, check our Discord for tryout announcements and community events.',
+                    'default': 'I’m not sure about that. Try asking about Team Virtue, Rocket League, or our roster!'
+                };
 
-            // Simple keyword matching (replace with actual API call)
-            const lowerInput = input.toLowerCase();
-            for (const key in responses) {
-                if (lowerInput.includes(key)) {
-                    return responses[key];
+                const lowerInput = input.toLowerCase();
+                for (const key in responses) {
+                    if (lowerInput.includes(key)) {
+                        return responses[key];
+                    }
                 }
+                return responses['default'];
+            } catch (error) {
+                throw new Error('Failed to fetch response');
             }
-            return responses['default'];
         }
 
         chatbotSend.addEventListener('click', handleChatbotMessage);
@@ -1045,7 +1045,7 @@
 
         // Rate limiting for chatbot
         let lastChatTime = 0;
-        const chatCooldown = 1000; // 1 second
+        const chatCooldown = 1000;
         chatbotSend.addEventListener('click', () => {
             const now = Date.now();
             if (now - lastChatTime < chatCooldown) {
@@ -1071,7 +1071,6 @@
         // Monitor for suspicious activity
         window.addEventListener('error', (e) => {
             console.warn('Potential security issue detected:', e.message);
-            // Log to a secure endpoint if needed
         });
     </script>
 </body>
