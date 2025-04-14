@@ -12,7 +12,7 @@
     <meta property="og:image" content="virtuemain.png">
     <meta property="og:url" content="https://teamvirtue.org/">
     <meta property="og:type" content="website">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://*.gankster.gg https://*.start.gg; media-src 'self'; connect-src 'self' https://api.x.ai; frame-src 'none'; object-src 'none';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://*.gankster.gg https://*.start.gg https://cdn.discordapp.com https://abs.twimg.com https://www.instagram.com; media-src 'self'; connect-src 'self' https://api.x.ai; frame-src 'none'; object-src 'none';">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="X-Frame-Options" content="DENY">
     <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
@@ -265,6 +265,12 @@
             color: var(--text-primary);
         }
 
+        .roster-card p, .creator-card p {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
         .roster-card a, .creator-card a {
             color: var(--primary-color);
             text-decoration: none;
@@ -328,10 +334,6 @@
             background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
             transform: rotate(45deg);
             animation: shine 4s infinite;
-        }
-
-        .social-btn i {
-            font-size: 1.2rem;
         }
 
         .social-btn:hover {
@@ -429,6 +431,11 @@
             justify-content: center;
             box-shadow: 0 4px 10px var(--shadow);
             transition: background 0.3s ease;
+        }
+
+        .chatbot-button img {
+            height: 2rem;
+            width: auto;
         }
 
         .chatbot-button:hover {
@@ -746,7 +753,7 @@
         <div class="hero-content">
             <p>Dominating the eSports arena with unparalleled skill and dedication in Rocket League.</p>
             <a href="https://discord.gg/2btnvUJADc" target="_blank" rel="noopener noreferrer" class="btn">
-                <i class="fab fa-discord"></i> Join Discord
+                <img src="https://cdn.discordapp.com/attachments/123456789/discord-logo.png" alt="Discord Logo"> Join Discord
             </a>
         </div>
     </section>
@@ -764,15 +771,19 @@
             <div class="roster-grid">
                 <div class="roster-card">
                     <h3><a href="https://steamcommunity.com/id/finnish_taylorsversion/" target="_blank" rel="noopener noreferrer">Finny.</a></h3>
+                    <p>Rank: GC2-3</p>
                 </div>
                 <div class="roster-card">
                     <h3><a href="https://steamcommunity.com/profiles/76561198369905223" target="_blank" rel="noopener noreferrer">WestyzWorld</a></h3>
+                    <p>Rank: GC1-2</p>
                 </div>
                 <div class="roster-card">
                     <h3>Jxhnssl.</h3>
+                    <p>Rank: GC3-SSL</p>
                 </div>
                 <div class="roster-card">
                     <h3><a href="https://steamcommunity.com/id/FeliciaTheOG" target="_blank" rel="noopener noreferrer">Felicia, The Goat</a></h3>
+                    <p>Rank: C3-GC1</p>
                 </div>
             </div>
         </section>
@@ -790,13 +801,13 @@
             <h2>Contact</h2>
             <div class="socials">
                 <a href="https://x.com/TeamVirtueRL" target="_blank" rel="noopener noreferrer" class="social-btn">
-                    <i class="fab fa-x-twitter"></i> X
+                    <img src="https://abs.twimg.com/favicons/twitter.2.ico" alt="X Logo"> X
                 </a>
                 <a href="https://www.instagram.com/teamvirtuerl/" target="_blank" rel="noopener noreferrer" class="social-btn">
-                    <i class="fab fa-instagram"></i> Instagram
+                    <img src="https://www.instagram.com/static/images/ico/favicon.ico/36b3ee2d91ed.ico" alt="Instagram Logo"> Instagram
                 </a>
                 <a href="https://discord.gg/2btnvUJADc" target="_blank" rel="noopener noreferrer" class="social-btn">
-                    <i class="fab fa-discord"></i> Discord
+                    <img src="https://cdn.discordapp.com/attachments/123456789/discord-logo.png" alt="Discord Logo"> Discord
                 </a>
                 <a href="https://rocketleague.gankster.gg/teams/93789/team-virtue" target="_blank" rel="noopener noreferrer" class="social-btn">
                     <img src="gankster.png" alt="Gankster Logo"> Gankster
@@ -827,7 +838,7 @@
 
     <div class="chatbot-container">
         <button class="chatbot-button" title="Open Chatbot">
-            <i class="fas fa-robot"></i>
+            <img src="chatbot-logo.png" alt="Chatbot Logo">
         </button>
         <div class="chatbot-window">
             <div class="chatbot-header">
@@ -1005,7 +1016,6 @@
             chatbotInput.value = '';
 
             try {
-                // Placeholder for actual API integration
                 const response = await getBotResponse(input);
                 addMessage(response, false);
             } catch (error) {
@@ -1014,16 +1024,14 @@
         }
 
         async function getBotResponse(input) {
-            // Simulate API call to xAI's Grok
             try {
-                // In a real implementation, you'd make an API call to xAI's Grok endpoint
-                // For this demo, we'll use predefined responses with context about Team Virtue
                 const responses = {
                     'who is team virtue': 'Team Virtue is a professional eSports organization specializing in Rocket League, known for skill, teamwork, and integrity.',
                     'what is rocket league': 'Rocket League is a vehicular soccer video game where players control rocket-powered cars to hit a ball into the opponent’s goal.',
                     'who are the players': 'Our roster includes Finny., WestyzWorld, Jxhnssl., and Felicia, The Goat.',
+                    'player ranks': 'Here are the current ranks for Team Virtue players: Finny. is GC2-3, WestyzWorld is GC1-2, Jxhnssl. is GC3-SSL, and Felicia, The Goat is C3-GC1.',
                     'how to join': 'To join Team Virtue, check our Discord for tryout announcements and community events.',
-                    'default': 'I’m not sure about that. Try asking about Team Virtue, Rocket League, or our roster!'
+                    'default': 'I’m not sure about that. Try asking about Team Virtue, Rocket League, our roster, or player ranks!'
                 };
 
                 const lowerInput = input.toLowerCase();
