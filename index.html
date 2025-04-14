@@ -9,11 +9,14 @@
     <meta name="theme-color" content="#6A0DAD">
     <meta property="og:title" content="Team Virtue | Elite eSports Organization">
     <meta property="og:description" content="Team Virtue dominates the eSports arena with unparalleled skill and dedication in Rocket League.">
-    <meta property="og:image" content="/virtuemain.png">
+    <meta property="og:image" content="/assets/images/virtue-main.png">
     <meta property="og:url" content="https://teamvirtue.netlify.app/">
     <meta property="og:type" content="website">
     <title>Team Virtue</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="icon" href="/assets/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/assets/images/virtue-main.png" type="image/png" sizes="64x64">
+    <link rel="apple-touch-icon" href="/assets/images/virtue-main.png" sizes="180x180">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
         :root {
@@ -45,7 +48,6 @@
             overflow-x: hidden;
         }
 
-        /* Header Styles */
         header {
             position: fixed;
             top: 0;
@@ -67,6 +69,7 @@
 
         .nav-logo {
             height: 50px;
+            object-fit: contain;
         }
 
         nav ul {
@@ -116,7 +119,6 @@
             transform: rotate(-45deg) translate(7px, -7px);
         }
 
-        /* Hero Section */
         .hero {
             height: 100vh;
             display: flex;
@@ -228,7 +230,6 @@
             background: var(--primary-color);
         }
 
-        /* Roster Section */
         .roster-grid, .creator-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -239,16 +240,15 @@
         .roster-card, .creator-card {
             background: var(--card-bg);
             border-radius: 10px;
-            padding: 1.2rem;
+            padding: 1.5rem;
             text-align: center;
-            transition: box-shadow 0.3s ease;
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            display: inline-block;
-            width: auto;
         }
 
         .roster-card:hover, .creator-card:hover {
             box-shadow: 0 8px 20px var(--glow);
+            transform: translateY(-5px);
         }
 
         .roster-card h3, .creator-card h3 {
@@ -271,7 +271,6 @@
             color: var(--accent-color);
         }
 
-        /* Socials Section */
         .socials {
             display: flex;
             justify-content: center;
@@ -300,14 +299,16 @@
             gap: 0.5rem;
             position: relative;
             overflow: hidden;
+            border-radius: 5px;
         }
 
-        .social-btn.gankster img, .social-btn.startgg img {
+        .social-btn img {
             height: 1.2rem;
             width: auto;
+            object-fit: contain;
         }
 
-        .social-btn.gankster::before, .social-btn.startgg::before {
+        .social-btn::before {
             content: '';
             position: absolute;
             top: -50%;
@@ -328,7 +329,6 @@
             color: var(--background-dark);
         }
 
-        /* Contact Form */
         .contact-form {
             max-width: 800px;
             margin: 3rem auto;
@@ -399,7 +399,6 @@
             color: var(--text-primary);
         }
 
-        /* Footer */
         footer {
             text-align: center;
             padding: 3rem 0;
@@ -420,14 +419,13 @@
             color: var(--accent-color);
         }
 
-        footer img.gankster-logo {
+        footer img {
             height: 1rem;
             width: auto;
             vertical-align: middle;
             margin-left: 0.5rem;
         }
 
-        /* Animations */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -471,7 +469,6 @@
             }
         }
 
-        /* Responsive Design */
         @media (max-width: 1200px) {
             .hero-content p { font-size: 1.3rem; }
             h2 { font-size: 2.5rem; }
@@ -523,7 +520,7 @@
 <body>
     <header>
         <div class="nav-container">
-            <img src="/virtuemain.png" alt="Team Virtue Logo" class="nav-logo">
+            <img src="/assets/images/virtue-main.png" alt="Team Virtue Logo" class="nav-logo">
             <div class="hamburger">
                 <span></span>
                 <span></span>
@@ -542,8 +539,9 @@
 
     <section class="hero" id="home">
         <video class="hero-video" autoplay muted loop>
+            <source src="/assets/videos/hero-bg.mp4" type="video/mp4">
         </video>
-        <img src="/virtuemain.png" alt="Team Virtue Logo" class="hero-logo">
+        <img src="/assets/images/team-virtue-light.png" alt="Team Virtue Logo" class="hero-logo">
         <div class="hero-content">
             <p>Dominating the eSports arena with unparalleled skill and dedication in Rocket League.</p>
             <a href="https://discord.gg/2btnvUJADc" target="_blank" rel="noopener noreferrer" class="btn">
@@ -556,7 +554,7 @@
         <section id="about">
             <h2>About</h2>
             <p style="text-align: center; color: var(--text-secondary); line-height: 1.6; max-width: 1000px; margin: 0 auto; font-size: 1.2rem;">
-                Team Virtue is a professional eSports organization built on skill, teamwork, and integrity
+                Team Virtue is a professional eSports organization built on skill, teamwork, and integrity. We compete at the highest levels in Rocket League, fostering a community of passionate gamers dedicated to excellence.
             </p>
         </section>
 
@@ -603,11 +601,11 @@
                 <a href="https://discord.gg/2btnvUJADc" target="_blank" rel="noopener noreferrer" class="social-btn">
                     <i class="fab fa-discord"></i> Discord
                 </a>
-                <a href="https://rocketleague.gankster.gg/teams/93789/team-virtue" target="_blank" rel="noopener noreferrer" class="social-btn gankster">
-                    <img src="/gankster.png" alt="Gankster Logo"> Gankster
+                <a href="https://rocketleague.gankster.gg/teams/93789/team-virtue" target="_blank" rel="noopener noreferrer" class="social-btn">
+                    <img src="/assets/images/gankster.png" alt="Gankster Logo"> Gankster
                 </a>
-                <a href="https://www.start.gg/team/619b090f/details" target="_blank" rel="noopener noreferrer" class="social-btn startgg">
-                    <img src="https://www.start.gg/images/logo.png" alt="start.gg Logo"> start.gg
+                <a href="https://start.gg/team/virtue" target="_blank" rel="noopener noreferrer" class="social-btn">
+                    <img src="/assets/images/startgg.png" alt="Start.gg Logo"> Start.gg
                 </a>
             </div>
             <div class="contact-form">
@@ -631,11 +629,13 @@
     </div>
 
     <footer>
-        <p>© 2025 Team Virtue. All rights reserved. | <a href="#home">Back to Top</a> | <a href="https://rocketleague.gankster.gg/teams/93789/team-virtue" target="_blank" rel="noopener noreferrer">Gankster<img src="/gankster.png" alt="Gankster Logo" class="gankster-logo"></a></p>
+        <p>© 2025 Team Virtue. All rights reserved. | <a href="#home">Back to Top</a> | 
+            <a href="https://rocketleague.gankster.gg/teams/93789/team-virtue" target="_blank" rel="noopener noreferrer">Gankster<img src="/assets/images/gankster.png" alt="Gankster Logo"></a> | 
+            <a href="https://start.gg/team/virtue" target="_blank" rel="noopener noreferrer">Start.gg<img src="/assets/images/startgg.png" alt="Start.gg Logo"></a>
+        </p>
     </footer>
 
     <script>
-        // Navigation
         const hamburger = document.querySelector('.hamburger');
         const nav = document.querySelector('nav');
 
@@ -657,7 +657,6 @@
             });
         });
 
-        // Contact Form
         const formButton = document.getElementById('submit-form');
         const formMessage = document.getElementById('form-message');
 
@@ -705,7 +704,6 @@
             return re.test(email);
         }
 
-        // Scroll Animations
         const animateOnScroll = () => {
             const elements = document.querySelectorAll('.roster-card, .creator-card, .contact-form');
             elements.forEach(el => {
@@ -720,7 +718,6 @@
         window.addEventListener('scroll', animateOnScroll);
         document.addEventListener('DOMContentLoaded', animateOnScroll);
 
-        // Initialize animations
         document.querySelectorAll('.roster-card, .creator-card, .contact-form').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(20px)';
