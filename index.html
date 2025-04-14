@@ -1,8 +1,23 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Previous head content remains unchanged -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Team Virtue - Elite eSports organization excelling in competitive gaming with a focus on Rocket League.">
+    <meta name="keywords" content="eSports, Team Virtue, Rocket League, professional gaming, competitive gaming">
+    <meta name="author" content="Team Virtue">
+    <meta name="theme-color" content="#6A0DAD">
+    <meta property="og:title" content="Team Virtue | Elite eSports Organization">
+    <meta property="og:description" content="Team Virtue dominates the eSports arena with unparalleled skill and dedication in Rocket League.">
+    <meta property="og:image" content="virtuemain.png">
+    <meta property="og:url" content="https://teamvirtue.netlify.app/">
+    <meta property="og:type" content="website">
+    <title>Team Virtue</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="virtuemain.png" type="image/png" sizes="64x64">
+    <link rel="apple-touch-icon" href="virtuemain.png" sizes="180x180">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
         :root {
             --primary-color: #6A0DAD;
@@ -327,10 +342,6 @@
             left: 100%;
         }
 
-        .social-btn i {
-            font-size: 1.2rem;
-        }
-
         .social-btn:hover {
             background: var(--primary-color);
             color: var(--background-dark);
@@ -339,78 +350,6 @@
 
         .social-btn:active {
             transform: scale(0.97);
-        }
-
-        .contact-form {
-            max-width: 100%;
-            margin: 2rem auto;
-            background: var(--card-bg);
-            padding: 2rem;
-            border-radius: 8px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .contact-form h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            text-align: center;
-            color: var(--text-primary);
-        }
-
-        .form-group {
-            margin-bottom: 1.2rem;
-        }
-
-        .form-group label {
-            display: block;
-            font-size: 0.9rem;
-            margin-bottom: 0.4rem;
-            font-weight: 600;
-            color: var(--text-secondary);
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.8rem;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 5px;
-            background: rgba(255, 255, 255, 0.05);
-            color: var(--text-primary);
-            font-size: 0.9rem;
-            transition: border-color 0.3s ease;
-            -webkit-appearance: none;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            border-color: var(--primary-color);
-            outline: none;
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        .form-message {
-            display: none;
-            margin-top: 1rem;
-            padding: 0.8rem;
-            border-radius: 5px;
-            text-align: center;
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-
-        .form-message.success {
-            background: var(--primary-color);
-            color: var(--text-primary);
-        }
-
-        .form-message.error {
-            background: #dc3545;
-            color: var(--text-primary);
         }
 
         footer {
@@ -519,10 +458,6 @@
                 min-width: 180px;
                 padding: 0.8rem 1.5rem;
             }
-            .contact-form {
-                max-width: 700px;
-                padding: 2.5rem;
-            }
         }
 
         /* Tablet and Mobile styles */
@@ -592,9 +527,6 @@
                 max-width: 300px;
                 padding: 0.8rem;
             }
-            .contact-form {
-                padding: 1.5rem;
-            }
         }
 
         /* Small mobile devices */
@@ -623,14 +555,6 @@
                 font-size: 0.9rem;
                 padding: 0.7rem;
             }
-            .contact-form h3 {
-                font-size: 1.5rem;
-            }
-            .form-group input,
-            .form-group textarea {
-                font-size: 0.85rem;
-                padding: 0.7rem;
-            }
             footer {
                 font-size: 0.8rem;
                 padding: 1.5rem 1rem;
@@ -639,10 +563,9 @@
     </style>
 </head>
 <body>
-    <!-- Previous HTML content remains unchanged -->
     <header>
         <div class="nav-container">
-            <img src="virtuelightheader.png" alt="Team Virtue Logo" class="nav-logo">
+            <img src="virtuemain.png" alt="Team Virtue Logo" class="nav-logo">
             <div class="hamburger">
                 <span></span>
                 <span></span>
@@ -713,13 +636,10 @@
             <h2>Contact</h2>
             <div class="socials">
                 <a href="https://x.com/TeamVirtueRL" target="_blank" rel="noopener noreferrer" class="social-btn">
-                    <i class="fab fa-x-twitter"></i> X
+                    <img src="x.png" alt="X Logo"> X
                 </a>
                 <a href="https://www.instagram.com/teamvirtuerl/" target="_blank" rel="noopener noreferrer" class="social-btn">
-                    <i class="fab fa-instagram"></i> Instagram
-                </a>
-                <a href="https://discord.gg/2btnvUJADc" target="_blank" rel="noopener noreferrer" class="social-btn">
-                    <i class="fab fa-discord"></i> Discord
+                    <img src="insta.png" alt="Instagram Logo"> Instagram
                 </a>
                 <a href="https://rocketleague.gankster.gg/teams/93789/team-virtue" target="_blank" rel="noopener noreferrer" class="social-btn">
                     <img src="gankster.png" alt="Gankster Logo"> Gankster
@@ -727,23 +647,6 @@
                 <a href="https://www.start.gg/team/619b090f/details" target="_blank" rel="noopener noreferrer" class="social-btn">
                     <img src="startgg.png" alt="Start.gg Logo"> Start.gg
                 </a>
-            </div>
-            <div class="contact-form">
-                <h3>Connect With Us</h3>
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" placeholder="Your Name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" placeholder="Your Email" required>
-                </div>
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" placeholder="Your Message" required></textarea>
-                </div>
-                <button class="btn" id="submit-form"><i class="fas fa-paper-plane"></i> Send</button>
-                <div class="form-message" id="form-message"></div>
             </div>
         </section>
     </div>
@@ -777,59 +680,12 @@
             });
         });
 
-        const formButton = document.getElementById('submit-form');
-        const formMessage = document.getElementById('form-message');
-
-        formButton.addEventListener('click', async () => {
-            const name = document.getElementById('name').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const message = document.getElementById('message').value.trim();
-
-            if (!name || !email || !message) {
-                showFormMessage('Please fill in all fields.', 'error');
-                return;
-            }
-
-            if (!validateEmail(email)) {
-                showFormMessage('Please enter a valid email address.', 'error');
-                return;
-            }
-
-            try {
-                await new Promise(resolve => setTimeout(resolve, 1000));
-                showFormMessage('Message sent successfully!', 'success');
-                resetForm();
-            } catch (error) {
-                showFormMessage('Failed to send message. Please try again later.', 'error');
-            }
-        });
-
-        function showFormMessage(message, type) {
-            formMessage.textContent = message;
-            formMessage.className = `form-message ${type}`;
-            formMessage.style.display = 'block';
-            setTimeout(() => {
-                formMessage.style.display = 'none';
-            }, 4000);
-        }
-
-        function resetForm() {
-            document.getElementById('name').value = '';
-            document.getElementById('email').value = '';
-            document.getElementById('message').value = '';
-        }
-
-        function validateEmail(email) {
-            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            return re.test(email);
-        }
-
         const animateOnScroll = () => {
-            const elements = document.querySelectorAll('.roster-card, .creator-card, .contact-form');
+            const elements = document.querySelectorAll('.roster-card, .creator-card');
             elements.forEach(el => {
                 const rect = el.getBoundingClientRect();
                 if (rect.top < window.innerHeight * 0.85) {
-                    el desprive.opacity = '1';
+                    el.style.opacity = '1';
                     el.style.transform = 'translateY(0)';
                 }
             });
@@ -838,7 +694,7 @@
         window.addEventListener('scroll', animateOnScroll);
         document.addEventListener('DOMContentLoaded', animateOnScroll);
 
-        document.querySelectorAll('.roster-card, .creator-card, .contact-form').forEach(el => {
+        document.querySelectorAll('.roster-card, .creator-card').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(15px)';
             el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
@@ -846,4 +702,3 @@
     </script>
 </body>
 </html>
-```
