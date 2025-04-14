@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="description" content="Team Virtue - Elite eSports organization excelling in competitive gaming with a focus on Rocket League.">
     <meta name="keywords" content="eSports, Team Virtue, Rocket League, professional gaming, competitive gaming">
     <meta name="author" content="Team Virtue">
@@ -10,19 +10,14 @@
     <meta property="og:title" content="Team Virtue | Elite eSports Organization">
     <meta property="og:description" content="Team Virtue dominates the eSports arena with unparalleled skill and dedication in Rocket League.">
     <meta property="og:image" content="virtuemain.png">
-    <meta property="og:url" content="https://teamvirtue.org/">
+    <meta property="og:url" content="https://teamvirtue.netlify.app/">
     <meta property="og:type" content="website">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://*.gankster.gg https://*.start.gg https://cdn.discordapp.com https://abs.twimg.com https://www.instagram.com; media-src 'self'; connect-src 'self' https://api.x.ai; frame-src 'none'; object-src 'none';">
-    <meta http-equiv="X-Content-Type-Options" content="nosniff">
-    <meta http-equiv="X-Frame-Options" content="DENY">
-    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
-    <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains">
     <title>Team Virtue</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="icon" href="virtuemain.png" type="image/png" sizes="64x64">
     <link rel="apple-touch-icon" href="virtuemain.png" sizes="180x180">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
         :root {
             --primary-color: #6A0DAD;
@@ -51,6 +46,7 @@
             background: linear-gradient(135deg, var(--background-gradient-start), var(--background-gradient-end));
             min-height: 100vh;
             overflow-x: hidden;
+            -webkit-overflow-scrolling: touch;
         }
 
         header {
@@ -69,18 +65,18 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 2rem;
+            padding: 1rem 1.5rem;
         }
 
         .nav-logo {
-            height: 60px;
+            height: 50px;
             object-fit: contain;
             display: block;
         }
 
         nav ul {
             display: flex;
-            gap: 2.5rem;
+            gap: 2rem;
             list-style: none;
         }
 
@@ -88,7 +84,7 @@
             color: var(--text-primary);
             text-decoration: none;
             font-weight: 600;
-            font-size: 1rem;
+            font-size: 0.9rem;
             text-transform: uppercase;
             letter-spacing: 1px;
             transition: color 0.3s ease;
@@ -103,6 +99,7 @@
             flex-direction: column;
             cursor: pointer;
             gap: 5px;
+            z-index: 1001;
         }
 
         .hamburger span {
@@ -128,6 +125,7 @@
         .hero {
             height: 100vh;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
@@ -160,26 +158,28 @@
         .hero-logo-container {
             z-index: 3;
             animation: fadeInScale 1.5s ease-out;
+            width: 70%;
+            max-width: 400px;
+            margin: 0 auto;
         }
 
         .hero-logo {
             width: 100%;
             height: auto;
             display: block;
-            margin: 0 auto;
         }
 
         .hero-content {
             position: relative;
             z-index: 4;
-            max-width: 1200px;
-            padding: 2rem;
+            max-width: 90%;
+            padding: 1.5rem;
         }
 
         .hero-content p {
-            font-size: 1.5rem;
+            font-size: 1.1rem;
             color: var(--text-secondary);
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
             line-height: 1.6;
             font-weight: 300;
             animation: fadeInUp 1.5s ease-out 0.5s both;
@@ -188,40 +188,46 @@
         .btn {
             display: inline-flex;
             align-items: center;
-            padding: 1rem 3rem;
+            padding: 0.8rem 2rem;
             background: var(--primary-color);
             color: var(--text-primary);
             text-decoration: none;
             font-weight: 700;
-            font-size: 1.1rem;
+            font-size: 1rem;
             text-transform: uppercase;
-            border-radius: 0;
-            transition: background 0.3s ease;
+            border-radius: 5px;
+            transition: background 0.3s ease, transform 0.2s ease;
             gap: 0.5rem;
+            touch-action: manipulation;
         }
 
         .btn:hover {
             background: var(--accent-color);
+            transform: scale(1.05);
+        }
+
+        .btn:active {
+            transform: scale(0.95);
         }
 
         .container {
             max-width: 1600px;
             margin: 0 auto;
-            padding: 4rem 2rem;
+            padding: 2rem 1.5rem;
         }
 
         section {
-            padding: 8rem 0;
+            padding: 4rem 0;
         }
 
         h2 {
-            font-size: 3rem;
+            font-size: 2rem;
             font-weight: 900;
-            margin-bottom: 4rem;
+            margin-bottom: 2rem;
             text-align: center;
             color: var(--text-primary);
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
             position: relative;
             animation: fadeIn 1s ease-out;
         }
@@ -229,52 +235,46 @@
         h2::after {
             content: '';
             position: absolute;
-            bottom: -10px;
+            bottom: -8px;
             left: 50%;
             transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
+            width: 80px;
+            height: 3px;
             background: var(--primary-color);
         }
 
         .roster-grid, .creator-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
         }
 
         .roster-card, .creator-card {
             background: var(--card-bg);
-            border-radius: 10px;
-            padding: 1.5rem;
+            border-radius: 8px;
+            padding: 1.2rem;
             text-align: center;
             transition: box-shadow 0.3s ease, transform 0.3s ease;
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .roster-card:hover, .creator-card:hover {
-            box-shadow: 0 8px 20px var(--glow);
-            transform: translateY(-5px);
+            box-shadow: 0 6px 15px var(--glow);
+            transform: translateY(-3px);
         }
 
         .roster-card h3, .creator-card h3 {
-            font-size: 1.6rem;
+            font-size: 1.4rem;
             font-weight: 700;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.4rem;
             color: var(--text-primary);
-        }
-
-        .roster-card p, .creator-card p {
-            font-size: 1rem;
-            color: var(--text-secondary);
-            margin-bottom: 0.5rem;
         }
 
         .roster-card a, .creator-card a {
             color: var(--primary-color);
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 600;
             transition: color 0.3s ease;
             display: block;
@@ -287,7 +287,7 @@
         .roster-card h3 a, .creator-card h3 a {
             color: var(--text-primary);
             text-decoration: none;
-            font-size: 1.6rem;
+            font-size: 1.4rem;
         }
 
         .roster-card h3 a:hover, .creator-card h3 a:hover {
@@ -296,26 +296,28 @@
 
         .socials {
             display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 3rem;
-            flex-wrap: wrap;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 2rem;
         }
 
         .social-btn {
-            padding: 0.8rem 2rem;
+            width: 100%;
+            max-width: 300px;
+            padding: 0.8rem;
             border: 1px solid var(--primary-color);
             text-decoration: none;
             font-weight: 600;
             font-size: 1rem;
             color: var(--text-primary);
-            transition: background 0.3s ease, color 0.3s ease;
+            transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 0.5rem;
-            position: relative;
-            overflow: hidden;
             border-radius: 5px;
+            touch-action: manipulation;
         }
 
         .social-btn img {
@@ -336,35 +338,44 @@
             animation: shine 4s infinite;
         }
 
+        .social-btn i {
+            font-size: 1.2rem;
+        }
+
         .social-btn:hover {
             background: var(--primary-color);
             color: var(--background-dark);
+            transform: scale(1.03);
+        }
+
+        .social-btn:active {
+            transform: scale(0.97);
         }
 
         .contact-form {
-            max-width: 800px;
-            margin: 3rem auto;
+            max-width: 100%;
+            margin: 2rem auto;
             background: var(--card-bg);
-            padding: 3rem;
-            border-radius: 10px;
+            padding: 2rem;
+            border-radius: 8px;
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .contact-form h3 {
-            font-size: 2rem;
-            margin-bottom: 2rem;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
             text-align: center;
             color: var(--text-primary);
         }
 
         .form-group {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
         }
 
         .form-group label {
             display: block;
-            font-size: 1rem;
-            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            margin-bottom: 0.4rem;
             font-weight: 600;
             color: var(--text-secondary);
         }
@@ -372,13 +383,14 @@
         .form-group input,
         .form-group textarea {
             width: 100%;
-            padding: 1rem;
+            padding: 0.8rem;
             border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 5px;
             background: rgba(255, 255, 255, 0.05);
             color: var(--text-primary);
-            font-size: 1rem;
+            font-size: 0.9rem;
             transition: border-color 0.3s ease;
+            -webkit-appearance: none;
         }
 
         .form-group input:focus,
@@ -389,16 +401,17 @@
 
         .form-group textarea {
             resize: vertical;
-            min-height: 150px;
+            min-height: 120px;
         }
 
         .form-message {
             display: none;
             margin-top: 1rem;
-            padding: 1rem;
+            padding: 0.8rem;
             border-radius: 5px;
             text-align: center;
             font-weight: 600;
+            font-size: 0.9rem;
         }
 
         .form-message.success {
@@ -411,135 +424,12 @@
             color: var(--text-primary);
         }
 
-        .chatbot-container {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 1000;
-        }
-
-        .chatbot-button {
-            background: var(--primary-color);
-            color: var(--text-primary);
-            border: none;
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 10px var(--shadow);
-            transition: background 0.3s ease;
-        }
-
-        .chatbot-button img {
-            height: 2rem;
-            width: auto;
-        }
-
-        .chatbot-button:hover {
-            background: var(--accent-color);
-        }
-
-        .chatbot-window {
-            display: none;
-            background: var(--card-bg);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            width: 300px;
-            max-height: 400px;
-            flex-direction: column;
-            box-shadow: 0 8px 20px var(--shadow);
-            margin-bottom: 10px;
-        }
-
-        .chatbot-window.active {
-            display: flex;
-        }
-
-        .chatbot-header {
-            background: var(--primary-color);
-            color: var(--text-primary);
-            padding: 1rem;
-            border-radius: 10px 10px 0 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .chatbot-header h3 {
-            font-size: 1rem;
-            font-weight: 600;
-        }
-
-        .chatbot-close {
-            background: none;
-            border: none;
-            color: var(--text-primary);
-            cursor: pointer;
-            font-size: 1.2rem;
-        }
-
-        .chatbot-messages {
-            flex: 1;
-            padding: 1rem;
-            overflow-y: auto;
-            background: rgba(255, 255, 255, 0.05);
-        }
-
-        .chatbot-message {
-            margin-bottom: 1rem;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            max-width: 80%;
-        }
-
-        .chatbot-message.user {
-            background: var(--primary-color);
-            color: var(--text-primary);
-            margin-left: auto;
-        }
-
-        .chatbot-message.bot {
-            background: var(--background-dark);
-            color: var(--text-primary);
-        }
-
-        .chatbot-input {
-            display: flex;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .chatbot-input input {
-            flex: 1;
-            padding: 1rem;
-            border: none;
-            background: transparent;
-            color: var(--text-primary);
-            font-size: 1rem;
-            outline: none;
-        }
-
-        .chatbot-input button {
-            background: var(--primary-color);
-            color: var(--text-primary);
-            border: none;
-            padding: 1rem;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-
-        .chatbot-input button:hover {
-            background: var(--accent-color);
-        }
-
         footer {
             text-align: center;
-            padding: 3rem 0;
+            padding: 2rem 1rem;
             background: rgba(0, 0, 0, 0.5);
             color: var(--text-secondary);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
@@ -555,16 +445,16 @@
         }
 
         footer img {
-            height: 1rem;
+            height: 0.9rem;
             width: auto;
             vertical-align: middle;
-            margin-left: 0.5rem;
+            margin-left: 0.4rem;
         }
 
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateY(15px);
             }
             to {
                 opacity: 1;
@@ -575,7 +465,7 @@
         @keyframes fadeInScale {
             from {
                 opacity: 0;
-                transform: scale(0.9);
+                transform: scale(0.95);
             }
             to {
                 opacity: 1;
@@ -604,42 +494,68 @@
             }
         }
 
+        /* Desktop styles */
         @media (min-width: 769px) {
-            .hero-logo-container {
-                max-width: 800px;
-                width: 80%;
-                margin: 0 auto;
-                position: relative;
-                top: -100px;
-            }
-            .hero-content {
-                margin-top: 0;
-            }
             .nav-container {
-                position: relative;
+                padding: 1rem 2rem;
+                flex-direction: row;
+                align-items: center;
             }
             .nav-logo {
-                position: absolute;
-                left: 50%;
-                transform: translateX(-50%);
                 height: 60px;
+                margin: 0;
             }
             nav ul {
                 justify-content: flex-end;
             }
+            .hero-logo-container {
+                max-width: 600px;
+                width: 80%;
+            }
+            .hero-content {
+                padding: 2rem;
+            }
+            .hero-content p {
+                font-size: 1.3rem;
+            }
+            .btn {
+                padding: 1rem 2.5rem;
+                font-size: 1.1rem;
+            }
+            section {
+                padding: 6rem 0;
+            }
+            h2 {
+                font-size: 2.5rem;
+            }
+            .roster-grid, .creator-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 2rem;
+            }
+            .socials {
+                flex-direction: row;
+                justify-content: center;
+                gap: 1.5rem;
+            }
+            .social-btn {
+                width: auto;
+                padding: 0.8rem 2rem;
+            }
+            .contact-form {
+                max-width: 700px;
+                padding: 2.5rem;
+            }
         }
 
+        /* Tablet and Mobile styles */
         @media (max-width: 768px) {
             .nav-container {
                 padding: 1rem 1.5rem;
-                flex-direction: column;
-                align-items: flex-end;
+                position: relative;
             }
             .nav-logo {
+                height: 45px;
                 margin: 0 auto;
-                height: 50px;
-                position: static;
-                transform: none;
             }
             nav {
                 display: none;
@@ -652,17 +568,17 @@
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
-                z-index: 1000;
+                z-index: dizziness;
             }
             nav.active {
                 display: flex;
             }
             nav ul {
                 flex-direction: column;
-                gap: 2rem;
+                gap: 1.8rem;
             }
             nav a {
-                font-size: 1.2rem;
+                font-size: 1.1rem;
             }
             .hamburger {
                 display: flex;
@@ -671,39 +587,13 @@
                 top: 1.5rem;
             }
             .hero-logo-container {
-                max-width: 400px;
-                width: 70%;
-                margin: 0 auto;
-                position: relative;
-                top: -150px;
+                max-width: 350px;
+                width: 80%;
+                margin-top: -50px;
             }
             .hero-content {
-                margin-top: 0;
                 padding: 1rem;
             }
-            .hero-content p {
-                font-size: 1.1rem;
-            }
-            .btn {
-                padding: 0.8rem 2rem;
-                font-size: 1rem;
-            }
-            h2 {
-                font-size: 2rem;
-            }
-            .contact-form {
-                padding: 2rem;
-            }
-            .socials {
-                flex-direction: column;
-                align-items: center;
-            }
-            .chatbot-window {
-                width: 250px;
-            }
-        }
-
-        @media (max-width: 480px) {
             .hero-content p {
                 font-size: 1rem;
             }
@@ -712,13 +602,50 @@
             }
             .roster-grid, .creator-grid {
                 grid-template-columns: 1fr;
+                gap: 1.2rem;
             }
-            .social-btn {
-                min-width: 100%;
+            .contact-form {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Small mobile devices */
+        @media (max-width: 480px) {
+            .nav-logo {
+                height: 40px;
             }
             .hero-logo-container {
-                max-width: 300px;
-                width: 60%;
+                max-width: 280px;
+                width: 75%;
+            }
+            .hero-content p {
+                font-size: 0.9rem;
+            }
+            .btn {
+                padding: 0.7rem 1.8rem;
+                font-size: 0.9rem;
+            }
+            h2 {
+                font-size: 1.6rem;
+            }
+            .roster-card h3, .creator-card h3 {
+                font-size: 1.2rem;
+            }
+            .social-btn {
+                font-size: 0.9rem;
+                padding: 0.7rem;
+            }
+            .contact-form h3 {
+                font-size: 1.5rem;
+            }
+            .form-group input,
+            .form-group textarea {
+                font-size: 0.85rem;
+                padding: 0.7rem;
+            }
+            footer {
+                font-size: 0.8rem;
+                padding: 1.5rem 1rem;
             }
         }
     </style>
@@ -744,7 +671,7 @@
     </header>
 
     <section class="hero" id="home">
-        <video class="hero-video" autoplay muted loop>
+        <video class="hero-video" autoplay muted loop playsinline>
             <source src="hero-bg.mp4" type="video/mp4">
         </video>
         <div class="hero-logo-container">
@@ -753,7 +680,7 @@
         <div class="hero-content">
             <p>Dominating the eSports arena with unparalleled skill and dedication in Rocket League.</p>
             <a href="https://discord.gg/2btnvUJADc" target="_blank" rel="noopener noreferrer" class="btn">
-                <img src="https://cdn.discordapp.com/attachments/123456789/discord-logo.png" alt="Discord Logo"> Join Discord
+                <i class="fab fa-discord"></i> Join Discord
             </a>
         </div>
     </section>
@@ -761,7 +688,7 @@
     <div class="container">
         <section id="about">
             <h2>About</h2>
-            <p style="text-align: center; color: var(--text-secondary); line-height: 1.6; max-width: 1000px; margin: 0 auto; font-size: 1.2rem;">
+            <p style="text-align: center; color: var(--text-secondary); line-height: 1.6; max-width: 900px; margin: 0 auto; font-size: 1.1rem;">
                 Team Virtue is a professional eSports organization built on skill, teamwork, and integrity. We compete at the highest levels in Rocket League, fostering a community of passionate gamers dedicated to excellence.
             </p>
         </section>
@@ -771,19 +698,15 @@
             <div class="roster-grid">
                 <div class="roster-card">
                     <h3><a href="https://steamcommunity.com/id/finnish_taylorsversion/" target="_blank" rel="noopener noreferrer">Finny.</a></h3>
-                    <p>Rank: GC2-3</p>
                 </div>
                 <div class="roster-card">
                     <h3><a href="https://steamcommunity.com/profiles/76561198369905223" target="_blank" rel="noopener noreferrer">WestyzWorld</a></h3>
-                    <p>Rank: GC1-2</p>
                 </div>
                 <div class="roster-card">
                     <h3>Jxhnssl.</h3>
-                    <p>Rank: GC3-SSL</p>
                 </div>
                 <div class="roster-card">
                     <h3><a href="https://steamcommunity.com/id/FeliciaTheOG" target="_blank" rel="noopener noreferrer">Felicia, The Goat</a></h3>
-                    <p>Rank: C3-GC1</p>
                 </div>
             </div>
         </section>
@@ -812,7 +735,7 @@
                 <a href="https://rocketleague.gankster.gg/teams/93789/team-virtue" target="_blank" rel="noopener noreferrer" class="social-btn">
                     <img src="gankster.png" alt="Gankster Logo"> Gankster
                 </a>
-                <a href="https://www.start.gg/team/619b090f/details" class="social-btn">
+                <a href="https://www.start.gg/team/619b090f/details" target="_blank" rel="noopener noreferrer" class="social-btn">
                     <img src="startgg.png" alt="Start.gg Logo"> Start.gg
                 </a>
             </div>
@@ -836,31 +759,14 @@
         </section>
     </div>
 
-    <div class="chatbot-container">
-        <button class="chatbot-button" title="Open Chatbot">
-            <img src="chatbot-logo.png" alt="Chatbot Logo">
-        </button>
-        <div class="chatbot-window">
-            <div class="chatbot-header">
-                <h3>Team Virtue Bot</h3>
-                <button class="chatbot-close">×</button>
-            </div>
-            <div class="chatbot-messages" id="chatbot-messages">
-            </div>
-            <div class="chatbot-input">
-                <input type="text" id="chatbot-input" placeholder="Ask about Team Virtue..." maxlength="200">
-                <button id="chatbot-send"><i class="fas fa-paper-plane"></i></button>
-            </div>
-        </div>
-    </div>
-
     <footer>
         <p>© 2025 Team Virtue. All rights reserved. | <a href="#home">Back to Top</a> | 
+            <a href="https://rocketleague.gankster.gg/teams/93789/team-virtue" target="_blank" rel="noopener noreferrer">Gankster<img src="gankster.png" alt="Gankster Logo"></a> | 
+            <a href="https://start.gg/team/virtue" target="_blank" rel="noopener noreferrer">Start.gg<img src="startgg.png" alt="Start.gg Logo"></a>
         </p>
     </footer>
 
     <script>
-        // Secure hamburger menu toggle
         const hamburger = document.querySelector('.hamburger');
         const nav = document.querySelector('nav');
 
@@ -869,34 +775,26 @@
             nav.classList.toggle('active');
         });
 
-        // Secure smooth scroll navigation
         document.querySelectorAll('nav a').forEach(anchor => {
             anchor.addEventListener('click', (e) => {
                 e.preventDefault();
-                const targetId = anchor.getAttribute('href')?.substring(1);
-                if (targetId) {
-                    const targetElement = document.getElementById(targetId);
-                    if (targetElement) {
-                        targetElement.scrollIntoView({ behavior: 'smooth' });
-                    }
+                const targetId = anchor.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
                 }
                 hamburger.classList.remove('active');
                 nav.classList.remove('active');
             });
         });
 
-        // Secure form handling
         const formButton = document.getElementById('submit-form');
         const formMessage = document.getElementById('form-message');
 
         formButton.addEventListener('click', async () => {
-            const nameInput = document.getElementById('name');
-            const emailInput = document.getElementById('email');
-            const messageInput = document.getElementById('message');
-
-            const name = sanitizeInput(nameInput.value.trim());
-            const email = sanitizeInput(emailInput.value.trim());
-            const message = sanitizeInput(messageInput.value.trim());
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
 
             if (!name || !email || !message) {
                 showFormMessage('Please fill in all fields.', 'error');
@@ -918,46 +816,30 @@
         });
 
         function showFormMessage(message, type) {
-            if (!formMessage) return;
             formMessage.textContent = message;
             formMessage.className = `form-message ${type}`;
             formMessage.style.display = 'block';
             setTimeout(() => {
                 formMessage.style.display = 'none';
-            }, 5000);
+            }, 4000);
         }
 
         function resetForm() {
-            const nameInput = document.getElementById('name');
-            const emailInput = document.getElementById('email');
-            const messageInput = document.getElementById('message');
-            if (nameInput) nameInput.value = '';
-            if (emailInput) emailInput.value = '';
-            if (messageInput) messageInput.value = '';
+            document.getElementById('name').value = '';
+            document.getElementById('email').value = '';
+            document.getElementById('message').value = '';
         }
 
         function validateEmail(email) {
-            const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             return re.test(email);
         }
 
-        function sanitizeInput(input) {
-            const div = document.createElement('div');
-            div.textContent = input;
-            return div.innerHTML.replace(/[<>&"]/g, (char) => ({
-                '<': '<',
-                '>': '>',
-                '&': '&',
-                '"': '"'
-            }[char]));
-        }
-
-        // Secure scroll animations
         const animateOnScroll = () => {
             const elements = document.querySelectorAll('.roster-card, .creator-card, .contact-form');
             elements.forEach(el => {
                 const rect = el.getBoundingClientRect();
-                if (rect.top < window.innerHeight * 0.8) {
+                if (rect.top < window.innerHeight * 0.85) {
                     el.style.opacity = '1';
                     el.style.transform = 'translateY(0)';
                 }
@@ -965,119 +847,18 @@
         };
 
         window.addEventListener('scroll', animateOnScroll);
-        document.addEventListener('DOMContentLoaded', () => {
-            animateOnScroll();
-            document.querySelectorAll('.roster-card, .creator-card, .contact-form').forEach(el => {
-                el.style.opacity = '0';
-                el.style.transform = 'translateY(20px)';
-                el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-            });
+        document.addEventListener('DOMContentLoaded', animateOnScroll);
+
+        document.querySelectorAll('.roster-card, .creator-card, .contact-form').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(15px)';
+            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
         });
 
-        // Prevent XSS by sanitizing dynamic content
-        document.querySelectorAll('a[href]').forEach(link => {
-            const href = link.getAttribute('href');
-            if (href && !href.startsWith('#') && !href.startsWith('http')) {
-                link.setAttribute('href', '#');
-            }
-        });
-
-        // Chatbot functionality
-        const chatbotButton = document.querySelector('.chatbot-button');
-        const chatbotWindow = document.querySelector('.chatbot-window');
-        const chatbotClose = document.querySelector('.chatbot-close');
-        const chatbotInput = document.getElementById('chatbot-input');
-        const chatbotSend = document.getElementById('chatbot-send');
-        const chatbotMessages = document.getElementById('chatbot-messages');
-
-        chatbotButton.addEventListener('click', () => {
-            chatbotWindow.classList.toggle('active');
-        });
-
-        chatbotClose.addEventListener('click', () => {
-            chatbotWindow.classList.remove('active');
-        });
-
-        function addMessage(content, isUser) {
-            const message = document.createElement('div');
-            message.className = `chatbot-message ${isUser ? 'user' : 'bot'}`;
-            message.textContent = content;
-            chatbotMessages.appendChild(message);
-            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
-        }
-
-        async function handleChatbotMessage() {
-            const input = sanitizeInput(chatbotInput.value.trim());
-            if (!input) return;
-
-            addMessage(input, true);
-            chatbotInput.value = '';
-
-            try {
-                const response = await getBotResponse(input);
-                addMessage(response, false);
-            } catch (error) {
-                addMessage('Sorry, something went wrong. Try again later.', false);
-            }
-        }
-
-        async function getBotResponse(input) {
-            try {
-                const responses = {
-                    'who is team virtue': 'Team Virtue is a professional eSports organization specializing in Rocket League, known for skill, teamwork, and integrity.',
-                    'what is rocket league': 'Rocket League is a vehicular soccer video game where players control rocket-powered cars to hit a ball into the opponent’s goal.',
-                    'who are the players': 'Our roster includes Finny., WestyzWorld, Jxhnssl., and Felicia, The Goat.',
-                    'player ranks': 'Here are the current ranks for Team Virtue players: Finny. is GC2-3, WestyzWorld is GC1-2, Jxhnssl. is GC3-SSL, and Felicia, The Goat is C3-GC1.',
-                    'how to join': 'To join Team Virtue, check our Discord for tryout announcements and community events.',
-                    'default': 'I’m not sure about that. Try asking about Team Virtue, Rocket League, our roster, or player ranks!'
-                };
-
-                const lowerInput = input.toLowerCase();
-                for (const key in responses) {
-                    if (lowerInput.includes(key)) {
-                        return responses[key];
-                    }
-                }
-                return responses['default'];
-            } catch (error) {
-                throw new Error('Failed to fetch response');
-            }
-        }
-
-        chatbotSend.addEventListener('click', handleChatbotMessage);
-        chatbotInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') handleChatbotMessage();
-        });
-
-        // Rate limiting for chatbot
-        let lastChatTime = 0;
-        const chatCooldown = 1000;
-        chatbotSend.addEventListener('click', () => {
-            const now = Date.now();
-            if (now - lastChatTime < chatCooldown) {
-                addMessage('Please wait a moment before sending another message.', false);
-                return;
-            }
-            lastChatTime = now;
-            handleChatbotMessage();
-        });
-
-        // Prevent malicious file uploads or injections
-        document.addEventListener('paste', (e) => {
-            const items = e.clipboardData.items;
-            for (let i = 0; i < items.length; i++) {
-                if (items[i].kind === 'file') {
-                    e.preventDefault();
-                    alert('File uploads are not allowed.');
-                    break;
-                }
-            }
-        });
-
-        // Monitor for suspicious activity
-        window.addEventListener('error', (e) => {
-            console.warn('Potential security issue detected:', e.message);
-        });
+        // Prevent pinch-to-zoom
+        document.addEventListener('gesturestart', (e) => e.preventDefault());
+        document.addEventListener('gesturechange', (e) => e.preventDefault());
+        document.addEventListener('gestureend', (e) => e.preventDefault());
     </script>
 </body>
 </html>
