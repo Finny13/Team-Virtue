@@ -151,15 +151,20 @@
             z-index: 2;
         }
 
-        .hero-logo {
+        .hero-logo-container {
             position: absolute;
-            top: 50%;
+            top: 20%;
             left: 50%;
-            transform: translate(-50%, -50%);
+            transform: translateX(-50%);
             z-index: 3;
             max-width: 600px;
             width: 80%;
             animation: fadeInScale 1.5s ease-out;
+        }
+
+        .hero-logo {
+            width: 100%;
+            height: auto;
         }
 
         .hero-content {
@@ -167,6 +172,7 @@
             z-index: 4;
             max-width: 1200px;
             padding: 2rem;
+            margin-top: 300px;
         }
 
         .hero-content p {
@@ -277,13 +283,6 @@
             gap: 2rem;
             margin-top: 3rem;
             flex-wrap: wrap;
-        }
-
-        @media (max-width: 768px) {
-            .socials {
-                flex-direction: column;
-                align-items: center;
-            }
         }
 
         .social-btn {
@@ -469,15 +468,37 @@
             }
         }
 
-        @media (max-width: 1200px) {
-            .hero-content p { font-size: 1.3rem; }
-            h2 { font-size: 2.5rem; }
-            .roster-grid, .creator-grid { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
+        /* Desktop styles */
+        @media (min-width: 769px) {
+            .hero-logo-container {
+                top: 20%;
+                left: 50%;
+                transform: translateX(-50%);
+                max-width: 600px;
+                width: 80%;
+            }
+            .hero-content {
+                margin-top: 300px;
+            }
+            .nav-logo {
+                position: absolute;
+                top: 1rem;
+                left: 2rem;
+                height: 50px;
+            }
         }
 
+        /* Mobile styles */
         @media (max-width: 768px) {
-            .nav-container { padding: 1rem 1.5rem; }
-            .nav-logo { height: 40px; }
+            .nav-container {
+                padding: 1rem 1.5rem;
+            }
+            .nav-logo {
+                position: absolute;
+                top: 1rem;
+                left: 1.5rem;
+                height: 40px;
+            }
             nav {
                 display: none;
                 position: fixed;
@@ -501,26 +522,63 @@
             nav a {
                 font-size: 1.2rem;
             }
-            .hamburger { display: flex; }
-            .hero-content p { font-size: 1.1rem; }
-            .btn { padding: 0.8rem 2rem; font-size: 1rem; }
-            h2 { font-size: 2rem; }
-            .contact-form { padding: 2rem; }
+            .hamburger {
+                display: flex;
+            }
+            .hero-logo-container {
+                top: 15%;
+                left: 50%;
+                transform: translateX(-50%);
+                max-width: 300px;
+                width: 70%;
+            }
+            .hero-content {
+                margin-top: 150px;
+                padding: 1rem;
+            }
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+            .btn {
+                padding: 0.8rem 2rem;
+                font-size: 1rem;
+            }
+            h2 {
+                font-size: 2rem;
+            }
+            .contact-form {
+                padding: 2rem;
+            }
+            .socials {
+                flex-direction: column;
+                align-items: center;
+            }
         }
 
         @media (max-width: 480px) {
-            .hero-content p { font-size: 1rem; }
-            h2 { font-size: 1.8rem; }
-            .roster-grid, .creator-grid { grid-template-columns: 1fr; }
-            .social-btn { min-width: 100%; }
-            .hero-logo { max-width: 70%; }
+            .hero-content p {
+                font-size: 1rem;
+            }
+            h2 {
+                font-size: 1.8rem;
+            }
+            .roster-grid, .creator-grid {
+                grid-template-columns: 1fr;
+            }
+            .social-btn {
+                min-width: 100%;
+            }
+            .hero-logo-container {
+                max-width: 250px;
+                width: 60%;
+            }
         }
     </style>
 </head>
 <body>
     <header>
         <div class="nav-container">
-            <img src="virtuemain.png" alt="Team Virtue Logo" class="nav-logo">
+            <img src="virtuelightheader.png" alt="Team Virtue Logo" class="nav-logo">
             <div class="hamburger">
                 <span></span>
                 <span></span>
@@ -541,7 +599,9 @@
         <video class="hero-video" autoplay muted loop>
             <source src="hero-bg.mp4" type="video/mp4">
         </video>
-        <img src="virtuelightheader.png" alt="Team Virtue Logo" class="hero-logo">
+        <div class="hero-logo-container">
+            <img src="virtuelightheader.png" alt="Team Virtue Logo" class="hero-logo">
+        </div>
         <div class="hero-content">
             <p>Dominating the eSports arena with unparalleled skill and dedication in Rocket League.</p>
             <a href="https://discord.gg/2btnvUJADc" target="_blank" rel="noopener noreferrer" class="btn">
