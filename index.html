@@ -283,6 +283,13 @@
             flex-wrap: wrap;
         }
 
+        @media (max-width: 768px) {
+            .socials {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
         .social-btn {
             padding: 0.8rem 2rem;
             border: 1px solid var(--primary-color);
@@ -519,7 +526,7 @@
 <body>
     <header>
         <div class="nav-container">
-            <img src="/assets/images/virtue-light-header.png" alt="Team Virtue Logo" class="nav-logo">
+            <img src="/assets/images/virtuelightheader.png" alt="Team Virtue Logo" class="nav-logo">
             <div class="hamburger">
                 <span></span>
                 <span></span>
@@ -538,9 +545,8 @@
 
     <section class="hero" id="home">
         <video class="hero-video" autoplay muted loop>
-            <source src="/assets/videos/rocket-league.mp4" type="video/mp4">
         </video>
-        <img src="/assets/images/virtue-light-header.png" alt="Team Virtue Logo" class="hero-logo">
+        <img src="/assets/images/virtuemain.png" alt="Team Virtue Logo" class="hero-logo">
         <div class="hero-content">
             <p>Dominating the eSports arena with unparalleled skill and dedication in Rocket League.</p>
             <a href="https://discord.gg/2btnvUJADc" target="_blank" rel="noopener noreferrer" class="btn">
@@ -553,7 +559,7 @@
         <section id="about">
             <h2>About</h2>
             <p style="text-align: center; color: var(--text-secondary); line-height: 1.6; max-width: 1000px; margin: 0 auto; font-size: 1.2rem;">
-                Team Virtue is an elite eSports organization built on excellence, precision, and community. Specializing in Rocket League, we compete at the highest levels, pushing the boundaries of competitive gaming while inspiring a global fanbase.
+                Team Virtue is a professional eSports organization built on skill, teamwork, and integrity
             </p>
         </section>
 
@@ -601,7 +607,7 @@
                     <i class="fab fa-discord"></i> Discord
                 </a>
                 <a href="https://rocketleague.gankster.gg/teams/93789/team-virtue" target="_blank" rel="noopener noreferrer" class="social-btn gankster">
-                    <img src="https://gankster.gg/static/images/gankster-logo.png" alt="Gankster Logo"> Gankster
+                    <img src="/assets/images/gankster.png" alt="Gankster Logo"> Gankster
                 </a>
             </div>
             <div class="contact-form">
@@ -625,7 +631,7 @@
     </div>
 
     <footer>
-        <p>© 2025 Team Virtue. All rights reserved. | <a href="#home">Back to Top</a> | <a href="https://rocketleague.gankster.gg/teams/93789/team-virtue" target="_blank" rel="noopener noreferrer">Gankster<img src="https://gankster.gg/static/images/gankster-logo.png" alt="Gankster Logo" class="gankster-logo"></a></p>
+        <p>© 2025 Team Virtue. All rights reserved. | <a href="#home">Back to Top</a> | <a href="https://rocketleague.gankster.gg/teams/93789/team-virtue" target="_blank" rel="noopener noreferrer">Gankster<img src="/assets/images/gankster.png" alt="Gankster Logo" class="gankster-logo"></a></p>
     </footer>
 
     <script>
