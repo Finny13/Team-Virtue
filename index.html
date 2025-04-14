@@ -3,18 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="description" content="Team Virtue is a professional eSports organization built on skill, teamwork, and integrity. We compete at the highest levels in Rocket League, fostering a community of passionate gamers dedicated to excellence.">
+    <meta name="description" content="Team Virtue - Elite eSports organization excelling in competitive gaming with a focus on Rocket League.">
     <meta name="keywords" content="eSports, Team Virtue, Rocket League, professional gaming, competitive gaming">
     <meta name="author" content="Team Virtue">
     <meta name="theme-color" content="#6A0DAD">
-    <meta property="og:title" content="Team Virtue | Rocket League eSports Organization">
+    <meta property="og:title" content="Team Virtue | Elite eSports Organization">
     <meta property="og:description" content="Team Virtue dominates the eSports arena with unparalleled skill and dedication in Rocket League.">
     <meta property="og:image" content="virtuemain.png">
     <meta property="og:url" content="https://teamvirtue.netlify.app/">
     <meta property="og:type" content="website">
     <title>Team Virtue</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="icon" href="virtuemain.png" type="image/png" sizes="64x64">
     <link rel="apple-touch-icon" href="virtuemain.png" sizes="180x180">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
@@ -63,13 +62,15 @@
             max-width: 1600px;
             margin: 0 auto;
             display: flex;
-            justify-content: space-between;
+            flex-wrap: wrap;
+            justify-content: center;
             align-items: center;
             padding: 1rem 1.5rem;
+            position: relative;
         }
 
         .nav-logo {
-            height: 50px;
+            height: 70px;
             object-fit: contain;
             display: block;
         }
@@ -414,15 +415,22 @@
         @media (min-width: 769px) {
             .nav-container {
                 padding: 1rem 2rem;
-                flex-direction: row;
+                flex-wrap: nowrap;
+                justify-content: center;
                 align-items: center;
             }
             .nav-logo {
-                height: 60px;
+                height: 70px;
                 margin: 0;
+            }
+            nav {
+                margin-left: auto;
             }
             nav ul {
                 justify-content: flex-end;
+            }
+            .hamburger {
+                display: none;
             }
             .hero-logo-container {
                 max-width: 600px;
@@ -465,9 +473,11 @@
             .nav-container {
                 padding: 1rem 1.5rem;
                 position: relative;
+                flex-wrap: nowrap;
+                justify-content: center;
             }
             .nav-logo {
-                height: 45px;
+                height: 55px;
                 margin: 0 auto;
             }
             nav {
@@ -532,7 +542,7 @@
         /* Small mobile devices */
         @media (max-width: 480px) {
             .nav-logo {
-                height: 40px;
+                height: 50px;
             }
             .hero-logo-container {
                 max-width: 280px;
@@ -565,7 +575,7 @@
 <body>
     <header>
         <div class="nav-container">
-            <img src="virtuemain.png" alt="Team Virtue Logo" class="nav-logo">
+            <a href="#home"><img src="virtuelightheader.png" alt="Team Virtue Logo" class="nav-logo"></a>
             <div class="hamburger">
                 <span></span>
                 <span></span>
