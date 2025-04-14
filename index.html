@@ -68,7 +68,7 @@
         }
 
         .nav-logo {
-            height: 50px;
+            height: 60px;
             object-fit: contain;
             display: block;
         }
@@ -324,76 +324,6 @@
             color: var(--background-dark);
         }
 
-        .contact-form {
-            max-width: 800px;
-            margin: 3rem auto;
-            background: var(--card-bg);
-            padding: 3rem;
-            border-radius: 10px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .contact-form h3 {
-            font-size: 2rem;
-            margin-bottom: 2rem;
-            text-align: center;
-            color: var(--text-primary);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            font-size: 1rem;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: var(--text-secondary);
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 1rem;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 5px;
-            background: rgba(255, 255, 255, 0.05);
-            color: var(--text-primary);
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            border-color: var(--primary-color);
-            outline: none;
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 150px;
-        }
-
-        .form-message {
-            display: none;
-            margin-top: 1rem;
-            padding: 1rem;
-            border-radius: 5px;
-            text-align: center;
-            font-weight: 600;
-        }
-
-        .form-message.success {
-            background: var(--primary-color);
-            color: var(--text-primary);
-        }
-
-        .form-message.error {
-            background: #dc3545;
-            color: var(--text-primary);
-        }
-
         footer {
             text-align: center;
             padding: 3rem 0;
@@ -437,7 +367,7 @@
                 opacity: 0;
                 transform: scale(0.9);
             }
-            to {
+           to {
                 opacity: 1;
                 transform: scale(1);
             }
@@ -467,7 +397,7 @@
         /* Desktop styles (Horizontal layout) */
         @media (min-width: 769px) {
             .hero-logo-container {
-                max-width: 600px;
+                max-width: 800px;
                 width: 80%;
                 margin: 0 auto;
                 position: relative;
@@ -483,7 +413,7 @@
                 position: absolute;
                 left: 50%;
                 transform: translateX(-50%);
-                height: 50px;
+                height: 60px;
             }
             nav ul {
                 justify-content: flex-end;
@@ -499,7 +429,7 @@
             }
             .nav-logo {
                 margin: 0 auto;
-                height: 40px;
+                height: 50px;
                 position: static;
                 transform: none;
             }
@@ -533,7 +463,7 @@
                 top: 1.5rem;
             }
             .hero-logo-container {
-                max-width: 300px;
+                max-width: 400px;
                 width: 70%;
                 margin: 0 auto;
                 position: relative;
@@ -552,9 +482,6 @@
             }
             h2 {
                 font-size: 2rem;
-            }
-            .contact-form {
-                padding: 2rem;
             }
             .socials {
                 flex-direction: column;
@@ -576,7 +503,7 @@
                 min-width: 100%;
             }
             .hero-logo-container {
-                max-width: 250px;
+                max-width: 300px;
                 width: 60%;
             }
         }
@@ -596,7 +523,6 @@
                     <li><a href="#home">Home</a></li>
                     <li><a href="#roster">Roster</a></li>
                     <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
         </div>
@@ -629,19 +555,16 @@
             <h2>Roster</h2>
             <div class="roster-grid">
                 <div class="roster-card">
-                    <h3>Finny.</h3>
-                    <a href="https://steamcommunity.com/id/finnish_taylorsversion/" target="_blank" rel="noopener noreferrer">Steam Profile</a>
+                    <h3><a href="https://steamcommunity.com/id/finnish_taylorsversion/" target="_blank" rel="noopener noreferrer">Finny.</a></h3>
                 </div>
                 <div class="roster-card">
-                    <h3>WestyzWorld</h3>
-                    <a href="https://steamcommunity.com/profiles/76561198369905223" target="_blank" rel="noopener noreferrer">Steam Profile</a>
+                    <h3><a href="https://steamcommunity.com/profiles/76561198369905223" target="_blank" rel="noopener noreferrer">WestyzWorld</a></h3>
                 </div>
                 <div class="roster-card">
                     <h3>Jxhnssl.</h3>
                 </div>
                 <div class="roster-card">
-                    <h3>Felicia, The Goat</h3>
-                    <a href="https://steamcommunity.com/id/FeliciaTheOG" target="_blank" rel="noopener noreferrer">Steam Profile</a>
+                    <h3><a href="https://steamcommunity.com/id/FeliciaTheOG" target="_blank" rel="noopener noreferrer">Felicia, The Goat</a></h3>
                 </div>
             </div>
         </section>
@@ -655,49 +578,11 @@
                 </div>
             </div>
         </section>
-
-        <section id="contact">
-            <h2>Contact</h2>
-            <div class="socials">
-                <a href="https://x.com/TeamVirtueRL" target="_blank" rel="noopener noreferrer" class="social-btn">
-                    <i class="fab fa-x-twitter"></i> X
-                </a>
-                <a href="https://www.instagram.com/teamvirtuerl/" target="_blank" rel="noopener noreferrer" class="social-btn">
-                    <i class="fab fa-instagram"></i> Instagram
-                </a>
-                <a href="https://discord.gg/2btnvUJADc" target="_blank" rel="noopener noreferrer" class="social-btn">
-                    <i class="fab fa-discord"></i> Discord
-                </a>
-                <a href="https://rocketleague.gankster.gg/teams/93789/team-virtue" target="_blank" rel="noopener noreferrer" class="social-btn">
-                    <img src="gankster.png" alt="Gankster Logo"> Gankster
-                </a>
-                <a href="https://start.gg/team/virtue" target="_blank" rel="noopener noreferrer" class="social-btn">
-                    <img src="startgg.png" alt="Start.gg Logo"> Start.gg
-                </a>
-            </div>
-            <div class="contact-form">
-                <h3>Connect With Us</h3>
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" placeholder="Your Name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" placeholder="Your Email" required>
-                </div>
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" placeholder="Your Message" required></textarea>
-                </div>
-                <button class="btn" id="submit-form"><i class="fas fa-paper-plane"></i> Send</button>
-                <div class="form-message" id="form-message"></div>
-            </div>
-        </section>
     </div>
 
     <footer>
         <p>© 2025 Team Virtue. All rights reserved. | <a href="#home">Back to Top</a> | 
-            <a href="https://rocketleague.gankster.gg/teams/93789/team-virtue" target="_blank" rel="noopener noreferrer">Gankster<img src="gankster.png" alt="Gankster Logo"></a> | 
+            <a href="https://rocketleague.gankster.gg/teams/93789/team-virtue" target="_blank" rel="noopener noreferrer">Gankster<img src="gankster_transparent.png" alt="Gankster Logo"></a> | 
             <a href="https://start.gg/team/virtue" target="_blank" rel="noopener noreferrer">Start.gg<img src="startgg.png" alt="Start.gg Logo"></a>
         </p>
     </footer>
@@ -724,55 +609,8 @@
             });
         });
 
-        const formButton = document.getElementById('submit-form');
-        const formMessage = document.getElementById('form-message');
-
-        formButton.addEventListener('click', async () => {
-            const name = document.getElementById('name').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const message = document.getElementById('message').value.trim();
-
-            if (!name || !email || !message) {
-                showFormMessage('Please fill in all fields.', 'error');
-                return;
-            }
-
-            if (!validateEmail(email)) {
-                showFormMessage('Please enter a valid email address.', 'error');
-                return;
-            }
-
-            try {
-                await new Promise(resolve => setTimeout(resolve, 1000));
-                showFormMessage('Message sent successfully!', 'success');
-                resetForm();
-            } catch (error) {
-                showFormMessage('Failed to send message. Please try again later.', 'error');
-            }
-        });
-
-        function showFormMessage(message, type) {
-            formMessage.textContent = message;
-            formMessage.className = `form-message ${type}`;
-            formMessage.style.display = 'block';
-            setTimeout(() => {
-                formMessage.style.display = 'none';
-            }, 5000);
-        }
-
-        function resetForm() {
-            document.getElementById('name').value = '';
-            document.getElementById('email').value = '';
-            document.getElementById('message').value = '';
-        }
-
-        function validateEmail(email) {
-            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            return re.test(email);
-        }
-
         const animateOnScroll = () => {
-            const elements = document.querySelectorAll('.roster-card, .creator-card, .contact-form');
+            const elements = document.querySelectorAll('.roster-card, .creator-card');
             elements.forEach(el => {
                 const rect = el.getBoundingClientRect();
                 if (rect.top < window.innerHeight * 0.8) {
@@ -785,7 +623,7 @@
         window.addEventListener('scroll', animateOnScroll);
         document.addEventListener('DOMContentLoaded', animateOnScroll);
 
-        document.querySelectorAll('.roster-card, .creator-card, .contact-form').forEach(el => {
+        document.querySelectorAll('.roster-card, .creator-card').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(20px)';
             el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
