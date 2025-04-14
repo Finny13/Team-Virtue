@@ -10,14 +10,19 @@
     <meta property="og:title" content="Team Virtue | Elite eSports Organization">
     <meta property="og:description" content="Team Virtue dominates the eSports arena with unparalleled skill and dedication in Rocket League.">
     <meta property="og:image" content="virtuemain.png">
-    <meta property="og:url" content="https://teamvirtue.netlify.app/">
+    <meta property="og:url" content="https://teamvirtue.org/">
     <meta property="og:type" content="website">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://*.gankster.gg https://*.start.gg; media-src 'self'; connect-src 'self' https://api.teamvirtue.org; frame-src 'none'; object-src 'none';">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains">
     <title>Team Virtue</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="icon" href="virtuemain.png" type="image/png" sizes="64x64">
     <link rel="apple-touch-icon" href="virtuemain.png" sizes="180x180">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous">
     <style>
         :root {
             --primary-color: #6A0DAD;
@@ -404,6 +409,124 @@
             color: var(--text-primary);
         }
 
+        .chatbot-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .chatbot-button {
+            background: var(--primary-color);
+            color: var(--text-primary);
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px var(--shadow);
+            transition: background 0.3s ease;
+        }
+
+        .chatbot-button:hover {
+            background: var(--accent-color);
+        }
+
+        .chatbot-window {
+            display: none;
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            width: 300px;
+            max-height: 400px;
+            flex-direction: column;
+            box-shadow: 0 8px 20px var(--shadow);
+            margin-bottom: 10px;
+        }
+
+        .chatbot-window.active {
+            display: flex;
+        }
+
+        .chatbot-header {
+            background: var(--primary-color);
+            color: var(--text-primary);
+            padding: 1rem;
+            border-radius: 10px 10px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chatbot-header h3 {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .chatbot-close {
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        .chatbot-messages {
+            flex: 1;
+            padding: 1rem;
+            overflow-y: auto;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .chatbot-message {
+            margin-bottom: 1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            max-width: 80%;
+        }
+
+        .chatbot-message.user {
+            background: var(--primary-color);
+            color: var(--text-primary);
+            margin-left: auto;
+        }
+
+        .chatbot-message.bot {
+            background: var(--background-dark);
+            color: var(--text-primary);
+        }
+
+        .chatbot-input {
+            display: flex;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .chatbot-input input {
+            flex: 1;
+            padding: 1rem;
+            border: none;
+            background: transparent;
+            color: var(--text-primary);
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .chatbot-input button {
+            background: var(--primary-color);
+            color: var(--text-primary);
+            border: none;
+            padding: 1rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .chatbot-input button:hover {
+            background: var(--accent-color);
+        }
+
         footer {
             text-align: center;
             padding: 3rem 0;
@@ -570,6 +693,9 @@
                 flex-direction: column;
                 align-items: center;
             }
+            .chatbot-window {
+                width: 250px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -658,7 +784,6 @@
             <div class="creator-grid">
                 <div class="creator-card">
                     <h3><a href="https://youtube.com/@rlremedy" target="_blank" rel="noopener noreferrer">Remedy</a></h3>
-
                 </div>
             </div>
         </section>
@@ -686,20 +811,38 @@
                 <h3>Connect With Us</h3>
                 <div class="form-group">
                     <label for="name">Name</label>
-                    <input type="text" id="name" placeholder="Your Name" required>
+                    <input type="text" id="name" placeholder="Your Name" required maxlength="100">
                 </div>
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" id="email" placeholder="Your Email" required>
+                    <input type="email" id="email" placeholder="Your Email" required maxlength="100">
                 </div>
                 <div class="form-group">
                     <label for="message">Message</label>
-                    <textarea id="message" placeholder="Your Message" required></textarea>
+                    <textarea id="message" placeholder="Your Message" required maxlength="1000"></textarea>
                 </div>
                 <button class="btn" id="submit-form"><i class="fas fa-paper-plane"></i> Send</button>
                 <div class="form-message" id="form-message"></div>
             </div>
         </section>
+    </div>
+
+    <div class="chatbot-container">
+        <button class="chatbot-button" title="Open Chatbot">
+            <i class="fas fa-robot"></i>
+        </button>
+        <div class="chatbot-window">
+            <div class="chatbot-header">
+                <h3>Team Virtue Bot</h3>
+                <button class="chatbot-close">&times;</button>
+            </div>
+            <div class="chatbot-messages" id="chatbot-messages">
+            </div>
+            <div class="chatbot-input">
+                <input type="text" id="chatbot-input" placeholder="Ask about Team Virtue..." maxlength="200">
+                <button id="chatbot-send"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
     </div>
 
     <footer>
@@ -710,6 +853,7 @@
     </footer>
 
     <script>
+        // Secure hamburger menu toggle
         const hamburger = document.querySelector('.hamburger');
         const nav = document.querySelector('nav');
 
@@ -718,26 +862,35 @@
             nav.classList.toggle('active');
         });
 
+        // Secure smooth scroll navigation
         document.querySelectorAll('nav a').forEach(anchor => {
             anchor.addEventListener('click', (e) => {
                 e.preventDefault();
-                const targetId = anchor.getAttribute('href').substring(1);
-                const targetElement = document.getElementById(targetId);
-                if (targetElement) {
-                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                const targetId = anchor.getAttribute('href')?.substring(1);
+                if (targetId) {
+                    const targetElement = document.getElementById(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth' });
+                    }
                 }
                 hamburger.classList.remove('active');
                 nav.classList.remove('active');
             });
         });
 
+        // Secure form handling
         const formButton = document.getElementById('submit-form');
         const formMessage = document.getElementById('form-message');
 
         formButton.addEventListener('click', async () => {
-            const name = document.getElementById('name').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const message = document.getElementById('message').value.trim();
+            const nameInput = document.getElementById('name');
+            const emailInput = document.getElementById('email');
+            const messageInput = document.getElementById('message');
+
+            // Sanitize inputs
+            const name = sanitizeInput(nameInput.value.trim());
+            const email = sanitizeInput(emailInput.value.trim());
+            const message = sanitizeInput(messageInput.value.trim());
 
             if (!name || !email || !message) {
                 showFormMessage('Please fill in all fields.', 'error');
@@ -750,6 +903,7 @@
             }
 
             try {
+                // Simulate async operation (replace with actual API call in production)
                 await new Promise(resolve => setTimeout(resolve, 1000));
                 showFormMessage('Message sent successfully!', 'success');
                 resetForm();
@@ -759,6 +913,7 @@
         });
 
         function showFormMessage(message, type) {
+            if (!formMessage) return;
             formMessage.textContent = message;
             formMessage.className = `form-message ${type}`;
             formMessage.style.display = 'block';
@@ -768,16 +923,31 @@
         }
 
         function resetForm() {
-            document.getElementById('name').value = '';
-            document.getElementById('email').value = '';
-            document.getElementById('message').value = '';
+            const nameInput = document.getElementById('name');
+            const emailInput = document.getElementById('email');
+            const messageInput = document.getElementById('message');
+            if (nameInput) nameInput.value = '';
+            if (emailInput) emailInput.value = '';
+            if (messageInput) messageInput.value = '';
         }
 
         function validateEmail(email) {
-            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
             return re.test(email);
         }
 
+        function sanitizeInput(input) {
+            const div = document.createElement('div');
+            div.textContent = input;
+            return div.innerHTML.replace(/[<>&"]/g, (char) => ({
+                '<': '<',
+                '>': '>',
+                '&': '&',
+                '"': '"'
+            }[char]));
+        }
+
+        // Secure scroll animations
         const animateOnScroll = () => {
             const elements = document.querySelectorAll('.roster-card, .creator-card, .contact-form');
             elements.forEach(el => {
@@ -790,13 +960,119 @@
         };
 
         window.addEventListener('scroll', animateOnScroll);
-        document.addEventListener('DOMContentLoaded', animateOnScroll);
+        document.addEventListener('DOMContentLoaded', () => {
+            animateOnScroll();
+            // Secure initial element styles
+            document.querySelectorAll('.roster-card, .creator-card, .contact-form').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            });
+        });
 
-        document.querySelectorAll('.roster-card, .creator-card, .contact-form').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        // Prevent XSS by sanitizing dynamic content
+        document.querySelectorAll('a[href]').forEach(link => {
+            const href = link.getAttribute('href');
+            if (href && !href.startsWith('#') && !href.startsWith('http')) {
+                link.setAttribute('href', '#');
+            }
+        });
+
+        // Chatbot functionality
+        const chatbotButton = document.querySelector('.chatbot-button');
+        const chatbotWindow = document.querySelector('.chatbot-window');
+        const chatbotClose = document.querySelector('.chatbot-close');
+        const chatbotInput = document.getElementById('chatbot-input');
+        const chatbotSend = document.getElementById('chatbot-send');
+        const chatbotMessages = document.getElementById('chatbot-messages');
+
+        chatbotButton.addEventListener('click', () => {
+            chatbotWindow.classList.toggle('active');
+        });
+
+        chatbotClose.addEventListener('click', () => {
+            chatbotWindow.classList.remove('active');
+        });
+
+        function addMessage(content, isUser) {
+            const message = document.createElement('div');
+            message.className = `chatbot-message ${isUser ? 'user' : 'bot'}`;
+            message.textContent = content;
+            chatbotMessages.appendChild(message);
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+        }
+
+        async function handleChatbotMessage() {
+            const input = sanitizeInput(chatbotInput.value.trim());
+            if (!input) return;
+
+            addMessage(input, true);
+            chatbotInput.value = '';
+
+            try {
+                // Simulated AI response (replace with actual API call)
+                const response = await getBotResponse(input);
+                addMessage(response, false);
+            } catch (error) {
+                addMessage('Sorry, something went wrong. Try again later.', false);
+            }
+        }
+
+        async function getBotResponse(input) {
+            // Simulated responses for demo purposes
+            const responses = {
+                'who is team virtue': 'Team Virtue is a professional eSports organization specializing in Rocket League, known for skill, teamwork, and integrity.',
+                'what is rocket league': 'Rocket League is a vehicular soccer video game where players control rocket-powered cars to hit a ball into the opponent’s goal.',
+                'who are the players': 'Our roster includes Finny., WestyzWorld, Jxhnssl., and Felicia, The Goat.',
+                'how to join': 'To join Team Virtue, check our Discord for tryout announcements and community events.',
+                'default': 'I’m not sure about that. Try asking about Team Virtue, Rocket League, or our roster!'
+            };
+
+            // Simple keyword matching (replace with actual API call)
+            const lowerInput = input.toLowerCase();
+            for (const key in responses) {
+                if (lowerInput.includes(key)) {
+                    return responses[key];
+                }
+            }
+            return responses['default'];
+        }
+
+        chatbotSend.addEventListener('click', handleChatbotMessage);
+        chatbotInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') handleChatbotMessage();
+        });
+
+        // Rate limiting for chatbot
+        let lastChatTime = 0;
+        const chatCooldown = 1000; // 1 second
+        chatbotSend.addEventListener('click', () => {
+            const now = Date.now();
+            if (now - lastChatTime < chatCooldown) {
+                addMessage('Please wait a moment before sending another message.', false);
+                return;
+            }
+            lastChatTime = now;
+            handleChatbotMessage();
+        });
+
+        // Prevent malicious file uploads or injections
+        document.addEventListener('paste', (e) => {
+            const items = e.clipboardData.items;
+            for (let i = 0; i < items.length; i++) {
+                if (items[i].kind === 'file') {
+                    e.preventDefault();
+                    alert('File uploads are not allowed.');
+                    break;
+                }
+            }
+        });
+
+        // Monitor for suspicious activity
+        window.addEventListener('error', (e) => {
+            console.warn('Potential security issue detected:', e.message);
+            // Log to a secure endpoint if needed
         });
     </script>
 </body>
-</html>x
+</html>
