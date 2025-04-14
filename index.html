@@ -7,14 +7,14 @@
     <meta name="keywords" content="eSports, Team Virtue, gaming, professional team, Rocket League">
     <meta name="author" content="Team Virtue">
     <meta name="theme-color" content="#6A0DAD">
-    <!-- Open Graph Meta Tags for Embedding -->
+    <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Team Virtue | Professional eSports Organization">
     <meta property="og:description" content="Team Virtue - A premier eSports organization dedicated to excellence in competitive gaming.">
     <meta property="og:image" content="/virtuemain.png">
     <meta property="og:url" content="https://teamvirtue.netlify.app/">
     <meta property="og:type" content="website">
     <title>Team Virtue | Professional eSports Organization</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/virtuemain.png" type="image/png" sizes="64x64">
     <link rel="apple-touch-icon" href="/virtuemain.png" sizes="180x180">
@@ -23,13 +23,13 @@
             --primary-color: #6A0DAD;
             --secondary-color: #9B59B6;
             --accent-color: #5D3FD3;
-            --background-start: #2A0944;
-            --background-end: #6A0DAD;
+            --background-dark: #1E1E2F;
+            --background-gradient-start: #2A0944;
+            --background-gradient-end: #6A0DAD;
             --text-primary: #FFFFFF;
-            --text-secondary: #E0E0E0;
-            --shadow-color: rgba(0, 0, 0, 0.2);
-            --card-bg: rgba(255, 255, 255, 0.05);
-            --footer-bg: rgba(0, 0, 0, 0.1);
+            --text-secondary: #D1D1D1;
+            --card-bg: rgba(255, 255, 255, 0.08);
+            --shadow: rgba(0, 0, 0, 0.3);
         }
 
         * {
@@ -39,21 +39,13 @@
             scroll-behavior: smooth;
         }
 
-        html {
-            height: 100%;
-            overflow-x: hidden;
-            background: #1E1E2F;
-        }
-
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Poppins', sans-serif;
             color: var(--text-primary);
+            background: linear-gradient(135deg, var(--background-gradient-start), var(--background-gradient-end));
             min-height: 100vh;
             overflow-x: hidden;
-            background: linear-gradient(135deg, var(--background-start) 0%, var(--background-end) 100%);
             position: relative;
-            z-index: 0;
-            line-height: 1.5;
         }
 
         body::before {
@@ -63,62 +55,51 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"%3E%3Ccircle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1" /%3E%3C/svg%3E') repeat;
-            opacity: 0.12;
+            background: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"%3E%3Ccircle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/%3E%3C/svg%3E') repeat;
+            opacity: 0.1;
             z-index: -1;
-            animation: subtleMove 20s infinite linear;
-        }
-
-        .particles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 0;
         }
 
         header {
-            position: sticky;
+            position: fixed;
             top: 0;
-            background: rgba(30, 30, 47, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 15px 0;
+            width: 100%;
+            background: rgba(30, 30, 47, 0.9);
+            backdrop-filter: blur(12px);
+            padding: 1rem 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px var(--shadow-color);
+            box-shadow: 0 4px 20px var(--shadow);
         }
 
         .nav-container {
-            width: 90%;
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: relative;
+            padding: 0 2rem;
         }
 
         .nav-logo {
-            height: 70px;
+            height: 60px;
             transition: transform 0.3s ease;
         }
 
         .nav-logo:hover {
-            transform: scale(1.1);
+            transform: scale(1.05);
         }
 
         nav ul {
             display: flex;
-            gap: 30px;
+            gap: 2rem;
             list-style: none;
         }
 
         nav a {
             color: var(--text-primary);
             text-decoration: none;
-            font-weight: 500;
-            font-size: 16px;
+            font-weight: 600;
+            font-size: 1rem;
             transition: color 0.3s ease;
         }
 
@@ -126,488 +107,208 @@
             color: var(--accent-color);
         }
 
-        .container {
-            width: 90%;
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 40px 20px;
-            animation: fadeInContainer 1.5s ease-in-out;
-        }
-
-        .content-wrapper {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: stretch;
-            padding: 25px;
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: url('/virtuelightheader.png') center/cover no-repeat;
             position: relative;
+            overflow: hidden;
         }
 
-        .content-wrapper::before,
-        .content-wrapper::after {
+        .hero::before {
             content: '';
             position: absolute;
-            background: radial-gradient(circle, rgba(138, 43, 226, 0.25) 0%, transparent 70%);
-            z-index: -1;
-        }
-
-        .content-wrapper::before {
-            top: -30px;
-            left: -30px;
-            width: calc(100% + 60px);
-            height: calc(100% + 60px);
-            animation: radialPulse 6s infinite ease-in-out;
-        }
-
-        .content-wrapper::after {
-            bottom: -50px;
-            right: -50px;
-            width: 200px;
-            height: 200px;
-            animation: radialPulseReverse 4s infinite ease-in-out;
-        }
-
-        .left-section, .right-section {
-            background: var(--card-bg);
-            border-radius: 12px;
-            padding: 30px;
-            box-shadow: 0 4px 15px var(--shadow-color);
-            transition: transform 0.3s ease;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .left-section:hover, .right-section:hover {
-            transform: translateY(-5px);
-        }
-
-        .logo {
+            top: 0;
+            left: 0;
             width: 100%;
-            max-width: 440px;
-            height: auto;
-            margin-bottom: 30px;
-            filter: drop-shadow(0 5px 10px var(--shadow-color));
-            transition: transform 0.7s ease, opacity 0.5s ease, filter 0.5s ease;
-            animation: logoPulse 6s infinite ease-in-out;
-        }
-
-        .logo:hover {
-            transform: scale(1.15) rotate(2deg);
-            opacity: 0.95;
-            filter: drop-shadow(0 15px 30px rgba(138, 43, 226, 0.8));
-        }
-
-        .logo-shine::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -75%;
-            width: 50%;
             height: 100%;
-            background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.6), transparent);
-            transform: skewX(-25deg);
-            animation: logoShine 1.5s infinite;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1;
         }
 
-        .section {
-            margin-bottom: 25px;
-            padding: 20px;
-            border-radius: 10px;
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-            box-shadow: 0 4px 12px var(--shadow-color);
-            transition: transform 0.4s ease, box-shadow 0.5s ease;
-        }
-
-        .section:hover {
-            transform: scale(1.05) translateY(-10px);
-            box-shadow: 0 15px 30px var(--shadow-color);
-        }
-
-        .section:hover::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(138, 43, 226, 0.3) 0%, transparent 70%);
-            opacity: 0.5;
-            transition: opacity 0.5s ease;
-            z-index: -1;
-        }
-
-        .section h2 {
-            font-size: 24px;
-            font-weight: 500;
-            margin-bottom: 15px;
-            letter-spacing: 1px;
-            border-bottom: 2px solid var(--secondary-color);
-            padding-bottom: 5px;
-            animation: textGlow 2s infinite alternate;
-        }
-
-        .section h2::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 50%;
-            height: 2px;
-            background: linear-gradient(to right, var(--primary-color), transparent);
-            transition: width 0.5s ease;
-        }
-
-        .roster-list {
-            list-style: none;
-            padding: 0;
-            opacity: 0;
-            transform: translateX(-60px);
-            transition: opacity 1.8s ease-in-out, transform 1.8s ease-in-out;
-        }
-
-        .roster-list.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .roster-list li {
-            font-size: 18px;
-            font-weight: 400;
-            color: var(--text-secondary);
-            margin: 12px 0;
-            padding-left: 20px;
+        .hero-content {
             position: relative;
-            transition: transform 0.5s ease, color 0.5s ease, text-shadow 0.5s ease;
+            z-index: 2;
+            max-width: 800px;
+            padding: 2rem;
         }
 
-        .roster-list li:hover {
-            transform: translateX(20px);
-            color: var(--accent-color);
-            text-shadow: 0 0 15px rgba(93, 63, 211, 0.9);
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            animation: fadeInDown 1s ease-out;
         }
 
-        .roster-list li::before {
-            content: '➤';
-            color: var(--secondary-color);
-            position: absolute;
-            left: 0;
-            transition: transform 0.5s ease, color 0.5s ease;
-        }
-
-        .roster-list li:hover::before {
-            transform: translateX(5px);
-            color: var(--accent-color);
-        }
-
-        .roster-list a {
-            color: inherit;
-            text-decoration: none;
-            transition: color 0.5s ease, text-decoration 0.5s ease;
-        }
-
-        .roster-list a:hover {
-            color: var(--accent-color);
-            text-decoration: underline wavy var(--primary-color);
-        }
-
-        .content-creator {
-            opacity: 0;
-            transform: translateX(-60px);
-            transition: opacity 1.8s ease-in-out 0.5s, transform 1.8s ease-in-out 0.5s;
-        }
-
-        .content-creator.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .content-creator p {
-            font-size: 18px;
-            font-weight: 400;
+        .hero-content p {
+            font-size: 1.2rem;
             color: var(--text-secondary);
-            margin: 0;
-            padding-left: 20px;
-            position: relative;
-            transition: color 0.5s ease;
-        }
-
-        .content-creator p::before {
-            content: '➤';
-            color: var(--secondary-color);
-            position: absolute;
-            left: 0;
-            transition: transform 0.5s ease, color 0.5s ease;
-        }
-
-        .content-creator p:hover::before {
-            transform: translateX(5px);
-            color: var(--accent-color);
-        }
-
-        .content-creator a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: color 0.5s ease, transform 0.5s ease, text-shadow 0.5s ease;
-        }
-
-        .content-creator a:hover {
-            color: var(--accent-color);
-            transform: translateX(20px);
-            text-shadow: 0 0 15px rgba(93, 63, 211, 0.9);
-            text-decoration: underline wavy var(--primary-color);
-        }
-
-        .intro {
-            font-size: 20px;
-            font-weight: 400;
-            color: var(--text-secondary);
-            line-height: 1.6;
-            margin-bottom: 25px;
-            padding: 20px;
-            border-left: 5px solid var(--primary-color);
-            animation: fadeIn 2.5s ease-in-out both;
-            transition: border-color 0.5s ease, transform 0.5s ease;
-        }
-
-        .intro:hover {
-            border-color: var(--accent-color);
-            transform: translateX(10px);
-        }
-
-        .intro::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -10px;
-            width: 5px;
-            height: 100%;
-            background: linear-gradient(to bottom, var(--primary-color), var(--accent-color));
-            animation: introGlow 2s infinite alternate;
-        }
-
-        .buttons {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 25px;
-            flex-wrap: wrap;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease-out 0.3s both;
         }
 
         .btn {
-            padding: 12px 25px;
-            font-size: 16px;
-            font-weight: 500;
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            color: var(--text-primary);
             text-decoration: none;
-            border-radius: 8px;
-            transition: all 0.6s ease;
-            box-shadow: 0 3px 10px var(--shadow-color);
+            font-weight: 600;
+            border-radius: 50px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(106, 13, 173, 0.5);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        section {
+            padding: 4rem 0;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
             text-align: center;
+            color: var(--text-primary);
             position: relative;
-            overflow: hidden;
-            background-size: 200% auto;
         }
 
-        .btn::after {
+        h2::after {
             content: '';
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: rgba(255, 255, 255, 0.25);
-            transform: rotate(30deg);
-            transition: all 0.6s ease;
-            pointer-events: none;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--primary-color);
+            border-radius: 2px;
         }
 
-        .btn:hover::after {
-            top: 100%;
-            left: 100%;
+        .roster-grid, .creator-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
         }
 
-        .btn.btn-shine::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -75%;
-            width: 50%;
-            height: 100%;
-            background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.6), transparent);
-            transform: skewX(-25deg);
-            animation: shine 2.5s infinite;
+        .roster-card, .creator-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .btn-primary {
-            background: linear-gradient(to right, var(--primary-color) 0%, var(--secondary-color) 100%);
-            color: var(--text-primary);
+        .roster-card:hover, .creator-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px var(--shadow);
         }
 
-        .btn-primary:hover {
-            background-position: right center;
-            transform: translateY(-8px) scale(1.05);
-            box-shadow: 0 5px 15px rgba(106, 13, 173, 0.4);
+        .roster-card h3, .creator-card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
         }
 
-        .btn-secondary {
-            background: linear-gradient(to right, var(--primary-color) 0%, var(--secondary-color) 100%);
-            color: var(--text-primary);
+        .roster-card a, .creator-card a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
         }
 
-        .btn-secondary:hover {
-            background-position: right center;
-            transform: translateY(-8px) scale(1.05);
-            box-shadow: 0 5px 15px rgba(114, 9, 183, 0.4);
+        .roster-card a:hover, .creator-card a:hover {
+            color: var(--accent-color);
         }
 
         .socials {
             display: flex;
-            gap: 15px;
-            margin-bottom: 25px;
-            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
         }
 
         .social-btn {
-            padding: 10px 20px;
-            font-size: 16px;
-            font-weight: 500;
+            padding: 0.6rem 1.5rem;
+            border-radius: 50px;
             text-decoration: none;
-            border-radius: 8px;
-            transition: all 0.5s ease;
-            box-shadow: 0 3px 10px var(--shadow-color);
+            font-weight: 600;
             color: var(--text-primary);
-            background-size: 200% auto;
-            position: relative;
-            overflow: hidden;
-            flex: 1;
-        }
-
-        .social-btn::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: rgba(255, 255, 255, 0.3);
-            transform: rotate(30deg);
-            transition: all 0.5s ease;
-            pointer-events: none;
-        }
-
-        .social-btn:hover::after {
-            top: 100%;
-            left: 100%;
-        }
-
-        .social-btn.btn-shine::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -75%;
-            width: 50%;
-            height: 100%;
-            background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.6), transparent);
-            transform: skewX(-25deg);
-            animation: shine 2.5s infinite;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .social-btn.twitter {
-            background: linear-gradient(to right, #1DA1F2 0%, #3498DB 100%);
+            background: linear-gradient(90deg, #1DA1F2, #3498DB);
         }
 
         .social-btn.instagram {
-            background: linear-gradient(to right, #C13584 0%, #E1306C 100%);
+            background: linear-gradient(90deg, #C13584, #E1306C);
         }
 
         .social-btn:hover {
-            transform: translateY(-5px) scale(1.1);
-            box-shadow: 0 5px 15px var(--shadow-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px var(--shadow);
         }
 
         .contact-list {
             list-style: none;
-            padding: 0;
+            text-align: center;
+            margin-top: 2rem;
         }
 
         .contact-list li {
-            font-size: 18px;
-            font-weight: 400;
+            font-size: 1.1rem;
+            margin: 0.5rem 0;
             color: var(--text-secondary);
-            margin: 12px 0;
-            padding-left: 20px;
-            position: relative;
-            transition: transform 0.5s ease, color 0.5s ease, text-shadow 0.5s ease;
-        }
-
-        .contact-list li:hover {
-            transform: translateX(20px);
-            color: var(--accent-color);
-            text-shadow: 0 0 15px rgba(93, 63, 211, 0.9);
-        }
-
-        .contact-list li::before {
-            content: '➤';
-            color: var(--secondary-color);
-            position: absolute;
-            left: 0;
-            transition: transform 0.5s ease, color 0.5s ease;
-        }
-
-        .contact-list li:hover::before {
-            transform: translateX(5px);
-            color: var(--accent-color);
         }
 
         footer {
-            width: 100%;
             text-align: center;
-            padding: 20px 0;
-            font-size: 14px;
-            color: #B0B0B0;
-            background: var(--footer-bg);
-            margin-top: 40px;
-            transition: color 0.5s ease, transform 0.5s ease;
+            padding: 2rem 0;
+            background: rgba(0, 0, 0, 0.2);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
         }
 
-        footer:hover {
-            color: var(--text-primary);
-            transform: translateY(-5px);
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
-        @keyframes slideInLeft { from { opacity: 0; transform: translateX(-60px); } to { opacity: 1; transform: translateX(0); } }
-        @keyframes logoPulse { 0% { transform: scale(1); } 50% { transform: scale(1.06); } 100% { transform: scale(1); } }
-        @keyframes textGlow { 0% { text-shadow: 0 4px 8px var(--shadow-color); } 100% { text-shadow: 0 0 20px rgba(138, 43, 226, 0.9), 0 4px 8px var(--shadow-color); } }
-        @keyframes introGlow { 0% { opacity: 0.7; } 100% { opacity: 1; } }
-        @keyframes fadeInContainer { from { opacity: 0; } to { opacity: 1; } }
-        @keyframes shine { 0% { left: -75%; } 20% { left: 125%; } 100% { left: 125%; } }
-        @keyframes logoShine { 0% { left: -75%; } 33.33% { left: 125%; } 100% { left: 125%; } }
-        @keyframes radialPulse { 0% { transform: scale(1); opacity: 0.6; } 50% { transform: scale(1.15); opacity: 0.4; } 100% { transform: scale(1); opacity: 0.6; } }
-        @keyframes radialPulseReverse { 0% { transform: scale(1); opacity: 0.5; } 50% { transform: scale(1.2); opacity: 0.3; } 100% { transform: scale(1); opacity: 0.5; } }
-        @keyframes subtleMove { 0% { background-position: 0 0; } 100% { background-position: 100px 100px; } }
-        @keyframes float { 0% { transform: translateY(0); } 50% { transform: translateY(-20px); } 100% { transform: translateY(0); } }
-
-        @media (min-width: 769px) {
-            .container { min-height: calc(100vh - 120px); }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         @media (max-width: 768px) {
-            .content-wrapper { grid-template-columns: 1fr; padding: 0; }
-            .left-section, .right-section { width: 100%; }
-            .logo { max-width: 300px; margin: 0 auto 20px; display: block; }
-            .section h2 { font-size: 20px; }
-            .roster-list li, .content-creator p, .contact-list li { font-size: 16px; }
-            .intro { font-size: 18px; }
-            .btn, .social-btn { width: 100%; max-width: 300px; }
-            .roster-list, .content-creator { opacity: 1; transform: translateX(0); transition: none; }
-            nav ul { display: none; }
-            .social-btn { flex: unset; }
+            .hero-content h1 { font-size: 2.5rem; }
+            .hero-content p { font-size: 1rem; }
+            .nav-container { flex-direction: column; gap: 1rem; }
+            nav ul { flex-direction: column; text-align: center; gap: 1rem; }
+            h2 { font-size: 2rem; }
+            .btn, .social-btn { width: 100%; text-align: center; }
         }
     </style>
 </head>
 <body>
     <header>
         <div class="nav-container">
-            <img src="/virtuelightheader.png" alt="Team Virtue Logo" class="nav-logo" id="nav-logo">
+            <img src="/virtuelightheader.png" alt="Team Virtue Logo" class="nav-logo">
             <nav>
                 <ul>
                     <li><a href="#home">Home</a></li>
@@ -618,94 +319,77 @@
             </nav>
         </div>
     </header>
-    <div class="particles" id="particles"></div>
-    <main class="container" id="home">
-        <div class="content-wrapper">
-            <section class="left-section">
-                <img src="/virtuelightheader.png" alt="Team Virtue Logo" class="logo logo-shine" id="main-logo">
-                <article class="section roster" id="roster">
-                    <h2>Our Roster</h2>
-                    <ul class="roster-list">
-                        <li><a href="https://steamcommunity.com/id/finnish_taylorsversion/" target="_blank" rel="noopener noreferrer">Finny.</a></li>
-                        <li><a href="https://steamcommunity.com/profiles/76561198369905223" target="_blank" rel="noopener noreferrer">WestyzWorld</a></li>
-                        <li>Jxhnssl.</li>
-                        <li><a href="https://steamcommunity.com/id/FeliciaTheOG" target="_blank" rel="noopener noreferrer">Felicia, The Goat</a></li>
-                    </ul>
-                </article>
-                <article class="section content-creator">
-                    <h2>Content Creator</h2>
-                    <p><a href="https://youtube.com/@rlremedy" target="_blank" rel="noopener noreferrer">Remedy</a></p>
-                </article>
-            </section>
-            <section class="right-section" id="about">
-                <p class="intro">Team Virtue is a professional eSports organization built on skill, teamwork, and integrity.</p>
-                <div class="buttons">
-                    <a href="https://discord.gg/2btnvUJADc" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-shine">Join Our Discord</a>
-                    <a href="https://rocketleague.gankster.gg/teams/93789/team-virtue-official" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-shine">Scrims</a>
-                </div>
-                <div class="socials">
-                    <a href="https://x.com/TeamVirtueRL" target="_blank" rel="noopener noreferrer" class="social-btn twitter btn-shine">Twitter</a>
-                    <a href="https://www.instagram.com/teamvirtuerl/" target="_blank" rel="noopener noreferrer" class="social-btn instagram btn-shine">Instagram</a>
-                </div>
-                <h2 id="contact">Contact</h2>
-                <ul class="contact-list">
-                    <li>watertucky (Discord)</li>
-                    <li>finnyxtv (Discord, Player Captain)</li>
-                </ul>
-            </section>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Team Virtue</h1>
+            <p>A premier eSports organization dedicated to excellence in competitive gaming.</p>
+            <a href="https://discord.gg/2btnvUJADc" target="_blank" rel="noopener noreferrer" class="btn">Join Our Discord</a>
         </div>
-    </main>
+    </section>
+
+    <div class="container">
+        <section id="about">
+            <h2>About Us</h2>
+            <p style="text-align: center; color: var(--text-secondary); line-height: 1.6; max-width: 800px; margin: 0 auto;">
+                Team Virtue is a professional eSports organization built on skill, teamwork, and integrity. We compete at the highest levels in Rocket League and are committed to fostering a community of passionate gamers.
+            </p>
+        </section>
+
+        <section id="roster">
+            <h2>Our Roster</h2>
+            <div class="roster-grid">
+                <div class="roster-card">
+                    <h3>Finny.</h3>
+                    <a href="https://steamcommunity.com/id/finnish_taylorsversion/" target="_blank" rel="noopener noreferrer">Steam Profile</a>
+                </div>
+                <div class="roster-card">
+                    <h3>WestyzWorld</h3>
+                    <a href="https://steamcommunity.com/profiles/76561198369905223" target="_blank" rel="noopener noreferrer">Steam Profile</a>
+                </div>
+                <div class="roster-card">
+                    <h3>Jxhnssl.</h3>
+                </div>
+                <div class="roster-card">
+                    <h3>Felicia, The Goat</h3>
+                    <a href="https://steamcommunity.com/id/FeliciaTheOG" target="_blank" rel="noopener noreferrer">Steam Profile</a>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Content Creator</h2>
+            <div class="creator-grid">
+                <div class="creator-card">
+                    <h3>Remedy</h3>
+                    <a href="https://youtube.com/@rlremedy" target="_blank" rel="noopener noreferrer">YouTube Channel</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <div class="socials">
+                <a href="https://x.com/TeamVirtueRL" target="_blank" rel="noopener noreferrer" class="social-btn twitter">Twitter</a>
+                <a href="https://www.instagram.com/teamvirtuerl/" target="_blank" rel="noopener noreferrer" class="social-btn instagram">Instagram</a>
+            </div>
+            <ul class="contact-list">
+                <li>watertucky (Discord)</li>
+                <li>finnyxtv (Discord, Player Captain)</li>
+            </ul>
+        </section>
+    </div>
+
     <footer>
         <p>© 2025 Team Virtue Organization. All rights reserved.</p>
     </footer>
+
     <script>
-        const navLogo = document.getElementById('nav-logo');
-        const mainLogo = document.getElementById('main-logo');
-
-        function triggerTransitions() {
-            if (window.innerWidth >= 769) {
-                setTimeout(() => document.querySelector('.roster-list').classList.add('visible'), 500);
-                setTimeout(() => document.querySelector('.content-creator').classList.add('visible'), 1000);
-            }
-        }
-
-        function createParticles() {
-            const particlesContainer = document.getElementById('particles');
-            for (let i = 0; i < 50; i++) {
-                const particle = document.createElement('div');
-                particle.style.position = 'absolute';
-                particle.style.width = `${Math.random() * 3 + 1}px`;
-                particle.style.height = particle.style.width;
-                particle.style.background = 'rgba(138, 43, 226, 0.5)';
-                particle.style.borderRadius = '50%';
-                particle.style.left = `${Math.random() * 100}vw`;
-                particle.style.top = `${Math.random() * 100}vh`;
-                particle.style.animation = `float ${Math.random() * 5 + 5}s infinite ease-in-out`;
-                particlesContainer.appendChild(particle);
-            }
-        }
-
-        window.addEventListener('load', () => {
-            document.body.classList.add('loaded');
-            triggerTransitions();
-            createParticles();
-        });
-
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
             });
-        });
-
-        document.querySelectorAll('.btn, .social-btn').forEach(btn => {
-            btn.addEventListener('mouseover', () => btn.style.transform = 'scale(1.1)');
-            btn.addEventListener('mouseout', () => btn.style.transform = 'scale(1)');
-        });
-
-        window.addEventListener('scroll', () => {
-            const scrollPos = window.scrollY;
-            document.querySelector('.container').style.transform = `translateY(${scrollPos * 0.1}px)`;
         });
     </script>
 </body>
