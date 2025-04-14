@@ -18,6 +18,10 @@
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/virtuemain.png" type="image/png" sizes="64x64">
     <link rel="apple-touch-icon" href="/virtuemain.png" sizes="180x180">
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://unpkg.com/framer-motion@11.2.10/dist/framer-motion.js"></script>
     <style>
         :root {
             --primary-color: #6A0DAD;
@@ -30,6 +34,7 @@
             --text-secondary: #D1D1D1;
             --card-bg: rgba(255, 255, 255, 0.08);
             --shadow: rgba(0, 0, 0, 0.3);
+            --glow: rgba(106, 13, 173, 0.5);
         }
 
         * {
@@ -64,24 +69,23 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(30, 30, 47, 0.9);
+            background: rgba(30, 30, 47, 0.95);
             backdrop-filter: blur(12px);
-            padding: 1rem 0;
             z-index: 1000;
             box-shadow: 0 4px 20px var(--shadow);
         }
 
         .nav-container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 2rem;
+            padding: 1rem 2rem;
         }
 
         .nav-logo {
-            height: 60px;
+            height: 50px;
             transition: transform 0.3s ease;
         }
 
@@ -91,7 +95,7 @@
 
         nav ul {
             display: flex;
-            gap: 2rem;
+            gap: 2.5rem;
             list-style: none;
         }
 
@@ -99,12 +103,39 @@
             color: var(--text-primary);
             text-decoration: none;
             font-weight: 600;
-            font-size: 1rem;
-            transition: color 0.3s ease;
+            font-size: 1.1rem;
+            transition: color 0.3s ease, transform 0.3s ease;
         }
 
         nav a:hover {
             color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: var(--text-primary);
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
         }
 
         .hero {
@@ -125,64 +156,63 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.6);
+            background: rgba(0, 0, 0, 0.65);
             z-index: 1;
         }
 
         .hero-content {
             position: relative;
             z-index: 2;
-            max-width: 800px;
+            max-width: 900px;
             padding: 2rem;
         }
 
         .hero-content h1 {
-            font-size: 3.5rem;
+            font-size: 4rem;
             font-weight: 700;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            animation: fadeInDown 1s ease-out;
+            letter-spacing: 3px;
         }
 
         .hero-content p {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             color: var(--text-secondary);
-            margin-bottom: 2rem;
-            animation: fadeInUp 1s ease-out 0.3s both;
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
         }
 
         .btn {
             display: inline-block;
-            padding: 0.8rem 2rem;
+            padding: 1rem 3rem;
             background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
             color: var(--text-primary);
             text-decoration: none;
             font-weight: 600;
+            font-size: 1.1rem;
             border-radius: 50px;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            animation: fadeInUp 1s ease-out 0.6s both;
         }
 
         .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(106, 13, 173, 0.5);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px var(--glow);
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 4rem 2rem;
+            padding: 5rem 2rem;
         }
 
         section {
-            padding: 4rem 0;
+            padding: 5rem 0;
         }
 
         h2 {
-            font-size: 2.5rem;
+            font-size: 3rem;
             font-weight: 700;
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
             text-align: center;
             color: var(--text-primary);
             position: relative;
@@ -191,44 +221,46 @@
         h2::after {
             content: '';
             position: absolute;
-            bottom: -10px;
+            bottom: -12px;
             left: 50%;
             transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
+            width: 100px;
+            height: 5px;
             background: var(--primary-color);
-            border-radius: 2px;
+            border-radius: 3px;
         }
 
         .roster-grid, .creator-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
         }
 
         .roster-card, .creator-card {
             background: var(--card-bg);
-            border-radius: 12px;
-            padding: 1.5rem;
+            border-radius: 16px;
+            padding: 2rem;
             text-align: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .roster-card:hover, .creator-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px var(--shadow);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px var(--glow);
         }
 
         .roster-card h3, .creator-card h3 {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             font-weight: 600;
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
         }
 
         .roster-card a, .creator-card a {
             color: var(--text-secondary);
             text-decoration: none;
+            font-size: 1.1rem;
             transition: color 0.3s ease;
         }
 
@@ -239,17 +271,21 @@
         .socials {
             display: flex;
             justify-content: center;
-            gap: 1.5rem;
-            margin-top: 2rem;
+            gap: 2rem;
+            margin-top: 3rem;
         }
 
         .social-btn {
-            padding: 0.6rem 1.5rem;
+            padding: 0.8rem 2rem;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
+            font-size: 1rem;
             color: var(--text-primary);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
         .social-btn.twitter {
@@ -261,28 +297,25 @@
         }
 
         .social-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px var(--shadow);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px var(--shadow);
         }
 
         .contact-list {
             list-style: none;
             text-align: center;
-            margin-top: 2rem;
-        }
-
-        .contact-list li {
-            font-size: 1.1rem;
-            margin: 0.5rem 0;
+            margin-top: 2.5rem;
+            font-size: 1.2rem;
             color: var(--text-secondary);
+            line-height: 2;
         }
 
         footer {
             text-align: center;
-            padding: 2rem 0;
-            background: rgba(0, 0, 0, 0.2);
+            padding: 3rem 0;
+            background: rgba(0, 0, 0, 0.3);
             color: var(--text-secondary);
-            font-size: 0.9rem;
+            font-size: 1rem;
         }
 
         @keyframes fadeInDown {
@@ -295,102 +328,295 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
+        @media (max-width: 1024px) {
+            .hero-content h1 { font-size: 3rem; }
+            .hero-content p { font-size: 1.1rem; }
+            h2 { font-size: 2.5rem; }
+            .roster-grid, .creator-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+        }
+
         @media (max-width: 768px) {
+            .nav-container { padding: 1rem; }
+            .nav-logo { height: 40px; }
+            nav { display: none; }
+            nav.active {
+                display: block;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: rgba(30, 30, 47, 0.95);
+                padding: 1rem 0;
+            }
+            nav ul {
+                flex-direction: column;
+                text-align: center;
+                gap: 1.5rem;
+            }
+            .hamburger { display: flex; }
             .hero-content h1 { font-size: 2.5rem; }
             .hero-content p { font-size: 1rem; }
-            .nav-container { flex-direction: column; gap: 1rem; }
-            nav ul { flex-direction: column; text-align: center; gap: 1rem; }
+            .btn, .social-btn { width: 80%; margin: 0 auto; }
             h2 { font-size: 2rem; }
-            .btn, .social-btn { width: 100%; text-align: center; }
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="nav-container">
-            <img src="/virtuelightheader.png" alt="Team Virtue Logo" class="nav-logo">
-            <nav>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#roster">Roster</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+    <div id="root"></div>
+    <script type="text/babel">
+        const { motion } = window.FramerMotion;
+        const Header = () => {
+            const [isOpen, setIsOpen] = React.useState(false);
+            const toggleMenu = () => setIsOpen(!isOpen);
 
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <h1>Team Virtue</h1>
-            <p>A premier eSports organization dedicated to excellence in competitive gaming.</p>
-            <a href="https://discord.gg/2btnvUJADc" target="_blank" rel="noopener noreferrer" class="btn">Join Our Discord</a>
-        </div>
-    </section>
+            const handleNavClick = (id) => {
+                document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+                setIsOpen(false);
+            };
 
-    <div class="container">
-        <section id="about">
-            <h2>About Us</h2>
-            <p style="text-align: center; color: var(--text-secondary); line-height: 1.6; max-width: 800px; margin: 0 auto;">
-                Team Virtue is a professional eSports organization built on skill, teamwork, and integrity. We compete at the highest levels in Rocket League and are committed to fostering a community of passionate gamers.
-            </p>
-        </section>
+            return (
+                <header>
+                    <div className="nav-container">
+                        <motion.img
+                            src="/virtuelightheader.png"
+                            alt="Team Virtue Logo"
+                            className="nav-logo"
+                            whileHover={{ scale: 1.05 }}
+                            transition={{ duration: 0.3 }}
+                        />
+                        <div className={`hamburger ${isOpen ? 'active' : ''}`} onClick={toggleMenu}>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <nav className={isOpen ? 'active' : ''}>
+                            <ul>
+                                {['home', 'roster', 'about', 'contact'].map((item) => (
+                                    <motion.li
+                                        key={item}
+                                        whileHover={{ y: -2 }}
+                                        transition={{ duration: 0.3 }}
+                                    >
+                                        <a
+                                            href={`#${item}`}
+                                            onClick={() => handleNavClick(item)}
+                                        >
+                                            {item.charAt(0).toUpperCase() + item.slice(1)}
+                                        </a>
+                                    </motion.li>
+                                ))}
+                            </ul>
+                        </nav>
+                    </div>
+                </header>
+            );
+        };
 
-        <section id="roster">
-            <h2>Our Roster</h2>
-            <div class="roster-grid">
-                <div class="roster-card">
-                    <h3>Finny.</h3>
-                    <a href="https://steamcommunity.com/id/finnish_taylorsversion/" target="_blank" rel="noopener noreferrer">Steam Profile</a>
+        const Hero = () => (
+            <section className="hero" id="home">
+                <div className="hero-content">
+                    <motion.h1
+                        initial={{ opacity: 0, y: -20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 1 }}
+                    >
+                        Team Virtue
+                    </motion.h1>
+                    <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 1, delay: 0.3 }}
+                    >
+                        A premier eSports organization dedicated to excellence in competitive gaming.
+                    </motion.p>
+                    <motion.a
+                        href="https://discord.gg/2btnvUJADc"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="btn"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 1, delay: 0.6 }}
+                        whileHover={{ scale: 1.05, boxShadow: '0 8px 20px var(--glow)' }}
+                    >
+                        Join Our Discord
+                    </motion.a>
                 </div>
-                <div class="roster-card">
-                    <h3>WestyzWorld</h3>
-                    <a href="https://steamcommunity.com/profiles/76561198369905223" target="_blank" rel="noopener noreferrer">Steam Profile</a>
+            </section>
+        );
+
+        const About = () => (
+            <section id="about">
+                <motion.h2
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ duration: 0.8 }}
+                    viewport={{ once: true }}
+                >
+                    About Us
+                </motion.h2>
+                <motion.p
+                    style={{
+                        textAlign: 'center',
+                        color: 'var(--text-secondary)',
+                        lineHeight: 1.8,
+                        maxWidth: '900px',
+                        margin: '0 auto',
+                        fontSize: '1.2rem',
+                    }}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
+                    viewport={{ once: true }}
+                >
+                    Team Virtue is a professional eSports organization built on skill, teamwork, and integrity. We compete at the highest levels in Rocket League and are committed to fostering a community of passionate gamers.
+                </motion.p>
+            </section>
+        );
+
+        const Roster = () => {
+            const players = [
+                { name: 'Finny.', link: 'https://steamcommunity.com/id/finnish_taylorsversion/', linkText: 'Steam Profile' },
+                { name: 'WestyzWorld', link: 'https://steamcommunity.com/profiles/76561198369905223', linkText: 'Steam Profile' },
+                { name: 'Jxhnssl.', link: null },
+                { name: 'Felicia, The Goat', link: 'https://steamcommunity.com/id/FeliciaTheOG', linkText: 'Steam Profile' },
+            ];
+
+            return (
+                <section id="roster">
+                    <motion.h2
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        transition={{ duration: 0.8 }}
+                        viewport={{ once: true }}
+                    >
+                        Our Roster
+                    </motion.h2>
+                    <div className="roster-grid">
+                        {players.map((player, index) => (
+                            <motion.div
+                                key={player.name}
+                                className="roster-card"
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.5, delay: index * 0.1 }}
+                                viewport={{ once: true }}
+                                whileHover={{ scale: 1.03, boxShadow: '0 12px 25px var(--glow)' }}
+                            >
+                                <h3>{player.name}</h3>
+                                {player.link && (
+                                    <a href={player.link} target="_blank" rel="noopener noreferrer">
+                                        {player.linkText}
+                                    </a>
+                                )}
+                            </motion.div>
+                        ))}
+                    </div>
+                </section>
+            );
+        };
+
+        const Creator = () => (
+            <section>
+                <motion.h2
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ duration: 0.8 }}
+                    viewport={{ once: true }}
+                >
+                    Content Creator
+                </motion.h2>
+                <div className="creator-grid">
+                    <motion.div
+                        className="creator-card"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5 }}
+                        viewport={{ once: true }}
+                        whileHover={{ scale: 1.03, boxShadow: '0 12px 25px var(--glow)' }}
+                    >
+                        <h3>Remedy</h3>
+                        <a href="https://youtube.com/@rlremedy" target="_blank" rel="noopener noreferrer">
+                            YouTube Channel
+                        </a>
+                    </motion.div>
                 </div>
-                <div class="roster-card">
-                    <h3>Jxhnssl.</h3>
+            </section>
+        );
+
+        const Contact = () => (
+            <section id="contact">
+                <motion.h2
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ duration: 0.8 }}
+                    viewport={{ once: true }}
+                >
+                    Contact Us
+                </motion.h2>
+                <div className="socials">
+                    {[
+                        { platform: 'twitter', href: 'https://x.com/TeamVirtueRL', text: 'Twitter' },
+                        { platform: 'instagram', href: 'https://www.instagram.com/teamvirtuerl/', text: 'Instagram' },
+                    ].map((social) => (
+                        <motion.a
+                            key={social.platform}
+                            href={social.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={`social-btn ${social.platform}`}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5 }}
+                            viewport={{ once: true }}
+                            whileHover={{ scale: 1.05, boxShadow: '0 8px 20px var(--shadow)' }}
+                        >
+                            {social.text}
+                        </motion.a>
+                    ))}
                 </div>
-                <div class="roster-card">
-                    <h3>Felicia, The Goat</h3>
-                    <a href="https://steamcommunity.com/id/FeliciaTheOG" target="_blank" rel="noopener noreferrer">Steam Profile</a>
+                <motion.ul
+                    className="contact-list"
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ duration: 0.8 }}
+                    viewport={{ once: true }}
+                >
+                    <li>watertucky (Discord)</li>
+                    <li>finnyxtv (Discord, Player Captain)</li>
+                </motion.ul>
+            </section>
+        );
+
+        const Footer = () => (
+            <footer>
+                <motion.p
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ duration: 0.8 }}
+                    viewport={{ once: true }}
+                >
+                    &copy; 2025 Team Virtue Organization. All rights reserved.
+                </motion.p>
+            </footer>
+        );
+
+        const App = () => (
+            <div>
+                <Header />
+                <Hero />
+                <div className="container">
+                    <About />
+                    <Roster />
+                    <Creator />
+                    <Contact />
                 </div>
+                <Footer />
             </div>
-        </section>
+        );
 
-        <section>
-            <h2>Content Creator</h2>
-            <div class="creator-grid">
-                <div class="creator-card">
-                    <h3>Remedy</h3>
-                    <a href="https://youtube.com/@rlremedy" target="_blank" rel="noopener noreferrer">YouTube Channel</a>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact">
-            <h2>Contact Us</h2>
-            <div class="socials">
-                <a href="https://x.com/TeamVirtueRL" target="_blank" rel="noopener noreferrer" class="social-btn twitter">Twitter</a>
-                <a href="https://www.instagram.com/teamvirtuerl/" target="_blank" rel="noopener noreferrer" class="social-btn instagram">Instagram</a>
-            </div>
-            <ul class="contact-list">
-                <li>watertucky (Discord)</li>
-                <li>finnyxtv (Discord, Player Captain)</li>
-            </ul>
-        </section>
-    </div>
-
-    <footer>
-        <p>© 2025 Team Virtue Organization. All rights reserved.</p>
-    </footer>
-
-    <script>
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
-            });
-        });
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
     </script>
 </body>
 </html>
