@@ -67,14 +67,16 @@
             align-items: center;
             padding: 1rem 1.5rem;
             position: relative;
+            height: 100px; /* Increased to accommodate larger logo */
         }
 
         .nav-logo {
-            height: 60px;
+            height: 90px;
             object-fit: contain;
             position: absolute;
             left: 50%;
-            transform: translateX(-50%);
+            top: 50%;
+            transform: translate(-50%, -50%);
         }
 
         nav ul {
@@ -462,9 +464,10 @@
                 padding: 1rem 2rem;
                 justify-content: flex-end;
                 align-items: center;
+                height: 100px;
             }
             .nav-logo {
-                height: 60px;
+                height: 90px;
             }
             nav {
                 margin-left: auto;
@@ -517,9 +520,10 @@
                 padding: 1rem 1.5rem;
                 position: relative;
                 justify-content: flex-end;
+                height: 80px;
             }
             .nav-logo {
-                height: 50px;
+                height: 75px;
             }
             nav {
                 display: none;
@@ -548,7 +552,8 @@
                 display: flex;
                 position: absolute;
                 right: 1.5rem;
-                top: 1.5rem;
+                top: 50%;
+                transform: translateY(-50%);
             }
             .hero-logo-container {
                 max-width: 350px;
@@ -593,8 +598,11 @@
 
         /* Small mobile devices */
         @media (max-width: 480px) {
+            .nav-container {
+                height: 70px;
+            }
             .nav-logo {
-                height: 45px;
+                height: 67.5px;
             }
             .hero-logo-container {
                 max-width: 280px;
