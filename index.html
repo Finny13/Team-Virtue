@@ -295,13 +295,23 @@
             border-radius: 6px;
             padding: 1rem;
             text-align: center;
-            transition: box-shadow 0.2s ease, transform 0.2s ease;
+            transition: box-shadow 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .roster-card:hover, .creator-card:hover, .scrim-card:hover {
             box-shadow: 0 4px 12px var(--glow);
             transform: translateY(-2px);
+        }
+
+        .scrim-card:hover {
+            opacity: 0.9;
+        }
+
+        .scrim-card a {
+            color: inherit;
+            text-decoration: none;
+            display: block;
         }
 
         .roster-card h3, .creator-card h3, .scrim-card h3 {
@@ -344,6 +354,21 @@
             font-size: 1.4rem;
             font-weight: 700;
             color: #FFFFFF;
+        }
+
+        .scrim-card .match {
+            font-size: 0.9rem;
+            margin: 0.3rem 0;
+        }
+
+        .scrim-card .win {
+            color: #00FF00;
+            font-weight: 600;
+        }
+
+        .scrim-card .loss {
+            color: #FF0000;
+            font-weight: 600;
         }
 
         .socials {
@@ -694,8 +719,14 @@
             <h2>Scrim Record</h2>
             <div class="scrim-grid">
                 <div class="scrim-card">
-                    <h3>Rocket League</h3>
-                    <p>Record: <span>10-2</span></p>
+                    <a href="https://rocketleague.gankster.gg/teams/93789/team-virtue" target="_blank" rel="noopener noreferrer">
+                        <h3>Rocket League</h3>
+                        <p>Recent Scrims (Best of 7):</p>
+                        <div class="match">vs Trinity Rocks: <span>4-1</span> <span class="win">W</span></div>
+                        <div class="match">vs Ruth: <span>4-1</span> <span class="win">W</span></div>
+                        <div class="match">vs Kings of Rings: <span>2-4</span> <span class="loss">L</span></div>
+                        <div class="match">vs Optimal Ruby: <span>4-2</span> <span class="win">W</span></div>
+                    </a>
                 </div>
             </div>
         </section>
