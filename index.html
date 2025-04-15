@@ -8,7 +8,7 @@
     <meta name="author" content="Team Virtue">
     <meta name="theme-color" content="#6A0DAD">
     <meta property="og:title" content="Team Virtue | Elite eSports Organization">
-    <meta property="og:description" content="Team Virtue dominates the eSports arena with unparalleled skill and dedication in Rocket League.">
+    <meta property="og:description" content="Team Virtue is a professional eSports organization built on skill, teamwork, and integrity.">
     <meta property="og:image" content="virtuemain.png">
     <meta property="og:url" content="https://teamvirtue.netlify.app/">
     <meta property="og:type" content="website">
@@ -62,21 +62,17 @@
             max-width: 1600px;
             margin: 0 auto;
             display: flex;
-            flex-wrap: nowrap;
-            justify-content: space-between;
+            flex-wrap: wrap;
+            justify-content: center;
             align-items: center;
             padding: 1rem 1.5rem;
             position: relative;
-            height: 100px;
         }
 
         .nav-logo {
-            height: 90px;
+            height: 70px;
             object-fit: contain;
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
+            display: block;
         }
 
         nav ul {
@@ -92,7 +88,7 @@
             font-size: 0.9rem;
             text-transform: uppercase;
             letter-spacing: 1px;
-            transition: color: 0.3s ease;
+            transition: color 0.3s ease;
         }
 
         nav a:hover {
@@ -129,18 +125,23 @@
 
         .sponsor-box {
             position: fixed;
-            top: 10px;
-            left: 10px;
+            top: 8px;
+            left: 8px;
+            background: rgba(30, 30, 47, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+            padding: 6px 10px;
             display: flex;
             align-items: center;
             gap: 8px;
             z-index: 1002;
+            box-shadow: 0 2px 4px var(--shadow);
             transition: transform 0.3s ease, opacity 0.3s ease;
         }
 
         .sponsor-box:hover {
+            transform: translateY(-2px);
             opacity: 0.9;
-            transform: translateY(-1px);
         }
 
         .sponsor-box a {
@@ -152,22 +153,21 @@
         }
 
         .sponsor-box span {
-            font-size: 0.945rem;
+            font-size: 0.75rem;
             font-weight: 600;
             text-transform: uppercase;
             color: var(--text-primary);
-            letter-spacing: 0.5px;
         }
 
         .sponsor-box img {
-            height: 27px;
+            height: 20px;
             width: auto;
             object-fit: contain;
             transition: transform 0.3s ease;
         }
 
         .sponsor-box:hover img {
-            transform: scale(1.05);
+            transform: scale(1.1);
         }
 
         .hero {
@@ -462,12 +462,13 @@
         @media (min-width: 769px) {
             .nav-container {
                 padding: 1rem 2rem;
-                justify-content: flex-end;
+                flex-wrap: nowrap;
+                justify-content: center;
                 align-items: center;
-                height: 100px;
             }
             .nav-logo {
-                height: 90px;
+                height: 70px;
+                margin: 0;
             }
             nav {
                 margin-left: auto;
@@ -519,11 +520,12 @@
             .nav-container {
                 padding: 1rem 1.5rem;
                 position: relative;
-                justify-content: flex-end;
-                height: 80px;
+                flex-wrap: nowrap;
+                justify-content: center;
             }
             .nav-logo {
-                height: 75px;
+                height: 55px;
+                margin: 0 auto;
             }
             nav {
                 display: none;
@@ -552,8 +554,7 @@
                 display: flex;
                 position: absolute;
                 right: 1.5rem;
-                top: 50%;
-                transform: translateY(-50%);
+                top: 1.5rem;
             }
             .hero-logo-container {
                 max-width: 350px;
@@ -584,25 +585,22 @@
                 padding: 0.8rem;
             }
             .sponsor-box {
-                top: 8px;
-                left: 8px;
-                gap: 6px;
+                top: 6px;
+                left: 6px;
+                padding: 5px 8px;
             }
             .sponsor-box span {
-                font-size: 0.878rem;
+                font-size: 0.7rem;
             }
             .sponsor-box img {
-                height: 24.3px;
+                height: 18px;
             }
         }
 
         /* Small mobile devices */
         @media (max-width: 480px) {
-            .nav-container {
-                height: 70px;
-            }
             .nav-logo {
-                height: 67.5px;
+                height: 50px;
             }
             .hero-logo-container {
                 max-width: 280px;
@@ -630,23 +628,23 @@
                 padding: 1.5rem 1rem;
             }
             .sponsor-box {
-                top: 6px;
-                left: 6px;
-                gap: 5px;
+                top: 4px;
+                left: 4px;
+                padding: 4px 6px;
             }
             .sponsor-box span {
-                font-size: 0.81rem;
+                font-size: 0.65rem;
             }
             .sponsor-box img {
-                height: 21.6px;
+                height: 16px;
             }
         }
     </style>
 </head>
 <body>
     <div class="sponsor-box">
-        <a href="https://www.dubby.gg/?ref=drotxpyy" target="_blank" rel="noopener noreferrer">
-            <span>Powered by</span>
+        <a href="https://dubby.gg" target="_blank" rel="noopener noreferrer">
+            <span>Powered by Dubby Energy</span>
             <img src="dubby.png" alt="Dubby Energy Logo">
         </a>
     </div>
