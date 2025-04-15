@@ -65,15 +65,16 @@
             align-items: center;
             justify-content: space-between;
             padding: 0.75rem 1rem;
-            height: 80px;
+            height: 100px;
         }
 
         .nav-logo {
-            height: 80px;
+            height: 100px;
             object-fit: contain;
             position: absolute;
+            top: 50%;
             left: 50%;
-            transform: translateX(-50%);
+            transform: translate(-50%, -50%);
         }
 
         nav ul {
@@ -179,7 +180,8 @@
             height: 100%;
             object-fit: cover;
             z-index: 1;
-            opacity: 0.6;
+            opacity: 0.8;
+            image-rendering: auto;
         }
 
         .hero::before {
@@ -189,14 +191,14 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5));
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3));
             z-index: 2;
         }
 
         .hero-logo-container {
             z-index: 3;
-            width: 60%;
-            max-width: 350px;
+            width: 70%;
+            max-width: 500px;
             margin: 0 auto;
             animation: fadeInScale 1.2s ease-out;
         }
@@ -447,10 +449,10 @@
         @media (min-width: 769px) {
             .nav-container {
                 padding: 0.75rem 1.5rem;
-                height: 80px;
+                height: 100px;
             }
             .nav-logo {
-                height: 80px;
+                height: 100px;
             }
             nav {
                 margin-left: auto;
@@ -462,7 +464,7 @@
                 display: none;
             }
             .hero-logo-container {
-                max-width: 450px;
+                max-width: 500px;
                 width: 70%;
             }
             .hero-content {
@@ -494,10 +496,10 @@
         @media (max-width: 768px) {
             .nav-container {
                 padding: 0.5rem 1rem;
-                height: 60px;
+                height: 80px;
             }
             .nav-logo {
-                height: 60px;
+                height: 80px;
             }
             nav {
                 display: none;
@@ -533,7 +535,7 @@
                 height: 70vh;
             }
             .hero-logo-container {
-                max-width: 300px;
+                max-width: 400px;
                 width: 75%;
             }
             .hero-content {
@@ -554,7 +556,7 @@
                 align-items: center;
                 gap: 0.8rem;
             }
-            .social-btn DEFINE {
+            .social-btn {
                 max-width: 280px;
                 padding: 0.5rem;
             }
@@ -573,13 +575,13 @@
 
         @media (max-width: 480px) {
             .nav-container {
-                height: 50px;
+                height: 60px;
             }
             .nav-logo {
-                height: 50px;
+                height: 60px;
             }
             .hero-logo-container {
-                max-width: 250px;
+                max-width: 300px;
                 width: 70%;
             }
             .hero-content p {
