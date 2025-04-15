@@ -65,11 +65,11 @@
             align-items: center;
             justify-content: space-between;
             padding: 0.75rem 1rem;
-            height: 60px;
+            height: 80px;
         }
 
         .nav-logo {
-            height: 50px;
+            height: 80px;
             object-fit: contain;
             position: absolute;
             left: 50%;
@@ -281,14 +281,14 @@
             background: var(--primary-color);
         }
 
-        .roster-grid, .creator-grid {
+        .roster-grid, .creator-grid, .scrim-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
             gap: 1rem;
             margin-top: 1.5rem;
         }
 
-        .roster-card, .creator-card {
+        .roster-card, .creator-card, .scrim-card {
             background: var(--card-bg);
             border-radius: 6px;
             padding: 1rem;
@@ -297,12 +297,12 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .roster-card:hover, .creator-card:hover {
+        .roster-card:hover, .creator-card:hover, .scrim-card:hover {
             box-shadow: 0 4px 12px var(--glow);
             transform: translateY(-2px);
         }
 
-        .roster-card h3, .creator-card h3 {
+        .roster-card h3, .creator-card h3, .scrim-card h3 {
             font-size: 1.2rem;
             font-weight: 700;
             margin-bottom: 0.3rem;
@@ -330,6 +330,18 @@
 
         .roster-card h3 a:hover, .creator-card h3 a:hover {
             color: var(--accent-color);
+        }
+
+        .scrim-card p {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin: 0.5rem 0 0;
+        }
+
+        .scrim-card span {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary-color);
         }
 
         .socials {
@@ -435,10 +447,10 @@
         @media (min-width: 769px) {
             .nav-container {
                 padding: 0.75rem 1.5rem;
-                height: 70px;
+                height: 80px;
             }
             .nav-logo {
-                height: 60px;
+                height: 80px;
             }
             nav {
                 margin-left: auto;
@@ -469,7 +481,7 @@
             h2 {
                 font-size: 2rem;
             }
-            .roster-grid, .creator-grid {
+            .roster-grid, .creator-grid, .scrim-grid {
                 grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
                 gap: 1.25rem;
             }
@@ -482,10 +494,10 @@
         @media (max-width: 768px) {
             .nav-container {
                 padding: 0.5rem 1rem;
-                height: 50px;
+                height: 60px;
             }
             .nav-logo {
-                height: 40px;
+                height: 60px;
             }
             nav {
                 display: none;
@@ -533,7 +545,7 @@
             h2 {
                 font-size: 1.6rem;
             }
-            .roster-grid, .creator-grid {
+            .roster-grid, .creator-grid, .scrim-grid {
                 grid-template-columns: 1fr;
                 gap: 0.8rem;
             }
@@ -542,7 +554,7 @@
                 align-items: center;
                 gap: 0.8rem;
             }
-            .social-btn {
+            .social-btn DEFINE {
                 max-width: 280px;
                 padding: 0.5rem;
             }
@@ -561,10 +573,10 @@
 
         @media (max-width: 480px) {
             .nav-container {
-                height: 45px;
+                height: 50px;
             }
             .nav-logo {
-                height: 35px;
+                height: 50px;
             }
             .hero-logo-container {
                 max-width: 250px;
@@ -580,8 +592,14 @@
             h2 {
                 font-size: 1.4rem;
             }
-            .roster-card h3, .creator-card h3 {
+            .roster-card h3, .creator-card h3, .scrim-card h3 {
                 font-size: 1.1rem;
+            }
+            .scrim-card p {
+                font-size: 0.9rem;
+            }
+            .scrim-card span {
+                font-size: 1.2rem;
             }
             .social-btn {
                 font-size: 0.85rem;
@@ -670,6 +688,16 @@
             </div>
         </section>
 
+        <section id="scrim-record">
+            <h2>Scrim Record</h2>
+            <div class="scrim-grid">
+                <div class="scrim-card">
+                    <h3>Rocket League</h3>
+                    <p>Record: <span>10-2</span></p>
+                </div>
+            </div>
+        </section>
+
         <section>
             <h2>Content Creators</h2>
             <div class="creator-grid">
@@ -725,7 +753,7 @@
         });
 
         const animateOnScroll = () => {
-            const elements = document.querySelectorAll('.roster-card, .creator-card');
+            const elements = document.querySelectorAll('.roster-card, .creator-card, .scrim-card');
             elements.forEach(el => {
                 const rect = el.getBoundingClientRect();
                 if (rect.top < window.innerHeight * 0.9) {
@@ -738,7 +766,7 @@
         window.addEventListener('scroll', animateOnScroll);
         document.addEventListener('DOMContentLoaded', animateOnScroll);
 
-        document.querySelectorAll('.roster-card, .creator-card').forEach(el => {
+        document.querySelectorAll('.roster-card, .creator-card, .scrim-card').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(10px)';
             el.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
