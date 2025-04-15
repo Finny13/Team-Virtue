@@ -123,35 +123,51 @@
             transform: rotate(-45deg) translate(7px, -7px);
         }
 
-        .sponsor {
+        .sponsor-box {
             position: fixed;
-            top: 10px;
-            left: 15px;
+            top: 8px;
+            left: 8px;
+            background: rgba(30, 30, 47, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+            padding: 6px 10px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             z-index: 1002;
-            background: rgba(0, 0, 0, 0.3);
-            padding: 5px 10px;
-            border-radius: 5px;
-            transition: background 0.3s ease;
+            box-shadow: 0 2px 4px var(--shadow);
+            transition: transform 0.3s ease, opacity 0.3s ease;
         }
 
-        .sponsor:hover {
-            background: rgba(0, 0, 0, 0.5);
+        .sponsor-box:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
         }
 
-        .sponsor span {
+        .sponsor-box a {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
             color: var(--text-primary);
-            font-size: 0.85rem;
-            font-weight: 500;
-            letter-spacing: 0.5px;
         }
 
-        .sponsor img {
+        .sponsor-box span {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: var(--text-primary);
+        }
+
+        .sponsor-box img {
             height: 20px;
             width: auto;
             object-fit: contain;
+            transition: transform 0.3s ease;
+        }
+
+        .sponsor-box:hover img {
+            transform: scale(1.1);
         }
 
         .hero {
@@ -568,15 +584,15 @@
                 max-width: 300px;
                 padding: 0.8rem;
             }
-            .sponsor {
-                top: 8px;
-                left: 10px;
-                padding: 4px 8px;
+            .sponsor-box {
+                top: 6px;
+                left: 6px;
+                padding: 5px 8px;
             }
-            .sponsor span {
-                font-size: 0.75rem;
+            .sponsor-box span {
+                font-size: 0.7rem;
             }
-            .sponsor img {
+            .sponsor-box img {
                 height: 18px;
             }
         }
@@ -611,24 +627,26 @@
                 font-size: 0.8rem;
                 padding: 1.5rem 1rem;
             }
-            .sponsor {
-                top: 6px;
-                left: 8px;
-                padding: 3px 6px;
+            .sponsor-box {
+                top: 4px;
+                left: 4px;
+                padding: 4px 6px;
             }
-            .sponsor span {
-                font-size: 0.7rem;
+            .sponsor-box span {
+                font-size: 0.65rem;
             }
-            .sponsor img {
+            .sponsor-box img {
                 height: 16px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="sponsor">
-        <span>Powered by Dubby Energy</span>
-        <img src="dubby.png" alt="Dubby Energy Logo">
+    <div class="sponsor-box">
+        <a href="https://dubby.gg" target="_blank" rel="noopener noreferrer">
+            <span>Powered by Dubby Energy</span>
+            <img src="dubby.png" alt="Dubby Energy Logo">
+        </a>
     </div>
     <header>
         <div class="nav-container">
