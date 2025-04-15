@@ -62,17 +62,19 @@
             max-width: 1600px;
             margin: 0 auto;
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+            flex-wrap: nowrap;
+            justify-content: space-between;
             align-items: center;
             padding: 1rem 1.5rem;
             position: relative;
         }
 
         .nav-logo {
-            height: 70px;
+            height: 60px;
             object-fit: contain;
-            display: block;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
         }
 
         nav ul {
@@ -125,23 +127,18 @@
 
         .sponsor-box {
             position: fixed;
-            top: 8px;
-            left: 8px;
-            background: rgba(30, 30, 47, 0.9);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 4px;
-            padding: 6px 10px;
+            top: 10px;
+            left: 10px;
             display: flex;
             align-items: center;
             gap: 8px;
             z-index: 1002;
-            box-shadow: 0 2px 4px var(--shadow);
             transition: transform 0.3s ease, opacity 0.3s ease;
         }
 
         .sponsor-box:hover {
-            transform: translateY(-2px);
             opacity: 0.9;
+            transform: translateY(-1px);
         }
 
         .sponsor-box a {
@@ -153,10 +150,11 @@
         }
 
         .sponsor-box span {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-weight: 600;
             text-transform: uppercase;
             color: var(--text-primary);
+            letter-spacing: 0.5px;
         }
 
         .sponsor-box img {
@@ -167,7 +165,7 @@
         }
 
         .sponsor-box:hover img {
-            transform: scale(1.1);
+            transform: scale(1.05);
         }
 
         .hero {
@@ -462,13 +460,11 @@
         @media (min-width: 769px) {
             .nav-container {
                 padding: 1rem 2rem;
-                flex-wrap: nowrap;
-                justify-content: center;
+                justify-content: flex-end;
                 align-items: center;
             }
             .nav-logo {
-                height: 70px;
-                margin: 0;
+                height: 60px;
             }
             nav {
                 margin-left: auto;
@@ -520,12 +516,10 @@
             .nav-container {
                 padding: 1rem 1.5rem;
                 position: relative;
-                flex-wrap: nowrap;
-                justify-content: center;
+                justify-content: flex-end;
             }
             .nav-logo {
-                height: 55px;
-                margin: 0 auto;
+                height: 50px;
             }
             nav {
                 display: none;
@@ -585,12 +579,12 @@
                 padding: 0.8rem;
             }
             .sponsor-box {
-                top: 6px;
-                left: 6px;
-                padding: 5px 8px;
+                top: 8px;
+                left: 8px;
+                gap: 6px;
             }
             .sponsor-box span {
-                font-size: 0.7rem;
+                font-size: 0.65rem;
             }
             .sponsor-box img {
                 height: 18px;
@@ -600,7 +594,7 @@
         /* Small mobile devices */
         @media (max-width: 480px) {
             .nav-logo {
-                height: 50px;
+                height: 45px;
             }
             .hero-logo-container {
                 max-width: 280px;
@@ -628,12 +622,12 @@
                 padding: 1.5rem 1rem;
             }
             .sponsor-box {
-                top: 4px;
-                left: 4px;
-                padding: 4px 6px;
+                top: 6px;
+                left: 6px;
+                gap: 5px;
             }
             .sponsor-box span {
-                font-size: 0.65rem;
+                font-size: 0.6rem;
             }
             .sponsor-box img {
                 height: 16px;
