@@ -123,6 +123,37 @@
             transform: rotate(-45deg) translate(7px, -7px);
         }
 
+        .sponsor {
+            position: fixed;
+            top: 10px;
+            left: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 1002;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        .sponsor:hover {
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .sponsor span {
+            color: var(--text-primary);
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        .sponsor img {
+            height: 20px;
+            width: auto;
+            object-fit: contain;
+        }
+
         .hero {
             height: 100vh;
             display: flex;
@@ -537,6 +568,17 @@
                 max-width: 300px;
                 padding: 0.8rem;
             }
+            .sponsor {
+                top: 8px;
+                left: 10px;
+                padding: 4px 8px;
+            }
+            .sponsor span {
+                font-size: 0.75rem;
+            }
+            .sponsor img {
+                height: 18px;
+            }
         }
 
         /* Small mobile devices */
@@ -569,10 +611,25 @@
                 font-size: 0.8rem;
                 padding: 1.5rem 1rem;
             }
+            .sponsor {
+                top: 6px;
+                left: 8px;
+                padding: 3px 6px;
+            }
+            .sponsor span {
+                font-size: 0.7rem;
+            }
+            .sponsor img {
+                height: 16px;
+            }
         }
     </style>
 </head>
 <body>
+    <div class="sponsor">
+        <span>Powered by Dubby Energy</span>
+        <img src="dubby.png" alt="Dubby Energy Logo">
+    </div>
     <header>
         <div class="nav-container">
             <a href="#home"><img src="virtuelightheader.png" alt="Team Virtue Logo" class="nav-logo"></a>
