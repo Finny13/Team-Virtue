@@ -13,7 +13,7 @@
     <meta property="og:url" content="https://teamvirtue.netlify.app/">
     <meta property="og:type" content="website">
     <title>Team Virtue</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
     <link rel="icon" href="virtuemain.png" type="image/png" sizes="64x64">
     <link rel="apple-touch-icon" href="virtuemain.png" sizes="180x180">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
@@ -26,9 +26,9 @@
             --background-gradient-end: #6A0DAD;
             --text-primary: #FFFFFF;
             --text-secondary: #B0B0B0;
-            --card-bg: rgba(255, 255, 255, 0.05);
-            --shadow: rgba(0, 0, 0, 0.5);
-            --glow: rgba(106, 13, 173, 0.3);
+            --card-bg: rgba(255, 255, 255, 0.08);
+            --shadow: rgba(0, 0, 0, 0.4);
+            --glow: rgba(106, 13, 173, 0.2);
             --accent-color: #9B59B6;
         }
 
@@ -53,46 +53,43 @@
             top: 0;
             width: 100%;
             background: rgba(30, 30, 47, 0.95);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(8px);
             z-index: 1000;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .nav-container {
-            max-width: 1600px;
+            max-width: 1400px;
             margin: 0 auto;
             display: flex;
-            flex-wrap: nowrap;
-            justify-content: space-between;
             align-items: center;
-            padding: 1rem 1.5rem;
-            position: relative;
-            height: 100px;
+            justify-content: space-between;
+            padding: 0.75rem 1rem;
+            height: 60px;
         }
 
         .nav-logo {
-            height: 90px;
+            height: 50px;
             object-fit: contain;
             position: absolute;
             left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
+            transform: translateX(-50%);
         }
 
         nav ul {
             display: flex;
-            gap: 2rem;
+            gap: 1.25rem;
             list-style: none;
         }
 
         nav a {
             color: var(--text-primary);
             text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
+            font-weight: 500;
+            font-size: 0.85rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: color: 0.3s ease;
+            letter-spacing: 0.5px;
+            transition: color 0.2s ease;
         }
 
         nav a:hover {
@@ -103,20 +100,20 @@
             display: none;
             flex-direction: column;
             cursor: pointer;
-            gap: 5px;
+            gap: 4px;
             z-index: 1001;
         }
 
         .hamburger span {
-            width: 25px;
-            height: 3px;
+            width: 22px;
+            height: 2px;
             background: var(--text-primary);
             border-radius: 2px;
             transition: all 0.3s ease;
         }
 
         .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
+            transform: rotate(45deg) translate(4px, 4px);
         }
 
         .hamburger.active span:nth-child(2) {
@@ -124,54 +121,47 @@
         }
 
         .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -7px);
+            transform: rotate(-45deg) translate(5px, -5px);
         }
 
         .sponsor-box {
             position: fixed;
-            top: 10px;
-            left: 10px;
+            top: 8px;
+            left: 8px;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
             z-index: 1002;
-            transition: transform 0.3s ease, opacity 0.3s ease;
+            transition: opacity 0.2s ease;
         }
 
         .sponsor-box:hover {
             opacity: 0.9;
-            transform: translateY(-1px);
         }
 
         .sponsor-box a {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
             text-decoration: none;
             color: var(--text-primary);
         }
 
         .sponsor-box span {
-            font-size: 0.945rem;
-            font-weight: 600;
+            font-size: 0.8rem;
+            font-weight: 500;
             text-transform: uppercase;
-            color: var(--text-primary);
             letter-spacing: 0.5px;
         }
 
         .sponsor-box img {
-            height: 27px;
+            height: 20px;
             width: auto;
             object-fit: contain;
-            transition: transform 0.3s ease;
-        }
-
-        .sponsor-box:hover img {
-            transform: scale(1.05);
         }
 
         .hero {
-            height: 100vh;
+            height: 80vh;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -181,7 +171,7 @@
             overflow: hidden;
         }
 
-        .hero-video {
+        .hero-gif {
             position: absolute;
             top: 0;
             left: 0;
@@ -189,7 +179,7 @@
             height: 100%;
             object-fit: cover;
             z-index: 1;
-            opacity: 0.5;
+            opacity: 0.6;
         }
 
         .hero::before {
@@ -199,16 +189,16 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6));
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5));
             z-index: 2;
         }
 
         .hero-logo-container {
             z-index: 3;
-            animation: fadeInScale 1.5s ease-out;
-            width: 70%;
-            max-width: 400px;
+            width: 60%;
+            max-width: 350px;
             margin: 0 auto;
+            animation: fadeInScale 1.2s ease-out;
         }
 
         .hero-logo {
@@ -220,111 +210,111 @@
         .hero-content {
             position: relative;
             z-index: 4;
-            max-width: 90%;
-            padding: 1.5rem;
+            max-width: 85%;
+            padding: 1rem;
         }
 
         .hero-content p {
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: var(--text-secondary);
-            margin-bottom: 2rem;
-            line-height: 1.6;
-            font-weight: 300;
-            animation: fadeInUp 1.5s ease-out 0.5s both;
+            margin-bottom: 1.5rem;
+            line-height: 1.5;
+            font-weight: 400;
+            animation: fadeInUp 1.2s ease-out 0.3s both;
         }
 
         .btn {
             display: inline-flex;
             align-items: center;
-            padding: 0.8rem 2rem;
+            padding: 0.6rem 1.5rem;
             background: var(--primary-color);
             color: var(--text-primary);
             text-decoration: none;
-            font-weight: 700;
-            font-size: 1rem;
+            font-weight: 600;
+            font-size: 0.9rem;
             text-transform: uppercase;
-            border-radius: 5px;
-            transition: background 0.3s ease, transform 0.2s ease;
-            gap: 0.5rem;
+            border-radius: 4px;
+            transition: background 0.2s ease, transform 0.2s ease;
+            gap: 0.4rem;
             touch-action: manipulation;
         }
 
         .btn:hover {
             background: var(--accent-color);
-            transform: scale(1.05);
+            transform: scale(1.03);
         }
 
         .btn:active {
-            transform: scale(0.95);
+            transform: scale(0.97);
         }
 
         .container {
-            max-width: 1600px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 2rem 1.5rem;
+            padding: 1.5rem 1rem;
         }
 
         section {
-            padding: 4rem 0;
+            padding: 2.5rem 0;
         }
 
         h2 {
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: 900;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             text-align: center;
             color: var(--text-primary);
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
             position: relative;
-            animation: fadeIn 1s ease-out;
+            animation: fadeIn 0.8s ease-out;
         }
 
         h2::after {
             content: '';
             position: absolute;
-            bottom: -8px;
+            bottom: -6px;
             left: 50%;
             transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
+            width: 60px;
+            height: 2px;
             background: var(--primary-color);
         }
 
         .roster-grid, .creator-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
         }
 
         .roster-card, .creator-card {
             background: var(--card-bg);
-            border-radius: 8px;
-            padding: 1.2rem;
+            border-radius: 6px;
+            padding: 1rem;
             text-align: center;
-            transition: box-shadow 0.3s ease, transform 0.3s ease;
+            transition: box-shadow 0.2s ease, transform 0.2s ease;
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .roster-card:hover, .creator-card:hover {
-            box-shadow: 0 6px 15px var(--glow);
-            transform: translateY(-3px);
+            box-shadow: 0 4px 12px var(--glow);
+            transform: translateY(-2px);
         }
 
         .roster-card h3, .creator-card h3 {
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             font-weight: 700;
-            margin-bottom: 0.4rem;
+            margin-bottom: 0.3rem;
             color: var(--text-primary);
         }
 
         .roster-card a, .creator-card a {
             color: var(--primary-color);
             text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 600;
-            transition: color 0.3s ease;
+            font-size: 0.8rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
             display: block;
         }
 
@@ -335,7 +325,7 @@
         .roster-card h3 a, .creator-card h3 a {
             color: var(--text-primary);
             text-decoration: none;
-            font-size: 1.4rem;
+            font-size: 1.2rem;
         }
 
         .roster-card h3 a:hover, .creator-card h3 a:hover {
@@ -345,49 +335,33 @@
         .socials {
             display: flex;
             gap: 1rem;
-            margin-top: 2rem;
+            margin-top: 1.5rem;
             justify-content: center;
+            flex-wrap: wrap;
         }
 
         .social-btn {
             width: 100%;
-            max-width: 300px;
-            padding: 0.8rem;
+            max-width: 250px;
+            padding: 0.6rem;
             border: 1px solid var(--primary-color);
             text-decoration: none;
             font-weight: 600;
-            font-size: 1rem;
+            font-size: 0.9rem;
             color: var(--text-primary);
-            transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
+            transition: background 0.2s ease, transform 0.2s ease;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 0.5rem;
-            border-radius: 5px;
+            gap: 0.4rem;
+            border-radius: 4px;
             touch-action: manipulation;
-            position: relative;
-            overflow: hidden;
         }
 
         .social-btn img {
-            height: 1.2rem;
+            height: 1rem;
             width: auto;
             object-fit: contain;
-        }
-
-        .social-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .social-btn:hover::before {
-            left: 100%;
         }
 
         .social-btn:hover {
@@ -402,10 +376,10 @@
 
         footer {
             text-align: center;
-            padding: 2rem 1rem;
+            padding: 1.5rem 1rem;
             background: rgba(0, 0, 0, 0.5);
             color: var(--text-secondary);
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
 
@@ -413,7 +387,7 @@
             color: var(--primary-color);
             text-decoration: none;
             font-weight: 600;
-            transition: color 0.3s ease;
+            transition: color 0.2s ease;
         }
 
         footer a:hover {
@@ -421,16 +395,16 @@
         }
 
         footer img {
-            height: 0.9rem;
+            height: 0.8rem;
             width: auto;
             vertical-align: middle;
-            margin-left: 0.4rem;
+            margin-left: 0.3rem;
         }
 
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(15px);
+                transform: translateY(10px);
             }
             to {
                 opacity: 1;
@@ -441,7 +415,7 @@
         @keyframes fadeInScale {
             from {
                 opacity: 0;
-                transform: scale(0.95);
+                transform: scale(0.97);
             }
             to {
                 opacity: 1;
@@ -458,16 +432,13 @@
             }
         }
 
-        /* Desktop styles */
         @media (min-width: 769px) {
             .nav-container {
-                padding: 1rem 2rem;
-                justify-content: flex-end;
-                align-items: center;
-                height: 100px;
+                padding: 0.75rem 1.5rem;
+                height: 70px;
             }
             .nav-logo {
-                height: 90px;
+                height: 60px;
             }
             nav {
                 margin-left: auto;
@@ -479,51 +450,42 @@
                 display: none;
             }
             .hero-logo-container {
-                max-width: 600px;
-                width: 80%;
+                max-width: 450px;
+                width: 70%;
             }
             .hero-content {
-                padding: 2rem;
+                padding: 1.5rem;
             }
             .hero-content p {
-                font-size: 1.3rem;
-            }
-            .btn {
-                padding: 1rem 2.5rem;
                 font-size: 1.1rem;
             }
+            .btn {
+                padding: 0.7rem 1.8rem;
+                font-size: 0.95rem;
+            }
             section {
-                padding: 6rem 0;
+                padding: 3rem 0;
             }
             h2 {
-                font-size: 2.5rem;
+                font-size: 2rem;
             }
             .roster-grid, .creator-grid {
-                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-                gap: 2rem;
-            }
-            .socials {
-                flex-direction: row;
-                flex-wrap: wrap;
-                gap: 1.5rem;
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+                gap: 1.25rem;
             }
             .social-btn {
-                width: auto;
-                min-width: 180px;
-                padding: 0.8rem 1.5rem;
+                min-width: 160px;
+                padding: 0.6rem 1.2rem;
             }
         }
 
-        /* Tablet and Mobile styles */
         @media (max-width: 768px) {
             .nav-container {
-                padding: 1rem 1.5rem;
-                position: relative;
-                justify-content: flex-end;
-                height: 80px;
+                padding: 0.5rem 1rem;
+                height: 50px;
             }
             .nav-logo {
-                height: 75px;
+                height: 40px;
             }
             nav {
                 display: none;
@@ -543,91 +505,46 @@
             }
             nav ul {
                 flex-direction: column;
-                gap: 1.8rem;
+                gap: 1.5rem;
             }
             nav a {
-                font-size: 1.1rem;
+                font-size: 1rem;
             }
             .hamburger {
                 display: flex;
                 position: absolute;
-                right: 1.5rem;
+                right: 1rem;
                 top: 50%;
                 transform: translateY(-50%);
             }
+            .hero {
+                height: 70vh;
+            }
             .hero-logo-container {
-                max-width: 350px;
-                width: 80%;
-                margin-top: -50px;
-            }
-            .hero-content {
-                padding: 1rem;
-            }
-            .hero-content p {
-                font-size: 1rem;
-            }
-            h2 {
-                font-size: 1.8rem;
-            }
-            .roster-grid, .creator-grid {
-                grid-template-columns: 1fr;
-                gap: 1.2rem;
-            }
-            .socials {
-                flex-direction: column;
-                align-items: center;
-                gap: 1rem;
-            }
-            .social-btn {
-                width: 100%;
                 max-width: 300px;
-                padding: 0.8rem;
-            }
-            .sponsor-box {
-                top: 8px;
-                left: 8px;
-                gap: 6px;
-            }
-            .sponsor-box span {
-                font-size: 0.878rem;
-            }
-            .sponsor-box img {
-                height: 24.3px;
-            }
-        }
-
-        /* Small mobile devices */
-        @media (max-width: 480px) {
-            .nav-container {
-                height: 70px;
-            }
-            .nav-logo {
-                height: 67.5px;
-            }
-            .hero-logo-container {
-                max-width: 280px;
                 width: 75%;
             }
-            .hero-content p {
-                font-size: 0.9rem;
+            .hero-content {
+                padding: 0.75rem;
             }
-            .btn {
-                padding: 0.7rem 1.8rem;
+            .hero-content p {
                 font-size: 0.9rem;
             }
             h2 {
                 font-size: 1.6rem;
             }
-            .roster-card h3, .creator-card h3 {
-                font-size: 1.2rem;
+            .roster-grid, .creator-grid {
+                grid-template-columns: 1fr;
+                gap: 0.8rem;
+            }
+            .socials {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.8rem;
             }
             .social-btn {
-                font-size: 0.9rem;
-                padding: 0.7rem;
-            }
-            footer {
-                font-size: 0.8rem;
-                padding: 1.5rem 1rem;
+                max-width: 280px;
+                padding: 0.5rem;
             }
             .sponsor-box {
                 top: 6px;
@@ -635,10 +552,55 @@
                 gap: 5px;
             }
             .sponsor-box span {
-                font-size: 0.81rem;
+                font-size: 0.75rem;
             }
             .sponsor-box img {
-                height: 21.6px;
+                height: 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-container {
+                height: 45px;
+            }
+            .nav-logo {
+                height: 35px;
+            }
+            .hero-logo-container {
+                max-width: 250px;
+                width: 70%;
+            }
+            .hero-content p {
+                font-size: 0.85rem;
+            }
+            .btn {
+                padding: 0.5rem 1.2rem;
+                font-size: 0.85rem;
+            }
+            h2 {
+                font-size: 1.4rem;
+            }
+            .roster-card h3, .creator-card h3 {
+                font-size: 1.1rem;
+            }
+            .social-btn {
+                font-size: 0.85rem;
+                padding: 0.5rem;
+            }
+            footer {
+                font-size: 0.75rem;
+                padding: 1rem;
+            }
+            .sponsor-box {
+                top: 5px;
+                left: 5px;
+                gap: 4px;
+            }
+            .sponsor-box span {
+                font-size: 0.7rem;
+            }
+            .sponsor-box img {
+                height: 16px;
             }
         }
     </style>
@@ -670,9 +632,7 @@
     </header>
 
     <section class="hero" id="home">
-        <video class="hero-video" autoplay muted loop playsinline>
-            <source src="hero-bg.mp4" type="video/mp4">
-        </video>
+        <img src="virtue.gif" alt="Team Virtue Animated Background" class="hero-gif">
         <div class="hero-logo-container">
             <img src="virtuelightheader.png" alt="Team Virtue Logo" class="hero-logo">
         </div>
@@ -687,7 +647,7 @@
     <div class="container">
         <section id="about">
             <h2>About</h2>
-            <p style="text-align: center; color: var(--text-secondary); line-height: 1.6; max-width: 900px; margin: 0 auto; font-size: 1.1rem;">
+            <p style="text-align: center; color: var(--text-secondary); line-height: 1.5; max-width: 800px; margin: 0 auto; font-size: 1rem;">
                 Team Virtue is a professional eSports organization built on skill, teamwork, and integrity. We compete at the highest levels in Rocket League, fostering a community of passionate gamers dedicated to excellence.
             </p>
         </section>
@@ -739,8 +699,7 @@
     </div>
 
     <footer>
-        <p>© 2025 Team Virtue. All rights reserved. | <a href="#home">Back to Top</a> |  
-        </p>
+        <p>© 2025 Team Virtue. All rights reserved. | <a href="#home">Back to Top</a></p>
     </footer>
 
     <script>
@@ -769,7 +728,7 @@
             const elements = document.querySelectorAll('.roster-card, .creator-card');
             elements.forEach(el => {
                 const rect = el.getBoundingClientRect();
-                if (rect.top < window.innerHeight * 0.85) {
+                if (rect.top < window.innerHeight * 0.9) {
                     el.style.opacity = '1';
                     el.style.transform = 'translateY(0)';
                 }
@@ -781,8 +740,8 @@
 
         document.querySelectorAll('.roster-card, .creator-card').forEach(el => {
             el.style.opacity = '0';
-            el.style.transform = 'translateY(15px)';
-            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            el.style.transform = 'translateY(10px)';
+            el.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
         });
     </script>
 </body>
