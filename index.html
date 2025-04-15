@@ -170,11 +170,16 @@
             align-items: center;
             gap: 6px;
             z-index: 1002;
-            transition: opacity 0.2s ease;
+            transition: opacity 0.3s ease;
         }
 
         .sponsor-box:hover {
             opacity: 0.9;
+        }
+
+        .sponsor-box.sponsor-hidden {
+            opacity: 0;
+            pointer-events: none;
         }
 
         .sponsor-box a {
@@ -875,18 +880,21 @@
             recentScrims.classList.toggle('show');
         });
 
-        // Mobile header scroll behavior
+        // Mobile header and sponsor box scroll behavior
         let lastScrollTop = 0;
         const header = document.querySelector('header');
+        const sponsorBox = document.querySelector('.sponsor-box');
         window.addEventListener('scroll', () => {
             if (window.innerWidth <= 768) {
                 let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
                 if (scrollTop > lastScrollTop) {
                     // Scrolling down
                     header.classList.add('header-hidden');
+                    sponsorBox.classList.add('sponsor-hidden');
                 } else {
                     // Scrolling up
                     header.classList.remove('header-hidden');
+                    sponsorBox.classList.remove('sponsor-hidden');
                 }
                 lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
             }
