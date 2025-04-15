@@ -56,6 +56,11 @@
             backdrop-filter: blur(8px);
             z-index: 1000;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        header.header-hidden {
+            transform: translateY(-100%);
         }
 
         .nav-container {
@@ -297,6 +302,7 @@
             text-align: center;
             transition: box-shadow 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
             border: 1px solid rgba(255, 255, 255, 0.1);
+            cursor: pointer;
         }
 
         .roster-card:hover, .creator-card:hover, .scrim-card:hover {
@@ -306,12 +312,6 @@
 
         .scrim-card:hover {
             opacity: 0.9;
-        }
-
-        .scrim-card a {
-            color: inherit;
-            text-decoration: none;
-            display: block;
         }
 
         .roster-card h3, .creator-card h3, .scrim-card h3 {
@@ -356,17 +356,34 @@
             color: #FFFFFF;
         }
 
-        .scrim-card .match {
+        .recent-scrims {
+            display: none;
+            margin-top: 0.5rem;
+            padding-top: 0.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .recent-scrims.show {
+            display: block;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        .recent-scrims p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .recent-scrims .match {
             font-size: 0.9rem;
             margin: 0.3rem 0;
         }
 
-        .scrim-card .win {
+        .recent-scrims .win {
             color: #00FF00;
             font-weight: 600;
         }
 
-        .scrim-card .loss {
+        .recent-scrims .loss {
             color: #FF0000;
             font-weight: 600;
         }
@@ -468,6 +485,17 @@
             }
             to {
                 opacity: 1;
+            }
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
 
@@ -719,14 +747,15 @@
             <h2>Scrim Record</h2>
             <div class="scrim-grid">
                 <div class="scrim-card">
-                    <a href="https://rocketleague.gankster.gg/teams/93789/team-virtue" target="_blank" rel="noopener noreferrer">
-                        <h3>Rocket League</h3>
+                    <h3>Rocket League</h3>
+                    <p>Record: <span>10-2</span></p>
+                    <div class="recent-scrims">
                         <p>Recent Scrims (Best of 7):</p>
                         <div class="match">vs Trinity Rocks: <span>4-1</span> <span class="win">W</span></div>
                         <div class="match">vs Ruth: <span>4-1</span> <span class="win">W</span></div>
                         <div class="match">vs Kings of Rings: <span>2-4</span> <span class="loss">L</span></div>
                         <div class="match">vs Optimal Ruby: <span>4-2</span> <span class="win">W</span></div>
-                    </a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -803,6 +832,30 @@
             el.style.opacity = '0';
             el.style.transform = 'translateY(10px)';
             el.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+        });
+
+        // Toggle recent scrims on scrim card click
+        const scrimCard = document.querySelector('.scrim-card');
+        const recentScrims = document.querySelector('.recent-scrims');
+        scrimCard.addEventListener('click', () => {
+            recentScrims.classList.toggle('show');
+        });
+
+        // Mobile header scroll behavior
+        let lastScrollTop = 0;
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            if (window.innerWidth <= 768) {
+                let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                if (scrollTop > lastScrollTop) {
+                    // Scrolling down
+                    header.classList.add('header-hidden');
+                } else {
+                    // Scrolling up
+                    header.classList.remove('header-hidden');
+                }
+                lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+            }
         });
     </script>
 </body>
