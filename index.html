@@ -24,12 +24,16 @@
     <link rel="canonical" href="https://teamvirtue.org/">
     <!-- Title -->
     <title>Team Virtue | Professional eSports Organization</title>
-    <!-- Favicon Links Using GitHub Raw URL -->
-    <link rel="icon" href="https://raw.githubusercontent.com/Finny13/Team-Virtue/main/virtuemain.png" type="image/png" sizes="64x64">
+    <!-- Updated Favicon Links -->
+    <link rel="icon" href="https://raw.githubusercontent.com/Finny13/Team-Virtue/main/favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/Finny13/Team-Virtue/main/virtuemain.png" sizes="180x180">
-    <!-- Note: Favicon is sourced from https://raw.githubusercontent.com/Finny13/Team-Virtue/main/virtuemain.png. Ensure this image is square (e.g., 64x64 or larger). If the globe icon persists, clear your browser cache, test in incognito mode, or request a re-crawl via Google Search Console. -->
+    <!-- Preconnect for External Resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Sitemap and Robots for Netlify -->
+    <link rel="sitemap" href="https://teamvirtue.org/sitemap.xml">
     <!-- Structured Data (Schema.org) -->
     <script type="application/ld+json">
     {
@@ -47,8 +51,6 @@
         ]
     }
     </script>
-    <!-- Note: Ensure a sitemap.xml and robots.txt are hosted at https://teamvirtue.org/sitemap.xml and https://teamvirtue.org/robots.txt for optimal crawling -->
-    <!-- Note: Google may take a few days to update the title and favicon in search results. Use Google Search Console to request a re-crawl if the issue persists. -->
     <style>
         :root {
             --primary-color: #6A0DAD;
@@ -719,12 +721,12 @@
     <div class="sponsor-box">
         <a href="https://www.dubby.gg/?ref=drotxpyy" target="_blank" rel="noopener noreferrer">
             <span>Powered by</span>
-            <img src="dubby.png" alt="Dubby Energy Logo">
+            <img src="dubby.png" alt="Dubby Energy Logo" loading="lazy">
         </a>
     </div>
     <header>
         <div class="nav-container">
-            <a href="#home"><img src="virtuelightheader.png" alt="Team Virtue Logo" class="nav-logo"></a>
+            <a href="#home"><img src="virtuelightheader.png" alt="Team Virtue Logo" class="nav-logo" loading="eager"></a>
             <div class="hamburger">
                 <span></span>
                 <span></span>
@@ -744,9 +746,9 @@
     <section class="hero" id="home">
         <!-- Added h1 for SEO, hidden off-screen -->
         <h1 style="position: absolute; left: -9999px;">Team Virtue | Professional eSports Organization</h1>
-        <img src="virtue.gif" alt="Team Virtue Animated Background" class="hero-gif">
+        <img src="virtue.gif" alt="Team Virtue Animated Background" class="hero-gif" loading="eager">
         <div class="hero-logo-container">
-            <img src="virtuelightheader.png" alt="Team Virtue Logo" class="hero-logo">
+            <img src="virtuelightheader.png" alt="Team Virtue Logo" class="hero-logo" loading="eager">
         </div>
         <div class="hero-content">
             <p>Dominating the eSports arena with unparalleled skill and dedication in Rocket League.</p>
@@ -812,16 +814,16 @@
             <h2>Contact</h2>
             <div class="socials">
                 <a href="https://x.com/TeamVirtueRL" target="_blank" rel="noopener noreferrer" class="social-btn">
-                    <img src="x.png" alt="X Logo"> X
+                    <img src="x.png" alt="X Logo" loading="lazy"> X
                 </a>
                 <a href="https://www.instagram.com/teamvirtuerl/" target="_blank" rel="noopener noreferrer" class="social-btn">
-                    <img src="insta.png" alt="Instagram Logo"> Instagram
+                    <img src="insta.png" alt="Instagram Logo" loading="lazy"> Instagram
                 </a>
                 <a href="https://rocketleague.gankster.gg/teams/93789/team-virtue" target="_blank" rel="noopener noreferrer" class="social-btn">
-                    <img src="gankster.png" alt="Gankster Logo"> Gankster
+                    <img src="gankster.png" alt="Gankster Logo" loading="lazy"> Gankster
                 </a>
                 <a href="https://www.start.gg/team/619b090f/details" target="_blank" rel="noopener noreferrer" class="social-btn">
-                    <img src="startgg.png" alt="Start.gg Logo"> Start.gg
+                    <img src="startgg.png" alt="Start.gg Logo" loading="lazy"> Start.gg
                 </a>
             </div>
         </section>
