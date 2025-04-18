@@ -327,14 +327,14 @@
             background: var(--primary-color);
         }
 
-        .roster-grid, .creator-grid, .scrim-grid {
+        .roster-grid, .creator-grid, .scrim-grid, .coach-grid, .competition-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
             gap: 1rem;
             margin-top: 1.5rem;
         }
 
-        .roster-card, .creator-card, .scrim-card {
+        .roster-card, .creator-card, .scrim-card, .coach-card, .competition-card {
             background: var(--card-bg);
             border-radius: 6px;
             padding: 1rem;
@@ -344,23 +344,23 @@
             cursor: pointer;
         }
 
-        .roster-card:hover, .creator-card:hover, .scrim-card:hover {
+        .roster-card:hover, .creator-card:hover, .scrim-card:hover, .coach-card:hover, .competition-card:hover {
             box-shadow: 0 4px 12px var(--glow);
             transform: translateY(-2px);
         }
 
-        .scrim-card:hover {
+        .scrim-card:hover, .competition-card:hover {
             opacity: 0.9;
         }
 
-        .roster-card h3, .creator-card h3, .scrim-card h3 {
+        .roster-card h3, .creator-card h3, .scrim-card h3, .coach-card h3, .competition-card h3 {
             font-size: 1.2rem;
             font-weight: 700;
             margin-bottom: 0.3rem;
             color: var(--text-primary);
         }
 
-        .roster-card a, .creator-card a {
+        .roster-card a, .creator-card a, .coach-card a, .competition-card a {
             color: var(--primary-color);
             text-decoration: none;
             font-size: 0.8rem;
@@ -369,27 +369,31 @@
             display: block;
         }
 
-        .roster-card a:hover, .creator-card a:hover {
+        .competition-card a {
+            color: #FFFFFF;
+        }
+
+        .roster-card a:hover, .creator-card a:hover, .coach-card a:hover, .competition-card a:hover {
             color: var(--accent-color);
         }
 
-        .roster-card h3 a, .creator-card h3 a {
+        .roster-card h3 a, .creator-card h3 a, .coach-card h3 a, .competition-card h3 a {
             color: var(--text-primary);
             text-decoration: none;
             font-size: 1.2rem;
         }
 
-        .roster-card h3 a:hover, .creator-card h3 a:hover {
+        .roster-card h3 a:hover, .creator-card h3 a:hover, .coach-card h3 a:hover, .competition-card h3 a:hover {
             color: var(--accent-color);
         }
 
-        .scrim-card p {
+        .scrim-card p, .competition-card p {
             font-size: 1rem;
             color: var(--text-secondary);
             margin: 0.5rem 0 0;
         }
 
-        .scrim-card span {
+        .scrim-card span, .competition-card span {
             font-size: 1.4rem;
             font-weight: 700;
             color: #FFFFFF;
@@ -575,7 +579,7 @@
             h2 {
                 font-size: 2rem;
             }
-            .roster-grid, .creator-grid, .scrim-grid {
+            .roster-grid, .creator-grid, .scrim-grid, .coach-grid, .competition-grid {
                 grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
                 gap: 1.25rem;
             }
@@ -639,7 +643,7 @@
             h2 {
                 font-size: 1.6rem;
             }
-            .roster-grid, .creator-grid, .scrim-grid {
+            .roster-grid, .creator-grid, .scrim-grid, .coach-grid, .competition-grid {
                 grid-template-columns: 1fr;
                 gap: 0.8rem;
             }
@@ -686,13 +690,13 @@
             h2 {
                 font-size: 1.4rem;
             }
-            .roster-card h3, .creator-card h3, .scrim-card h3 {
+            .roster-card h3, .creator-card h3, .scrim-card h3, .coach-card h3, .competition-card h3 {
                 font-size: 1.1rem;
             }
-            .scrim-card p {
+            .scrim-card p, .competition-card p {
                 font-size: 0.9rem;
             }
-            .scrim-card span {
+            .scrim-card span, .competition-card span {
                 font-size: 1.2rem;
             }
             .social-btn {
@@ -782,6 +786,27 @@
                     <h3><a href="https://steamcommunity.com/id/FeliciaTheOG" target="_blank" rel="noopener noreferrer">Felicia, The Goat</a></h3>
                 </div>
             </div>
+            <h2>Coach</h2>
+            <div class="coach-grid">
+                <div class="coach-card">
+                    <h3>Faithly</h3>
+                </div>
+            </div>
+            <h2>Current Competitions</h2>
+            <div class="competition-grid">
+                <div class="competition-card">
+                    <h3>RLCS Open 4</h3>
+                    <p>Date: April 18th, 2025, 7:00 PM EST | <a href="https://www.start.gg/tournament/rlcs-2025-north-america-open-4/details" target="_blank" rel="noopener noreferrer">Details</a></p>
+                </div>
+                <div class="competition-card">
+                    <h3>RLCS Open 5</h3>
+                    <p>Date: May 2nd, 2025, 7:00 PM EST | <a href="https://www.start.gg/tournament/rlcs-2025-north-america-open-5/details" target="_blank" rel="noopener noreferrer">Details</a></p>
+                </div>
+                <div class="competition-card">
+                    <h3>RLCS Open 6</h3>
+                    <p>Date: May 16th, 2025, 7:00 PM EST | <a href="https://www.start.gg/tournament/rlcs-2025-north-america-open-6/details" target="_blank" rel="noopener noreferrer">Details</a></p>
+                </div>
+            </div>
         </section>
 
         <section id="scrim-record">
@@ -856,7 +881,7 @@
         });
 
         const animateOnScroll = () => {
-            const elements = document.querySelectorAll('.roster-card, .creator-card, .scrim-card');
+            const elements = document.querySelectorAll('.roster-card, .creator-card, .scrim-card, .coach-card, .competition-card');
             elements.forEach(el => {
                 const rect = el.getBoundingClientRect();
                 if (rect.top < window.innerHeight * 0.9) {
@@ -869,7 +894,7 @@
         window.addEventListener('scroll', animateOnScroll);
         document.addEventListener('DOMContentLoaded', animateOnScroll);
 
-        document.querySelectorAll('.roster-card, .creator-card, .scrim-card').forEach(el => {
+        document.querySelectorAll('.roster-card, .creator-card, .scrim-card, .coach-card, .competition-card').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(10px)';
             el.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
@@ -895,7 +920,7 @@
                     sponsorBox.classList.add('sponsor-hidden');
                 } else {
                     // Scrolling up
-                    header.classList.remove('header-hidden');
+                    header.class Rebmove('header-hidden');
                     sponsorBox.classList.remove('sponsor-hidden');
                 }
                 lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
