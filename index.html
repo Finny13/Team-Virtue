@@ -587,6 +587,8 @@
                 min-width: 160px;
                 padding: 0.6rem 1.2rem;
             }
+
+
         }
 
         @media (max-width: 768px) {
@@ -796,7 +798,7 @@
             <div class="competition-grid">
                 <div class="competition-card">
                     <h3>RLCS Open 4</h3>
-                    <p>Date: April 18th, 2025, 7:00 PM EST | <a href="https://www.start.gg/tournament/rlcs-2025-north-america-open-4/details" target="_blank" rel="noopener noreferrer">Details</a></p>
+                    <p> Placement 385th.
                 </div>
                 <div class="competition-card">
                     <h3>RLCS Open 5</h3>
@@ -903,9 +905,14 @@
         // Toggle recent scrims on scrim card click
         const scrimCard = document.querySelector('.scrim-card');
         const recentScrims = document.querySelector('.recent-scrims');
-        scrimCard.addEventListener('click', () => {
-            recentScrims.classList.toggle('show');
-        });
+        if (scrimCard && recentScrims) {
+            scrimCard.addEventListener('click', (e) => {
+                // Prevent clicks on child links from toggling
+                if (e.target.tagName !== 'A') {
+                    recentScrims.classList.toggle('show');
+                }
+            });
+        }
 
         // Mobile header and sponsor box scroll behavior
         let lastScrollTop = 0;
@@ -920,7 +927,7 @@
                     sponsorBox.classList.add('sponsor-hidden');
                 } else {
                     // Scrolling up
-                    header.class Rebmove('header-hidden');
+                    header.classList.remove('header-hidden');
                     sponsorBox.classList.remove('sponsor-hidden');
                 }
                 lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
