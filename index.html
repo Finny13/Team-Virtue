@@ -7,7 +7,7 @@
     <meta name="keywords" content="eSports, Team Virtue, Rocket League, professional gaming, competitive gaming, gaming community">
     <meta name="author" content="Team Virtue">
     <meta name="robots" content="index, follow">
-    <meta name="theme-color" content="#6A0DAD">
+    <meta name="theme-color" content="#8B00FF">
     <!-- Open Graph Tags -->
     <meta property="og:title" content="Team Virtue | Professional eSports Organization">
     <meta property="og:description" content="Team Virtue is a professional eSports organization built on skill, teamwork, and integrity. Join us in dominating Rocket League!">
@@ -30,7 +30,7 @@
     <!-- Preconnect for External Resources -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <!-- Sitemap and Robots for Netlify -->
     <link rel="sitemap" href="https://teamvirtue.org/sitemap.xml">
@@ -56,17 +56,18 @@
          crossorigin="anonymous"></script>
     <style>
         :root {
-            --primary-color: #6A0DAD;
+            --primary-color: #8B00FF;
             --secondary-color: #FFFFFF;
-            --background-dark: #1E1E2F;
-            --background-gradient-start: #2A0944;
-            --background-gradient-end: #6A0DAD;
+            --background-dark: #0A0A1A;
+            --background-gradient-start: #1A0033;
+            --background-gradient-end: #8B00FF;
             --text-primary: #FFFFFF;
-            --text-secondary: #B0B0B0;
-            --card-bg: rgba(255, 255, 255, 0.08);
-            --shadow: rgba(0, 0, 0, 0.4);
-            --glow: rgba(106, 13, 173, 0.2);
-            --accent-color: #9B59B6;
+            --text-secondary: #A0A0C0;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --shadow: rgba(0, 0, 0, 0.5);
+            --glow: rgba(139, 0, 255, 0.3);
+            --accent-color: #FF00FF;
+            --neon-green: #39FF14;
         }
 
         * {
@@ -77,7 +78,7 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Orbitron', sans-serif;
             color: var(--text-primary);
             background: linear-gradient(135deg, var(--background-gradient-start), var(--background-gradient-end));
             min-height: 100vh;
@@ -114,10 +115,10 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(30, 30, 47, 0.95);
-            backdrop-filter: blur(8px);
+            background: rgba(10, 10, 26, 0.95);
+            backdrop-filter: blur(10px);
             z-index: 1000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
             transition: transform 0.3s ease;
         }
 
@@ -142,26 +143,23 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
+            filter: drop-shadow(0 0 8px var(--glow));
         }
 
         nav ul {
             display: flex;
-            gap: 1.25rem;
+            gap: 1.5rem;
             list-style: none;
         }
 
         nav a {
             color: var(--text-primary);
             text-decoration: none;
-            font-weight: 500;
-            font-size: 0.85rem;
+            font-weight: 600;
+            font-size: 0.9rem;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            transition: color 0.2s ease;
-        }
-
-        nav a:hover {
-            color: var(--primary-color);
+            letter-spacing: 1px;
+            transition: color 0.2s ease, text-shadow 0.2s ease;
         }
 
         .hamburger {
@@ -173,15 +171,15 @@
         }
 
         .hamburger span {
-            width: 22px;
-            height: 2px;
-            background: var(--text-primary);
-            border-radius: 2px;
+            width: 24px;
+            height: 3px;
+            background: var(--neon-green);
+            border-radius: 3px;
             transition: all 0.3s ease;
         }
 
         .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(4px, 4px);
+            transform: rotate(45deg) translate(5px, 5px);
         }
 
         .hamburger.active span:nth-child(2) {
@@ -189,7 +187,7 @@
         }
 
         .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(5px, -5px);
+            transform: rotate(-45deg) translate(6px, -6px);
         }
 
         .sponsor-box {
@@ -201,6 +199,9 @@
             gap: 6px;
             z-index: 1002;
             transition: opacity 0.3s ease;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 0.5rem;
+            border-radius: 4px;
         }
 
         .sponsor-box:hover {
@@ -222,15 +223,16 @@
 
         .sponsor-box span {
             font-size: 0.8rem;
-            font-weight: 500;
+            font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
 
         .sponsor-box img {
-            height: 20px;
+            height: 22px;
             width: auto;
             object-fit: contain;
+            filter: drop-shadow(0 0 4px var(--glow));
         }
 
         .hero {
@@ -242,6 +244,7 @@
             text-align: center;
             position: relative;
             overflow: hidden;
+            background: url('https://www.transparenttextures.com/patterns/black-scales.png') repeat, linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5));
         }
 
         .hero-gif {
@@ -252,7 +255,7 @@
             height: 100%;
             object-fit: cover;
             z-index: 1;
-            opacity: 0.8;
+            opacity: 0.6;
             image-rendering: auto;
         }
 
@@ -263,16 +266,17 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3));
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4));
             z-index: 2;
         }
 
         .hero-logo-container {
             z-index: 3;
             width: 70%;
-            max-width: 500px;
+            max-width: 600px;
             margin: 0 auto;
-            animation: fadeInScale 1.2s ease-out;
+            animation: fadeInScale 1.5s ease-out;
+            filter: drop-shadow(0 0 12px var(--glow));
         }
 
         .hero-logo {
@@ -289,37 +293,41 @@
         }
 
         .hero-content p {
-            font-size: 1rem;
+            font-size: 1.1rem;
             color: var(--text-secondary);
             margin-bottom: 1.5rem;
-            line-height: 1.5;
-            font-weight: 400;
+            line-height: 1.6;
+            font-weight: 500;
             animation: fadeInUp 1.2s ease-out 0.3s both;
+            text-shadow: 0 0 4px var(--shadow);
         }
 
         .btn {
             display: inline-flex;
             align-items: center;
-            padding: 0.6rem 1.5rem;
+            padding: 0.7rem 1.8rem;
             background: var(--primary-color);
             color: var(--text-primary);
             text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
+            font-weight: 700;
+            font-size: 1rem;
             text-transform: uppercase;
-            border-radius: 4px;
-            transition: background 0.2s ease, transform 0.2s ease;
-            gap: 0.4rem;
+            border-radius: 6px;
+            transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+            gap: 0.5rem;
             touch-action: manipulation;
+            box-shadow: 0 0 8px var(--glow);
         }
 
         .btn:hover {
-            background: var(--accent-color);
-            transform: scale(1.03);
+            background: var(--neon-green);
+            color: #000000;
+            transform: scale(1.05);
+            box-shadow: 0 0 12px var(--neon-green);
         }
 
         .btn:active {
-            transform: scale(0.97);
+            transform: scale(0.95);
         }
 
         .container {
@@ -329,98 +337,121 @@
         }
 
         section {
-            padding: 2.5rem 0;
+            padding: 3rem 0;
         }
 
         h2 {
-            font-size: 1.8rem;
+            font-size: 2.2rem;
             font-weight: 900;
             margin-bottom: 1.5rem;
             text-align: center;
             color: var(--text-primary);
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
             position: relative;
             animation: fadeIn 0.8s ease-out;
+            text-shadow: 0 0 8px var(--glow);
         }
 
         h2::after {
             content: '';
             position: absolute;
-            bottom: -6px;
+            bottom: -8px;
             left: 50%;
             transform: translateX(-50%);
-            width: 60px;
-            height: 2px;
-            background: var(--primary-color);
+            width: 80px;
+            height: 3px;
+            background: var(--neon-green);
         }
 
         h3.sub-roster-title {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             font-weight: 700;
             margin: 1.5rem 0 1rem;
             text-align: center;
             color: var(--text-primary);
+            text-shadow: 0 0 4px var(--glow);
         }
 
         .roster-grid, .creator-grid, .scrim-grid, .coach-grid, .competition-grid, .sub-roster-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-            gap: 1rem;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.25rem;
             margin-top: 1.5rem;
         }
 
         .roster-card, .creator-card, .scrim-card, .coach-card, .competition-card, .sub-roster-card {
             background: var(--card-bg);
-            border-radius: 6px;
-            padding: 1rem;
+            border-radius: 8px;
+            padding: 1.2rem;
             text-align: center;
-            transition: box-shadow 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: box-shadow 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.15);
             cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .roster-card::before, .creator-card::before, .scrim-card::before, .coach-card::before, .competition-card::before, .sub-roster-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(139, 0, 255, 0.1), transparent);
+            transition: transform 0.5s ease;
+            transform: translateX(-100%);
+        }
+
+        .roster-card:hover::before, .creator-card:hover::before, .scrim-card:hover::before, .coach-card:hover::before, .competition-card:hover::before, .sub-roster-card:hover::before {
+            transform: translateX(100%);
         }
 
         .roster-card:hover, .creator-card:hover, .scrim-card:hover, .coach-card:hover, .competition-card:hover, .sub-roster-card:hover {
-            box-shadow: 0 4px 12px var(--glow);
-            transform: translateY(-2px);
+            box-shadow: 0 6px 16px var(--glow);
+            transform: translateY(-4px);
         }
 
         .scrim-card:hover, .competition-card:hover {
-            opacity: 0.9;
+            opacity: 0.95;
         }
 
         .roster-card h3, .creator-card h3, .scrim-card h3, .coach-card h3, .competition-card h3, .sub-roster-card h3 {
-            font-size: 1.2rem;
+            font-size вопросов: 1.3rem;
             font-weight: 700;
-            margin-bottom: 0.3rem;
+            margin-bottom: 0.4rem;
             color: var(--text-primary);
+            text-shadow: 0 0 4px var(--shadow);
         }
 
         .roster-card a, .creator-card a, .coach-card a, .competition-card a, .sub-roster-card a {
-            color: var(--primary-color);
+            color: var(--neon-green);
             text-decoration: none;
-            font-size: 0.8rem;
+            font-size: 0.9rem;
             font-weight: 500;
-            transition: color 0.2s ease;
+            transition: color 0.2s ease, text-shadow 0.2s ease;
             display: block;
         }
 
         .competition-card a {
-            color: #FFFFFF;
+            color: var(--text-primary);
         }
 
         .roster-card a:hover, .creator-card a:hover, .coach-card a:hover, .competition-card a:hover, .sub-roster-card a:hover {
             color: var(--accent-color);
+            text-shadow: 0 0 4px var(--accent-color);
         }
 
         .roster-card h3 a, .creator-card h3 a, .coach-card h3 a, .competition-card h3 a, .sub-roster-card h3 a {
             color: var(--text-primary);
             text-decoration: none;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
         }
 
         .roster-card h3 a:hover, .creator-card h3 a:hover, .coach-card h3 a:hover, .competition-card h3 a:hover, .sub-roster-card h3 a:hover {
-            color: var(--accent-color);
+            color: var(--neon-green);
+            text-shadow: 0 0 4px var(--neon-green);
         }
 
         .scrim-card p, .competition-card p {
@@ -430,16 +461,17 @@
         }
 
         .scrim-card span, .competition-card span {
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             font-weight: 700;
-            color: #FFFFFF;
+            color: var(--neon-green);
+            text-shadow: 0 0 4px var(--neon-green);
         }
 
         .recent-scrims {
             display: none;
             margin-top: 0.5rem;
             padding-top: 0.5rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
         }
 
         .recent-scrims.show {
@@ -458,7 +490,7 @@
         }
 
         .recent-scrims .win {
-            color: #00FF00;
+            color: var(--neon-green);
             font-weight: 600;
         }
 
@@ -478,55 +510,58 @@
         .social-btn {
             width: 100%;
             max-width: 250px;
-            padding: 0.6rem;
-            border: 1px solid var(--primary-color);
+            padding: 0.7rem;
+            border: 1px solid var(--neon-green);
             text-decoration: none;
             font-weight: 600;
             font-size: 0.9rem;
             color: var(--text-primary);
-            transition: background 0.2s ease, transform 0.2s ease;
+            transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 0.4rem;
-            border-radius: 4px;
+            gap: 0.5rem;
+            border-radius: 6px;
             touch-action: manipulation;
+            box-shadow: 0 0 8px var(--glow);
         }
 
         .social-btn img {
-            height: 1rem;
+            height: 1.1rem;
             width: auto;
             object-fit: contain;
         }
 
         .social-btn:hover {
-            background: var(--primary-color);
-            color: var(--background-dark);
-            transform: scale(1.03);
+            background: var(--neon-green);
+            color: #000000;
+            transform: scale(1.05);
+            box-shadow: 0 0 12px var(--neon-green);
         }
 
         .social-btn:active {
-            transform: scale(0.97);
+            transform: scale(0.95);
         }
 
         footer {
             text-align: center;
             padding: 1.5rem 1rem;
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.7);
             color: var(--text-secondary);
             font-size: 0.8rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         footer a {
-            color: var(--primary-color);
+            color: var(--neon-green);
             text-decoration: none;
             font-weight: 600;
-            transition: color 0.2s ease;
+            transition: color 0.2s ease, text-shadow 0.2s ease;
         }
 
         footer a:hover {
             color: var(--accent-color);
+            text-shadow: 0 0 4px var(--accent-color);
         }
 
         footer img {
@@ -539,7 +574,7 @@
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(10px);
+                transform: translateY(15px);
             }
             to {
                 opacity: 1;
@@ -550,7 +585,7 @@
         @keyframes fadeInScale {
             from {
                 opacity: 0;
-                transform: scale(0.97);
+                transform: scale(0.95);
             }
             to {
                 opacity: 1;
@@ -570,7 +605,7 @@
         @keyframes slideDown {
             from {
                 opacity: 0;
-                transform: translateY(-10px);
+                transform: translateY(-15px);
             }
             to {
                 opacity: 1;
@@ -596,32 +631,32 @@
                 display: none;
             }
             .hero-logo-container {
-                max-width: 500px;
+                max-width: 600px;
                 width: 70%;
             }
             .hero-content {
                 padding: 1.5rem;
             }
             .hero-content p {
-                font-size: 1.1rem;
+                font-size: 1.2rem;
             }
             .btn {
-                padding: 0.7rem 1.8rem;
-                font-size: 0.95rem;
+                padding: 0.8rem 2rem;
+                font-size: 1.1rem;
             }
             section {
-                padding: 3rem 0;
+                padding: 3.5rem 0;
             }
             h2 {
-                font-size: 2rem;
+                font-size: 2.5rem;
             }
             .roster-grid, .creator-grid, .scrim-grid, .coach-grid, .competition-grid, .sub-roster-grid {
-                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-                gap: 1.25rem;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 1.5rem;
             }
             .social-btn {
-                min-width: 160px;
-                padding: 0.6rem 1.2rem;
+                min-width: 180px;
+                padding: 0.7rem 1.4rem;
             }
         }
 
@@ -640,7 +675,7 @@
                 left: 0;
                 width: 100%;
                 height: 100vh;
-                background: rgba(30, 30, 47, 0.98);
+                background: rgba(10, 10, 26, 0.98);
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
@@ -651,10 +686,10 @@
             }
             nav ul {
                 flex-direction: column;
-                gap: 1.5rem;
+                gap: 2rem;
             }
             nav a {
-                font-size: 1rem;
+                font-size: 1.2rem;
             }
             .hamburger {
                 display: flex;
@@ -667,21 +702,21 @@
                 height: 70vh;
             }
             .hero-logo-container {
-                max-width: 400px;
+                max-width: 450px;
                 width: 75%;
             }
             .hero-content {
                 padding: 0.75rem;
             }
             .hero-content p {
-                font-size: 0.9rem;
+                font-size: 1rem;
             }
             h2 {
-                font-size: 1.6rem;
+                font-size: 1.8rem;
             }
             .roster-grid, .creator-grid, .scrim-grid, .coach-grid, .competition-grid, .sub-roster-grid {
                 grid-template-columns: 1fr;
-                gap: 0.8rem;
+                gap: 1rem;
             }
             .socials {
                 flex-direction: column;
@@ -689,8 +724,8 @@
                 gap: 0.8rem;
             }
             .social-btn {
-                max-width: 280px;
-                padding: 0.5rem;
+                max-width: 300px;
+                padding: 0.6rem;
             }
             .sponsor-box {
                 top: 6px;
@@ -701,7 +736,7 @@
                 font-size: 0.75rem;
             }
             .sponsor-box img {
-                height: 18px;
+                height: 20px;
             }
         }
 
@@ -713,31 +748,31 @@
                 height: 60px;
             }
             .hero-logo-container {
-                max-width: 300px;
+                max-width: 350px;
                 width: 70%;
             }
             .hero-content p {
-                font-size: 0.85rem;
-            }
-            .btn {
-                padding: 0.5rem 1.2rem;
-                font-size: 0.85rem;
-            }
-            h2 {
-                font-size: 1.4rem;
-            }
-            .roster-card h3, .creator-card h3, .scrim-card h3, .coach-card h3, .competition-card h3, .sub-roster-card h3 {
-                font-size: 1.1rem;
-            }
-            .scrim-card p, .competition-card p {
                 font-size: 0.9rem;
             }
-            .scrim-card span, .competition-card span {
+            .btn {
+                padding: 0.6rem 1.4rem;
+                font-size: 0.9rem;
+            }
+            h2 {
+                font-size: 1.6rem;
+            }
+            .roster-card h3, .creator-card h3, .scrim-card h3, .coach-card h3, .competition-card h3, .sub-roster-card h3 {
                 font-size: 1.2rem;
             }
+            .scrim-card p, .competition-card p {
+                font-size: 0.95rem;
+            }
+            .scrim-card span, .competition-card span {
+                font-size: 1.3rem;
+            }
             .social-btn {
-                font-size: 0.85rem;
-                padding: 0.5rem;
+                font-size: 0.9rem;
+                padding: 0.6rem;
             }
             footer {
                 font-size: 0.75rem;
@@ -752,7 +787,7 @@
                 font-size: 0.7rem;
             }
             .sponsor-box img {
-                height: 16px;
+                height: 18px;
             }
         }
     </style>
@@ -808,7 +843,6 @@
     </aside>
 
     <section class="hero" id="home">
-        <!-- Added h1 for SEO, hidden off-screen -->
         <h1 style="position: absolute; left: -9999px;">Team Virtue | Professional eSports Organization</h1>
         <img src="virtue.gif" alt="Team Virtue Animated Background" class="hero-gif" loading="eager">
         <div class="hero-logo-container">
@@ -869,22 +903,21 @@
             </div>
         </section>
 
+        <section id="content-creators">
+            <h2>Content Creators</h2>
+            <div class="creator-grid">
+                <div class="creator-card">
+                    <h3><a href="https://youtube.com/@rlremedy" target="_blank" rel="noopener noreferrer">Remedy</a></h3>
+                </div>
+            </div>
+        </section>
+
         <section id="scrim-record">
             <h2>Scrim Record</h2>
             <div class="scrim-grid">
                 <div class="scrim-card">
                     <h3>Rocket League</h3>
                     <p>Record: <span>10-4</span></p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <h2>Content Creators</h2>
-            <div class="creator-grid">
-                <div class="creator-card">
-                    <h3><a href="https://youtube.com/@rlremedy" target="_blank" rel="noopener noreferrer">Remedy</a></h3>
                 </div>
             </div>
         </section>
@@ -950,23 +983,20 @@
 
         document.querySelectorAll('.roster-card, .creator-card, .scrim-card, .coach-card, .competition-card, .sub-roster-card').forEach(el => {
             el.style.opacity = '0';
-            el.style.transform = 'translateY(10px)';
-            el.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+            el.style.transform = 'translateY(15px)';
+            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
         });
 
-        // Toggle recent scrims on scrim card click
         const scrimCard = document.querySelector('.scrim-card');
         const recentScrims = document.querySelector('.recent-scrims');
         if (scrimCard && recentScrims) {
             scrimCard.addEventListener('click', (e) => {
-                // Prevent clicks on child links from toggling
                 if (e.target.tagName !== 'A') {
                     recentScrims.classList.toggle('show');
                 }
             });
         }
 
-        // Mobile header and sponsor box scroll behavior
         let lastScrollTop = 0;
         const header = document.querySelector('header');
         const sponsorBox = document.querySelector('.sponsor-box');
@@ -974,11 +1004,9 @@
             if (window.innerWidth <= 768) {
                 let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
                 if (scrollTop > lastScrollTop) {
-                    // Scrolling down
                     header.classList.add('header-hidden');
                     sponsorBox.classList.add('sponsor-hidden');
                 } else {
-                    // Scrolling up
                     header.classList.remove('header-hidden');
                     sponsorBox.classList.remove('sponsor-hidden');
                 }
