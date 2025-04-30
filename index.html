@@ -85,6 +85,31 @@
             -webkit-overflow-scrolling: touch;
         }
 
+        .sidebar-left,
+        .sidebar-right {
+            position: fixed;
+            top: 120px;
+            width: 160px;
+            padding: 1rem 0;
+            display: none;
+            z-index: 100;
+        }
+
+        .sidebar-left {
+            left: 10px;
+        }
+
+        .sidebar-right {
+            right: 10px;
+        }
+
+        @media (min-width: 1024px) {
+            .sidebar-left,
+            .sidebar-right {
+                display: block;
+            }
+        }
+
         header {
             position: fixed;
             top: 0;
@@ -330,14 +355,22 @@
             background: var(--primary-color);
         }
 
-        .roster-grid, .creator-grid, .scrim-grid, .coach-grid, .competition-grid {
+        h3.sub-roster-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 1.5rem 0 1rem;
+            text-align: center;
+            color: var(--text-primary);
+        }
+
+        .roster-grid, .creator-grid, .scrim-grid, .coach-grid, .competition-grid, .sub-roster-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
             gap: 1rem;
             margin-top: 1.5rem;
         }
 
-        .roster-card, .creator-card, .scrim-card, .coach-card, .competition-card {
+        .roster-card, .creator-card, .scrim-card, .coach-card, .competition-card, .sub-roster-card {
             background: var(--card-bg);
             border-radius: 6px;
             padding: 1rem;
@@ -347,7 +380,7 @@
             cursor: pointer;
         }
 
-        .roster-card:hover, .creator-card:hover, .scrim-card:hover, .coach-card:hover, .competition-card:hover {
+        .roster-card:hover, .creator-card:hover, .scrim-card:hover, .coach-card:hover, .competition-card:hover, .sub-roster-card:hover {
             box-shadow: 0 4px 12px var(--glow);
             transform: translateY(-2px);
         }
@@ -356,14 +389,14 @@
             opacity: 0.9;
         }
 
-        .roster-card h3, .creator-card h3, .scrim-card h3, .coach-card h3, .competition-card h3 {
+        .roster-card h3, .creator-card h3, .scrim-card h3, .coach-card h3, .competition-card h3, .sub-roster-card h3 {
             font-size: 1.2rem;
             font-weight: 700;
             margin-bottom: 0.3rem;
             color: var(--text-primary);
         }
 
-        .roster-card a, .creator-card a, .coach-card a, .competition-card a {
+        .roster-card a, .creator-card a, .coach-card a, .competition-card a, .sub-roster-card a {
             color: var(--primary-color);
             text-decoration: none;
             font-size: 0.8rem;
@@ -376,17 +409,17 @@
             color: #FFFFFF;
         }
 
-        .roster-card a:hover, .creator-card a:hover, .coach-card a:hover, .competition-card a:hover {
+        .roster-card a:hover, .creator-card a:hover, .coach-card a:hover, .competition-card a:hover, .sub-roster-card a:hover {
             color: var(--accent-color);
         }
 
-        .roster-card h3 a, .creator-card h3 a, .coach-card h3 a, .competition-card h3 a {
+        .roster-card h3 a, .creator-card h3 a, .coach-card h3 a, .competition-card h3 a, .sub-roster-card h3 a {
             color: var(--text-primary);
             text-decoration: none;
             font-size: 1.2rem;
         }
 
-        .roster-card h3 a:hover, .creator-card h3 a:hover, .coach-card h3 a:hover, .competition-card h3 a:hover {
+        .roster-card h3 a:hover, .creator-card h3 a:hover, .coach-card h3 a:hover, .competition-card h3 a:hover, .sub-roster-card h3 a:hover {
             color: var(--accent-color);
         }
 
@@ -582,7 +615,7 @@
             h2 {
                 font-size: 2rem;
             }
-            .roster-grid, .creator-grid, .scrim-grid, .coach-grid, .competition-grid {
+            .roster-grid, .creator-grid, .scrim-grid, .coach-grid, .competition-grid, .sub-roster-grid {
                 grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
                 gap: 1.25rem;
             }
@@ -646,7 +679,7 @@
             h2 {
                 font-size: 1.6rem;
             }
-            .roster-grid, .creator-grid, .scrim-grid, .coach-grid, .competition-grid {
+            .roster-grid, .creator-grid, .scrim-grid, .coach-grid, .competition-grid, .sub-roster-grid {
                 grid-template-columns: 1fr;
                 gap: 0.8rem;
             }
@@ -693,7 +726,7 @@
             h2 {
                 font-size: 1.4rem;
             }
-            .roster-card h3, .creator-card h3, .scrim-card h3, .coach-card h3, .competition-card h3 {
+            .roster-card h3, .creator-card h3, .scrim-card h3, .coach-card h3, .competition-card h3, .sub-roster-card h3 {
                 font-size: 1.1rem;
             }
             .scrim-card p, .competition-card p {
@@ -750,6 +783,30 @@
         </div>
     </header>
 
+    <aside class="sidebar-left">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-6172312532806204"
+             data-ad-slot="YOUR_AD_SLOT_ID"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </aside>
+
+    <aside class="sidebar-right">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-6172312532806204"
+             data-ad-slot="YOUR_AD_SLOT_ID"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </aside>
+
     <section class="hero" id="home">
         <!-- Added h1 for SEO, hidden off-screen -->
         <h1 style="position: absolute; left: -9999px;">Team Virtue | Professional eSports Organization</h1>
@@ -773,19 +830,6 @@
             </p>
         </section>
 
-        <!-- Google AdSense Ad Unit -->
-        <div style="text-align: center; margin: 1rem 0;">
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-client="ca-pub-6172312532806204"
-                 data-ad-slot="YOUR_AD_SLOT_ID"
-                 data-ad-format="auto"
-                 data-full-width-responsive="true"></ins>
-            <script>
-                 (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-        </div>
-
         <section id="roster">
             <h2>Roster</h2>
             <div class="roster-grid">
@@ -793,12 +837,18 @@
                     <h3><a href="https://steamcommunity.com/id/finnish_taylorsversion/" target="_blank" rel="noopener noreferrer">Finny.</a></h3>
                 </div>
                 <div class="roster-card">
-                    <h3><a href="https://steamcommunity.com/profiles/76561198369905223" target="_blank" rel="noopener noreferrer">WestyzWorld</a></h3>
-                </div>
-                <div class="roster-card">
                     <h3>Jxhnssl.</h3>
                 </div>
                 <div class="roster-card">
+                    <h3>Ventrxyy</h3>
+                </div>
+            </div>
+            <h3 class="sub-roster-title">Substitutes</h3>
+            <div class="sub-roster-grid">
+                <div class="sub-roster-card">
+                    <h3><a href="https://steamcommunity.com/profiles/76561198369905223" target="_blank" rel="noopener noreferrer">WestyzWorld</a></h3>
+                </div>
+                <div class="sub-roster-card">
                     <h3><a href="https://steamcommunity.com/id/FeliciaTheOG" target="_blank" rel="noopener noreferrer">Felicia, The Goat</a></h3>
                 </div>
             </div>
@@ -891,7 +941,7 @@
         });
 
         const animateOnScroll = () => {
-            const elements = document.querySelectorAll('.roster-card, .creator-card, .scrim-card, .coach-card, .competition-card');
+            const elements = document.querySelectorAll('.roster-card, .creator-card, .scrim-card, .coach-card, .competition-card, .sub-roster-card');
             elements.forEach(el => {
                 const rect = el.getBoundingClientRect();
                 if (rect.top < window.innerHeight * 0.9) {
@@ -904,7 +954,7 @@
         window.addEventListener('scroll', animateOnScroll);
         document.addEventListener('DOMContentLoaded', animateOnScroll);
 
-        document.querySelectorAll('.roster-card, .creator-card, .scrim-card, .coach-card, .competition-card').forEach(el => {
+        document.querySelectorAll('.roster-card, .creator-card, .scrim-card, .coach-card, .competition-card, .sub-roster-card').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(10px)';
             el.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
