@@ -192,7 +192,7 @@
         }
 
         .hamburger.active span:nth-child(3) {
-            transform: rotatable(-45deg) translate(6px, -6px);
+            transform: rotate(-45deg) translate(6px, -6px);
         }
 
         .sponsor-box {
@@ -673,31 +673,7 @@
             }
             .nav-logo {
                 height: 80px;
-            }
-            nav {
-                display: none;
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100vh;
-                background: rgba(10, 10, 26, 0.98);
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                z-index: 1000;
-            }
-            nav.active {
-                display: flex;
-            }
-            nav ul {
-                flex-direction: column;
-                gap: 2rem;
-            }
-            nav a {
-                font-size: 1.2rem;
-            }
-            .hamburger {
+ hamburger {
                 display: flex;
                 position: absolute;
                 right: 1rem;
@@ -809,16 +785,12 @@
         <div class="nav-container">
             <a href="#home"><img src="virtuelightheader.png" alt="Team Virtue Logo" class="nav-logo" loading="eager"></a>
             <div class="hamburger">
-                <@/home/user/TeamVirtueWebsite/index.htmlspan></span>
+                <span></span>
                 <span></span>
                 <span></span>
             </div>
             <nav>
                 <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#roster">Roster</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
         </div>
@@ -966,7 +938,7 @@
                 const targetId = anchor.getAttribute('href').substring(1);
                 const targetElement = document.getElementById(targetId);
                 if (targetElement) {
-                    targetElement.scrolIntoView({ behavior: 'smooth' });
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
                 }
                 hamburger.classList.remove('active');
                 nav.classList.remove('active');
@@ -993,7 +965,7 @@
             el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
         });
 
-        const scrimCard = document.querySelector('.scrim-card');
+        const scrimCard = document.querySelector('. Archer
         const recentScrims = document.querySelector('.recent-scrims');
         if (scrimCard && recentScrims) {
             scrimCard.addEventListener('click', (e) => {
