@@ -3,38 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="description" content="Team Virtue - Elite eSports organization excelling in competitive gaming with a focus on Rocket League. Join our community and follow our journey!">
-    <meta name="keywords" content="eSports, Team Virtue, Rocket League, professional gaming, competitive gaming, gaming community">
+    <meta name="description" content="Team Virtue - Elite eSports organization excelling in Rocket League. Meet our roster and join our journey!">
+    <meta name="keywords" content="eSports, Team Virtue, Rocket League, professional gaming, roster, competitive gaming">
     <meta name="author" content="Team Virtue">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#8B00FF">
     <!-- Open Graph Tags -->
-    <meta property="og:title" content="Team Virtue | Professional eSports Organization">
-    <meta property="og:description" content="Team Virtue is a professional eSports organization built on skill, teamwork, and integrity. Join us in dominating Rocket League!">
+    <meta property="og:title" content="Team Virtue | eSports Roster">
+    <meta property="og:description" content="Meet the elite players of Team Virtue, dominating Rocket League with skill and teamwork.">
     <meta property="og:image" content="https://raw.githubusercontent.com/Finny13/Team-Virtue/main/virtuemain.png">
     <meta property="og:url" content="https://teamvirtue.org/">
     <meta property="og:type" content="website">
     <!-- Twitter Card Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Team Virtue | Professional eSports Organization">
-    <meta name="twitter:description" content="Team Virtue is a professional eSports organization built on skill, teamwork, and integrity. Join us in dominating Rocket League!">
+    <meta name="twitter:title" content="Team Virtue | eSports Roster">
+    <meta name="twitter:description" content="Meet the elite players of Team Virtue, dominating Rocket League with skill and teamwork.">
     <meta name="twitter:image" content="https://raw.githubusercontent.com/Finny13/Team-Virtue/main/virtuemain.png">
     <meta name="twitter:site" content="@TeamVirtueRL">
     <!-- Canonical URL -->
     <link rel="canonical" href="https://teamvirtue.org/">
-    <!-- Title -->
-    <title>Team Virtue | Professional eSports Organization</title>
-    <!-- Updated Favicon Links -->
+    <!-- Favicon -->
     <link rel="icon" href="https://raw.githubusercontent.com/Finny13/Team-Virtue/main/favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/Finny13/Team-Virtue/main/virtuemain.png" sizes="180x180">
-    <!-- Preconnect for External Resources -->
+    <!-- Fonts and Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <!-- Sitemap and Robots for Netlify -->
-    <link rel="sitemap" href="https://teamvirtue.org/sitemap.xml">
-    <!-- Structured Data (Schema.org) -->
+    <!-- Structured Data -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -51,23 +47,16 @@
         ]
     }
     </script>
-    <!-- Google AdSense Code -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6172312532806204"
-         crossorigin="anonymous"></script>
+    <title>Team Virtue | eSports Roster</title>
     <style>
         :root {
             --primary-color: #8B00FF;
             --secondary-color: #FFFFFF;
             --background-dark: #0A0A1A;
-            --background-gradient-start: #1A0033;
-            --background-gradient-end: #8B00FF;
             --text-primary: #FFFFFF;
             --text-secondary: #A0A0C0;
             --card-bg: rgba(255, 255, 255, 0.05);
-            --shadow: rgba(0, 0, 0, 0.5);
-            --glow: rgba(139, 0, 255, 0.3);
-            --accent-color: #FF00FF;
-            --neon-green: #39FF14;
+            --glow: rgba(139, 0, 255, 0.4);
         }
 
         * {
@@ -80,35 +69,9 @@
         body {
             font-family: 'Orbitron', sans-serif;
             color: var(--text-primary);
-            background: linear-gradient(135deg, var(--background-gradient-start), var(--background-gradient-end));
+            background: var(--background-dark);
             min-height: 100vh;
             overflow-x: hidden;
-            -webkit-overflow-scrolling: touch;
-        }
-
-        .sidebar-left,
-        .sidebar-right {
-            position: fixed;
-            top: 120px;
-            width: 160px;
-            padding: 1rem 0;
-            display: none;
-            z-index: 100;
-        }
-
-        .sidebar-left {
-            left: 10px;
-        }
-
-        .sidebar-right {
-            right: 10px;
-        }
-
-        @media (min-width: 1024px) {
-            .sidebar-left,
-            .sidebar-right {
-                display: block;
-            }
         }
 
         header {
@@ -118,12 +81,7 @@
             background: rgba(10, 10, 26, 0.95);
             backdrop-filter: blur(10px);
             z-index: 1000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-            transition: transform 0.3s ease;
-        }
-
-        header.header-hidden {
-            transform: translateY(-100%);
+            border-bottom: 1px solid var(--primary-color);
         }
 
         .nav-container {
@@ -132,59 +90,52 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0.75rem 1rem;
-            height: 100px;
+            padding: 1rem;
         }
 
         .nav-logo {
-            height: 100px;
+            height: 80px;
             object-fit: contain;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
             filter: drop-shadow(0 0 8px var(--glow));
         }
 
         nav ul {
             display: flex;
-            gap: 1.5rem;
+            gap: 2rem;
             list-style: none;
         }
 
         nav a {
             color: var(--text-primary);
             text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
+            font-weight: 700;
+            font-size: 1rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: color 0.2s ease, text-shadow 0.2s ease;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
         }
 
         nav a:hover {
-            color: var(--secondary-color);
-            text-shadow: 0 0 4px var(--secondary-color);
+            color: var(--primary-color);
+            text-shadow: 0 0 6px var(--primary-color);
         }
 
         .hamburger {
             display: none;
             flex-direction: column;
             cursor: pointer;
-            gap: 4px;
-            z-index: 1001;
+            gap: 5px;
         }
 
         .hamburger span {
-            width: 24px;
-            height: 3px;
-            background: var(--neon-green);
-            border-radius: 3px;
+            width: 28px;
+            height: 4px;
+            background: var(--primary-color);
+            border-radius: 4px;
             transition: all 0.3s ease;
         }
 
         .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
+            transform: rotate(45deg) translate(6px, 6px);
         }
 
         .hamburger.active span:nth-child(2) {
@@ -192,99 +143,23 @@
         }
 
         .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(6px, -6px);
-        }
-
-        .sponsor-box {
-            position: fixed;
-            top: 8px;
-            left: 8px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            z-index: 1002;
-            transition: opacity 0.3s ease;
-            background: rgba(0, 0, 0, 0.5);
-            padding: 0.5rem;
-            border-radius: 4px;
-        }
-
-        .sponsor-box:hover {
-            opacity: 0.9;
-        }
-
-        .sponsor-box.sponsor-hidden {
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        .sponsor-box a {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            text-decoration: none;
-            color: var(--text-primary);
-        }
-
-        .sponsor-box a:hover {
-            color: var(--secondary-color);
-            text-shadow: 0 0 4px var(--secondary-color);
-        }
-
-        .sponsor-box span {
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .sponsor-box img {
-            height: 22px;
-            width: auto;
-            object-fit: contain;
-            filter: drop-shadow(0 0 4px var(--glow));
+            transform: rotate(-45deg) translate(7px, -7px);
         }
 
         .hero {
-            height: 80vh;
+            height: 60vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
+            background: url('https://www.transparenttextures.com/patterns/black-scales.png') repeat, linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6));
             position: relative;
-            overflow: hidden;
-            background: url('https://www.transparenttextures.com/patterns/black-scales.png') repeat, linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5));
-        }
-
-        .hero-gif {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: 1;
-            opacity: 0.6;
-            image-rendering: auto;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4));
-            z-index: 2;
         }
 
         .hero-logo-container {
-            z-index: 3;
-            width: 70%;
-            max-width: 600px;
-            margin: 0 auto;
+            width: 60%;
+            max-width: 500px;
             animation: fadeInScale 1.5s ease-out;
             filter: drop-shadow(0 0 12px var(--glow));
         }
@@ -292,30 +167,17 @@
         .hero-logo {
             width: 100%;
             height: auto;
-            display: block;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 4;
-            max-width: 85%;
-            padding: 1rem;
         }
 
         .hero-content p {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
-            font-weight: 500;
-            animation: fadeInUp 1.2s ease-out 0.3s both;
-            text-shadow: 0 0 4px var(--shadow);
+            margin: 1rem 0;
+            text-shadow: 0 0 4px var(--glow);
         }
 
         .btn {
-            display: inline-flex;
-            align-items: center;
-            padding: 0.7rem 1.8rem;
+            padding: 0.8rem 2rem;
             background: var(--primary-color);
             color: var(--text-primary);
             text-decoration: none;
@@ -323,467 +185,133 @@
             font-size: 1rem;
             text-transform: uppercase;
             border-radius: 6px;
-            transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
-            gap: 0.5rem;
-            touch-action: manipulation;
-            box-shadow: 0 0 8px var(--glow);
+            transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 0 10px var(--glow);
         }
 
         .btn:hover {
-            background: var(--neon-green);
-            color: #000000;
+            background: var(--secondary-color);
+            color: var(--background-dark);
             transform: scale(1.05);
-            box-shadow: 0 0 12px var(--neon-green);
-        }
-
-        .btn:active {
-            transform: scale(0.95);
+            box-shadow: 0 0 15px var(--primary-color);
         }
 
         .container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 1.5rem 1rem;
+            padding: 2rem 1rem;
         }
 
         section {
-            padding: 3rem 0;
+            padding: 4rem 0;
         }
 
         h2 {
-            font-size: 2.2rem;
+            font-size: 2.5rem;
             font-weight: 900;
-            margin-bottom: 1.5rem;
             text-align: center;
             color: var(--text-primary);
             text-transform: uppercase;
-            letter-spacing: 1px;
-            position: relative;
-            animation: fadeIn 0.8s ease-out;
-            text-shadow: 0 0 8px var(--glow);
+            text-shadow: 0 0 10px var(--glow);
+            margin-bottom: 2rem;
         }
 
         h2::after {
             content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background: var(--neon-green);
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: var(--primary-color);
+            margin: 0.5rem auto;
         }
 
-        h3.sub-roster-title {
-            font-size: 1.6rem;
-            font-weight: 700;
-            margin: 1.5rem 0 1rem;
+        .roster-grid, .sub-roster-grid, .competition-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .roster-card, .sub-roster-card, .competition-card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 1.5rem;
             text-align: center;
+            border: 1px solid var(--primary-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .roster-card:hover, .sub-roster-card:hover, .competition-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px var(--glow);
+        }
+
+        .roster-card h3, .sub-roster-card h3, .competition-card h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
             color: var(--text-primary);
             text-shadow: 0 0 4px var(--glow);
         }
 
-        .roster-grid, .creator-grid, .scrim-grid, .coach-grid, .competition-grid, .sub-roster-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 1.25rem;
-            margin-top: 1.5rem;
-        }
-
-        .roster-card, .creator-card, .scrim-card, .coach-card, .competition-card, .sub-roster-card {
-            background: var(--card-bg);
-            border-radius: 8px;
-            padding: 1.2rem;
-            text-align: center;
-            transition: box-shadow 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .roster-card::before, .creator-card::before, .scrim-card::before, .coach-card::before, .competition-card::before, .sub-roster-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, transparent, rgba(139, 0, 255, 0.1), transparent);
-            transition: transform 0.5s ease;
-            transform: translateX(-100%);
-        }
-
-        .roster-card:hover::before, .creator-card:hover::before, .scrim-card:hover::before, .coach-card:hover::before, .competition-card:hover::before, .sub-roster-card:hover::before {
-            transform: translateX(100%);
-        }
-
-        .roster-card:hover, .creator-card:hover, .scrim-card:hover, .coach-card:hover, .competition-card:hover, .sub-roster-card:hover {
-            box-shadow: 0 6px 16px var(--glow);
-            transform: translateY(-4px);
-        }
-
-        .scrim-card:hover, .competition-card:hover {
-            opacity: 0.95;
-        }
-
-        .roster-card h3, .creator-card h3, .scrim-card h3, .coach-card h3, .competition-card h3, .sub-roster-card h3 {
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 0.4rem;
-            color: var(--text-primary);
-            text-shadow: 0 0 4px var(--shadow);
-        }
-
-        .roster-card a, .creator-card a, .coach-card a, .competition-card a, .sub-roster-card a {
-            color: var(--secondary-color);
+        .roster-card a, .sub-roster-card a, .competition-card a {
+            color: var(--primary-color);
             text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: color 0.2s ease, text-shadow 0.2s ease;
-            display: block;
+            font-weight: 600;
+            transition: color 0.3s ease;
         }
 
-        .roster-card a:hover, .creator-card a:hover, .coach-card a:hover, .competition-card a:hover, .sub-roster-card a:hover {
-            color: var(--accent-color);
-            text-shadow: 0 0 4px var(--accent-color);
-        }
-
-        .roster-card h3 a, .creator-card h3 a, .coach-card h3 a, .competition-card h3 a, .sub-roster-card h3 a {
+        .roster-card a:hover, .sub-roster-card a:hover, .competition-card a:hover {
             color: var(--secondary-color);
-            text-decoration: none;
-            font-size: 1.3rem;
+            text-shadow: 0 0 6px var(--secondary-color);
         }
 
-        .roster-card h3 a:hover, .creator-card h3 a:hover, .coach-card h3 a:hover, .competition-card h3 a:hover, .sub-roster-card h3 a:hover {
-            color: var(--neon-green);
-            text-shadow: 0 0 4px var(--neon-green);
-        }
-
-        .scrim-card p, .competition-card p {
+        .competition-card p {
+            color: var(--text-secondary);
             font-size: 1rem;
-            color: var(--text-secondary);
-            margin: 0.5rem 0 0;
-        }
-
-        .scrim-card span, .competition-card span {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--secondary-color);
-            text-shadow: 0 0 4px var(--secondary-color);
-        }
-
-        .recent-scrims {
-            display: none;
             margin-top: 0.5rem;
-            padding-top: 0.5rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.15);
-        }
-
-        .recent-scrims.show {
-            display: block;
-            animation: slideDown 0.3s ease-out;
-        }
-
-        .recent-scrims p {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-        }
-
-        .recent-scrims .match {
-            font-size: 0.9rem;
-            margin: 0.3rem 0;
-        }
-
-        .recent-scrims .win {
-            color: var(--neon-green);
-            font-weight: 600;
-        }
-
-        .recent-scrims .loss {
-            color: #FF0000;
-            font-weight: 600;
-        }
-
-        .socials {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1.5rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .social-btn {
-            width: 100%;
-            max-width: 250px;
-            padding: 0.7rem;
-            border: 1px solid var(--neon-green);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            color: var(--text-primary);
-            transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
-            border-radius: 6px;
-            touch-action: manipulation;
-            box-shadow: 0 0 8px var(--glow);
-        }
-
-        .social-btn img {
-            height: 1.1rem;
-            width: auto;
-            object-fit: contain;
-        }
-
-        .social-btn:hover {
-            background: var(--neon-green);
-            color: #000000;
-            transform: scale(1.05);
-            box-shadow: 0 0 12px var(--neon-green);
-        }
-
-        .social-btn:active {
-            transform: scale(0.95);
         }
 
         footer {
             text-align: center;
-            padding: 1.5rem 1rem;
-            background: rgba(0, 0, 0, 0.7);
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.8);
             color: var(--text-secondary);
-            font-size: 0.8rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            border-top: 1px solid var(--primary-color);
         }
 
         footer a {
-            color: var(--secondary-color);
+            color: var(--primary-color);
             text-decoration: none;
             font-weight: 600;
-            transition: color 0.2s ease, text-shadow 0.2s ease;
         }
 
         footer a:hover {
-            color: var(--accent-color);
-            text-shadow: 0 0 4px var(--accent-color);
-        }
-
-        footer img {
-            height: 0.8rem;
-            width: auto;
-            vertical-align: middle;
-            margin-left: 0.3rem;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(15px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            color: var(--secondary-color);
+            text-shadow: 0 0 6px var(--secondary-color);
         }
 
         @keyframes fadeInScale {
-            from {
-                opacity: 0;
-                transform: scale(0.95);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes slideDown {
-            from {
-                opacity: 0;
-                transform: translateY(-15px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @media (min-width: 769px) {
-            .nav-container {
-                padding: 0.75rem 1.5rem;
-                height: 100px;
-            }
-            .nav-logo {
-                height: 100px;
-            }
-            nav {
-                margin-left: auto;
-            }
-            nav ul {
-                justify-content: flex-end;
-            }
-            .hamburger {
-                display: none;
-            }
-            .hero-logo-container {
-                max-width: 600px;
-                width: 70%;
-            }
-            .hero-content {
-                padding: 1.5rem;
-            }
-            .hero-content p {
-                font-size: 1.2rem;
-            }
-            .btn {
-                padding: 0.8rem 2rem;
-                font-size: 1.1rem;
-            }
-            section {
-                padding: 3.5rem 0;
-            }
-            h2 {
-                font-size: 2.5rem;
-            }
-            .roster-grid, .creator-grid, .scrim-grid, .coach-grid, .competition-grid, .sub-roster-grid {
-                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-                gap: 1.5rem;
-            }
-            .social-btn {
-                min-width: 180px;
-                padding: 0.7rem 1.4rem;
-            }
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
         }
 
         @media (max-width: 768px) {
-            .nav-container {
-                padding: 0.5rem 1rem;
-                height: 80px;
-            }
-            .nav-logo {
-                height: 80px;
- hamburger {
-                display: flex;
-                position: absolute;
-                right: 1rem;
-                top: 50%;
-                transform: translateY(-50%);
-            }
-            .hero {
-                height: 70vh;
-            }
-            .hero-logo-container {
-                max-width: 450px;
-                width: 75%;
-            }
-            .hero-content {
-                padding: 0.75rem;
-            }
-            .hero-content p {
-                font-size: 1rem;
-            }
-            h2 {
-                font-size: 1.8rem;
-            }
-            .roster-grid, .creator-grid, .scrim-grid, .coach-grid, .competition-grid, .sub-roster-grid {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-            .socials {
-                flex-direction: column;
-                align-items: center;
-                gap: 0.8rem;
-            }
-            .social-btn {
-                max-width: 300px;
-                padding: 0.6rem;
-            }
-            .sponsor-box {
-                top: 6px;
-                left: 6px;
-                gap: 5px;
-            }
-            .sponsor-box span {
-                font-size: 0.75rem;
-            }
-            .sponsor-box img {
-                height: 20px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .nav-container {
-                height: 60px;
-            }
-            .nav-logo {
-                height: 60px;
-            }
-            .hero-logo-container {
-                max-width: 350px;
-                width: 70%;
-            }
-            .hero-content p {
-                font-size: 0.9rem;
-            }
-            .btn {
-                padding: 0.6rem 1.4rem;
-                font-size: 0.9rem;
-            }
-            h2 {
-                font-size: 1.6rem;
-            }
-            .roster-card h3, .creator-card h3, .scrim-card h3, .coach-card h3, .competition-card h3, .sub-roster-card h3 {
-                font-size: 1.2rem;
-            }
-            .scrim-card p, .competition-card p {
-                font-size: 0.95rem;
-            }
-            .scrim-card span, .competition-card span {
-                font-size: 1.3rem;
-            }
-            .social-btn {
-                font-size: 0.9rem;
-                padding: 0.6rem;
-            }
-            footer {
-                font-size: 0.75rem;
-                padding: 1rem;
-            }
-            .sponsor-box {
-                top: 5px;
-                left: 5px;
-                gap: 4px;
-            }
-            .sponsor-box span {
-                font-size: 0.7rem;
-            }
-            .sponsor-box img {
-                height: 18px;
-            }
+            .nav-container { padding: 0.5rem; }
+            .nav-logo { height: 60px; }
+            .hamburger { display: flex; position: absolute; right: 1rem; top: 1.5rem; }
+            nav ul { display: none; flex-direction: column; position: absolute; top: 80px; left: 0; width: 100%; background: rgba(10, 10, 26, 0.95); padding: 1rem; }
+            nav.active ul { display: flex; }
+            .hero { height: 50vh; }
+            .hero-logo-container { width: 70%; max-width: 400px; }
+            .hero-content p { font-size: 1rem; }
+            h2 { font-size: 2rem; }
+            .roster-grid, .sub-roster-grid, .competition-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-    <div class="sponsor-box">
-        <a href="https://www.dubby.gg/?ref=drotxpyy" target="_blank" rel="noopener noreferrer">
-            <span>Powered by</span>
-            <img src="dubby.png" alt="Dubby Energy Logo" loading="lazy">
-        </a>
-    </div>
     <header>
         <div class="nav-container">
-            <a href="#home"><img src="virtuelightheader.png" alt="Team Virtue Logo" class="nav-logo" loading="eager"></a>
+            <a href="index.html"><img src="virtuelightheader.png" alt="Team Virtue Logo" class="nav-logo" loading="eager"></a>
             <div class="hamburger">
                 <span></span>
                 <span></span>
@@ -791,43 +319,20 @@
             </div>
             <nav>
                 <ul>
+                    <li><a href="index.html">Roster</a></li>
+                    <li><a href="links.html">Links</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <aside class="sidebar-left">
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-6172312532806204"
-             data-ad-slot="YOUR_AD_SLOT_ID"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
-        <script>
-             (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-    </aside>
-
-    <aside class="sidebar-right">
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-6172312532806204"
-             data-ad-slot="YOUR_AD_SLOT_ID"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
-        <script>
-             (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-    </aside>
-
     <section class="hero" id="home">
-        <h1 style="position: absolute; left: -9999px;">Team Virtue | Professional eSports Organization</h1>
-        <img src="virtue.gif" alt="Team Virtue Animated Background" class="hero-gif" loading="eager">
+        <h1 style="position: absolute; left: -9999px;">Team Virtue | eSports Roster</h1>
         <div class="hero-logo-container">
             <img src="virtuelightheader.png" alt="Team Virtue Logo" class="hero-logo" loading="eager">
         </div>
         <div class="hero-content">
-            <p>Dominating the eSports arena with unparalleled skill and dedication in Rocket League.</p>
+            <p>Elite Rocket League players ready to dominate the eSports arena.</p>
             <a href="https://discord.gg/2btnvUJADc" target="_blank" rel="noopener noreferrer" class="btn">
                 <i class="fab fa-discord"></i> Join Discord
             </a>
@@ -835,13 +340,6 @@
     </section>
 
     <div class="container">
-        <section id="about">
-            <h2>About</h2>
-            <p style="text-align: center; color: var(--text-secondary); line-height: 1.5; max-width: 800px; margin: 0 auto; font-size: 1rem;">
-                Team Virtue is a professional eSports organization built on skill, teamwork, and integrity. We compete at the highest levels in Rocket League, fostering a community of passionate gamers dedicated to excellence.
-            </p>
-        </section>
-
         <section id="roster">
             <h2>Roster</h2>
             <div class="roster-grid">
@@ -855,7 +353,7 @@
                     <h3>Ventrxyy</h3>
                 </div>
             </div>
-            <h3 class="sub-roster-title">Substitutes</h3>
+            <h2>Substitutes</h2>
             <div class="sub-roster-grid">
                 <div class="sub-roster-card">
                     <h3><a href="https://steamcommunity.com/profiles/76561198369905223" target="_blank" rel="noopener noreferrer">WestyzWorld</a></h3>
@@ -864,11 +362,14 @@
                     <h3><a href="https://steamcommunity.com/id/FeliciaTheOG" target="_blank" rel="noopener noreferrer">Felicia, The Goat</a></h3>
                 </div>
             </div>
-            <h2> Upcoming </h2>
+        </section>
+
+        <section id="upcoming">
+            <h2>Upcoming Competitions</h2>
             <div class="competition-grid">
                 <div class="competition-card">
                     <h3>RLCS Open 4</h3>
-                    <p> Placement 385th.
+                    <p>Placement: 385th</p>
                 </div>
                 <div class="competition-card">
                     <h3>RLCS Open 5</h3>
@@ -880,116 +381,25 @@
                 </div>
             </div>
         </section>
-
-        <section id="content-creators">
-            <h2>Content Creators</h2>
-            <div class="creator-grid">
-                <div class="creator-card">
-                    <h3><a href="https://youtube.com/@rlremedy" target="_blank" rel="noopener noreferrer">Remedy</a></h3>
-                </div>
-            </div>
-        </section>
-
-        <section id="scrim-record">
-            <h2>Scrim Record</h2>
-            <div class="scrim-grid">
-                <div class="scrim-card">
-                    <h3>Rocket League</h3>
-                    <p>Record: <span>10-4</span></p>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact">
-            <h2>Contact</h2>
-            <div class="socials">
-                <a href="https://x.com/TeamVirtueRL" target="_blank" rel="noopener noreferrer" class="social-btn">
-                    <img src="x.png" alt="X Logo" loading="lazy"> X
-                </a>
-                <a href="https://www.instagram.com/teamvirtuerl/" target="_blank" rel="noopener noreferrer" class="social-btn">
-                    <img src="insta.png" alt="Instagram Logo" loading="lazy"> Instagram
-                </a>
-                <a href="https://rocketleague.gankster.gg/teams/933789/team-virtue" target="_blank" rel="noopener noreferrer" class="social-btn">
-                    <img src="gankster.png" alt="Gankster Logo" loading="lazy"> Gankster
-                </a>
-                <a href="https://www.start.gg/team/619b090f/details" target="_blank" rel="noopener noreferrer" class="social-btn">
-                    <img src="startgg.png" alt="Start.gg Logo" loading="lazy"> Start.gg
-                </a>
-            </div>
-        </section>
     </div>
 
     <footer>
-        <p>© 2025 Team Virtue. All rights reserved. | <a href="#home">Back to Top</a></p>
+        <p>© 2025 Team Virtue. All rights reserved. | <a href="#home">Back to Top</a></Vote</p>
     </footer>
 
     <script>
         const hamburger = document.querySelector('.hamburger');
         const nav = document.querySelector('nav');
-
         hamburger.addEventListener('click', () => {
             hamburger.classList.toggle('active');
             nav.classList.toggle('active');
         });
 
         document.querySelectorAll('nav a').forEach(anchor => {
-            anchor.addEventListener('click', (e) => {
-                e.preventDefault();
-                const targetId = anchor.getAttribute('href').substring(1);
-                const targetElement = document.getElementById(targetId);
-                if (targetElement) {
-                    targetElement.scrollIntoView({ behavior: 'smooth' });
-                }
+            anchor.addEventListener('click', () => {
                 hamburger.classList.remove('active');
                 nav.classList.remove('active');
             });
-        });
-
-        const animateOnScroll = () => {
-            const elements = document.querySelectorAll('.roster-card, .creator-card, .scrim-card, .coach-card, .competition-card, .sub-roster-card');
-            elements.forEach(el => {
-                const rect = el.getBoundingClientRect();
-                if (rect.top < window.innerHeight * 0.9) {
-                    el.style.opacity = '1';
-                    el.style.transform = 'translateY(0)';
-                }
-            });
-        };
-
-        window.addEventListener('scroll', animateOnScroll);
-        document.addEventListener('DOMContentLoaded', animateOnScroll);
-
-        document.querySelectorAll('.roster-card, .creator-card, .scrim-card, .coach-card, .competition-card, .sub-roster-card').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(15px)';
-            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-        });
-
-        const scrimCard = document.querySelector('. Archer
-        const recentScrims = document.querySelector('.recent-scrims');
-        if (scrimCard && recentScrims) {
-            scrimCard.addEventListener('click', (e) => {
-                if (e.target.tagName !== 'A') {
-                    recentScrims.classList.toggle('show');
-                }
-            });
-        }
-
-        let lastScrollTop = 0;
-        const header = document.querySelector('header');
-        const sponsorBox = document.querySelector('.sponsor-box');
-        window.addEventListener('scroll', () => {
-            if (window.innerWidth <= 768) {
-                let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-                if (scrollTop > lastScrollTop) {
-                    header.classList.add('header-hidden');
-                    sponsorBox.classList.add('sponsor-hidden');
-                } else {
-                    header.classList.remove('header-hidden');
-                    sponsorBox.classList.remove('sponsor-hidden');
-                }
-                lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-            }
         });
     </script>
 </body>
