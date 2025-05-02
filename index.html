@@ -160,13 +160,27 @@
         .hero-logo-container {
             width: 60%;
             max-width: 500px;
+            position: relative;
             animation: fadeInScale 1.5s ease-out;
             filter: drop-shadow(0 0 12px var(--glow));
+        }
+
+        .hero-gif {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: auto;
+            z-index: 1;
+            opacity: 0.7;
         }
 
         .hero-logo {
             width: 100%;
             height: auto;
+            position: relative;
+            z-index: 2;
         }
 
         .hero-content p {
@@ -245,14 +259,28 @@
             box-shadow: 0 0 15px var(--glow);
         }
 
-        .roster-card h3, .sub-roster-card h3, .competition-card h3 {
+        .roster-card h3, .sub-roster-card h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--secondary-color); /* White for main and sub roster */
+            text-shadow: 0 0 4px var(--glow);
+        }
+
+        .competition-card h3 {
             font-size: 1.4rem;
             font-weight: 700;
             color: var(--text-primary);
             text-shadow: 0 0 4px var(--glow);
         }
 
-        .roster-card a, .sub-roster-card a, .competition-card a {
+        .roster-card a, .sub-roster-card a {
+            color: var(--secondary-color); /* White for main and sub roster links */
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .competition-card a {
             color: var(--primary-color);
             text-decoration: none;
             font-weight: 600;
@@ -260,8 +288,8 @@
         }
 
         .roster-card a:hover, .sub-roster-card a:hover, .competition-card a:hover {
-            color: var(--secondary-color);
-            text-shadow: 0 0 6px var(--secondary-color);
+            color: var(--primary-color);
+            text-shadow: 0 0 6px var(--primary-color);
         }
 
         .competition-card p {
@@ -329,6 +357,7 @@
     <section class="hero" id="home">
         <h1 style="position: absolute; left: -9999px;">Team Virtue | eSports Roster</h1>
         <div class="hero-logo-container">
+            <img src="virtue.gif" alt="Team Virtue Background GIF" class="hero-gif" loading="eager">
             <img src="virtuelightheader.png" alt="Team Virtue Logo" class="hero-logo" loading="eager">
         </div>
         <div class="hero-content">
@@ -384,7 +413,7 @@
     </div>
 
     <footer>
-        <p>© 2025 Team Virtue. All rights reserved. | <a href="#home">Back to Top</a></Vote</p>
+        <p>© 2025 Team Virtue. All rights reserved. | <a href="#home">Back to Top</a></p>
     </footer>
 
     <script>
