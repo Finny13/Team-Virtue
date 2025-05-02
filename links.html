@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Team Virtue - Connect with us on Discord, X, Instagram, and more. Join our eSports community!">
+    <meta name="keywords" content="eSports, Team Virtue, Rocket League, Discord, social media, gaming community">
+    <meta name="author" content="Team Virtue">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#8B00FF">
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Team Virtue | Connect With Us">
+    <meta property="og:description" content="Join Team Virtue's eSports community on Discord, X, Instagram, and more!">
+    <meta property="og:image" content="https://raw.githubusercontent.com/Finny13/Team-Virtue/main/virtuemain.png">
+    <meta property="og:url" content="https://teamvirtue.org/links.html">
+    <meta property="og:type" content="website">
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Team Virtue | Connect With Us">
+    <meta name="twitter:description" content="Join Team Virtue's eSports community on Discord, X, Instagram, and more!">
+    <meta name="twitter:image" content="https://raw.githubusercontent.com/Finny13/Team-Virtue/main/virtuemain.png">
+    <meta name="twitter:site" content="@TeamVirtueRL">
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://teamvirtue.org/links.html">
+    <!-- Favicon -->
+    <link rel="icon" href="https://raw.githubusercontent.com/Finny13/Team-Virtue/main/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/Finny13/Team-Virtue/main/virtuemain.png" sizes="180x180">
+    <!-- Fonts and Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Team Virtue",
+        "url": "https://teamvirtue.org/",
+        "logo": "https://raw.githubusercontent.com/Finny13/Team-Virtue/main/virtuemain.png",
+        "description": "Team Virtue is a professional eSports organization excelling in Rocket League, built on skill, teamwork, and integrity.",
+        "sameAs": [
+            "https://x.com/TeamVirtueRL",
+            "https://www.instagram.com/teamvirtuerl/",
+            "https://rocketleague.gankster.gg/teams/93789/team-virtue",
+            "https://www.start.gg/team/619b090f/details"
+        ]
+    }
+    </script>
+    <title>Team Virtue | Connect With Us</title>
+    <style>
+        :root {
+            --primary-color: #8B00FF;
+            --secondary-color: #FFFFFF;
+            --background-dark: #0A0A1A;
+            --text-primary: #FFFFFF;
+            --text-secondary: #A0A0C0;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --glow: rgba(139, 0, 255, 0.4);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--text-primary);
+            background: var(--background-dark);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 26, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--primary-color);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem;
+        }
+
+        .nav-logo {
+            height: 80px;
+            object-fit: contain;
+            filter: drop-shadow(0 0 8px var(--glow));
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        nav a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            text-transform: uppercase;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+            text-shadow: 0 0 6px var(--primary-color);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            width: 28px;
+            height: 4px;
+            background: var(--primary-color);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        .hero {
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: url('https://www.transparenttextures.com/patterns/black-scales.png') repeat, linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6));
+            position: relative;
+        }
+
+        .hero-logo-container {
+            width: 60%;
+            max-width: 500px;
+            animation: fadeInScale 1.5s ease-out;
+            filter: drop-shadow(0 0 12px var(--glow));
+        }
+
+        .hero-logo {
+            width: 100%;
+            height: auto;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin: 1rem 0;
+            text-shadow: 0 0 4px var(--glow);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        section {
+            padding: 4rem 0;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            text-align: center;
+            color: var(--text-primary);
+            text-transform: uppercase;
+            text-shadow: 0 0 10px var(--glow);
+            margin-bottom: 2rem;
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: var(--primary-color);
+            margin: 0.5rem auto;
+        }
+
+        .socials {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: center;
+        }
+
+        .social-btn {
+            width: 100%;
+            max-width: 300px;
+            padding: 0.8rem;
+            background: var(--card-bg);
+            border: 1px solid var(--primary-color);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--text-primary);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 0 10px var(--glow);
+        }
+
+        .social-btn img {
+            height: 1.2rem;
+            width: auto;
+        }
+
+        .social-btn:hover {
+            background: var(--secondary-color);
+            color: var(--background-dark);
+            transform: scale(1.05);
+            box-shadow: 0 0 15px var(--primary-color);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.8);
+            color: var(--text-secondary);
+            border-top: 1px solid var(--primary-color);
+        }
+
+        footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        footer a:hover {
+            color: var(--secondary-color);
+            text-shadow: 0 0 6px var(--secondary-color);
+        }
+
+        @keyframes fadeInScale {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        @media (max-width: 768px) {
+            .nav-container { padding: 0.5rem; }
+            .nav-logo { height: 60px; }
+            .hamburger { display: flex; position: absolute; right: 1rem; top: 1.5rem; }
+            nav ul { display: none; flex-direction: column; position: absolute; top: 80px; left: 0; width: 100%; background: rgba(10, 10, 26, 0.95); padding: 1rem; }
+            nav.active ul { display: flex; }
+            .hero { height: 50vh; }
+            .hero-logo-container { width: 70%; max-width: 400px; }
+            .hero-content p { font-size: 1rem; }
+            h2 { font-size: 2rem; }
+            .socials { flex-direction: column; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <a href="index.html"><img src="virtuelightheader.png" alt="Team Virtue Logo" class="nav-logo" loading="eager"></a>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Roster</a></li>
+                    <li><a href="links.html">Links</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <h1 style="position: absolute; left: -9999px;">Team Virtue | Connect With Us</h1>
+        <div class="hero-logo-container">
+            <img src="virtuelightheader.png" alt="Team Virtue Logo" class="hero-logo" loading="eager">
+        </div>
+        <div class="hero-content">
+            <p>Join our community and stay connected with Team Virtue!</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <section id="connect">
+            <h2>Connect With Us</h2>
+            <div class="socials">
+                <a href="https://discord.gg/2btnvUJADc" target="_blank" rel="noopener noreferrer" class="social-btn">
+                    <i class="fab fa-discord"></i> Discord
+                </a>
+                <a href="https://x.com/TeamVirtueRL" target="_blank" rel="noopener noreferrer" class="social-btn">
+                    <img src="x.png" alt="X Logo" loading="lazy"> X
+                </a>
+                <a href="https://www.instagram.com/teamvirtuerl/" target="_blank" rel="noopener noreferrer" class="social-btn">
+                    <img src="insta.png" alt="Instagram Logo" loading="lazy"> Instagram
+                </a>
+                <a href="https://rocketleague.gankster.gg/teams/93789/team-virtue" target="_blank" rel="noopener noreferrer" class="social-btn">
+                    <img src="gankster.png" alt="Gankster Logo" loading="lazy"> Gankster
+                </a>
+                <a href="https://www.start.gg/team/619b090f/details" target="_blank" rel="noopener noreferrer" class="social-btn">
+                    <img src="startgg.png" alt="Start.gg Logo" loading="lazy"> Start.gg
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>© 2025 Team Virtue. All rights reserved. | <a href="#home">Back to Top</a></p>
+    </footer>
+
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const nav = document.querySelector('nav');
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            nav.classList.toggle('active');
+        });
+
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                nav.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
