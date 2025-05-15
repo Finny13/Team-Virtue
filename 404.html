@@ -1,0 +1,78 @@
+ ```html
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Page Not Found - Team Virtue</title>
+     <!-- Add your common meta tags and CSS links from index.html here -->
+     <link rel="icon" href="https://raw.githubusercontent.com/Finny13/Team-Virtue/main/favicon.ico" type="image/x-icon">
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&display=swap" rel="stylesheet">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+     <style>
+         /* Copy relevant base styles from your index.html <style> block */
+         :root {
+             --primary-color: #8B00FF;
+             --secondary-color: #FFFFFF;
+             --background-dark: #0A0A1A;
+             --text-primary: #FFFFFF;
+             --text-secondary: #A0A0C0;
+         }
+         body {
+             font-family: 'Orbitron', sans-serif;
+             color: var(--text-primary);
+             background: var(--background-dark);
+             min-height: 100vh;
+             display: flex;
+             flex-direction: column;
+             align-items: center;
+             justify-content: center;
+             text-align: center;
+             padding: 20px;
+             margin:0;
+         }
+         .logo-container img {
+             max-width: 300px;
+             margin-bottom: 20px;
+         }
+         h1 {
+             font-size: clamp(2rem, 5vw, 3.5rem);
+             color: var(--primary-color);
+             margin-bottom: 1rem;
+         }
+         p {
+             font-size: clamp(1rem, 2.5vw, 1.3rem);
+             color: var(--text-secondary);
+             margin-bottom: 2rem;
+         }
+         a.btn {
+             padding: 0.8rem 2rem;
+             background: var(--primary-color);
+             color: var(--text-primary);
+             text-decoration: none;
+             font-weight: 700;
+             font-size: 1rem;
+             text-transform: uppercase;
+             border-radius: 6px;
+             transition: background 0.3s ease;
+         }
+         a.btn:hover {
+             background: var(--secondary-color);
+             color: var(--background-dark);
+         }
+     </style>
+ </head>
+ <body>
+     <div class="logo-container">
+         <a href="/index.html"><img src="virtuelightheader.png" alt="Team Virtue Logo"></a>
+     </div>
+     <h1>404 - Page Not Found</h1>
+     <p>Oops! The page you're looking for doesn't exist or has been moved.</p>
+     <p>
+         <a href="/index.html" class="btn">Go to Homepage</a>
+     </p>
+ </body>
+ </html>
+ ```
