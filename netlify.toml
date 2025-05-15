@@ -1,15 +1,13 @@
-# netlify.toml
-
 [build]
-  # Your build command, e.g., "npm run build" or leave empty if just static files
-  # command = "your-build-command"
-  # Your publish directory, e.g., "dist" or "." if files are in root
-  publish = "." # Or "public", "dist", "build", etc.
+  # Your site doesn't have a build step, so command can be omitted or empty
+  # command = ""
+  publish = "." # Serve files from the root directory
 
-[[plugins]]
-  # This is the plugin causing the error
-  package = "netlify-plugin-no-more-404"
+[build.environment]
+  # Good to specify a Node.js version for consistency in Netlify's build environment
+  # Even if you're not using Node directly, plugins might.
+  NODE_VERSION = "18" # Or "20"
 
-  # Optional plugin inputs, if the plugin supports them
-  # [plugins.inputs]
-  #    Pretty sure this plugin doesn't have inputs, but as an example
+# If you decide to use other plugins in the future, you'd list them here:
+# [[plugins]]
+#   package = "some-other-plugin"
