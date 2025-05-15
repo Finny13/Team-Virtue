@@ -1,0 +1,15 @@
+# netlify.toml
+
+[build]
+  # Your build command, e.g., "npm run build" or leave empty if just static files
+  # command = "your-build-command"
+  # Your publish directory, e.g., "dist" or "." if files are in root
+  publish = "." # Or "public", "dist", "build", etc.
+
+[[plugins]]
+  # This is the plugin causing the error
+  package = "netlify-plugin-no-more-404"
+
+  # Optional plugin inputs, if the plugin supports them
+  # [plugins.inputs]
+  #    Pretty sure this plugin doesn't have inputs, but as an example
