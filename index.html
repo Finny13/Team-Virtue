@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="description" content="Team Virtue - Elite eSports organization excelling in Rocket League. Discover our story, philosophy, and commitment to competitive excellence.">
-    <meta name="keywords" content="eSports, Team Virtue, Rocket League, professional gaming, competitive eSports, team philosophy, eSports organization">
+    <meta name="description" content="Team Virtue - Elite eSports organization excelling in Rocket League. Meet our roster and join our journey!">
+    <meta name="keywords" content="eSports, Team Virtue, Rocket League, professional gaming, roster, competitive gaming">
     <meta name="author" content="Team Virtue">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#8B00FF">
     <!-- Open Graph Tags -->
-    <meta property="og:title" content="Team Virtue | Professional eSports Organization">
-    <meta property="og:description" content="Team Virtue: Forged in competition, defined by integrity. Explore our journey in the world of professional Rocket League.">
+    <meta property="og:title" content="Team Virtue | eSports Roster">
+    <meta property="og:description" content="Meet the elite players of Team Virtue, dominating Rocket League with skill and teamwork.">
     <meta property="og:image" content="https://raw.githubusercontent.com/Finny13/Team-Virtue/main/virtuemain.png">
     <meta property="og:url" content="https://teamvirtue.org/">
     <meta property="og:type" content="website">
     <!-- Twitter Card Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Team Virtue | Professional eSports Organization">
-    <meta name="twitter:description" content="Team Virtue: Forged in competition, defined by integrity. Explore our journey in the world of professional Rocket League.">
+    <meta name="twitter:title" content="Team Virtue | eSports Roster">
+    <meta name="twitter:description" content="Meet the elite players of Team Virtue, dominating Rocket League with skill and teamwork.">
     <meta name="twitter:image" content="https://raw.githubusercontent.com/Finny13/Team-Virtue/main/virtuemain.png">
     <meta name="twitter:site" content="@TeamVirtueRL">
     <!-- Canonical URL -->
@@ -29,27 +29,25 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <!--
+      GOOGLE ADSENSE SCRIPT
+      Once you get your AdSense account and code, you'll paste it here.
+      It usually looks like this:
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_PUBLISHER_ID"
+           crossorigin="anonymous"></script>
+    -->
 
     <!-- Structured Data -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "SportsTeam",
+        "@type": "Organization",
         "name": "Team Virtue",
         "url": "https://teamvirtue.org/",
         "logo": "https://raw.githubusercontent.com/Finny13/Team-Virtue/main/virtuemain.png",
         "description": "Team Virtue is a professional eSports organization excelling in Rocket League, built on skill, teamwork, and integrity.",
-        "sport": "eSports",
-        "slogan": "Dominating the Arena. Defining Virtue.",
-        "member": [
-            { "@type": "Person", "name": "Finny." },
-            { "@type": "Person", "name": "WestyzWorld" },
-            { "@type": "Person", "name": "Ventrxyy" },
-            { "@type": "Person", "name": "Felicia, The Goat" },
-            { "@type": "Person", "name": "Wolan268" }
-        ],
         "sameAs": [
             "https://x.com/TeamVirtueRL",
             "https://www.instagram.com/teamvirtuerl/",
@@ -58,18 +56,16 @@
         ]
     }
     </script>
-    <title>Team Virtue | Professional eSports Organization</title>
+    <title>Team Virtue | eSports Roster</title>
     <style>
         :root {
             --primary-color: #8B00FF;
             --secondary-color: #FFFFFF;
             --background-dark: #0A0A1A;
-            --background-medium: #101020;
-            --text-primary: #E0E0FF;
+            --text-primary: #FFFFFF;
             --text-secondary: #A0A0C0;
-            --card-bg: rgba(20, 20, 40, 0.75); 
-            --glow: rgba(139, 0, 255, 0.5);
-            --border-color: rgba(139, 0, 255, 0.35);
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --glow: rgba(139, 0, 255, 0.4);
         }
 
         * {
@@ -80,49 +76,46 @@
         }
 
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Orbitron', sans-serif;
             color: var(--text-primary);
             background: var(--background-dark);
             min-height: 100vh;
             overflow-x: hidden;
-            display: flex;
-            flex-direction: column;
-            line-height: 1.7;
-        }
-        
-        h1, h2, h3, h4, h5, h6, nav a, .btn {
-            font-family: 'Orbitron', sans-serif;
+            display: flex; /* Added for sticky footer */
+            flex-direction: column; /* Added for sticky footer */
         }
 
         header {
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(10, 10, 26, 0.90); 
-            backdrop-filter: blur(12px);
+            background: rgba(10, 10, 26, 0.95);
+            backdrop-filter: blur(10px);
             z-index: 1000;
-            border-bottom: 1px solid var(--border-color);
-            box-shadow: 0 3px 12px rgba(0,0,0,0.25);
+            border-bottom: 1px solid var(--primary-color);
         }
 
         .nav-container {
-            max-width: 1300px;
+            max-width: 1400px;
             margin: 0 auto;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0.75rem 1.5rem;
+            padding: 1rem;
         }
 
         .nav-logo {
-            height: 70px;
+            height: 80px;
             object-fit: contain;
             filter: drop-shadow(0 0 8px var(--glow));
-            transition: transform 0.3s ease;
         }
-        .nav-logo:hover { transform: scale(1.05); }
 
-        nav ul { display: flex; gap: 2.5rem; list-style: none; }
+        nav ul {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
         nav a {
             color: var(--text-primary);
             text-decoration: none;
@@ -130,201 +123,231 @@
             font-size: 1rem;
             text-transform: uppercase;
             transition: color 0.3s ease, text-shadow 0.3s ease;
-            position: relative;
-            padding-bottom: 5px;
         }
-        nav a::after {
-            content: ''; position: absolute; width: 0; height: 2px;
-            bottom: 0; left: 50%; transform: translateX(-50%);
-            background-color: var(--primary-color); transition: width 0.3s ease;
+
+        nav a:hover {
+            color: var(--primary-color);
+            text-shadow: 0 0 6px var(--primary-color);
         }
-        nav a:hover::after, nav a.active-link::after { width: 100%; }
-        nav a:hover { color: var(--primary-color); text-shadow: 0 0 6px var(--primary-color); }
 
-        .hamburger { display: none; flex-direction: column; cursor: pointer; gap: 5px; z-index: 1001; }
-        .hamburger span { width: 28px; height: 4px; background: var(--primary-color); border-radius: 4px; transition: all 0.3s ease; }
-        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(6px, 6px); }
-        .hamburger.active span:nth-child(2) { opacity: 0; }
-        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
 
-        main { flex-grow: 1; padding-top: 90px; }
+        .hamburger span {
+            width: 28px;
+            height: 4px;
+            background: var(--primary-color);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        main { /* Added for sticky footer */
+            flex-grow: 1;
+            padding-top: 100px; /* Adjust based on your header height */
+        }
 
         .hero {
-            min-height: 70vh; 
+            height: 60vh;
+            min-height: 400px; /* Ensure hero has some minimum height */
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
-            background: linear-gradient(rgba(10, 10, 26, 0.6), rgba(10, 10, 26, 0.9)), url('https://www.transparenttextures.com/patterns/black-scales.png') repeat, var(--background-dark);
+            background: url('https://www.transparenttextures.com/patterns/black-scales.png') repeat, #2A004D;
             position: relative;
-            padding: 3rem 1rem;
-            overflow: hidden;
         }
+
         .hero-logo-container {
-            width: 90%; max-width: 400px; 
-            animation: fadeInScale 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            filter: drop-shadow(0 0 20px var(--glow)); 
-            margin-bottom: 1.5rem;
+            width: 60%;
+            max-width: 500px;
+            animation: fadeInScale 1.5s ease-out;
+            filter: drop-shadow(0 0 12px var(--glow));
         }
-        .hero-logo { width: 100%; height: auto; }
-        .hero h1.tagline {
-            font-size: clamp(2.2rem, 6vw, 3.5rem); 
-            color: var(--secondary-color);
-            margin-bottom: 1rem;
-            text-shadow: 0 0 10px var(--glow);
-            letter-spacing: 1px;
+
+        .hero-logo {
+            width: 100%;
+            height: auto;
         }
-        .hero-content p.subtitle { 
-            font-size: clamp(1.1rem, 3vw, 1.4rem); 
+
+        .hero-content p {
+            font-size: 1.2rem;
             color: var(--text-secondary);
-            margin: 0 auto 2rem auto;
-            max-width: 700px;
-            font-family: 'Roboto', sans-serif; 
-            font-weight: 400;
-            line-height: 1.8;
+            margin: 1rem 0;
+            text-shadow: 0 0 4px var(--glow);
         }
+
         .btn {
-            padding: 0.9rem 2.2rem; background: var(--primary-color); color: var(--text-primary);
-            text-decoration: none; font-weight: 700; font-size: 1rem; text-transform: uppercase;
-            border-radius: 8px; 
+            padding: 0.8rem 2rem;
+            background: var(--primary-color);
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            text-transform: uppercase;
+            border-radius: 6px;
             transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 0 15px var(--glow); display: inline-flex;
-            align-items: center; gap: 0.75rem; 
+            box-shadow: 0 0 10px var(--glow);
         }
-        .btn i { font-size: 1.3em; }
+
         .btn:hover {
-            background: var(--secondary-color); color: var(--background-dark);
-            transform: translateY(-3px) scale(1.03); box-shadow: 0 6px 25px var(--glow);
+            background: var(--secondary-color);
+            color: var(--background-dark);
+            transform: scale(1.05);
+            box-shadow: 0 0 15px var(--primary-color);
         }
 
-        .page-container { 
-            max-width: 1200px; 
+        .container {
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 1.5rem; 
+            padding: 2rem 1rem;
         }
 
-        section { padding: 5rem 1.5rem; } 
-        section.first-section { padding-top: 3rem; } 
-        section:last-of-type { padding-bottom: 3rem; }
+        section:not(.hero) { /* Apply padding to sections other than hero */
+            padding: 4rem 0;
+        }
 
-        h2.section-title {
-            font-size: clamp(2.2rem, 6vw, 3.2rem); font-weight: 900; text-align: center;
-            color: var(--text-primary); text-transform: uppercase;
-            text-shadow: 0 0 15px var(--glow); margin-bottom: 3.5rem; position: relative;
-        }
-        h2.section-title::after {
-            content: ''; display: block; width: 90px; height: 3px;
-            background: var(--primary-color); margin: 0.85rem auto 0 auto; border-radius: 2px;
-        }
-        
-        /* About Section Specifics */
-        #about {
-            background-color: var(--background-medium); 
-            border-top: 1px solid var(--border-color);
-            border-bottom: 1px solid var(--border-color);
-        }
-        #about .about-content {
-            max-width: 900px;
-            margin: 0 auto;
-            text-align: left; 
-        }
-        #about h3.subsection-title {
-            font-family: 'Orbitron', sans-serif;
-            font-size: clamp(1.5rem, 4vw, 2rem);
-            color: var(--primary-color);
-            margin-top: 2.5rem;
-            margin-bottom: 1rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 1px solid var(--border-color);
-            text-align: center;
-        }
-        #about p, #about li {
-            font-size: clamp(1rem, 2.5vw, 1.1rem); 
-            color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-            line-height: 1.8;
-        }
-        #about ul { list-style: none; padding-left: 0; }
-        #about ul li {
-            position: relative;
-            padding-left: 25px; 
-            margin-bottom: 1rem;
-        }
-        #about ul li::before { 
-            content: '\f135'; 
-            font-family: 'Font Awesome 6 Free';
+        h2 {
+            font-size: 2.5rem;
             font-weight: 900;
+            text-align: center;
+            color: var(--text-primary);
+            text-transform: uppercase;
+            text-shadow: 0 0 10px var(--glow);
+            margin-bottom: 2rem;
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: var(--primary-color);
+            margin: 0.5rem auto;
+        }
+
+        .roster-grid, .sub-roster-grid, .competition-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .roster-card, .sub-roster-card, .competition-card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            border: 1px solid var(--primary-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .roster-card:hover, .sub-roster-card:hover, .competition-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px var(--glow);
+        }
+
+        .roster-card h3, .sub-roster-card h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--secondary-color); /* White for main and sub roster */
+            text-shadow: 0 0 4px var(--glow);
+        }
+
+        .competition-card h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-shadow: 0 0 4px var(--glow);
+        }
+
+        .roster-card a, .sub-roster-card a {
+            color: var(--secondary-color); /* White for main and sub roster links */
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .competition-card a {
             color: var(--primary-color);
-            position: absolute;
-            left: 0;
-            top: 2px; 
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
         }
-        #about strong { color: var(--secondary-color); font-weight: 700; }
 
-        /* Card Styling */
-        .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2.5rem; }
-        .card {
-            background: var(--card-bg); border-radius: 12px; 
-            padding: 2rem; text-align: center; border: 1px solid var(--border-color);
-            transition: transform 0.3s ease, box-shadow 0.4s ease, border-color 0.3s ease; 
-            box-shadow: 0 5px 20px rgba(0,0,0,0.15); display: flex;
-            flex-direction: column; align-items: center;
+        .roster-card a:hover, .sub-roster-card a:hover, .competition-card a:hover {
+            color: var(--primary-color);
+            text-shadow: 0 0 6px var(--primary-color);
         }
-        .card:hover {
-            transform: translateY(-8px); 
-            box-shadow: 0 10px 35px var(--glow);
-            border-color: var(--primary-color);
-        }
-        .card h3 {
-            font-size: 1.6rem; font-weight: 700; color: var(--secondary-color);
-            text-shadow: 0 0 6px var(--glow); margin-bottom: 0.75rem;
-        }
-        .card h3 a { color: inherit; text-decoration: none; }
-        .card h3 a:hover { text-decoration: underline; text-decoration-color: var(--primary-color); }
 
-        .player-avatar {
-            width: 110px; height: 110px; border-radius: 50%;
-            background-color: var(--background-medium);
-            border: 4px solid var(--primary-color); 
-            margin-bottom: 1.25rem; display: flex; align-items: center;
-            justify-content: center; font-size: 3.5rem; color: var(--text-secondary);
-            overflow: hidden; box-shadow: 0 0 10px rgba(139,0,255,0.3); 
+        .competition-card p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin-top: 0.5rem;
         }
-        .player-avatar img { width: 100%; height: 100%; object-fit: cover; }
-        
+
         footer {
-            text-align: center; padding: 3rem 1rem; background: var(--background-medium);
-            color: var(--text-secondary); border-top: 1px solid var(--border-color); margin-top: auto;
+            text-align: center;
+            padding: 2rem 1rem; /* Added 1rem horizontal padding */
+            background: rgba(0, 0, 0, 0.8);
+            color: var(--text-secondary);
+            border-top: 1px solid var(--primary-color);
+            margin-top: auto; /* For sticky footer */
         }
+        
         .footer-links {
-            margin: 0.75rem 0 1.5rem 0; display: flex;
-            justify-content: center; gap: 1.5rem; flex-wrap: wrap;
+            margin-top: 0.5rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap; /* Allow links to wrap on smaller screens */
         }
-        footer a { color: var(--primary-color); text-decoration: none; font-weight: 500; transition: color 0.3s ease; }
-        footer a:hover { color: var(--secondary-color); text-decoration: underline; }
-        .social-icons { margin-top: 1.5rem; }
-        .social-icons a { font-size: 1.8rem; color: var(--text-secondary); margin: 0 0.85rem; transition: color 0.3s ease, transform 0.3s ease; }
-        .social-icons a:hover { color: var(--primary-color); transform: translateY(-2px) scale(1.1); }
+
+        footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        footer a:hover {
+            color: var(--secondary-color);
+            text-shadow: 0 0 6px var(--secondary-color);
+        }
 
         @keyframes fadeInScale {
-            from { opacity: 0; transform: scale(0.95) translateY(15px); }
-            to { opacity: 1; transform: scale(1) translateY(0); }
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
         }
 
         @media (max-width: 768px) {
-            nav ul { 
-                display: none; flex-direction: column; position: absolute; 
-                top: 100%; left: 0; width: 100%; 
-                background: rgba(10, 10, 26, 0.98); padding: 1rem 0;
-                border-top: 1px solid var(--border-color); box-shadow: 0 5px 10px rgba(0,0,0,0.2);
-            }
-            main { padding-top: 76px; } 
-            section { padding: 3rem 1rem; }
-            .card-grid { grid-template-columns: 1fr; gap: 2rem; }
-            .hamburger { display: flex; position: absolute; right: 1rem; top: 50%; transform: translateY(-50%); }
+            .nav-container { padding: 0.5rem; }
+            .nav-logo { height: 60px; }
+            .hamburger { display: flex; position: absolute; right: 1rem; top: 1.5rem; }
+            nav ul { display: none; flex-direction: column; position: absolute; top: 80px; left: 0; width: 100%; background: rgba(10, 10, 26, 0.95); padding: 1rem; }
             nav.active ul { display: flex; }
-            .hero { min-height: 60vh; }
+            main { padding-top: 80px; /* Adjust for smaller header */ }
+            .hero { height: 50vh; min-height: 350px; }
+            .hero-logo-container { width: 70%; max-width: 400px; }
+            .hero-content p { font-size: 1rem; }
+            h2 { font-size: 2rem; }
+            .roster-grid, .sub-roster-grid, .competition-grid { grid-template-columns: 1fr; }
+            .footer-links { gap: 0.5rem; }
+            .footer-links a { font-size: 0.9rem; }
         }
     </style>
 </head>
@@ -332,14 +355,17 @@
     <header>
         <div class="nav-container">
             <a href="index.html"><img src="virtuelightheader.png" alt="Team Virtue Logo" class="nav-logo" loading="eager"></a>
-            <div class="hamburger"><span></span><span></span><span></span></div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
             <nav>
                 <ul>
-                    <li><a href="index.html" class="active-link">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#roster">Roster</a></li>
+                    <li><a href="index.html">Roster</a></li>
                     <li><a href="creators.html">Creators</a></li>
                     <li><a href="links.html">Links</a></li>
+                    <!-- Consider adding About, Blog/News, Contact to main nav if you create those pages -->
                 </ul>
             </nav>
         </div>
@@ -347,170 +373,77 @@
 
     <main>
         <section class="hero" id="home">
+            <h1 style="position: absolute; left: -9999px;">Team Virtue | eSports Roster</h1>
             <div class="hero-logo-container">
-                <img src="virtuelightheader.png" alt="Team Virtue Main Logo" class="hero-logo" loading="eager">
+                <img src="virtuelightheader.png" alt="Team Virtue Logo" class="hero-logo" loading="eager">
             </div>
-            <h1 class="tagline">Dominating the Arena. Defining Virtue.</h1>
             <div class="hero-content">
-                <p class="subtitle">Team Virtue is an emerging force in professional eSports, dedicated to mastering Rocket League through exceptional skill, strategic depth, and unwavering teamwork. Explore our journey and become part of our legacy.</p>
+                <p>Elite Rocket League players ready to dominate the eSports arena.</p>
                 <a href="https://discord.gg/2btnvUJADc" target="_blank" rel="noopener noreferrer" class="btn">
-                    <i class="fab fa-discord"></i> Join Our Community
+                    <i class="fab fa-discord"></i> Join Discord
                 </a>
             </div>
         </section>
 
-        <!-- About Us Section -->
-        <section id="about" class="first-section">
-            <div class="page-container">
-                <h2 class="section-title">Team Virtue: Forged in Competition</h2>
-                <div class="about-content">
-                    <p>Welcome to the heart of Team Virtue. We are more than just a collection of players; we are a dedicated organization committed to carving out a significant presence in the competitive eSports landscape, with an initial focus on mastering the high-octane world of Rocket League.</p>
-
-                    <h3 class="subsection-title">Our Genesis</h3>
-                    <p>Founded in [Year - e.g., 2023] by a collective of passionate Rocket League enthusiasts and competitive gaming veterans, Team Virtue was born from a shared vision: to build an eSports entity that champions not only elite skill and strategic prowess but also embodies the principles of sportsmanship, integrity, and community. From rigorous online qualifiers to adrenaline-fueled LAN events, our journey is one of continuous growth, learning, and an unyielding pursuit of competitive excellence.</p>
-
-                    <h3 class="subsection-title">Our Philosophy: The Pillars of Virtue</h3>
-                    <p>Our name is our compass. "Virtue" guides every aspect of our operations, from player conduct to strategic decision-making. We believe in:</p>
-                    <ul>
-                        <li><strong>Peak Performance:</strong> A relentless drive for individual and team improvement. We analyze, adapt, and innovate to stay ahead of the curve, dedicating ourselves to meticulous practice and strategic refinement.</li>
-                        <li><strong>Unyielding Integrity:</strong> Competing with honor, respecting our opponents, and upholding the highest standards of fair play are non-negotiable. We aim to be a team that the community looks up to.</li>
-                        <li><strong>Synergistic Teamwork:</strong> True strength in eSports comes from cohesion. Our players operate as a unified force, where trust, communication, and mutual support transform individual talents into collective triumphs.</li>
-                        <li><strong>Community Engagement:</strong> We recognize the vital role of the eSports community. We strive to connect with our fans, inspire aspiring players, and contribute positively to the growth and spirit of competitive gaming.</li>
-                    </ul>
-
-                    <h3 class="subsection-title">Our Mission & Vision</h3>
-                    <p><strong>Mission:</strong> To establish Team Virtue as a formidable and respected name in professional Rocket League, recognized globally for our competitive achievements, innovative strategies, and the exemplary character of our players and organization.</p>
-                    <p><strong>Vision:</strong> To be a sustainable, multi-title eSports organization that consistently competes at the highest tiers, fosters new talent, and builds an engaged global fanbase, all while staying true to our core virtues.</p>
-                    
-                    <h3 class="subsection-title">The Journey Ahead</h3>
-                    <p>The path of an eSports team is dynamic and challenging. Team Virtue is poised to meet these challenges head-on, with a clear strategy for development, a roster brimming with potential, and a passionate leadership team. We invite you to follow our progress, support our players, and witness our ascent. The arena awaits, and Team Virtue is ready.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Roster Section -->
-        <section id="roster">
-            <div class="page-container">
-                <h2 class="section-title">Meet The Roster</h2>
-                <div class="card-grid">
-                    <div class="card roster-card">
-                        <div class="player-avatar"><i class="fas fa-user-astronaut"></i></div>
+        <div class="container">
+            <section id="roster">
+                <h2>Roster</h2>
+                <div class="roster-grid">
+                    <div class="roster-card">
                         <h3><a href="https://steamcommunity.com/id/finnish_taylorsversion/" target="_blank" rel="noopener noreferrer">Finny.</a></h3>
                     </div>
-                    <div class="card roster-card">
-                        <div class="player-avatar"><i class="fas fa-user-shield"></i></div>
-                        <h3>WestyzWorld</h3>
+                    <div class="roster-card">
+                        <h3>WestyzWorld.</h3>
                     </div>
-                    <div class="card roster-card">
-                        <div class="player-avatar"><i class="fas fa-rocket"></i></div>
+                    <div class="roster-card">
                         <h3>Ventrxyy</h3>
                     </div>
                 </div>
-
-                <h2 class="section-title" style="margin-top: 5rem; margin-bottom: 2.5rem;">Substitutes</h2>
-                <div class="card-grid">
-                    <div class="card roster-card">
-                         <div class="player-avatar"><i class="fas fa-user-ninja"></i></div>
+                <h2>Substitutes</h2>
+                <div class="sub-roster-grid">
+                    <div class="sub-roster-card">
                         <h3><a href="https://steamcommunity.com/id/FeliciaTheOG" target="_blank" rel="noopener noreferrer">Felicia, The Goat</a></h3>
                     </div>
-                    <div class="card roster-card">
-                         <div class="player-avatar"><i class="fas fa-user-cog"></i></div>
-                        <h3>Wolan268</h3>
-                    </div>
                 </div>
-            </div>
-        </section>
-        <!-- Achievements Section Removed -->
+            </section>
+            <!-- 
+                ADSENSE CONSIDERATION:
+                To increase content volume for AdSense, consider adding more sections here:
+                - About Team Virtue (history, mission)
+                - Recent Achievements / Tournament Participation
+                - How to Join / Tryouts (if applicable)
+            -->
+        </div>
     </main>
 
     <footer>
+        <p>© <span id="currentYear"></span> Team Virtue. All rights reserved. | <a href="#home">Back to Top</a></p>
         <div class="footer-links">
             <a href="tos.html">Terms of Service</a>
-            <a href="privacy.html">Privacy Policy</a>
+            <a href="privacy.html">Privacy Policy</a> <!-- Highly recommended for AdSense -->
+            <!-- <a href="about.html">About Us</a> -->     <!-- Recommended for AdSense -->
+            <!-- <a href="contact.html">Contact Us</a> -->   <!-- Recommended for AdSense -->
         </div>
-        <div class="social-icons">
-            <a href="https://x.com/TeamVirtueRL" target="_blank" rel="noopener noreferrer" aria-label="Team Virtue on X/Twitter"><i class="fab fa-twitter"></i></a>
-            <a href="https://www.instagram.com/teamvirtuerl/" target="_blank" rel="noopener noreferrer" aria-label="Team Virtue on Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="https://discord.gg/2btnvUJADc" target="_blank" rel="noopener noreferrer" aria-label="Join Team Virtue Discord"><i class="fab fa-discord"></i></a>
-        </div>
-        <p>© <span id="currentYear"></span> Team Virtue. All rights reserved. Engineered for Victory.</p>
     </footer>
 
     <script>
         const hamburger = document.querySelector('.hamburger');
         const nav = document.querySelector('nav');
-        const navLinks = document.querySelectorAll('nav a');
-        const header = document.querySelector('header');
-        const headerHeight = header ? header.offsetHeight : 90; // Get header height or fallback
-
         hamburger.addEventListener('click', () => {
             hamburger.classList.toggle('active');
             nav.classList.toggle('active');
         });
 
-        navLinks.forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                if (nav.classList.contains('active')) { // Close mobile nav if open
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', () => {
+                if (nav.classList.contains('active')) { // Only close if mobile menu is open
                     hamburger.classList.remove('active');
                     nav.classList.remove('active');
                 }
-                // Smooth scroll for internal links (href starting with #)
-                if (this.getAttribute('href').startsWith('#')) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href');
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        const elementPosition = targetElement.getBoundingClientRect().top;
-                        const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
-                        window.scrollTo({ top: offsetPosition, behavior: "smooth" });
-                    }
-                }
-                // For external links, the default behavior (navigation) will occur
             });
         });
-        
+
         document.getElementById('currentYear').textContent = new Date().getFullYear();
-
-        // Active link highlighting on scroll
-        const sections = document.querySelectorAll("main section[id]"); // More specific selector for sections
-        window.addEventListener("scroll", navHighlighter);
-
-        function navHighlighter() {
-          let scrollY = window.pageYOffset;
-          let Scurrent = null; // To track the current section ID
-          
-          sections.forEach(currentSection => { // Changed variable name to avoid conflict
-            const sectionHeight = currentSection.offsetHeight;
-            // Adjust sectionTop to be slightly higher so link activates sooner
-            const sectionTop = currentSection.offsetTop - headerHeight - Math.min(100, sectionHeight * 0.2); 
-            let sectionId = currentSection.getAttribute("id");
-            
-            if ( scrollY >= sectionTop && scrollY < sectionTop + sectionHeight ) {
-              Scurrent = sectionId;
-            }
-          });
-
-          navLinks.forEach(link => {
-            link.classList.remove("active-link");
-            if (Scurrent && link.getAttribute("href").includes(Scurrent)) {
-                link.classList.add("active-link");
-            }
-          });
-          
-          // Ensure "Home" link is active if no other section is or if at the top
-          const homeLink = document.querySelector('nav a[href="index.html"]');
-          if (homeLink) {
-            if (!Scurrent && scrollY < (sections.length > 0 ? sections[0].offsetTop - headerHeight - 50 : 500) ) {
-                // If Scurrent is null (no section matched, typically at top) and scrollY is above first section
-                homeLink.classList.add("active-link");
-            } else if (Scurrent && document.querySelector("nav a.active-link[href='#" + Scurrent + "']")) {
-                // If a section link is active, ensure home is not also marked active unless it's the home section itself (if #home exists)
-                if(Scurrent !== "home") homeLink.classList.remove("active-link");
-            }
-          }
-        }
-        // Initial call to set active link on page load
-        navHighlighter();
     </script>
 </body>
 </html>
