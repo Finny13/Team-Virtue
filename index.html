@@ -30,6 +30,15 @@
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <!--
+      GOOGLE ADSENSE SCRIPT
+      Once you get your AdSense account and code, you'll paste it here.
+      It usually looks like this:
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_PUBLISHER_ID"
+           crossorigin="anonymous"></script>
+    -->
+
     <!-- Structured Data -->
     <script type="application/ld+json">
     {
@@ -72,6 +81,8 @@
             background: var(--background-dark);
             min-height: 100vh;
             overflow-x: hidden;
+            display: flex; /* Added for sticky footer */
+            flex-direction: column; /* Added for sticky footer */
         }
 
         header {
@@ -146,8 +157,14 @@
             transform: rotate(-45deg) translate(7px, -7px);
         }
 
+        main { /* Added for sticky footer */
+            flex-grow: 1;
+            padding-top: 100px; /* Adjust based on your header height */
+        }
+
         .hero {
             height: 60vh;
+            min-height: 400px; /* Ensure hero has some minimum height */
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -202,7 +219,7 @@
             padding: 2rem 1rem;
         }
 
-        section {
+        section:not(.hero) { /* Apply padding to sections other than hero */
             padding: 4rem 0;
         }
 
@@ -286,10 +303,19 @@
 
         footer {
             text-align: center;
-            padding: 2rem;
+            padding: 2rem 1rem; /* Added 1rem horizontal padding */
             background: rgba(0, 0, 0, 0.8);
             color: var(--text-secondary);
             border-top: 1px solid var(--primary-color);
+            margin-top: auto; /* For sticky footer */
+        }
+        
+        .footer-links {
+            margin-top: 0.5rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap; /* Allow links to wrap on smaller screens */
         }
 
         footer a {
@@ -314,11 +340,14 @@
             .hamburger { display: flex; position: absolute; right: 1rem; top: 1.5rem; }
             nav ul { display: none; flex-direction: column; position: absolute; top: 80px; left: 0; width: 100%; background: rgba(10, 10, 26, 0.95); padding: 1rem; }
             nav.active ul { display: flex; }
-            .hero { height: 50vh; }
+            main { padding-top: 80px; /* Adjust for smaller header */ }
+            .hero { height: 50vh; min-height: 350px; }
             .hero-logo-container { width: 70%; max-width: 400px; }
             .hero-content p { font-size: 1rem; }
             h2 { font-size: 2rem; }
             .roster-grid, .sub-roster-grid, .competition-grid { grid-template-columns: 1fr; }
+            .footer-links { gap: 0.5rem; }
+            .footer-links a { font-size: 0.9rem; }
         }
     </style>
 </head>
@@ -336,47 +365,65 @@
                     <li><a href="index.html">Roster</a></li>
                     <li><a href="creators.html">Creators</a></li>
                     <li><a href="links.html">Links</a></li>
+                    <!-- Consider adding About, Blog/News, Contact to main nav if you create those pages -->
                 </ul>
             </nav>
         </div>
     </header>
 
-    <section class="hero" id="home">
-        <h1 style="position: absolute; left: -9999px;">Team Virtue | eSports Roster</h1>
-        <div class="hero-logo-container">
-            <img src="virtuelightheader.png" alt="Team Virtue Logo" class="hero-logo" loading="eager">
-        </div>
-        <div class="hero-content">
-            <p>Elite Rocket League players ready to dominate the eSports arena.</p>
-            <a href="https://discord.gg/2btnvUJADc" target="_blank" rel="noopener noreferrer" class="btn">
-                <i class="fab fa-discord"></i> Join Discord
-            </a>
-        </div>
-    </section>
-
-    <div class="container">
-        <section id="roster">
-            <h2>Roster</h2>
-            <div class="roster-grid">
-                <div class="roster-card">
-                    <h3><a href="https://steamcommunity.com/id/finnish_taylorsversion/" target="_blank" rel="noopener noreferrer">Finny.</a></h3>
-                </div>
-                <div class="roster-card">
-                    <h3>WestyzWorld.</h3>
-                </div>
-                <div class="roster-card">
-                    <h3>Ventrxyy</h3>
-                </div>
+    <main>
+        <section class="hero" id="home">
+            <h1 style="position: absolute; left: -9999px;">Team Virtue | eSports Roster</h1>
+            <div class="hero-logo-container">
+                <img src="virtuelightheader.png" alt="Team Virtue Logo" class="hero-logo" loading="eager">
             </div>
-            <h2>Substitutes</h2>
-            <div class="sub-roster-grid">
-                <div class="sub-roster-card">
-                    <h3><a href="https://steamcommunity.com/id/FeliciaTheOG" target="_blank" rel="noopener noreferrer">Felicia, The Goat</a></h3>
-                </div>
+            <div class="hero-content">
+                <p>Elite Rocket League players ready to dominate the eSports arena.</p>
+                <a href="https://discord.gg/2btnvUJADc" target="_blank" rel="noopener noreferrer" class="btn">
+                    <i class="fab fa-discord"></i> Join Discord
+                </a>
             </div>
         </section>
+
+        <div class="container">
+            <section id="roster">
+                <h2>Roster</h2>
+                <div class="roster-grid">
+                    <div class="roster-card">
+                        <h3><a href="https://steamcommunity.com/id/finnish_taylorsversion/" target="_blank" rel="noopener noreferrer">Finny.</a></h3>
+                    </div>
+                    <div class="roster-card">
+                        <h3>WestyzWorld.</h3>
+                    </div>
+                    <div class="roster-card">
+                        <h3>Ventrxyy</h3>
+                    </div>
+                </div>
+                <h2>Substitutes</h2>
+                <div class="sub-roster-grid">
+                    <div class="sub-roster-card">
+                        <h3><a href="https://steamcommunity.com/id/FeliciaTheOG" target="_blank" rel="noopener noreferrer">Felicia, The Goat</a></h3>
+                    </div>
+                </div>
+            </section>
+            <!-- 
+                ADSENSE CONSIDERATION:
+                To increase content volume for AdSense, consider adding more sections here:
+                - About Team Virtue (history, mission)
+                - Recent Achievements / Tournament Participation
+                - How to Join / Tryouts (if applicable)
+            -->
+        </div>
+    </main>
+
     <footer>
-        <p>© 2025 Team Virtue. All rights reserved. | <a href="#home">Back to Top</a></p>
+        <p>© <span id="currentYear"></span> Team Virtue. All rights reserved. | <a href="#home">Back to Top</a></p>
+        <div class="footer-links">
+            <a href="tos.html">Terms of Service</a>
+            <a href="privacy.html">Privacy Policy</a> <!-- Highly recommended for AdSense -->
+            <!-- <a href="about.html">About Us</a> -->     <!-- Recommended for AdSense -->
+            <!-- <a href="contact.html">Contact Us</a> -->   <!-- Recommended for AdSense -->
+        </div>
     </footer>
 
     <script>
@@ -389,10 +436,14 @@
 
         document.querySelectorAll('nav a').forEach(anchor => {
             anchor.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                nav.classList.remove('active');
+                if (nav.classList.contains('active')) { // Only close if mobile menu is open
+                    hamburger.classList.remove('active');
+                    nav.classList.remove('active');
+                }
             });
         });
+
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
     </script>
 </body>
 </html>
